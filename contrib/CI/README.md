@@ -46,7 +46,7 @@ In Source Code Management add git repository: https://github.com/devrandom/gitia
 In the build step paste script:
 
     rm -rf $WORKSPACE/jenkins.sh
-    wget https://raw.githubusercontent.com/OPCoinX/OPCoinX/master/contrib/CI/jenkins.sh -O $WORKSPACE/jenkins.sh
+    wget https://raw.githubusercontent.com/opcoinx/OPCoinX/master/contrib/CI/jenkins.sh -O $WORKSPACE/jenkins.sh
     chmod +x $WORKSPACE/jenkins.sh
     export RELEASEDIR=/var/www/opcx
     $WORKSPACE/jenkins.sh
@@ -68,7 +68,7 @@ Create directory `/var/www/opcx` and make Jenkins owner of that directory
 Install build tools and build dependencies (Ubuntu 16.04)
 
     sudo apt-get install build-essential libtool autotools-dev autoconf pkg-config curl git
-    git clone https://github.com/OPCoinX/OPCoinX.git 
+    git clone https://github.com/opcoinx/OPCoinX.git 
     cd OPCoinX/depends
     make
 
@@ -81,7 +81,7 @@ Install build tools and build dependencies (OSX 10.11)
     sudo ln -s xcodebuild xcrun
     Install https://brew.sh
     brew install autoconf automake libtool pkg-config
-    git clone https://github.com/OPCoinX/OPCoinX.git 
+    git clone https://github.com/opcoinx/OPCoinX.git 
     cd OPCoinX/depends
     make
 
