@@ -62,7 +62,7 @@ fi
 if [[ ! -e 'OPCoinX' ]]
 then
     echo "Clonning git repository..."
-    git clone https://github.com/OPCoinX/OPCoinX.git 
+    git clone https://github.com/opcoinx/OPCoinX.git
 else
     echo "Updating git repository..."
     pushd `pwd`
