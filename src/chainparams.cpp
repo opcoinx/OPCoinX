@@ -155,6 +155,9 @@ public:
 
         vSeeds.push_back(CDNSSeedData("24.21.56.209", "24.21.56.209"));
         vSeeds.push_back(CDNSSeedData("134.255.231.195", "134.255.231.195"));
+	vSeeds.push_back(CDNSSeedData("149.28.44.76", "149.28.44.76"));
+	vSeeds.push_back(CDNSSeedData("209.250.236.115", "209.250.236.115"));
+	vSeeds.push_back(CDNSSeedData("45.76.37.37", "45.76.37.37"));
         vSeeds.push_back(CDNSSeedData("opc1.freeddns.org", "opc1.freeddns.org"));
         vSeeds.push_back(CDNSSeedData("opc2.freeddns.org", "opc2.freeddns.org"));
 
