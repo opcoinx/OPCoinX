@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2018 The OPCX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,6 +12,7 @@
 #include "guiutil.h"
 #include "optionsmodel.h"
 #include "walletmodel.h"
+#include "util.h"
 
 #include <QApplication>
 #include <QClipboard>
@@ -27,9 +28,7 @@ SendCoinsEntry::SendCoinsEntry(QWidget* parent) : QStackedWidget(parent),
 #ifdef Q_OS_MAC
     ui->payToLayout->setSpacing(4);
 #endif
-#if QT_VERSION >= 0x040700
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
-#endif
 
     // normal opcx address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
@@ -126,17 +125,20 @@ bool SendCoinsEntry::validate()
     }
 
     if (!ui->payAmount->validate()) {
+        error("sendcoinentry: payAmount->validate failed...");
         retval = false;
     }
 
     // Sending a zero amount is invalid
     if (ui->payAmount->value(0) <= 0) {
+        error("sendcoinentry: payAmount->Sending a zero amount is invalid...");
         ui->payAmount->setValid(false);
         retval = false;
     }
 
     // Reject dust outputs:
     if (retval && GUIUtil::isDust(ui->payTo->text(), ui->payAmount->value())) {
+        error("sendcoinentry: payAmount->isDust...");
         ui->payAmount->setValid(false);
         retval = false;
     }

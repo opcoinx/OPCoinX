@@ -1,8 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 The PIVX developers
-// Copyright (c) 2019 The OPCoinX developers
+// Copyright (c) 2017-2018 The OPCX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -34,7 +33,11 @@ static const char* ppszTypeName[] =
         "mn quorum",
         "mn announce",
         "mn ping",
-        "dstx"};
+        "dstx",
+        "pubcoins",
+        "genwit",
+        "accvalue"
+    };
 
 CMessageHeader::CMessageHeader()
 {

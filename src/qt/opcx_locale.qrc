@@ -6,13 +6,20 @@
         <file alias="da">locale/opcx_da.qm</file>
         <file alias="de">locale/opcx_de.qm</file>
         <file alias="en">locale/opcx_en.qm</file>
+        <file alias="en_GB">locale/opcx_en_GB.qm</file>
         <file alias="en_US">locale/opcx_en_US.qm</file>
+        <file alias="eo">locale/opcx_eo.qm</file>
         <file alias="es">locale/opcx_es.qm</file>
+        <file alias="es_ES">locale/opcx_es_ES.qm</file>
         <file alias="fi">locale/opcx_fi.qm</file>
         <file alias="fr_FR">locale/opcx_fr_FR.qm</file>
+        <file alias="hi_IN">locale/opcx_hi_IN.qm</file>
+        <file alias="hr">locale/opcx_hr.qm</file>
+        <file alias="hr_HR">locale/opcx_hr_HR.qm</file>
         <file alias="it">locale/opcx_it.qm</file>
         <file alias="ja">locale/opcx_ja.qm</file>
         <file alias="ko_KR">locale/opcx_ko_KR.qm</file>
+        <file alias="lt_LT">locale/opcx_lt_LT.qm</file>
         <file alias="nl">locale/opcx_nl.qm</file>
         <file alias="pl">locale/opcx_pl.qm</file>
         <file alias="pt">locale/opcx_pt.qm</file>
@@ -21,7 +28,9 @@
         <file alias="ru">locale/opcx_ru.qm</file>
         <file alias="sk">locale/opcx_sk.qm</file>
         <file alias="sv">locale/opcx_sv.qm</file>
+        <file alias="tr">locale/opcx_tr.qm</file>
         <file alias="uk">locale/opcx_uk.qm</file>
+        <file alias="vi">locale/opcx_vi.qm</file>
         <file alias="zh_CN">locale/opcx_zh_CN.qm</file>
         <file alias="zh_TW">locale/opcx_zh_TW.qm</file>
     </qresource>

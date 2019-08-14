@@ -281,7 +281,7 @@ Clone the git repositories for opcx and gitian and then checkout the opcx versio
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/opcoinx/OPCoinX.git
+git clone https://github.com/opcx-crypto/opcx.git
 cd opcx
 git checkout v${VERSION}
 cd ..
@@ -377,7 +377,7 @@ and inputs.
 
 For example:
 ```bash
-URL=https://github.com/opcoinx/OPCoinX.git
+URL=https://github.com/crowning-/opcx.git
 COMMIT=b616fb8ef0d49a919b72b0388b091aaec5849b96
 ./bin/gbuild --commit opcx=${COMMIT} --url opcx=${URL} ../opcx/contrib/gitian-descriptors/gitian-linux.yml
 ./bin/gbuild --commit opcx=${COMMIT} --url opcx=${URL} ../opcx/contrib/gitian-descriptors/gitian-win.yml
@@ -408,6 +408,6 @@ Uploading signatures (not yet implemented)
 ---------------------
 
 In the future it will be possible to push your signatures (both the `.assert` and `.assert.sig` files) to the
-[opcx/gitian.sigs](https://github.com/opcoinx/gitian.sigs/) repository, or if that's not possible to create a pull
+[opcx/gitian.sigs](https://github.com/opcx-crypto/gitian.sigs/) repository, or if that's not possible to create a pull
 request.
 There will be an official announcement when this repository is online.

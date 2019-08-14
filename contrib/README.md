@@ -42,12 +42,6 @@ Various PGP files of core developers.
 ### [MacDeploy](/contrib/macdeploy) ###
 Scripts and notes for Mac builds. 
 
-### [Docker](/contrib/docker) ###
-Scripts and notes for running daemon in the docker container.
-
-### [Continues Integration](/contrib/ci) ###
-Scripts and notes for running Jenkins for gitian builds.
-
 Test and Verify Tools 
 ---------------------
 

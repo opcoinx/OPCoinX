@@ -43,11 +43,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>전송할 주소를 선택해주세요.</translation>
+        <translation>송금할 주소를 선택해주세요.</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>전송 받을 주소를 선택해주세요.</translation>
+        <translation>입금 받을 주소를 선택해주세요.</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -59,15 +59,15 @@
     </message>
     <message>
         <source>Receiving addresses</source>
-        <translation>받는 주소</translation>
+        <translation>받을 주소</translation>
     </message>
     <message>
         <source>These are your OPCX addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>이 주소들은 전송할 OPCX 주소입니다. 송금하기 전 항상 금액과 전송할 주소를 확인해주세요.</translation>
+        <translation>이 주소들은 송금할 OPCX 주소입니다. 송금하기 전 항상 금액과 주소를 확인해주세요.</translation>
     </message>
     <message>
         <source>These are your OPCX addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>이 주소들은 전송 받을 OPCX 주소입니다. 각 트랜잭션별로 새로운 입금 주소를 사용하는 것이 좋습니다.</translation>
+        <translation>이 주소들은 입금 받을 OPCX 주소입니다. 매 거래마다 새로운 입금 주소를 사용하는 것이 좋습니다.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -136,8 +136,8 @@
         <translation>운영체제 계정이 손상되었을 때 일반적인 송금을 비활성화 합니다. 실질적인 보안을 제공하지 않습니다.</translation>
     </message>
     <message>
-        <source>For anonymization and staking only</source>
-        <translation>익명화 및 스테이킹 전용</translation>
+        <source>For anonymization, automint, and staking only</source>
+        <translation>익명성 스테이킹 전용 모드</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation>이 작업은 지갑 암호화 해제를 위해 지갑 암호가 필요합니다.</translation>
+        <translation>이 작업은 지갑 암호화 해제를 하셔야 가능합니다.</translation>
     </message>
     <message>
         <source>Decrypt wallet</source>
@@ -213,7 +213,7 @@
     </message>
     <message>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation>지갑 암호화 해제를 위해 입력한 지갑 암호가 올바르지 않습니다.</translation>
+        <translation>입력한 지갑 암호가 올바르지 않습니다.</translation>
     </message>
     <message>
         <source>Wallet decryption failed</source>
@@ -229,26 +229,37 @@
     </message>
 </context>
 <context>
+    <name>BanTableModel</name>
+    <message>
+        <source>IP/Netmask</source>
+        <translation>IP/Netmask</translation>
+    </message>
+    <message>
+        <source>Banned Until</source>
+        <translation>까지 제한됨</translation>
+    </message>
+</context>
+<context>
     <name>Bip38ToolDialog</name>
     <message>
         <source>BIP 38 Tool</source>
-        <translation>BIP 38 Tool</translation>
+        <translation>BIP 38 도구</translation>
     </message>
     <message>
         <source>&amp;BIP 38 Encrypt</source>
         <translation>&amp;BIP 38 암호화</translation>
     </message>
     <message>
-        <source>Enter a OPCX address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>BIP 38을 사용하여 암호화 할 OPCX 주소를 입력하십시오. 중간 입력창에 암호를 입력하십시오. 암호화를 누르면 암호화된 개인 키가 계산됩니다.</translation>
-    </message>
-    <message>
         <source>Address:</source>
         <translation>주소:</translation>
     </message>
     <message>
-        <source>The OPCX address to sign the message with</source>
-        <translation>메세지를 서명하기 위한 OPCX 주소</translation>
+        <source>Enter a OPCX Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>BIP 38 알고리즘으로 암호화할 OPCX 지갑 주소를 입력. 중간박스에 암호구절 입력. 암호화된 개인키를 계산하시려면 암호화 클릭</translation>
+    </message>
+    <message>
+        <source>The OPCX address to encrypt</source>
+        <translation>암호화할 OPCX 주소</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -279,16 +290,24 @@
         <translation>현재 서명을 시스템 클립 보드에 복사</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this OPCX address</source>
-        <translation>이 OPCX 주소를 소유하고 있다는 것을 증명하기 위해 메세지에 서명하십시오</translation>
+        <source>Encrypt the private key for this OPCX address</source>
+        <translation>이 OPCX 주소의 개인키 암호화</translation>
+    </message>
+    <message>
+        <source>Reset all fields</source>
+        <translation>리셋</translation>
+    </message>
+    <message>
+        <source>The encrypted private key</source>
+        <translation>암호화된 개인키</translation>
+    </message>
+    <message>
+        <source>Decrypt the entered key using the passphrase</source>
+        <translation>암호구절을 사용하여 입력 한 키 암호 해독</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
         <translation>암호화 &amp; 키</translation>
-    </message>
-    <message>
-        <source>Reset all sign message fields</source>
-        <translation>모든 서명 메세지 입력 지우기</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -303,20 +322,8 @@
         <translation>BIP 38 암호화 된 개인 키를 입력하십시오. 중간 입력창에 암호를 입력하십시오. 키를 암호해제 후 '주소 가져오기'를 클릭하면 개인 키가 지갑에 추가됩니다.</translation>
     </message>
     <message>
-        <source>The OPCX address the message was signed with</source>
-        <translation>메세지에 서명된 OPCX 주소</translation>
-    </message>
-    <message>
-        <source>Verify the message to ensure it was signed with the specified OPCX address</source>
-        <translation>메세지가 지정된 OPCX 주소로 서명되었는지 확인해주세요</translation>
-    </message>
-    <message>
         <source>Decrypt &amp;Key</source>
         <translation>암호해제 &amp;키</translation>
-    </message>
-    <message>
-        <source>Reset all verify message fields</source>
-        <translation>모든 확인 메세지 영역 지우기</translation>
     </message>
     <message>
         <source>Decrypted Key:</source>
@@ -411,7 +418,7 @@
     </message>
     <message>
         <source>&amp;Send</source>
-        <translation>&amp;전송</translation>
+        <translation>&amp;보내기</translation>
     </message>
     <message>
         <source>&amp;Receive</source>
@@ -419,11 +426,15 @@
     </message>
     <message>
         <source>&amp;Transactions</source>
-        <translation>&amp;트랜잭션</translation>
+        <translation>&amp;거래내역</translation>
     </message>
     <message>
         <source>Browse transaction history</source>
-        <translation>트랜잭션 내역 보기</translation>
+        <translation>겨래내역 보기</translation>
+    </message>
+    <message>
+        <source>Privacy Actions for zOPCX</source>
+        <translation>zOPCX 생성 및 관리</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -543,7 +554,7 @@
     </message>
     <message>
         <source>Show Automatic &amp;Backups</source>
-        <translation>자동 &amp;백업 표시</translation>
+        <translation>자동 &amp;백업 폴더 열기</translation>
     </message>
     <message>
         <source>Show automatically created wallet backups</source>
@@ -551,19 +562,43 @@
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
-        <translation>&amp;주소 보내는중...</translation>
+        <translation>&amp;송금 주소</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
-        <translation>전송 된 주소 및 라벨 목록 표시</translation>
+        <translation>송금 주소 및 라벨 목록 표시</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
-        <translation>&amp;받는 주소...</translation>
+        <translation>&amp;입금 주소</translation>
     </message>
     <message>
         <source>Show the list of used receiving addresses and labels</source>
-        <translation>입금 된 주소 및 라벨 목록 표시</translation>
+        <translation>입금 주소 및 라벨 목록 표시</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp;멀티시그너쳐 생성...</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>신규 멀티시그너쳐 주소 생성 및 전송</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp;멀티시그너쳐 전송중...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>멀티시그너쳐 주소에서 전송</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>&amp;멀티시그너쳐 서명중...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>멀티시그너쳐 주소로 서명</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
@@ -573,13 +608,21 @@
         <source>&amp;Command-line options</source>
         <translation>&amp;명령행 옵션</translation>
     </message>
-    <message numerus="yes">
-        <source>Processed %n blocks of transaction history.</source>
-        <translation><numerusform>%n 블록의 거래내역을 처리함</numerusform></translation>
-    </message>
     <message>
         <source>Synchronizing additional data: %p%</source>
         <translation>추가 데이터 동기화: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 남음. %2 블록 스캔중...</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>현재 지갑은 &lt;b&gt;암호화&lt;/b&gt; 되어 &lt;b&gt;잠긴&lt;/b&gt; 상태로 스테이킹 전용모드로 안전하게 구동중입니다.</translation>
+    </message>
+    <message>
+        <source>Tor is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
+        <translation>토큰은 &lt;b&gt;입니다 .&lt;/b&gt; : %1</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -607,11 +650,15 @@
     </message>
     <message>
         <source>Send coins to a OPCX address</source>
-        <translation>OPCX 주소로 전송하기</translation>
+        <translation>OPCX 주소로 입금하기</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and opcx: URIs)</source>
         <translation>결제 요청 (QR 코드 및 opcx: URI 생성)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;프라이버시</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -689,10 +736,6 @@
         <source>OPCX Core client</source>
         <translation>OPCX Core 클라이언트</translation>
     </message>
-    <message numerus="yes">
-        <source>%n active connection(s) to OPCX network</source>
-        <translation><numerusform>OPCX 네트워크에  %n 연결</numerusform></translation>
-    </message>
     <message>
         <source>Synchronizing with network...</source>
         <translation>네트워크 동기화중...</translation>
@@ -713,33 +756,13 @@
         <source>Up to date</source>
         <translation>최신</translation>
     </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n 시간</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n 일</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n 주</numerusform></translation>
-    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 그리고 %2</translation>
     </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n 년</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 뒤</translation>
-    </message>
     <message>
         <source>Catching up...</source>
-        <translation>동기화중...</translation>
+        <translation>동기화 중...</translation>
     </message>
     <message>
         <source>Last received block was generated %1 ago.</source>
@@ -763,15 +786,15 @@
     </message>
     <message>
         <source>Sent transaction</source>
-        <translation>트랜잭션 전송</translation>
+        <translation>보낸 내역</translation>
     </message>
     <message>
         <source>Incoming transaction</source>
-        <translation>받은 트랜잭션</translation>
+        <translation>받은 내역</translation>
     </message>
     <message>
         <source>Sent MultiSend transaction</source>
-        <translation>다중 트랜잭션 전송</translation>
+        <translation>다중 보내기 방식으로 보냄</translation>
     </message>
     <message>
         <source>Date: %1
@@ -793,7 +816,7 @@ Address: %4
     </message>
     <message>
         <source>Active</source>
-        <translation>활성</translation>
+        <translation>누적 활성 시간</translation>
     </message>
     <message>
         <source>Not Active</source>
@@ -806,23 +829,35 @@ Address: %4
 다중전송: %1</translation>
     </message>
     <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation>지갑은 &lt;b&gt;암호화&lt;/ b&gt;되어 있으며 현재 &lt;b&gt;잠금해제&lt;/ b&gt;되었습니다.</translation>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>자동 생성기능이 현재 작동중 그리고 </translation>
     </message>
     <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization and staking only</source>
-        <translation>지갑은 &lt;b&gt;암호화&lt;/b&gt;되어 있으며 현재 익명화 및 스테이킹만을 위해 &lt;b&gt;잠금해제&lt;/b&gt; 되었습니다.</translation>
+        <source>AutoMint is disabled</source>
+        <translation>자동생성이 비활성화 되었습니다.</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>현재 지갑은 &lt;b&gt;암호화되어 &lt;b&gt;잠금해제되었습니다.</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>지갑은 &lt;b&gt;암호화&lt;/ b&gt;되어 있으며 현재 &lt;b&gt;잠겨 있습니다&lt;/ b&gt;.</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
         <source>Blockchain Explorer</source>
         <translation>블록체인 탐색기</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>뒤로</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>앞으로</translation>
     </message>
     <message>
         <source>Address / Block / Transaction</source>
@@ -844,8 +879,8 @@ Address: %4
 <context>
     <name>ClientModel</name>
     <message>
-        <source>Total: %1 (OBF compatible: %2 / Enabled: %3)</source>
-        <translation>총: %1 (OBF 호환: %2 / 사용됨: %3)</translation>
+        <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
+        <translation>전체 : %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / 미확인: %5)</translation>
     </message>
     <message>
         <source>Network Alert</source>
@@ -860,7 +895,7 @@ Address: %4
     </message>
     <message>
         <source>Bytes:</source>
-        <translation>Bytes:</translation>
+        <translation>바이트:</translation>
     </message>
     <message>
         <source>Amount:</source>
@@ -884,11 +919,11 @@ Address: %4
     </message>
     <message>
         <source>After Fee:</source>
-        <translation>이후 수수료:</translation>
+        <translation>최종 금액:</translation>
     </message>
     <message>
         <source>Change:</source>
-        <translation>변경:</translation>
+        <translation>잔돈:</translation>
     </message>
     <message>
         <source>(un)select all</source>
@@ -923,8 +958,8 @@ Address: %4
         <translation>수신 된 주소</translation>
     </message>
     <message>
-        <source>DS Rounds</source>
-        <translation>DS 라운드</translation>
+        <source>Type</source>
+        <translation>분류</translation>
     </message>
     <message>
         <source>Date</source>
@@ -936,7 +971,7 @@ Address: %4
     </message>
     <message>
         <source>Confirmed</source>
-        <translation>확정</translation>
+        <translation>확정됨</translation>
     </message>
     <message>
         <source>Priority</source>
@@ -980,7 +1015,7 @@ Address: %4
     </message>
     <message>
         <source>Copy bytes</source>
-        <translation>bytes 복사</translation>
+        <translation>바이트 복사</translation>
     </message>
     <message>
         <source>Copy priority</source>
@@ -999,52 +1034,40 @@ Address: %4
         <translation>이 기능을 사용하려면 "목록 모드"로 전환하십시오.</translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;Obfuscation will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use Obfuscation, please deselect all non-nonymized inputs first and then check Obfuscation checkbox again.</source>
-        <translation>익명화되지 않은 입력이 선택되었습니다. &lt;b&gt;난독화가 비활성화 되었습니다.&lt;b&gt;&lt;br&gt;&lt;br&gt;난독화를 계속 사용하려면 먼저 익명화 되지 않은 모든 입력을 먼저 선택 취소한 뒤 다시 선택해주세요.</translation>
-    </message>
-    <message>
         <source>highest</source>
-        <translation>최고</translation>
+        <translation>9 최고</translation>
     </message>
     <message>
         <source>higher</source>
-        <translation>매우 높음</translation>
+        <translation>8 매우 높음</translation>
     </message>
     <message>
         <source>high</source>
-        <translation>높음</translation>
+        <translation>7 높음</translation>
     </message>
     <message>
         <source>medium-high</source>
-        <translation>중간 높음</translation>
-    </message>
-    <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
-        <translation>입력당 +/- %1 금액(s)을 변경할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>n/a</source>
-        <translation>n/a</translation>
+        <translation>6 약간 높음</translation>
     </message>
     <message>
         <source>medium</source>
-        <translation>중간</translation>
+        <translation>5 중간</translation>
     </message>
     <message>
         <source>low-medium</source>
-        <translation>중간 낮음</translation>
+        <translation>4 낮은 중간</translation>
     </message>
     <message>
         <source>low</source>
-        <translation>낮음</translation>
+        <translation>3 낮음</translation>
     </message>
     <message>
         <source>lower</source>
-        <translation>매우 낮음</translation>
+        <translation>2 매우 낮음</translation>
     </message>
     <message>
         <source>lowest</source>
-        <translation>최저</translation>
+        <translation>1 최저</translation>
     </message>
     <message>
         <source>(%1 locked)</source>
@@ -1087,6 +1110,10 @@ Address: %4
         <translation>받는 사람이 %1 보다 작은 금액을 받으면 라벨이 빨간색으로 변경됩니다.</translation>
     </message>
     <message>
+        <source>Can vary +/- %1 uopcx per input.</source>
+        <translation>Can vary +/- %1 uopcx per input.</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(라벨 없음)</translation>
     </message>
@@ -1096,7 +1123,7 @@ Address: %4
     </message>
     <message>
         <source>(change)</source>
-        <translation>(변경)</translation>
+        <translation>(잔돈)</translation>
     </message>
 </context>
 <context>
@@ -1119,7 +1146,7 @@ Address: %4
     </message>
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
-        <translation>이 주소 목록과 관련된 주소입니다. 주소를 보낼때만 수정할 수 있습니다.</translation>
+        <translation>이 주소 목록과 관련된 주소입니다. 주소를 보낼 때만 수정할 수 있습니다.</translation>
     </message>
     <message>
         <source>New receiving address</source>
@@ -1127,7 +1154,7 @@ Address: %4
     </message>
     <message>
         <source>New sending address</source>
-        <translation>새로운 발신 주소</translation>
+        <translation>새로운 보내는 주소</translation>
     </message>
     <message>
         <source>Edit receiving address</source>
@@ -1177,6 +1204,17 @@ Address: %4
         <translation>여기에 디렉토리를 만들 수 없습니다.</translation>
     </message>
 </context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
 <context>
     <name>HelpMessageDialog</name>
     <message>
@@ -1240,7 +1278,7 @@ Address: %4
     </message>
     <message>
         <source>Welcome to OPCX Core.</source>
-        <translation>OPCX Core 환영합니다.</translation>
+        <translation>OPCX Core에 오신 것을 환영합니다.</translation>
     </message>
     <message>
         <source>As this is the first time the program is launched, you can choose where OPCX Core will store its data.</source>
@@ -1286,8 +1324,8 @@ Address: %4
         <translation>Form</translation>
     </message>
     <message>
-        <source>My Masternodes</source>
-        <translation>나의 마스터노드</translation>
+        <source>MASTERNODES</source>
+        <translation>마스터노드</translation>
     </message>
     <message>
         <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
@@ -1295,7 +1333,7 @@ Address: %4
     </message>
     <message>
         <source>Alias</source>
-        <translation>별명</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <source>Address</source>
@@ -1311,11 +1349,11 @@ Address: %4
     </message>
     <message>
         <source>Active</source>
-        <translation>활성</translation>
+        <translation>누적 활성 시간</translation>
     </message>
     <message>
         <source>Last Seen (UTC)</source>
-        <translation>최근 본 (UTC)</translation>
+        <translation>최근 업데이트 (UTC)</translation>
     </message>
     <message>
         <source>Pubkey</source>
@@ -1323,7 +1361,7 @@ Address: %4
     </message>
     <message>
         <source>S&amp;tart alias</source>
-        <translation>별명 시&amp;작</translation>
+        <translation>마스트노드 시&amp;작</translation>
     </message>
     <message>
         <source>Start &amp;all</source>
@@ -1331,7 +1369,7 @@ Address: %4
     </message>
     <message>
         <source>Start &amp;MISSING</source>
-        <translation>시작 &amp;종료</translation>
+        <translation>누락된 마스트노드 시&amp;작</translation>
     </message>
     <message>
         <source>&amp;Update status</source>
@@ -1339,7 +1377,7 @@ Address: %4
     </message>
     <message>
         <source>Status will be updated automatically in (sec):</source>
-        <translation>상태가 (초) 단위로 자동 업데이트됩니다:</translation>
+        <translation>마스터노드 상태는 자동 업데이트됩니다:</translation>
     </message>
     <message>
         <source>0</source>
@@ -1347,7 +1385,7 @@ Address: %4
     </message>
     <message>
         <source>Start alias</source>
-        <translation>별명 시작</translation>
+        <translation>선택 시작</translation>
     </message>
     <message>
         <source>Confirm masternode start</source>
@@ -1451,6 +1489,14 @@ MultiSend will not be activated unless you have clicked Activate</source>
         <translation>주소:</translation>
     </message>
     <message>
+        <source>Label:</source>
+        <translation>Label:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>주소록에 추가하려면 이 주소의 라벨을 입력해주세요.</translation>
+    </message>
+    <message>
         <source>Delete Address From MultiSend Vector</source>
         <translation>다중전송 벡터에서 주소 삭제</translation>
     </message>
@@ -1483,109 +1529,183 @@ MultiSend will not be activated unless you have clicked Activate</source>
         <translation>마스터노드 보상 전송</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>입력된 주소:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>올바르지 않습니다.
-주소를 확인하고 다시 시도해주세요.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>다중전송 벡터의 총 금액이 스테이크 보상 금액의 100 % 이상입니다
-</translation>
+        <source>(no label)</source>
+        <translation>(라벨 없음)</translation>
     </message>
     <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>퍼센트로 1 - 100을 입력하십시오.</translation>
     </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>다중전송 벡터
-</translation>
-    </message>
-    <message>
-        <source>Removed </source>
-        <translation>제거됨</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>주소를 찾을 수 없습니다
-</translation>
-    </message>
 </context>
 <context>
-    <name>ObfuscationConfig</name>
+    <name>MultisigDialog</name>
     <message>
-        <source>Configure Obfuscation</source>
-        <translation>난독화 구성</translation>
+        <source>Multisignature Address Interactions</source>
+        <translation>멀티 서명 주소 상호 작용</translation>
     </message>
     <message>
-        <source>Basic Privacy</source>
-        <translation>기본 익명</translation>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>&amp;멀티시그너쳐 주소 생성</translation>
     </message>
     <message>
-        <source>High Privacy</source>
-        <translation>높은 익명</translation>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>얼마나 많은 사람들이 거래를 확인하기 위해 서명해야합니까?</translation>
     </message>
     <message>
-        <source>Maximum Privacy</source>
-        <translation>최고 익명</translation>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>거래에 서명하는 데 필요한 최소 서명 수를 입력하십시오.</translation>
     </message>
     <message>
-        <source>Please select a privacy level.</source>
-        <translation>익명화 레벨을 선택해주세요.</translation>
+        <source>Address Label:</source>
+        <translation>주소 이름:</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 OPCX</source>
-        <translation>2개의 개별 마스터노드를 이용하여 최대 10000 OPCX 를 섞을 수 있습니다.</translation>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>multisig 주소에서 트랜잭션을 확인하기 위해 서명 할 수있는 다른 주소를 추가하십시오.</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 OPCX</source>
-        <translation>8개의 개별 마스터노드를 이용하여 최대 10000 OPCX 를 섞을 수 있습니다.</translation>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;주소 / 키 추가</translation>
     </message>
     <message>
-        <source>Use 16 separate masternodes</source>
-        <translation>16개의 개별 마스터노드를 사용</translation>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>서명 할 수있는 로컬 주소 또는 공개 키 :</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 OPCX to anonymize 10000 OPCX</source>
-        <translation>이 옵션은 가장 빠르게 전송되며 10000 OPCX 익명화에 약 ~0.025 OPCX의 비용이 들어갑니다.</translation>
+        <source>Create a new multisig address</source>
+        <translation>신규 멀티시그 주소 생성</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 OPCX to anonymize 10000 OPCX</source>
-        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 OPCX 익명화에 약 0.05 OPCX의 비용이 들어갑니다.</translation>
+        <source>C&amp;reate</source>
+        <translation>&amp;생성</translation>
     </message>
     <message>
-        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
-        <translation>이것은 가장 느리고 안전한 옵션입니다. 최고 익명성을 사용하면 비용이 발생합니다.</translation>
+        <source>Status:</source>
+        <translation>상태:</translation>
     </message>
     <message>
-        <source>0.1 OPCX per 10000 OPCX you anonymize.</source>
-        <translation>10000 OPCX 익명화에 0.1 OPCX 가 듭니다.</translation>
+        <source>Use below to quickly import an address by its redeem. Don't forget to add a label before clicking import!
+Keep in mind, the wallet will rescan the blockchain to find transactions containing the new address.
+Please be patient after clicking import.</source>
+        <translation>아래 주소를 사용하여 주소를 신속하게 가져옵니다. 가져 오기를 클릭하기 전에 레이블을 추가하는 것을 잊지 마십시오!
+지갑은 블록 체인을 다시 스캔하여 새 주소가 포함 된 거래를 찾습니다 .
+가져 오기를 클릭 한 후 기다려주십시오.</translation>
     </message>
     <message>
-        <source>Obfuscation Configuration</source>
-        <translation>난독화 구성</translation>
+        <source>&amp;Import Redeem</source>
+        <translation>&amp;리딤코드 가져오기</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening OPCX's configuration screen.</source>
-        <translation>난독화가 성공적으로 높게 설정되었습니다.(%1 및 2 rounds) OPCX의 설정 화면을 열어 언제든지 다시 변경할 수 있습니다.</translation>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>맺음말 Tx 만들기 (&amp; A)</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening OPCX's configuration screen.</source>
-        <translation>난독화가 성공적으로 높게 설정되었습니다.(%1 및 8 rounds) OPCX의 설정 화면을 열어 언제든지 다시 변경할 수 있습니다.</translation>
+        <source>Inputs:</source>
+        <translation>입력:</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening OPCX's configuration screen.</source>
-        <translation>난독화가 성공적으로 높게 설정되었습니다.(%1 및 16 rounds) OPCX의 설정 화면을 열어 언제든지 다시 변경할 수 있습니다.</translation>
+        <source>Coin Control</source>
+        <translation>코인 설정</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>선택된 수량 :</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>금액:</translation>
+    </message>
+    <message>
+        <source>Add an input to fund the outputs</source>
+        <translation>출력을위한 입력을 추가하십시오.</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation> Raw 입력</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>주소 / 금액:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send OPCX to</source>
+        <translation>OPCX를 보낼 목적지 추가</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>추가 및 대상</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>주어진 출력에 주어진 입력을 사용하여 트랜잭션 객체를 만듭니다.</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>&amp;생성</translation>
+    </message>
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>멀티 시그니처 Tx 서명 (&amp; S)</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Transaction Hex:</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>이 지갑이나 제공된 개인 키에서 거래에 서명하십시오.</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>&amp;서명</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>거래가 충분히 서명 될 때까지 1234DISABLED</translation>
+    </message>
+    <message>
+        <source>Co&amp;mmit</source>
+        <translation>Co&amp;mmit</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>개인 키를 추가하여 다음을 사용하여 트랜잭션에 서명하십시오.</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>&amp;개인키 추가</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>개인 키만 사용하여 서명 (권장하지 않음)</translation>
+    </message>
+    <message>
+        <source>Invalid Tx Hash.</source>
+        <translation>맞지 않는 Tx Hash.</translation>
+    </message>
+    <message>
+        <source>Vout position must be positive.</source>
+        <translation>Vout 위치는 양수 여야합니다.</translation>
+    </message>
+    <message>
+        <source>Maximum possible addresses reached. (15)</source>
+        <translation>가능한 주소 최대치 입니다. (15)</translation>
+    </message>
+    <message>
+        <source>Vout Position: </source>
+        <translation>Vout 포지션 :</translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>금액:</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>최대 (15)</translation>
     </message>
 </context>
 <context>
@@ -1674,22 +1794,6 @@ Please check the address and try again.</source>
         <translation>&amp;시스템 로그인시 OPCX 시작</translation>
     </message>
     <message>
-        <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</source>
-        <translation>이 설정은 익명화 할 입력 값의 개별 마스터노드의 수량을 결정합니다.&lt;br/&gt;더 많은 익명화할 액수는 높은 수준의 익명성을 제공하지만 수수료가 많이 듭니다.</translation>
-    </message>
-    <message>
-        <source>Obfuscation rounds to use</source>
-        <translation>난독화를 사용할 영역</translation>
-    </message>
-    <message>
-        <source>This amount acts as a threshold to turn off Obfuscation once it's reached.</source>
-        <translation>이 금액에 도달하면 난독화를 끌 수 있는 임계 값 역할을 합니다.</translation>
-    </message>
-    <message>
-        <source>Amount of OPCX to keep anonymized</source>
-        <translation>익명화할 OPCX 수량</translation>
-    </message>
-    <message>
         <source>Whether to show coin control features or not.</source>
         <translation>동전 제어 기능을 표시할지 여부를 나타냅니다.</translation>
     </message>
@@ -1720,12 +1824,40 @@ Please check the address and try again.</source>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
 https://www.transifex.com/opcx-project/opcx-project-translations</source>
-        <translation>지원 언어가 없거나 번역이 불완전한가요? 번역 기여 도움말:
+        <translation>지원 언어가 없거나 번역이 불완전한가요? 번역을 도와주세요 :
 https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>&amp;UPnp를 사용하여 포트 매핑</translation>
+    </message>
+    <message>
+        <source>Enable automatic minting of OPCX units to zOPCX</source>
+        <translation>보상받은 OPCX를 zOPCX로 자동변환 활성화</translation>
+    </message>
+    <message>
+        <source>Enable zOPCX Automint</source>
+        <translation>zOPCX 자동생성 활성화</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
+        <translation>OPCX수신시 자동변환 zOPCX 비율 (최소값:10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zOPCX</source>
+        <translation>자동 변환되는 zOPCX 비율</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough OPCX for this denomination is available</source>
+        <translation>이 디노미네이션의 OPCX가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zOPCX Denomination</source>
+        <translation>선호하는 자동생성 zOPCX 디노미네이션 </translation>
+    </message>
+    <message>
+        <source>Stake split threshold:</source>
+        <translation>Stake split threshold:</translation>
     </message>
     <message>
         <source>Connect to the OPCX network through a SOCKS5 proxy.</source>
@@ -1780,16 +1912,16 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>사용자 인터페이스 테마:</translation>
     </message>
     <message>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;금액을 표시 할 단위:</translation>
-    </message>
-    <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
         <translation>코인 전송시 인터페이스에 표시할 기본 세분화 단위를 선택해주세요.</translation>
     </message>
     <message>
         <source>Decimal digits</source>
         <translation>10진수</translation>
+    </message>
+    <message>
+        <source>Hide empty balances</source>
+        <translation>잔액 0 숨기기</translation>
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
@@ -1820,6 +1952,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>&amp;취소</translation>
     </message>
     <message>
+        <source>Any</source>
+        <translation>어떤</translation>
+    </message>
+    <message>
         <source>default</source>
         <translation>기본값</translation>
     </message>
@@ -1847,6 +1983,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <source>The supplied proxy address is invalid.</source>
         <translation>프록시 주소가 잘못되었습니다.</translation>
     </message>
+    <message>
+        <source>The supplied proxy port is invalid.</source>
+        <translation>제공된 프록시 포트가 유효하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy settings are invalid.</source>
+        <translation>제공된 프록시 설정이 유효하지 않습니다.</translation>
+    </message>
 </context>
 <context>
     <name>OverviewPage</name>
@@ -1861,6 +2005,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Your current spendable balance</source>
         <translation>현재 출금 가능한 잔액</translation>
+    </message>
+    <message>
+        <source>Total Balance, including all unavailable coins.</source>
+        <translation>전체 잔액, (현재 전송이 불가능한 코인 포함)</translation>
+    </message>
+    <message>
+        <source>OPCX Balance</source>
+        <translation>OPCX 잔액</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -1879,12 +2031,44 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>아직 완료되지 않은 스테이크 및 마스터노드 보상</translation>
     </message>
     <message>
-        <source>Balances</source>
-        <translation>잔액</translation>
+        <source>Current locked balance in watch-only addresses</source>
+        <translation>현재 보기전용 주소의 잠긴 잔액 </translation>
+    </message>
+    <message>
+        <source>Your current OPCX balance, unconfirmed and immature transactions included</source>
+        <translation>현재 OPCX 잔액, 미확정, 생성중인 코인 포함</translation>
+    </message>
+    <message>
+        <source>zOPCX Balance</source>
+        <translation>zOPCX 잔액</translation>
+    </message>
+    <message>
+        <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zOPCX are spendable.</source>
+        <translation>성숙한 : 그것이 발행 된 후 같은 명칭의 20 개 이상의 확인 및 1 개 민트.
+이 zOPCX는 쓸만합니다.</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>미확인 : 20 회 미만 확인
+미성숙 : 확인되었지만 발행 된 후 같은 종파 1 개 미만</translation>
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the OPCX network after a connection is established, but this process has not completed yet.</source>
         <translation>표시된 정보가 오래되었을 수 있습니다. 연결이 완료되면 지갑이 OPCX 네트워크와 자동으로 동기화될 예정이지만, 아직 해당 프로세스가 완료되지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>개요</translation>
+    </message>
+    <message>
+        <source>Combined Balance (including unconfirmed and immature coins)</source>
+        <translation>전체 잔액 (미확정, 생성중인 코인 포함)</translation>
+    </message>
+    <message>
+        <source>Combined Balance</source>
+        <translation>전체 잔액</translation>
     </message>
     <message>
         <source>Unconfirmed transactions to watch-only addresses</source>
@@ -1897,10 +2081,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Total:</source>
         <translation>총:</translation>
-    </message>
-    <message>
-        <source>Your current total balance</source>
-        <translation>현재 소지하고 있는 총 잔액</translation>
     </message>
     <message>
         <source>Current total balance in watch-only addresses</source>
@@ -1919,154 +2099,49 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>출금 가능 액수:</translation>
     </message>
     <message>
-        <source>Status:</source>
-        <translation>상태:</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
+        <translation>잠금 OPCX 또는 Masternode collaterals. 이들은 zOPCX minting에서 제외됩니다.</translation>
     </message>
     <message>
-        <source>Obfuscation Balance:</source>
-        <translation>난독화 된 잔액:</translation>
+        <source>Locked:</source>
+        <translation>잠김:</translation>
     </message>
     <message>
-        <source>0 OPCX / 0 Rounds</source>
-        <translation>0 OPCX / 0 수량</translation>
+        <source>Unconfirmed:</source>
+        <translation>미승인:</translation>
     </message>
     <message>
-        <source>Enabled/Disabled</source>
-        <translation>활성화/비활성화</translation>
-    </message>
-    <message>
-        <source>Try to manually submit a Obfuscation request.</source>
-        <translation>난독화 요청을 수동으로 제출해주세요.</translation>
-    </message>
-    <message>
-        <source>Reset the current status of Obfuscation (can interrupt Obfuscation if it's in the process of Mixing, which can cost you money!)</source>
-        <translation>현재 난독화 상태를 초기화 합니다. (난독화가 믹스 중일 경우에 간섭으로 비용이 발생할 수 있습니다!)</translation>
-    </message>
-    <message>
-        <source>Obfuscation</source>
-        <translation>난독화</translation>
-    </message>
-    <message>
-        <source>Completion:</source>
-        <translation>완료:</translation>
-    </message>
-    <message>
-        <source>Amount and Rounds:</source>
-        <translation>금액 및 수량:</translation>
-    </message>
-    <message>
-        <source>Submitted Denom:</source>
-        <translation>제출된 단위:</translation>
-    </message>
-    <message>
-        <source>n/a</source>
-        <translation>n/a</translation>
+        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
+        <translation>zOPCX 잔액, 미확정, 생성중인 zOPCX 포함.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
         <translation>최근 트랜잭션</translation>
     </message>
     <message>
-        <source>Start/Stop Mixing</source>
-        <translation>믹싱 시작/종료</translation>
-    </message>
-    <message>
-        <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
-        <translation>당신이 마스터노드에 제출한 단위.&lt;br&gt;믹스하려면 다른 유저들은 반드시 정확한 단위를 제출해야 합니다.</translation>
-    </message>
-    <message>
-        <source>(Last Message)</source>
-        <translation>(최근 메시지)</translation>
-    </message>
-    <message>
-        <source>Try Mix</source>
-        <translation>믹스 시도</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>초기화</translation>
-    </message>
-    <message>
         <source>out of sync</source>
         <translation>동기화되지 않음</translation>
     </message>
     <message>
-        <source>Disabled</source>
-        <translation>비활성됨</translation>
-    </message>
-    <message>
-        <source>No inputs detected</source>
-        <translation>값이 입력되지 않음</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n Rounds</source>
-        <translation><numerusform>%n 라운드</numerusform></translation>
-    </message>
-    <message>
-        <source>Not enough compatible inputs to anonymize &lt;span style='color:red;'&gt;%1&lt;/span&gt;,&lt;br&gt;will anonymize &lt;span style='color:red;'&gt;%2&lt;/span&gt; instead</source>
-        <translation>익명화를 위한 값이 충분하지 않아 &lt;span style='color:red;'&gt;%1/span&gt;,&lt;br&gt;대신 &lt;span style='color:red;'&gt;%2&lt;/span&gt;가 익명화 됩니다.</translation>
-    </message>
-    <message>
-        <source>Overall progress</source>
-        <translation>전체 내역</translation>
-    </message>
-    <message>
-        <source>Denominated</source>
-        <translation>표기된</translation>
-    </message>
-    <message>
-        <source>Anonymized</source>
-        <translation>익명화된</translation>
-    </message>
-    <message numerus="yes">
-        <source>Denominated inputs have %5 of %n rounds on average</source>
-        <translation><numerusform>지정된 입력값은  평균 %n 라운드중 %5입니다.</numerusform></translation>
-    </message>
-    <message>
-        <source>Last Obfuscation message:
+        <source>Current percentage of zOPCX.
+If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>최근 Obfuscate한 메시지:
-</translation>
+        <translation>현재 zOPCX의 백분율 .
+자동 저장 기능이 활성화 된 경우이 비율은 구성된 자동 저장 비율 (기본값 = 10 %)을 기준으로 정해집니다.</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully reset.</source>
-        <translation>난독화가 성공적으로 초기화 되었습니다.</translation>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>자동 생성기능이 현재 작동중 그리고 </translation>
     </message>
     <message>
-        <source>If you don't want to see internal Obfuscation fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
-        <translation>내부 난독화 수수료/트랜잭션를 보고 싶지 않으면 "트랜잭션" 탭에서 '기본적인'을 선택하십시오.</translation>
+        <source>To disable AutoMint add 'enablezeromint=0' in opcx.conf.</source>
+        <translation>자동생성 기능을 사용하지 않으시려면, opcx.conf 화일에 enablezeromint=0 를 추가하세요.</translation>
     </message>
     <message>
-        <source>Obfuscation requires at least %1 to use.</source>
-        <translation>난독화를 사용하기 위해선 적어도 %1이 필요합니다.</translation>
-    </message>
-    <message>
-        <source>Wallet is locked and user declined to unlock. Disabling Obfuscation.</source>
-        <translation>지갑이 잠겼으며 사용자가 잠금 해제를 거부했습니다. 난독화 중단.</translation>
-    </message>
-    <message>
-        <source>Found enough compatible inputs to anonymize %1</source>
-        <translation>%1 익명화를 진행하기 위해서는 충분한 값이 필요합니다</translation>
-    </message>
-    <message>
-        <source>Start Obfuscation</source>
-        <translation>난독화 시작</translation>
-    </message>
-    <message>
-        <source>Stop Obfuscation</source>
-        <translation>난독화 중지</translation>
-    </message>
-    <message>
-        <source>Mixed</source>
-        <translation>믹스됨</translation>
-    </message>
-    <message>
-        <source>Enabled</source>
-        <translation>활성화됨</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
+        <source>AutoMint is currently disabled.
+To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf</source>
+        <translation>자동 저장 기능이 현재 사용 중지되었습니다 .
+자동 변환을 사용하려면 opcxotx.conf에서 'enablezeromint = 0'에서 'enablezeromint = 1'로 변경하십시오.</translation>
     </message>
 </context>
 <context>
@@ -2141,7 +2216,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Error communicating with %1: %2</source>
-        <translation>%1 과 통신하는 중 오류 발생: %2</translation>
+        <translation>%1: %2 통신하는 중 오류 발생: </translation>
     </message>
     <message>
         <source>Payment request cannot be parsed!</source>
@@ -2176,6 +2251,548 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
 </context>
 <context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>제로코인 관리:</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the OPCX network after a connection is established, but this process has not completed yet.</source>
+        <translation>표시된 정보가 오래되었을 수 있습니다. 연결이 완료되면 지갑이 OPCX 네트워크와 자동으로 동기화될 예정이지만, 아직 해당 프로세스가 완료되지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>Mint Zerocoin</source>
+        <translation>제로코인 생성</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zOPCX</source>
+        <translation>zOPCX</translation>
+    </message>
+    <message>
+        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
+        <translation>제로코인 지갑 DB 재설정. 블록 체인에 포함시키지 않은 트랜잭션을 삭제합니다.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>초기화</translation>
+    </message>
+    <message>
+        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
+        <translation>제로코인 생성과 메타데이타를 위해 블록체인을 다시 스캔합니다.</translation>
+    </message>
+    <message>
+        <source>ReScan</source>
+        <translation>다시 스캔</translation>
+    </message>
+    <message>
+        <source>Status and/or Mesages from the last Mint Action.</source>
+        <translation>마지막 발행 이후 상태나 메세지</translation>
+    </message>
+    <message>
+        <source>PRIVACY</source>
+        <translation>프라이버시</translation>
+    </message>
+    <message>
+        <source>zOPCX Control</source>
+        <translation>zOPCX 컨트롤</translation>
+    </message>
+    <message>
+        <source>zOPCX Selected:</source>
+        <translation>선택된 zOPCX :</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>선택된 수량 :</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
+        <translation>제로코인 전송 'Pay To :' 주소가 없으면 자신에게 지불합니다.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin</source>
+        <translation>제로코인 보내기</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zOPCX for spending</source>
+        <translation>전송 가능한 zOPCX</translation>
+    </message>
+    <message>
+        <source>Available Balance:</source>
+        <translation>가능한 잔액:</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zOPCX for spending
+
+zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>지출에 사용할 수있는 성숙한 소비재 zOPCX
+
+zOPCX는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 이상의 민트가 작성되었을 때 성숙합니다.</translation>
+    </message>
+    <message>
+        <source>0 zOPCX</source>
+        <translation>0 zOPCX</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>지불 &amp;대상:</translation>
+    </message>
+    <message>
+        <source>The OPCX address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>OPCX를 전송할 OPCX 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>이전에 사용한 주소 선택</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>클립보드에서 주소 붙여 넣기</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;라벨:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>이 주소의 라벨을 입력하여 사용된 주소 목록에 추가하십시오</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>금&amp;액:</translation>
+    </message>
+    <message>
+        <source>Convert Change to Zerocoin (might cost additional fees)</source>
+        <translation>잔돈을 제로코인으로 변환 (추가 요금이 부과될 수 있음)</translation>
+    </message>
+    <message>
+        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
+        <translation>이 옵션을 선택하면, 사용한 디노미네이션의 수를 최소화하는 대신 남는 잔돈을 최소화합니다.</translation>
+    </message>
+    <message>
+        <source>Minimize Change</source>
+        <translation>잔돈 최소화하기</translation>
+    </message>
+    <message>
+        <source>Information about the available Zerocoin funds.</source>
+        <translation>사용가능한 제로코인 정보</translation>
+    </message>
+    <message>
+        <source>Zerocoin Stats:</source>
+        <translation>제로코인 상태 :</translation>
+    </message>
+    <message>
+        <source>Total Balance including unconfirmed and immature zOPCX</source>
+        <translation>승인중이거나, 생성중인 제로코인도 포함된 전체 잔액입니다.</translation>
+    </message>
+    <message>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>제로코인 잔액 :</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1:</source>
+        <translation>디노미네이션 값 1:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1:</source>
+        <translation>Denom. 값 1:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>미확인 : 20 회 미만 확인
+미성숙 : 확인되었지만 발행 된 후 같은 종파 1 개 미만</translation>
+    </message>
+    <message>
+        <source>Show the current status of automatic zOPCX minting.
+
+To change the status (restart required):
+- enable: add 'enablezeromint=1' to opcx.conf
+- disable: add 'enablezeromint=0' to opcx.conf
+
+To change the percentage (no restart required):
+- menu Settings-&gt;Options-&gt;Percentage of autominted zOPCX
+
+</source>
+        <translation>현재 zOPCX 자동 생성 상태를 보여줍니다.
+
+자동생성 상태를 변경하시려면 (지갑 재시작 필요함):
+- 활성화: 'enablezeromint=1' 를 opcx.conf 파일에 추가
+- 비활성화: 'enablezeromint=0' 를 opcx.conf 파일에 추가
+
+자동 생성 비율 변경하시려면 (지갑 재시작 필요없음):
+- 메뉴 설정-&gt;옵션-&gt;zOPCX 자동생성 비율
+
+</translation>
+    </message>
+    <message>
+        <source>AutoMint Status</source>
+        <translation>자동생성 상태</translation>
+    </message>
+    <message>
+        <source>Global Supply:</source>
+        <translation>총 공급량:</translation>
+    </message>
+    <message>
+        <source>Denom. 1:</source>
+        <translation>Denom. 1:</translation>
+    </message>
+    <message>
+        <source>Denom. 5:</source>
+        <translation>Denom. 5:</translation>
+    </message>
+    <message>
+        <source>Denom. 10:</source>
+        <translation>Denom. 10:</translation>
+    </message>
+    <message>
+        <source>Denom. 50:</source>
+        <translation>Denom. 50:</translation>
+    </message>
+    <message>
+        <source>Denom. 100:</source>
+        <translation>Denom. 100:</translation>
+    </message>
+    <message>
+        <source>Denom. 500:</source>
+        <translation>Denom. 500:</translation>
+    </message>
+    <message>
+        <source>Denom. 1000:</source>
+        <translation>Denom. 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. 5000:</source>
+        <translation>Denom. 5000:</translation>
+    </message>
+    <message>
+        <source>0 x</source>
+        <translation>0 x</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5:</source>
+        <translation>디노미네이션 값 5:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5:</source>
+        <translation>Denom. 값 5:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 10:</source>
+        <translation>디노미네이션  값 10:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 10:</source>
+        <translation>Denom. 값 10:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 50:</source>
+        <translation>디노미네이션 값 50:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 50:</source>
+        <translation>Denom. 값 50:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 100:</source>
+        <translation>디노미네이션 값 100:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 100:</source>
+        <translation>Denom. 값 100:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 500:</source>
+        <translation>디노미네이션 값 500:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 500:</source>
+        <translation>Denom. 값 500:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1000:</source>
+        <translation>디노미네이션 값 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1000:</source>
+        <translation>Denom. 값 1000:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5000:</source>
+        <translation>디노미네이션 값 5000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5000:</source>
+        <translation>Denom. 값 5000:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>우선 순위:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>텍스트라벨</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>수수료:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>현금:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>아니오</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>바이트:</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>자금이 충분하지 않습니다!</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>자동으로 선택됩니다.</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>5 중간</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>코인 제어 기능</translation>
+    </message>
+    <message>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>이 옵션이 활성화되었지만, 변경 주소가 비어있거나 유효하지 않은 경우 변경사항은 새로 생성된 주소로 전송됩니다.</translation>
+    </message>
+    <message>
+        <source>Custom change address</source>
+        <translation>커스텀 주소 변경</translation>
+    </message>
+    <message>
+        <source>Amount After Fee:</source>
+        <translation>수수료 차감 금액:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>잔돈:</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>동기화되지 않음</translation>
+    </message>
+    <message>
+        <source>Mint Status: Okay</source>
+        <translation>생성 상태 : Okay</translation>
+    </message>
+    <message>
+        <source>Starting ResetMintZerocoin: rescanning complete blockchain, this will need up to 30 minutes depending on your hardware.
+Please be patient...</source>
+        <translation>제로코인 생성 초기화 진행중... : 전체 블록체인을 다시 검색합니다. 하드웨어에 따라 최대 30분이 걸릴수 있습니다.
+기다려주세요...</translation>
+    </message>
+    <message>
+        <source>zOPCX Spend #: </source>
+        <translation>zOPCX 전송 # :</translation>
+    </message>
+    <message>
+        <source>zOPCX Mint</source>
+        <translation>zOPCX 생성</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
+        <translation> &lt;b&gt; 활성화됨 &lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;disabled&lt;/b&gt;.</source>
+        <translation> &lt;b&gt;비활성화됨&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> Configured target percentage: &lt;b&gt;</source>
+        <translation> 구성된 목표 비율 : &lt;b&gt;</translation>
+    </message>
+    <message>
+        <source>zOPCX is currently disabled due to maintenance.</source>
+        <translation>zOPCX는 현재 점검중이라 사용하실수 없습니다.</translation>
+    </message>
+    <message>
+        <source>zOPCX is currently undergoing maintenance.</source>
+        <translation>zOPCX는 현재 점검중입니다.</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;5000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>AutoMint Status:</source>
+        <translation>자동생성 상태:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;5000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Duration: </source>
+        <translation>경과시간:</translation>
+    </message>
+    <message>
+        <source> sec.
+</source>
+        <translation>초.
+</translation>
+    </message>
+    <message>
+        <source>Starting ResetSpentZerocoin: </source>
+        <translation>전송된 제로코인 리셋 시작중...</translation>
+    </message>
+    <message>
+        <source>No 'Pay To' address provided, creating local payment</source>
+        <translation>주소를 입력하지 않아, 신규 주소를 생성합니다.</translation>
+    </message>
+    <message>
+        <source>Invalid OPCoinX Address</source>
+        <translation>잘못된 OPCX 주소</translation>
+    </message>
+    <message>
+        <source>Invalid Send Amount</source>
+        <translation>잘못된 전송 수량</translation>
+    </message>
+    <message>
+        <source>Confirm additional Fees</source>
+        <translation>추가 수수료 확인</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>정말로 보내시겠습니까?&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source> to address </source>
+        <translation>주소로</translation>
+    </message>
+    <message>
+        <source> to a newly generated (unused and therefore anonymous) local address &lt;br /&gt;</source>
+        <translation>새로 생성된 개인 지갑 주소(미사용된 익명의) &lt;br /&gt; 로</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>코인 전송 확인</translation>
+    </message>
+    <message>
+        <source>Failed to fetch mint associated with serial hash</source>
+        <translation>Failed to fetch mint associated with serial hash</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin failed with status = </source>
+        <translation>제로코인 송금 실패 상태 =</translation>
+    </message>
+    <message>
+        <source>denomination: </source>
+        <translation>디노미네이션: </translation>
+    </message>
+    <message>
+        <source>serial: </source>
+        <translation>시리얼:</translation>
+    </message>
+    <message>
+        <source>Spend is 1 of : </source>
+        <translation>Spend is 1 of : </translation>
+    </message>
+    <message>
+        <source>value out: </source>
+        <translation>출력 값:</translation>
+    </message>
+    <message>
+        <source>address: </source>
+        <translation>주소:</translation>
+    </message>
+    <message>
+        <source>Sending successful, return code: </source>
+        <translation>성공 완료, 리턴 코드 :</translation>
+    </message>
+    <message>
+        <source>txid: </source>
+        <translation>txid:</translation>
+    </message>
+    <message>
+        <source>fee: </source>
+        <translation>수수료:</translation>
+    </message>
+</context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
@@ -2206,6 +2823,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>네트워크</translation>
     </message>
     <message>
+        <source>BLOOM</source>
+        <translation>BLOOM</translation>
+    </message>
+    <message>
         <source>UNKNOWN</source>
         <translation>UNKNOWN</translation>
     </message>
@@ -2221,7 +2842,11 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    <message>
+        <source>OPCX Core</source>
+        <translation>OPCX Core</translation>
+    </message>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -2356,8 +2981,16 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>&amp;피어</translation>
     </message>
     <message>
+        <source>Banned peers</source>
+        <translation>제한된 피어</translation>
+    </message>
+    <message>
         <source>Select a peer to view detailed information.</source>
         <translation>자세한 정보를 보기 위해 피어를 선택 하세요.</translation>
+    </message>
+    <message>
+        <source>Whitelisted</source>
+        <translation>화이트리스트</translation>
     </message>
     <message>
         <source>Direction</source>
@@ -2374,14 +3007,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Services</source>
         <translation>서비스</translation>
-    </message>
-    <message>
-        <source>Starting Height</source>
-        <translation>시작 위치</translation>
-    </message>
-    <message>
-        <source>Sync Height</source>
-        <translation>동기화 위치</translation>
     </message>
     <message>
         <source>Ban Score</source>
@@ -2416,8 +3041,48 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>&amp;지갑 복구</translation>
     </message>
     <message>
+        <source>Delete local Blockchain Folders</source>
+        <translation>자신의 컴퓨터의 블록체인 폴더 삭제</translation>
+    </message>
+    <message>
         <source>Wallet In Use:</source>
         <translation>사용중인 지갑:</translation>
+    </message>
+    <message>
+        <source>Starting Block</source>
+        <translation>시작 블록</translation>
+    </message>
+    <message>
+        <source>Synced Headers</source>
+        <translation>동기화된 헤더</translation>
+    </message>
+    <message>
+        <source>Synced Blocks</source>
+        <translation>동기화된 블록</translation>
+    </message>
+    <message>
+        <source>The duration of a currently outstanding ping.</source>
+        <translation>현재 미해결 ping의 지속 시간.</translation>
+    </message>
+    <message>
+        <source>Ping Wait</source>
+        <translation>핑 대기</translation>
+    </message>
+    <message>
+        <source>Time Offset</source>
+        <translation>타임 오프셋</translation>
+    </message>
+    <message>
+        <source>Custom Backup Path:</source>
+        <translation>맞춤 백업 경로 :</translation>
+    </message>
+    <message>
+        <source>Custom zOPCX Backup Path:</source>
+        <translation>맞춤 zOPCX 백업 경로 :</translation>
+    </message>
+    <message>
+        <source>Custom Backups Threshold:</source>
+        <translation>맞춤 백업 역치(threshold) : </translation>
     </message>
     <message>
         <source>Salvage wallet</source>
@@ -2461,6 +3126,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>현재 blk000??.dat로 부터 블록체인 인덱스 재작성</translation>
     </message>
     <message>
+        <source>-resync:</source>
+        <translation>-resync:</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>블록체인을 재동기화를 위해 모든 블록체인 폴더 삭제</translation>
+    </message>
+    <message>
         <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
         <translation>아래 버튼들은 지갑을 고치기 위한 명령어 옵션들로 실행시 지갑을 재시작합니다, 손상된 블록체인 파일 또는 누락되었거나 오래된 트랜잭션들에 대한 문제를 해결합니다.</translation>
     </message>
@@ -2489,8 +3162,52 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>OPCX RPC 콘솔에 오신 것을 환영합니다.</translation>
     </message>
     <message>
-        <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>위 아래 화살표를 사용하여 기록을 탐색하고 &lt;b&gt;Ctrl-L&lt;/b&gt; 화면을 지웁니다.</translation>
+        <source>&amp;Disconnect Node</source>
+        <translation>&amp; 연결이 끊어진 노드</translation>
+    </message>
+    <message>
+        <source>Ban Node for</source>
+        <translation>제한된 노드</translation>
+    </message>
+    <message>
+        <source>1 &amp;hour</source>
+        <translation>1 &amp;시간</translation>
+    </message>
+    <message>
+        <source>1 &amp;day</source>
+        <translation>1 &amp;일</translation>
+    </message>
+    <message>
+        <source>1 &amp;week</source>
+        <translation>1 &amp;주일</translation>
+    </message>
+    <message>
+        <source>1 &amp;year</source>
+        <translation>1 &amp;년</translation>
+    </message>
+    <message>
+        <source>&amp;Unban Node</source>
+        <translation>&amp;제한 해지된 노드</translation>
+    </message>
+    <message>
+        <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>그러면 로컬 블록 체인 폴더가 삭제되고 Wallet은 전체 Blockchain을 처음부터 동기화합니다.</translation>
+    </message>
+    <message>
+        <source>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>이것은 상당한 시간을 필요로하며 많은 양의 데이터를 다운로드합니다.</translation>
+    </message>
+    <message>
+        <source>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>다운로드가 완료되면 거래와 자금이 다시 표시됩니다 .12</translation>
+    </message>
+    <message>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation>계속 진행하겠습니까?&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Confirm resync Blockchain</source>
+        <translation>블록체인 동기화를 다시 하시겠습니까?</translation>
     </message>
     <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
@@ -2513,6 +3230,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>%1 GB</translation>
     </message>
     <message>
+        <source>(node id: %1)</source>
+        <translation>(노드 id: %1)</translation>
+    </message>
+    <message>
         <source>via %1</source>
         <translation>via %1</translation>
     </message>
@@ -2529,12 +3250,16 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>아웃바운드</translation>
     </message>
     <message>
-        <source>Unknown</source>
-        <translation>Unknown</translation>
+        <source>Yes</source>
+        <translation>Yes</translation>
     </message>
     <message>
-        <source>Fetching...</source>
-        <translation>가져오는 중...</translation>
+        <source>No</source>
+        <translation>No</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Unknown</translation>
     </message>
 </context>
 <context>
@@ -2556,8 +3281,16 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>새로운 수신 주소와 연결할 선택적 라벨.</translation>
     </message>
     <message>
+        <source>A&amp;mount:</source>
+        <translation>금&amp;액:</translation>
+    </message>
+    <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the OPCX network.</source>
         <translation>요청이 열릴 때 표시되는 결제 요청에 첨부할 선택적 메세지 입니다. 참고: OPCX 네트워크를 통한 결제는 메세지가 전송되지 않습니다.</translation>
+    </message>
+    <message>
+        <source>RECEIVE</source>
+        <translation>받기</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the OPCX network.</source>
@@ -2574,10 +3307,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
         <translation>요청할 선택적 금액. 이 금액을 비워두거나 특정 금액을 요청하지 않으려면 0으로 두세요.</translation>
-    </message>
-    <message>
-        <source>&amp;Amount:</source>
-        <translation>&amp;금액:</translation>
     </message>
     <message>
         <source>&amp;Request payment</source>
@@ -2622,6 +3351,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Copy amount</source>
         <translation>금액 복사</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>주소 복사</translation>
     </message>
 </context>
 <context>
@@ -2694,6 +3427,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>메세지</translation>
     </message>
     <message>
+        <source>Address</source>
+        <translation>주소</translation>
+    </message>
+    <message>
         <source>Amount</source>
         <translation>금액</translation>
     </message>
@@ -2717,16 +3454,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>코인 전송 </translation>
     </message>
     <message>
+        <source>SEND</source>
+        <translation>보내기</translation>
+    </message>
+    <message>
         <source>Coin Control Features</source>
         <translation>코인 제어 기능</translation>
-    </message>
-    <message>
-        <source>Inputs...</source>
-        <translation>입력...</translation>
-    </message>
-    <message>
-        <source>automatically selected</source>
-        <translation>자동 선택됨</translation>
     </message>
     <message>
         <source>Insufficient funds!</source>
@@ -2738,7 +3471,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Bytes:</source>
-        <translation>Bytes:</translation>
+        <translation>바이트:</translation>
     </message>
     <message>
         <source>Amount:</source>
@@ -2750,7 +3483,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>medium</source>
-        <translation>중간</translation>
+        <translation>5 중간</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -2766,11 +3499,11 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>After Fee:</source>
-        <translation>이후 수수료:</translation>
+        <translation>최종 금액:</translation>
     </message>
     <message>
         <source>Change:</source>
-        <translation>변경:</translation>
+        <translation>잔돈:</translation>
     </message>
     <message>
         <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
@@ -2798,7 +3531,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
-        <translation>트랜잭션 수수료:</translation>
+        <translation>거래 수수료:</translation>
     </message>
     <message>
         <source>Choose...</source>
@@ -2810,11 +3543,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Minimize</source>
-        <translation>최소화</translation>
-    </message>
-    <message>
-        <source>Obfuscation</source>
-        <translation>난독화</translation>
+        <translation>닫기</translation>
     </message>
     <message>
         <source>per kilobyte</source>
@@ -2837,8 +3566,20 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>(스마트 수수료가 아직 초기화 되지 않았습니다. 일반적으로 몇 블록이 지나야됩니다...)</translation>
     </message>
     <message>
+        <source>SwiftX</source>
+        <translation>SwiftX</translation>
+    </message>
+    <message>
         <source>Confirmation time:</source>
         <translation>승인 시간:</translation>
+    </message>
+    <message>
+        <source>Open Coin Control...</source>
+        <translation>코인 설정 열기</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>자동으로 선택됩니다.</translation>
     </message>
     <message>
         <source>If the custom fee is set to 1000 uOPCXs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uOPCXs in fee,&lt;br /&gt;while "at least" pays 1000 uOPCXs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
@@ -2897,8 +3638,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>&amp;받는 사람 추가</translation>
     </message>
     <message>
-        <source>SwiftTX</source>
-        <translation>SwiftTX</translation>
+        <source>Anonymized OPCX</source>
+        <translation>익명화된 OPCX</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -2922,7 +3663,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Copy bytes</source>
-        <translation>bytes 복사</translation>
+        <translation>바이트 복사</translation>
     </message>
     <message>
         <source>Copy priority</source>
@@ -2945,24 +3686,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>분할 블록 도구는 여러 주소에서 작동하지 않습니다. 다시 시도하십시오.</translation>
     </message>
     <message>
-        <source>using</source>
-        <translation>사용</translation>
-    </message>
-    <message>
-        <source>anonymous funds</source>
-        <translation>익명 자금</translation>
-    </message>
-    <message>
         <source>Warning: Invalid OPCX address</source>
         <translation>경고: 잘못된 OPCX 주소</translation>
-    </message>
-    <message>
-        <source>any available funds (not recommended)</source>
-        <translation>사용 가능한 자금 (권장하지 않음)</translation>
-    </message>
-    <message>
-        <source>and SwiftTX</source>
-        <translation>그리고 SwiftTX</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -2974,7 +3699,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>are added as transaction fee</source>
-        <translation>트랜잭션 수수료가 추가됩니다</translation>
+        <translation>거래 수수료가 추가됩니다</translation>
     </message>
     <message>
         <source>Total Amount = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</source>
@@ -2993,8 +3718,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>수신자 주소가 유효하지 않습니다. 다시 확인해주세요.</translation>
     </message>
     <message>
-        <source>(obfuscation requires this amount to be rounded up to the nearest %1).</source>
-        <translation>(난독화로 이 금액을 가장 가까운 %1로 반올림 해야됩니다)</translation>
+        <source>using SwiftX</source>
+        <translation>SwiftX 사용</translation>
     </message>
     <message>
         <source> split into %1 outputs using the UTXO splitter.</source>
@@ -3030,7 +3755,11 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>오류: 지갑이 코인 익명 처리를 위해 잠금해제 되었습니다.</translation>
+        <translation>오류: 현재 지갑이 익명 처리를 위해 잠금해제 되어 있습니다. 익명화 및 스테이킹 전용을 해제하시고 다시 시도하세요.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation>에러 : 현재 지갑은 코인 익명화를 위해서만 잠금해제되었습니다. 잠금해제가 취소됩니다.</translation>
     </message>
     <message>
         <source>Pay only the minimum fee of %1</source>
@@ -3057,7 +3786,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>The OPCX address to send the payment to</source>
-        <translation>전송할 OPCX 주소</translation>
+        <translation>보낼 OPCX 주소</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3105,7 +3834,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Pay To:</source>
-        <translation>지불 대상:</translation>
+        <translation>보낼 주소:</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -3289,7 +4018,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Dash Core 개발자</translation>
     </message>
     <message>
-        <source>The PIVX Core developers</source>
+        <source>The OPCX Core developers</source>
         <translation>OPCX Core 개발자</translation>
     </message>
     <message>
@@ -3315,18 +4044,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>충돌됨</translation>
     </message>
     <message>
-        <source>%1/offline (verified via swifttx)</source>
-        <translation>%1/오프라인 (swifttx를 통해 확인 됨)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (verified via swifttx)</source>
-        <translation>%1/확인 됨 (swifttx를 통해 확인 됨)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (verified via swifttx)</source>
-        <translation>%1 확인 (swifttx를 통해 확인 됨)</translation>
-    </message>
-    <message>
         <source>%1/offline</source>
         <translation>%1/오프라인</translation>
     </message>
@@ -3339,24 +4056,36 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>%1 확인</translation>
     </message>
     <message>
-        <source>%1/offline (SwiftTX verification in progress - %2 of %3 signatures)</source>
+        <source>%1/offline (verified via SwiftX)</source>
+        <translation>%1/오프라인 (swifttx를 통해 확인 됨)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (verified via SwiftX)</source>
+        <translation>%1/확인 됨 (swifttx를 통해 확인 됨)</translation>
+    </message>
+    <message>
+        <source>%1 confirmations (verified via SwiftX)</source>
+        <translation>%1 확인 (swifttx를 통해 확인 됨)</translation>
+    </message>
+    <message>
+        <source>%1/offline (SwiftX verification in progress - %2 of %3 signatures)</source>
         <translation>%1/오프라인 (SwiftTX 확인 진행 중 - %2 중 %3 서명)</translation>
     </message>
     <message>
-        <source>%1/confirmed (SwiftTX verification in progress - %2 of %3 signatures )</source>
+        <source>%1/confirmed (SwiftX verification in progress - %2 of %3 signatures )</source>
         <translation>%1/확인 됨 (SwiftTX 확인 진행 중 - %2 중 %3 서명)</translation>
     </message>
     <message>
-        <source>%1 confirmations (SwiftTX verification in progress - %2 of %3 signatures)</source>
+        <source>%1 confirmations (SwiftX verification in progress - %2 of %3 signatures)</source>
         <translation>%1 확인 (SwiftTX 확인 진행 중 - %2 중 %3 서명)</translation>
     </message>
     <message>
-        <source>%1/offline (SwiftTX verification failed)</source>
+        <source>%1/offline (SwiftX verification failed)</source>
         <translation>%1/오프라인 (SwiftTX 확인 실패)
 </translation>
     </message>
     <message>
-        <source>%1/confirmed (SwiftTX verification failed)</source>
+        <source>%1/confirmed (SwiftX verification failed)</source>
         <translation>%1/확인 됨 (SwiftTX 확인 실패)</translation>
     </message>
     <message>
@@ -3515,7 +4244,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Unconfirmed</source>
-        <translation>미확인 됨</translation>
+        <translation>미확인됨</translation>
     </message>
     <message>
         <source>Confirming (%1 of %2 recommended confirmations)</source>
@@ -3527,7 +4256,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Conflicted</source>
-        <translation>충돌 됨</translation>
+        <translation>충돌됨</translation>
     </message>
     <message>
         <source>Immature (%1 confirmations, will be available after %2)</source>
@@ -3539,7 +4268,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Received with</source>
-        <translation>수신 됨</translation>
+        <translation>수신됨</translation>
     </message>
     <message>
         <source>Masternode Reward</source>
@@ -3547,11 +4276,19 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Received from</source>
-        <translation>발신원</translation>
+        <translation>수신됨</translation>
     </message>
     <message>
         <source>Received via Obfuscation</source>
         <translation>난독화를 통해 수신 됨</translation>
+    </message>
+    <message>
+        <source>OPCX Stake</source>
+        <translation>OPCX stake</translation>
+    </message>
+    <message>
+        <source>zOPCX Stake</source>
+        <translation>zOPCX stake</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -3570,6 +4307,34 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>난독화 표시 만들기</translation>
     </message>
     <message>
+        <source>Converted OPCX to zOPCX</source>
+        <translation>OPCX를 zOPCX로 변환</translation>
+    </message>
+    <message>
+        <source>Spent zOPCX</source>
+        <translation>zOPCX 사용</translation>
+    </message>
+    <message>
+        <source>Received OPCX from zOPCX</source>
+        <translation>zOPCX를 OPCX로 받음</translation>
+    </message>
+    <message>
+        <source>Minted Change as zOPCX from zOPCX Spend</source>
+        <translation>zOPCX 전송후 남은 zOPCX로 잔돈 생성</translation>
+    </message>
+    <message>
+        <source>Converted zOPCX to OPCX</source>
+        <translation>zOPCX를 OPCX로 변환</translation>
+    </message>
+    <message>
+        <source>Anonymous (zOPCX Transaction)</source>
+        <translation>Anonymous (zOPCX 거래)</translation>
+    </message>
+    <message>
+        <source>Anonymous (zOPCX Stake)</source>
+        <translation>Anonymous (zOPCX 스테이킹)</translation>
+    </message>
+    <message>
         <source>Sent to</source>
         <translation>대상 전송</translation>
     </message>
@@ -3580,10 +4345,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Payment to yourself</source>
         <translation>자신에게 지불</translation>
-    </message>
-    <message>
-        <source>Minted</source>
-        <translation>발행</translation>
     </message>
     <message>
         <source>Mined</source>
@@ -3662,31 +4423,11 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Received with</source>
-        <translation>수신 됨</translation>
+        <translation>수신됨</translation>
     </message>
     <message>
         <source>Sent to</source>
         <translation>대상 전송</translation>
-    </message>
-    <message>
-        <source>Obfuscated</source>
-        <translation>난독화</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>난독화로 보증 입력</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>난독화 표시 만들기</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>난독화 표시</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>난독화 보증 결제 </translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -3703,6 +4444,18 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Masternode Reward</source>
         <translation>마스터노드 보상 </translation>
+    </message>
+    <message>
+        <source>Zerocoin Mint</source>
+        <translation>제로코인 생성</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend</source>
+        <translation>제로코인 전송</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend to Self</source>
+        <translation>자신에게 제로코인 전송</translation>
     </message>
     <message>
         <source>Other</source>
@@ -3750,7 +4503,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation>확정</translation>
+        <translation>확정됨</translation>
     </message>
     <message>
         <source>Watch-only</source>
@@ -3789,6 +4542,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>내보내기 성공</translation>
     </message>
     <message>
+        <source>Received OPCX from zOPCX</source>
+        <translation>zOPCX를 OPCX로 받음</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend, Change in zOPCX</source>
+        <translation>제로코인 전송, 잔돈은 zOPCX</translation>
+    </message>
+    <message>
         <source>The transaction history was successfully saved to %1.</source>
         <translation>트랜잭션 기록이 %1에 성공적으로 저장되었습니다.</translation>
     </message>
@@ -3822,12 +4583,16 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>코인 전송 </translation>
     </message>
     <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 OPCX.</source>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 OPCX.</source>
         <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 OPCX로 제한됩니다.</translation>
     </message>
 </context>
 <context>
     <name>WalletView</name>
+    <message>
+        <source>HISTORY</source>
+        <translation>거래내역</translation>
+    </message>
     <message>
         <source>&amp;Export</source>
         <translation>&amp;내보내기</translation>
@@ -3848,23 +4613,30 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <source>Wallet Data (*.dat)</source>
         <translation>지갑 데이터 (*.dat)</translation>
     </message>
-    <message>
-        <source>Backup Failed</source>
-        <translation>백업 실패하였습니다</translation>
-    </message>
-    <message>
-        <source>There was an error trying to save the wallet data to %1.</source>
-        <translation>%1에 지갑 데이터를 저장하는 동안 오류가 발생하였습니다.</translation>
-    </message>
-    <message>
-        <source>Backup Successful</source>
-        <translation>백업 성공하였습니다</translation>
-    </message>
-    <message>
-        <source>The wallet data was successfully saved to %1.</source>
-        <translation>지갑 데이터가 %1에 성공적으로 저장되었습니다.</translation>
-    </message>
 </context>
+<context>
+    <name>ZOpcxControlDialog</name>
+    <message>
+        <source>Select zOPCX to Spend</source>
+        <translation>사용할 zOPCX 선택</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation>수량</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zOPCX</source>
+        <translation>zOPCX</translation>
+    </message>
+    <message>
+        <source>Select/Deselect All</source>
+        <translation>전체 선택 / 해제</translation>
+    </message>
+    </context>
 <context>
     <name>opcx-core</name>
     <message>
@@ -3874,10 +4646,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
         <translation>지정된 소스에서 JSON-RPC 연결을 허용하십시오. 단일 IP (예 : 1.2.3.4), 네트워크/넷마스크 (예 : 1.2.3.4/255.255.255.0) 또는 네트워크 / CIDR (예 : 1.2.3.4/24)에 대해 &lt;ip&gt; 가 유효합니다. 이 옵션은 여러번 지정할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC address %s port %u for listening: %s</source>
-        <translation>수신을 위한 RPC 주소 %s 포트 %u설정 도중 오류가 발생했습니다: %s</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
@@ -3890,6 +4658,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
         <translation>JSON-RPC연결 수신을 위해 주어진 주소를 지정합니다. [host]: IPv6 포트 표기법 사용. 이 옵션은 여러번 지정할 수 있습니다. (기본값 : 모든 인터페이스에 지정)</translation>
+    </message>
+    <message>
+        <source>Calculated accumulator checkpoint is not what is recorded by block index</source>
+        <translation>계산된 누산기 체크포인트는 블록 인덱스에 의해 기록되는 것이 아닙니다.</translation>
     </message>
     <message>
         <source>Cannot obtain a lock on data directory %s. OPCX Core is probably already running.</source>
@@ -3912,20 +4684,28 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>지갑의 모든 트랜잭션들을 삭제하고 오직 블록체인을 통한 트랜잭션 부분들만 복구합니다 -시작 시 다시 스캔</translation>
     </message>
     <message>
-        <source>Disable all OPCX specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)</source>
-        <translation>OPCX의 모든 특정 기능들을 비활성화합니다(마스터노드, 난독화, SwiftTX, Budgeting) (0-1, 기본값: %u)</translation>
+        <source>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</source>
+        <translation>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
         <translation>MIT 소프트웨어 라이센스에 따라 배포, 첨부 파일 COPYING 또는 &lt;http://www.opensource.org/licenses/mit-license.php&gt; 를 참조하십시오.</translation>
     </message>
     <message>
-        <source>Enable swifttx, show confirmations for locked transactions (bool, default: %s)</source>
-        <translation>swiftTX 활성화, 잠긴 트랜잭션들에 대한 확인 표시 (bool, 기본값: %s)</translation>
+        <source>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</source>
+        <translation>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</translation>
     </message>
     <message>
-        <source>Enable use of automated obfuscation for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>이 지갑에 저장된 금액에 대해 자동 난독화 사용을 활성화 합니다 (0-1, 기본값: %u)</translation>
+        <source>Enable or disable staking functionality for OPCX inputs (0-1, default: %u)</source>
+        <translation>Enable or disable staking functionality for OPCX inputs (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</source>
+        <translation>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Enable spork administration functionality with the appropriate private key.</source>
+        <translation>올바른 개인키로 spork 관리 기능을 사용 가능</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
@@ -3934,6 +4714,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
         <translation>오류: 오는 연결들을 수신하는데 실패했습니다.(수신 중 오류 반환됨 %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction is larger than the maximum allowed transaction size!</source>
+        <translation>Error: 트랜젝션의 크기가 혀용된 크기를 넘었습니다.</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
@@ -3964,14 +4748,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>메모리 풀에서 디스크로 매 &lt;n&gt; 메가바이트만큼 데이터베이스 활동 플러쉬를 기록합니다 (기본값: %u)</translation>
     </message>
     <message>
-        <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
-        <translation>미확인 표시된 출력들을 찾고 계속하기 위한 확인을 받기 전까지 기다립니다.</translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation>-checkblocks의 블록 검증이 얼마나 철저한 정도 (0-4, 기본값: %u)</translation>
-    </message>
-    <message>
         <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
         <translation>paytxfee가 설정되어 있지 않는 경우 충분한 수수료를 넣어야만 평균이내 n블록들을 확인하고 트랜잭션를 시작합니다 (기본값: %u)</translation>
     </message>
@@ -3980,8 +4756,16 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>이 모드에서 -genproclimit는 즉시 생성되는 블록 수를 제어합니다.</translation>
     </message>
     <message>
+        <source>Insufficient or insufficient confirmed funds, you might need to wait a few minutes and try again.</source>
+        <translation>확정 된 자금이 불충분하거나 부족한 경우 몇 분 후에 다시 시도하십시오.</translation>
+    </message>
+    <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>-maxtxfee=&lt;amount&gt;에 대한 잘못된 금액: '%s' (트랜잭션 정지를 막을려면 적어도 %s의 minrelay 수수료가 있어야 합니다)</translation>
+    </message>
+    <message>
+        <source>Keep the specified amount available for spending at all times (default: 0)</source>
+        <translation>항상 송금할수 있도록 지정된 수량 유지 (기본값 : 0)</translation>
     </message>
     <message>
         <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
@@ -4012,12 +4796,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>디버깅 정보 출력 (기본값: %u, &lt;category&gt; 공급은 선택입니다)</translation>
     </message>
     <message>
-        <source>Provide liquidity to Obfuscation by infrequently mixing coins on a continual basis (0-100, default: %u, 1=very frequent, high fees, 100=very infrequent, low fees)</source>
-        <translation>자주 사용하지 않는 코인을 믹싱하여 난독화에 유동성을 제공합니다 (0-100, 기본값: %u, 1=매우 잦음, 높은 수수료, 100=매운 드문, 낮은 수수료)</translation>
-    </message>
-    <message>
         <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
         <translation>DNS 검색을 통한 피어 주소 쿼리, 주소가 부족할 경우 (-connect 아닌 이상 기본값:1)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation>모든 프록시 연결마다 자격 증명 무작위화. 이렇게하면 Tor 스트림을 격리할수 있습니다. (기본값 : %u)</translation>
     </message>
     <message>
         <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
@@ -4044,36 +4828,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>성공적으로 잠긴 트랜잭션에 대한 확인을 N으로 나타냅니다 (0-9999, 기본값: %u)</translation>
     </message>
     <message>
-        <source>SwiftTX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>SwiftTX는 최소 6회 확인이 필요한 입력으로 몇 분 후에 다시 시도해야 할 수 있습니다.</translation>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation>bloom필터를 사용한 블록 및 트랜잭션 필터링 지원 (기본값 : %u)</translation>
     </message>
     <message>
         <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
         <translation>이 제품은 OpenSSL이 개발한 Open SSL 툴킷 &lt;https://www.openssl.org/&gt; 에서 사용하기 위한 프로젝트 소프트웨어, Eric Young이 개발한 암호화 소프트웨어, Thomas Bernard가 개발한 UPnP 소프트웨어가 포함되어 있습니다.</translation>
-    </message>
-    <message>
-        <source>To use opcxd, or the -server option to opcx-qt, you must set an rpcpassword in the configuration file:
-%s
-It is recommended you use the following random password:
-rpcuser=opcxrpc
-rpcpassword=%s
-(you do not need to remember this password)
-The username and password MUST NOT be the same.
-If the file does not exist, create it with owner-readable-only file permissions.
-It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "OPCX Alert" admin@foo.com
-</source>
-        <translation>OPCXd 또는 OPCX-qt에 대한 -server 옵션 파일을 사용하려면 configuration 파일에서 rpcpassword를 설정해야 합니다:
-%s
-다음 무작위 암호를 사용하는 것을 추천합니다:
-rpcuser=OPCXpc
-rpcpassword=%s
-(이 비밀번호는 기억할 필요가 없습니다)
-유저 이름과 비밀번호는 반드시 달라야 합니다.
-파일이 존재하지 않는다면 작성자만 읽기 가능한 권한으로 파일을 생성하십시오.
-또한 문제 발생 알림을 받을려면 alertnotify를 설정하는 것을 추천합니다.
-예시: alertnotify=echo %%s | mail -s "OPCX Alert" admin@foo.com
-</translation>
     </message>
     <message>
         <source>Unable to bind to %s on this computer. OPCX Core is probably already running.</source>
@@ -4152,16 +4912,16 @@ rpcpassword=%s
         <translation>(메인넷 일경우 18051)</translation>
     </message>
     <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation> command line 과 JSON-RPC 적용</translation>
+    </message>
+    <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
         <translation>외부에서의 접속을 허용 (1 -프록시 또는 -연결이 없을 경우 기본값)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
         <translation>공개 REST 요청 수락(기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: %s)</source>
-        <translation>허용되는 암호 (기본값: %s)</translation>
     </message>
     <message>
         <source>Add a node to connect to and attempt to keep the connection open</source>
@@ -4172,10 +4932,6 @@ rpcpassword=%s
         <translation>-addnode, -seednode, -connect을 위해 DNS 조회를 허용하십시오.</translation>
     </message>
     <message>
-        <source>Already have that input.</source>
-        <translation>이미 연결 중입니다.</translation>
-    </message>
-    <message>
         <source>Always query for peer addresses via DNS lookup (default: %u)</source>
         <translation>피어 주소에게 DNS 조회를 통한 지속적인 정보 수신 요청을 합니다 (기본값: %u)</translation>
     </message>
@@ -4184,20 +4940,16 @@ rpcpassword=%s
         <translation>손상된 wallet.dat으로 부터 개인 키 복구를 시도합니다.</translation>
     </message>
     <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation>자동 Tor 히든 서버스 생성 (기본값: %d)</translation>
+    </message>
+    <message>
         <source>Block creation options:</source>
         <translation>블록 생성 옵션:</translation>
     </message>
     <message>
-        <source>Can't denominate: no compatible inputs left.</source>
-        <translation>표시할 수 없음: 남아있는 호환된 연결이 없습니다.</translation>
-    </message>
-    <message>
-        <source>Can't find random Masternode.</source>
-        <translation>임의의 마스터노드를 찾을 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>Can't mix while sync in progress.</source>
-        <translation>동기화가 진행 중일 때에는 믹싱을 할 수 없습니다.</translation>
+        <source>Calculating missing accumulators...</source>
+        <translation>누락된 누산기 계산중...</translation>
     </message>
     <message>
         <source>Cannot downgrade wallet</source>
@@ -4218,10 +4970,6 @@ rpcpassword=%s
     <message>
         <source>Cannot write default address</source>
         <translation>기본 주소를 사용할 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>Collateral not valid.</source>
-        <translation>Collateral이 유효하지 않습니다.</translation>
     </message>
     <message>
         <source>Connect only to the specified node(s)</source>
@@ -4248,16 +4996,12 @@ rpcpassword=%s
         <translation>Copyright (C) 2014-%i The Dash Core 개발자들</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The PIVX Core Developers</source>
-        <translation>Copyright (C) 2015-%i The PIVX Core 개발자</translation>
+        <source>Copyright (C) 2015-%i The OPCX Core Developers</source>
+        <translation>Copyright (C) 2015-%i The OPCX Core 개발자</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
         <translation>손상된 블록 데이터베이스가 발견되었습니다</translation>
-    </message>
-    <message>
-        <source>Could not parse -rpcbind value %s as network address</source>
-        <translation>-rpcbind 값 %s 를 네트워크 주소로 분석할 수 없습니다</translation>
     </message>
     <message>
         <source>Could not parse masternode.conf</source>
@@ -4266,6 +5010,14 @@ rpcpassword=%s
     <message>
         <source>Debugging/Testing options:</source>
         <translation>디버깅/테스팅 옵션:</translation>
+    </message>
+    <message>
+        <source>Delete blockchain folders and resync from scratch</source>
+        <translation>블록 체인 폴더 삭제 및 처음부터 다시 동기화</translation>
+    </message>
+    <message>
+        <source>Disable OS notifications for incoming transactions (default: %u)</source>
+        <translation>거래시 수신 알림창 해제  (기본값: %u)</translation>
     </message>
     <message>
         <source>Disable safemode, override a real safe mode event (default: %u)</source>
@@ -4288,16 +5040,20 @@ rpcpassword=%s
         <translation>로딩 완료</translation>
     </message>
     <message>
+        <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
+        <translation>자동 제로코인 생성 (0-1, 기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>&lt;address&gt; 에서 해시 전송 게시 가능 (SwiftTX로 설정된)</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>&lt;address&gt;에서 Raw 트랜잭션 게시 지원 (SwiftTX를 통해 잠겨진)</translation>
+    </message>
+    <message>
         <source>Enable the client to act as a masternode (0-1, default: %u)</source>
         <translation>클라이언트가 마스터노드로 작동하는 것을 활성화 (0-1, 기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Entries are full.</source>
-        <translation>항목이 가득 찼습니다.</translation>
-    </message>
-    <message>
-        <source>Error connecting to Masternode.</source>
-        <translation>Masternode에 연결하는 중 오류가 발생했습니다.</translation>
     </message>
     <message>
         <source>Error initializing block database</source>
@@ -4336,16 +5092,16 @@ rpcpassword=%s
         <translation>공개 키를 복구하는 중 오류가 발생했습니다.</translation>
     </message>
     <message>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation>디스크에 zerocoinDB 쓰기 오류</translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation>에러</translation>
     </message>
     <message>
         <source>Error: A fatal internal error occured, see debug.log for details</source>
         <translation>오류 : 내부에서 치명적인 오류가 발생했습니다. 자세한 내용은 debug.log를 참조하십시오</translation>
-    </message>
-    <message>
-        <source>Error: Can't select current denominated inputs</source>
-        <translation>오류 : 현재 표시된 입력을 선택할 수 없습니다</translation>
     </message>
     <message>
         <source>Error: Disk space is low!</source>
@@ -4360,12 +5116,16 @@ rpcpassword=%s
         <translation>오류 : 지갑이 잠겼습니다, 트랜잭션을 생성할 수 없습니다!</translation>
     </message>
     <message>
-        <source>Error: You already have pending entries in the Obfuscation pool</source>
-        <translation>오류 : 이미 난독화 그룹에 보류중인 항목들이 있습니다.</translation>
+        <source>Failed to calculate accumulator checkpoint</source>
+        <translation>축 압기 체크 포인트를 계산하지 못했습니다.</translation>
     </message>
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>어떠한 포트에서도 수신하는 것에 실패했습니다. 원하신다면 -listen=0 을 사용하십시오.</translation>
+    </message>
+    <message>
+        <source>Failed to parse host:port string</source>
+        <translation>호스트 : 포트 문자열을 구문 분석하지 못했습니다.</translation>
     </message>
     <message>
         <source>Failed to read block</source>
@@ -4376,20 +5136,8 @@ rpcpassword=%s
         <translation>당신이 보내는 트랜잭션에 추가 할 수수료 (OPCX/kB) (기본값: %s)</translation>
     </message>
     <message>
-        <source>Finalizing transaction.</source>
-        <translation>트랜잭션 완료.</translation>
-    </message>
-    <message>
         <source>Force safe mode (default: %u)</source>
         <translation>강제 안전 모드 (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Found enough users, signing ( waiting %s )</source>
-        <translation>충분한 사용자를 찾았습니다, 서명 중 ( %s 기다리는 중 )</translation>
-    </message>
-    <message>
-        <source>Found enough users, signing ...</source>
-        <translation>충분한 사용자를 찾았습니다, 서명 중 ...</translation>
     </message>
     <message>
         <source>Generate coins (default: %u)</source>
@@ -4416,14 +5164,6 @@ rpcpassword=%s
         <translation>디버그 출력에 IP 주소를 포함합니다 (기본값: %u)</translation>
     </message>
     <message>
-        <source>Incompatible mode.</source>
-        <translation>호환되지 않는 모드.</translation>
-    </message>
-    <message>
-        <source>Incompatible version.</source>
-        <translation>호환되지 않는 버전.</translation>
-    </message>
-    <message>
         <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
         <translation>잘못되었거나 블록을 찾지 못하였습니다. 네트워크에 대한 잘못된 데이터 디렉토리 문제?</translation>
     </message>
@@ -4436,20 +5176,16 @@ rpcpassword=%s
         <translation>초기화 정확성 검사에 실패 했습니다. OPCX Core가 종료됩니다.</translation>
     </message>
     <message>
-        <source>Input is not valid.</source>
-        <translation>입력이 올바르지 않습니다.</translation>
+        <source>Insufficient funds</source>
+        <translation>잔액이 충분하지 않음</translation>
     </message>
     <message>
         <source>Insufficient funds.</source>
         <translation>충분하지 않은 금액.</translation>
     </message>
     <message>
-        <source>Invalid -onion address: '%s'</source>
-        <translation>유효하지 않은 -onion 주소: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: '%s'</source>
-        <translation>유효하지 않은 -proxy 주소: '%s'</translation>
+        <source>Invalid -onion address or hostname: '%s'</source>
+        <translation>잘못된 -onion 주소거나 호스트네임 : '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
@@ -4476,6 +5212,10 @@ rpcpassword=%s
         <translation>-reservebalance=&lt;amount&gt;에 대한 금액이 유효하지 않은 값</translation>
     </message>
     <message>
+        <source>Invalid amount</source>
+        <translation>잘못된 수량</translation>
+    </message>
+    <message>
         <source>Invalid masternodeprivkey. Please see documenation.</source>
         <translation>마스터노드 개인 키가 잘못되었습니다. 설명서를 참조하십시오.</translation>
     </message>
@@ -4492,28 +5232,168 @@ rpcpassword=%s
         <translation>유효하지 않은 개인 키입니다.</translation>
     </message>
     <message>
-        <source>Invalid script detected.</source>
-        <translation>유효하지 않은 스크립트가 발견되었습니다.</translation>
+        <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
+        <translation>자동생성 zOPCX 비율  (1-100, default: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the OPCX and zOPCX money supply statistics</source>
+        <translation>OPCX 및 zOPCX 공급량 다시 색인</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>제로코인 데이타베이스 재색인</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin failed</source>
+        <translation>제로코인 재 인덱싱 실패</translation>
+    </message>
+    <message>
+        <source>Selected coins value is less than payment target</source>
+        <translation>지불대상보다 적은 코인 선택됨</translation>
+    </message>
+    <message>
+        <source>SwiftX options:</source>
+        <translation>SwiftX 옵션:</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
+        <translation>이것은 사전 릴리스 테스트 빌드입니다 - 사용상 책임은 귀하에게 있습니다. - staking이나 상업적인 용도로는 절대 사용하지 마십시오!</translation>
+    </message>
+    <message>
+        <source> mints deleted
+</source>
+        <translation>생성 삭제
+</translation>
+    </message>
+    <message>
+        <source> mints updated, </source>
+        <translation>생성 업데이드</translation>
+    </message>
+    <message>
+        <source> unconfirmed transactions removed
+</source>
+        <translation>미확인된 거래 삭제됨
+</translation>
+    </message>
+    <message>
+        <source>Disable all OPCX specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>OPCX의 모든 특정 기능들을 비활성화합니다(마스터노드, 난독화, SwiftTX, Budgeting) (0-1, 기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
+        <translation>swiftTX 활성화, 잠긴 트랜잭션들에 대한 확인 표시 (bool, 기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>에러 : 거래가 거부되었습니다. 예를 들어 다른 사본 wallet.dat에서 코인을 사용했다면 2중 사용으로 인식될수 있습니다. 혹은, 일부가 이미 소비 된 경우에 이런 일이 발생할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
+        <translation>에러 :이 거래에는 전송량, 복잡성 또는 최근에 받은 자금의 사용등으로 인해 적어도 %s의 거래 수수료가 필요합니다!</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
+        <translation>에러 : 지원하지않는 argument -checklevel 발견된.  Checklevel는 레벨 4이어야 합니다.</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)</source>
+        <translation>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)</translation>
+    </message>
+    <message>
+        <source>Failed to find coin set amongst held coins with less than maxNumber of Spends</source>
+        <translation>Failed to find coin set amongst held coins with less than maxNumber of Spends</translation>
+    </message>
+    <message>
+        <source>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</source>
+        <translation>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</translation>
+    </message>
+    <message>
+        <source>Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)</source>
+        <translation>자동생성 제로코인 선호 디노미네이션 (1/5/10/50/100/500/1000/5000) 0사용안됨, 기본값 : %u)</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
+        <translation>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</translation>
+    </message>
+    <message>
+        <source>SwiftX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
+        <translation>SwiftTX는 최소 6회 확인이 필요한 입력으로 몇 분 후에 다시 시도해야 할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation>&lt;category&gt; 가능함 :</translation>
+    </message>
+    <message>
+        <source>Attempt to force blockchain corruption recovery</source>
+        <translation>블록체인 손상 복구 시도</translation>
+    </message>
+    <message>
+        <source>CoinSpend: Accumulator witness does not verify</source>
+        <translation>CoinSpend: 누산기가 제대로 작동하지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>Display the stake modifier calculations in the debug.log file.</source>
+        <translation>debug.log에 stake 수정 계산 기록</translation>
+    </message>
+    <message>
+        <source>Display verbose coin stake messages in the debug.log file.</source>
+        <translation>debug.log 에 코인 stake 메시지를 자세히 기록</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation>&lt;address&gt; 에서 해시 블록 게시 가능</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation>&lt;address&gt; 에서 해시 불록 게시 가능</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation>&lt;address&gt;에서 Raw 블록 게시 가능</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation>&lt;address&gt; 에서 Raw 트랜잭션 게시 지원</translation>
     </message>
     <message>
         <source>Enable staking functionality (0-1, default: %u)</source>
         <translation>스테이킹 기능 사용 (0-1, 기본값: %u)</translation>
     </message>
     <message>
-        <source>Keep N OPCX anonymized (default: %u)</source>
-        <translation>N OPCX 익명으로 유지 (기본값: %u)</translation>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation>Error: 치명적 에러 발생 log 파일을 확인해주세요.</translation>
+    </message>
+    <message>
+        <source>Error: No valid utxo!</source>
+        <translation>Error: 유효하지 않는 utxo!</translation>
+    </message>
+    <message>
+        <source>Failed to create mint</source>
+        <translation>생성 실패</translation>
+    </message>
+    <message>
+        <source>Failed to find Zerocoins in wallet.dat</source>
+        <translation>wallet.dat 에서 제로코인을 인식 실패</translation>
+    </message>
+    <message>
+        <source>Failed to select a zerocoin</source>
+        <translation>제로코인 선택 실패</translation>
+    </message>
+    <message>
+        <source>Failed to wipe zerocoinDB</source>
+        <translation>제로코인 DB 삭제 실패</translation>
+    </message>
+    <message>
+        <source>Failed to write coin serial number into wallet</source>
+        <translation>지갑에 코인 시리얼 번호 작성 실패</translation>
     </message>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation>메모리에서 연결 불가능한 트랜잭션을 &lt;n&gt;개까지 유지하십시오. (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Last Obfuscation was too recent.</source>
-        <translation>최근에 마지막으로 난독화를 진행했습니다.</translation>
-    </message>
-    <message>
-        <source>Last successful Obfuscation action was too recent.</source>
-        <translation>최근에 마지막으로 성공한 난독화 작업이 있습니다.</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
@@ -4552,6 +5432,10 @@ rpcpassword=%s
         <translation>마스터노드 결제 캐시를 불러오는 중...</translation>
     </message>
     <message>
+        <source>Loading sporks...</source>
+        <translation>sporks 로딩중...</translation>
+    </message>
+    <message>
         <source>Loading wallet... (%3.2f %%)</source>
         <translation>지갑을 불러오는 중… (%3.2f %%)</translation>
     </message>
@@ -4560,12 +5444,16 @@ rpcpassword=%s
         <translation>지갑을 불러오는 중…</translation>
     </message>
     <message>
-        <source>Lock is already in place.</source>
-        <translation>이미 올바르게 잠겨있습니다.</translation>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation>auth 쿠기 위치 (default: data dir)</translation>
     </message>
     <message>
         <source>Lock masternodes from masternode configuration file (default: %u)</source>
         <translation>마스터노드 구성 파일에서 마스터노드를 잠급니다. (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Lookup(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>Lookup(): Invalid -proxy address or hostname: '%s'</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
@@ -4576,14 +5464,6 @@ rpcpassword=%s
         <translation>마스터노드 옵션:</translation>
     </message>
     <message>
-        <source>Masternode queue is full.</source>
-        <translation>마스터노드 대기열이 가득 찼습니다.</translation>
-    </message>
-    <message>
-        <source>Masternode:</source>
-        <translation>마스터노드:</translation>
-    </message>
-    <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
         <translation>연결 당 최대 수신 버퍼, &lt;n&gt;*1000 바이트 (기본값: %u)</translation>
     </message>
@@ -4592,72 +5472,32 @@ rpcpassword=%s
         <translation>연결 당 최대 전송 버퍼, &lt;n&gt;*1000 바이트 (기본값: %u)</translation>
     </message>
     <message>
-        <source>Missing input transaction information.</source>
-        <translation>트랜잭션 정보 입력에 누락된 부분이 있습니다.</translation>
+        <source>Mint did not make it into blockchain</source>
+        <translation>코인생성이 블록체인에 기록되지 않았습니다.</translation>
     </message>
     <message>
-        <source>Mixing in progress...</source>
-        <translation>믹싱이 진행 중입니다...</translation>
+        <source>Need address because change is not exact</source>
+        <translation>잔돈을 받을 주소가 필요합니다.</translation>
     </message>
     <message>
         <source>Need to specify a port with -whitebind: '%s'</source>
         <translation>-whitebind: '%s' 의 포트를 지정해야 합니다</translation>
     </message>
     <message>
-        <source>No Masternodes detected.</source>
-        <translation>마스터노드가 발견되지 않았습니다.</translation>
-    </message>
-    <message>
-        <source>No compatible Masternode found.</source>
-        <translation>호환되는 마스터노드가 발견되지 않았습니다.</translation>
-    </message>
-    <message>
-        <source>No funds detected in need of denominating.</source>
-        <translation>분류가 필요한 자금이 발견되지 않았습니다.</translation>
-    </message>
-    <message>
-        <source>No matching denominations found for mixing.</source>
-        <translation>믹싱에 대한 일치하는 표기를 찾을 수 없습니다.</translation>
-    </message>
-    <message>
         <source>Node relay options:</source>
         <translation>노드 중계 옵션:</translation>
-    </message>
-    <message>
-        <source>Non-standard public key detected.</source>
-        <translation>비 표준 공개 키가 감지되었습니다.</translation>
-    </message>
-    <message>
-        <source>Not compatible with existing transactions.</source>
-        <translation>기존 트랜잭션과 호환되지 않습니다.</translation>
     </message>
     <message>
         <source>Not enough file descriptors available.</source>
         <translation>사용 가능한 파일 디스크립터가 충분하지 않습니다.</translation>
     </message>
     <message>
-        <source>Not in the Masternode list.</source>
-        <translation>마스터노드 목록에 없습니다.</translation>
-    </message>
-    <message>
         <source>Number of automatic wallet backups (default: 10)</source>
         <translation>자동 지갑 백업 횟수 (기본값: 10)</translation>
     </message>
     <message>
-        <source>Obfuscation is idle.</source>
-        <translation>난독화는 유휴상태입니다.</translation>
-    </message>
-    <message>
-        <source>Obfuscation options:</source>
-        <translation>난독화 옵션:</translation>
-    </message>
-    <message>
-        <source>Obfuscation request complete:</source>
-        <translation>난독화 요청 완료:</translation>
-    </message>
-    <message>
-        <source>Obfuscation request incomplete:</source>
-        <translation>난독화 요청 미완료:</translation>
+        <source>Number of custom location backups to retain (default: %d)</source>
+        <translation>Number of custom location backups to retain (default: %d)</translation>
     </message>
     <message>
         <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
@@ -4676,6 +5516,14 @@ rpcpassword=%s
         <translation>JSON-RPC 연결 비밀번호</translation>
     </message>
     <message>
+        <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>isValid(): Invalid -proxy address or hostname: '%s'</translation>
+    </message>
+    <message>
+        <source>Preparing for resync...</source>
+        <translation>재동기화 준비중...</translation>
+    </message>
+    <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
         <translation>디버그 출력 앞에 타임스탬프를 추가합니다. (기본값: %u)</translation>
     </message>
@@ -4684,16 +5532,8 @@ rpcpassword=%s
         <translation>버전 출력후 종료</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL 옵션: (SSL 설치 안내는 비트코인 위키를 참조하십시오)</translation>
-    </message>
-    <message>
         <source>RPC server options:</source>
         <translation>RPC 서버 옵션:</translation>
-    </message>
-    <message>
-        <source>RPC support for HTTP persistent connections (default: %d)</source>
-        <translation>HTTP 지속 연결에 관한 RPC 지원 (기본값: %d)</translation>
     </message>
     <message>
         <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
@@ -4712,6 +5552,10 @@ rpcpassword=%s
         <translation>P2P 네크워크로 부터 경고를 받고 보여줍니다 (기본값: %u)</translation>
     </message>
     <message>
+        <source>Reindex the accumulator database</source>
+        <translation>누적 기 데이터베이스 다시 색인화</translation>
+    </message>
+    <message>
         <source>Relay and mine data carrier transactions (default: %u)</source>
         <translation>릴레이 및 채굴 데이터 이동매체 트랜잭션 (기본값: %u)</translation>
     </message>
@@ -4728,6 +5572,14 @@ rpcpassword=%s
         <translation>다시 스캔하는 중...</translation>
     </message>
     <message>
+        <source>ResetMintZerocoin finished: </source>
+        <translation>생성된 제로코인 초기화 완료:</translation>
+    </message>
+    <message>
+        <source>ResetSpentZerocoin finished: </source>
+        <translation>사용된 제로코인 초기화 완료:</translation>
+    </message>
+    <message>
         <source>Run a thread to flush wallet periodically (default: %u)</source>
         <translation>주기적으로 지갑을 플러쉬하는 스레드를 실행합니다 (기본값: %u)</translation>
     </message>
@@ -4738,18 +5590,6 @@ rpcpassword=%s
     <message>
         <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
         <translation>무료 수수료 트랜잭션이 가능할 경우 무료 수수료로 트랜잭션을 전송합니다 (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Server certificate file (default: %s)</source>
-        <translation>서버 인증서 파일 (기본값: %s)</translation>
-    </message>
-    <message>
-        <source>Server private key (default: %s)</source>
-        <translation>서버 개인 키 (기본값: %s)</translation>
-    </message>
-    <message>
-        <source>Session not complete!</source>
-        <translation>세션이 완료되지 않았습니다!</translation>
     </message>
     <message>
         <source>Session timed out.</source>
@@ -4774,6 +5614,10 @@ rpcpassword=%s
     <message>
         <source>Set minimum block size in bytes (default: %u)</source>
         <translation>최소 블록 크기를 바이트 단위로 설정합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Set the Maximum reorg depth (default: %u)</source>
+        <translation>최대 재구성 깊이 설정 (기본값 : %u)</translation>
     </message>
     <message>
         <source>Set the masternode private key</source>
@@ -4836,6 +5680,10 @@ rpcpassword=%s
         <translation>자신의 공용 주소를 지정</translation>
     </message>
     <message>
+        <source>Spend Valid</source>
+        <translation>유효한 지출</translation>
+    </message>
+    <message>
         <source>Spend unconfirmed change when sending transactions (default: %u)</source>
         <translation>트랜잭션 전송시 승인되지 않은 변경사항을 전송합니다 (기본값: %u)</translation>
     </message>
@@ -4846,22 +5694,6 @@ rpcpassword=%s
     <message>
         <source>Stop running after importing blocks from disk (default: %u)</source>
         <translation>디스크에서 블록을 가져오면 실행 중지 (기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Submitted following entries to masternode: %u / %d</source>
-        <translation>마스터노드에 다음 항목들을 제출했습니다: %u / %d</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation>마스터노드에 제출했습니다, 남은 항목들 기다리는중 ( %u / %d ) %s</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting in queue %s</source>
-        <translation>마스터노드에 제출했습니다, 대기열을 기다리는 중 %s</translation>
-    </message>
-    <message>
-        <source>SwiftTX options:</source>
-        <translation>SwiftTX 옵션:</translation>
     </message>
     <message>
         <source>Synchronization failed</source>
@@ -4892,6 +5724,18 @@ rpcpassword=%s
         <translation>sporks와 동기화 중입니다...</translation>
     </message>
     <message>
+        <source>Syncing zOPCX wallet...</source>
+        <translation>zOPCX 지갑 동기화중...</translation>
+    </message>
+    <message>
+        <source>The coin spend has been used</source>
+        <translation>전송이 이미 되었습니다.</translation>
+    </message>
+    <message>
+        <source>The transaction did not verify</source>
+        <translation>거래가 확인되지 않았습니다.</translation>
+    </message>
+    <message>
         <source>This help message</source>
         <translation>도움말 메시지입니다</translation>
     </message>
@@ -4904,12 +5748,28 @@ rpcpassword=%s
         <translation>이것은 리그레션 테스팅 및 앱 개발을 위해 만들어졌습니다.</translation>
     </message>
     <message>
-        <source>This is not a Masternode.</source>
-        <translation>마스터노드가 아닙니다.</translation>
-    </message>
-    <message>
         <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
         <translation>제대로 동작하지 않는 피어와 연결을 끊을 임계값 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Too many spends needed</source>
+        <translation>너무 많은 지출이 필요함</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation>Tor 컨트롤 포트 암호 (기본값: 공백)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation>onion 활성화되었을 경우 사용할 Tor 코트롤 포트 (기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction Created</source>
+        <translation>트랜잭션 취소됨</translation>
+    </message>
+    <message>
+        <source>Transaction Mint Started</source>
+        <translation>트랜잭션 생성 시작됨</translation>
     </message>
     <message>
         <source>Transaction amount too small</source>
@@ -4920,18 +5780,6 @@ rpcpassword=%s
         <translation>트랜잭션 금액에 반드시 양수값이 들어가야 합니다</translation>
     </message>
     <message>
-        <source>Transaction created successfully.</source>
-        <translation>트랜잭션이 성공적으로 생성되었습니다.</translation>
-    </message>
-    <message>
-        <source>Transaction fees are too high.</source>
-        <translation>트랜잭션 수수료가 너무 높습니다.</translation>
-    </message>
-    <message>
-        <source>Transaction not valid.</source>
-        <translation>올바르지 않은 트랜잭션입니다.</translation>
-    </message>
-    <message>
         <source>Transaction too large for fee policy</source>
         <translation>수수료 정책에 비해 트랜잭션이 너무 많습니다</translation>
     </message>
@@ -4940,8 +5788,8 @@ rpcpassword=%s
         <translation>트랜잭션이 너무 큽니다</translation>
     </message>
     <message>
-        <source>Transmitting final transaction.</source>
-        <translation>최종 트랜잭션를 전송 중입니다.</translation>
+        <source>Trying to spend an already spent serial #, try again.</source>
+        <translation>이미 전송된 리얼 번호를 보내려고 했습니다. 다시 시도하십시오.</translation>
     </message>
     <message>
         <source>Unable to bind to %s on this computer (bind returned error %s)</source>
@@ -4952,24 +5800,16 @@ rpcpassword=%s
         <translation>스포크 메시지를 인증할 수 없습니다, 키를 확인해주세요</translation>
     </message>
     <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation>HTTP 서버를 시작할수 없습니다. log 파일을 확인해주세요.</translation>
+    </message>
+    <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>-onlynet: '%s' 에 알 수 없는 네트워크가 지정되었습니다</translation>
     </message>
     <message>
-        <source>Unknown state: id = %u</source>
-        <translation>알 수없는 상태: id = %u</translation>
-    </message>
-    <message>
         <source>Upgrade wallet to latest format</source>
         <translation>지갑을 최신 포맷으로 업그레이드합니다</translation>
-    </message>
-    <message>
-        <source>Use N separate masternodes to anonymize funds  (2-8, default: %u)</source>
-        <translation>N개의 각각의 마스터노드를 이용하여 자금 익명화 (2-8, 기본값: %u)</translation>
-    </message>
-    <message>
-        <source>Use OpenSSL (https) for JSON-RPC connections</source>
-        <translation>JSON-RPC 연결에 OpenSSL (https)를 사용합니다</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: %u)</source>
@@ -4980,6 +5820,10 @@ rpcpassword=%s
         <translation>수신 포트를 매핑하려면 UPnP를 사용하십시오 (기본값: 1 수신 상태일 때)</translation>
     </message>
     <message>
+        <source>Use a custom max chain reorganization depth (default: %u)</source>
+        <translation>맞춤 최대 체인 재구성 깊이 사용 (기본값 : %u)</translation>
+    </message>
+    <message>
         <source>Use the test network</source>
         <translation>테스트 네트워크를 사용합니다</translation>
     </message>
@@ -4988,8 +5832,8 @@ rpcpassword=%s
         <translation>JSON-RPC 연결 사용자 이름</translation>
     </message>
     <message>
-        <source>Value more than Obfuscation pool maximum allows.</source>
-        <translation>난독화 풀의 최대 허용 값보다 높습니다.</translation>
+        <source>Value is below the smallest available denomination (= 1) of zOPCX</source>
+        <translation>Value is below the smallest available denomination (= 1) of zOPCX</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -5002,10 +5846,6 @@ rpcpassword=%s
     <message>
         <source>Wallet %s resides outside data directory %s</source>
         <translation>지갑 %s 가 데이터 디렉토리 외부에 존재합니다 %s</translation>
-    </message>
-    <message>
-        <source>Wallet is locked.</source>
-        <translation>지갑이 잠겼습니다.</translation>
     </message>
     <message>
         <source>Wallet needed to be rewritten: restart OPCX Core to complete</source>
@@ -5036,20 +5876,12 @@ rpcpassword=%s
         <translation>경고 : 지원하지 않는 인수 -debugnet 무시됨 -debug=net를 사용하십시오.</translation>
     </message>
     <message>
-        <source>Will retry...</source>
-        <translation>다시 시도합니다...</translation>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>지갑에 zOPCX 가 부족합니다.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
         <translation>-treindex를 변경하려면 -reindex를 사용하여 데이터베이스를 다시 빌드해야합니다.</translation>
-    </message>
-    <message>
-        <source>Your entries added successfully.</source>
-        <translation>항목이 성공적으로 추가되었습니다.</translation>
-    </message>
-    <message>
-        <source>Your transaction was accepted into the pool!</source>
-        <translation>트랜잭션이 풀로 접수되었습니다!</translation>
     </message>
     <message>
         <source>Zapping all transactions from wallet...</source>
@@ -5058,6 +5890,10 @@ rpcpassword=%s
     <message>
         <source>ZeroMQ notification options:</source>
         <translation>ZeroMQ 알림 옵션:</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>제로코인 옵션:</translation>
     </message>
     <message>
         <source>on startup</source>

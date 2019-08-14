@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2017 The OPCX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,11 +24,6 @@ CAmount CFeeRate::GetFee(size_t nSize) const
         nFee = nSatoshisPerK;
 
     return nFee;
-}
-
-CAmount CFeeRate::GetFeePerK() const
-{
-    return GetFee(1000);
 }
 
 std::string CFeeRate::ToString() const

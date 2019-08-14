@@ -43,7 +43,7 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Виберіть адресу для надсилання монет</translation>
+        <translation>Виберіть адресу надсилання монет</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>These are your OPCX addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Це ваша OPCX-адреса для надсилання платежів. Завжди перевіряйте суму та адресу одержувача перед відправленням монет.</translation>
+        <translation>Це ваші OPCX-адреси для надсилання платежів. Завжди перевіряйте суму та адресу одержувача перед відправленням монет.</translation>
     </message>
     <message>
         <source>These are your OPCX addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
@@ -136,10 +136,6 @@
         <translation>Для ввімкнення тривіальної відправки коштів при скомпрометуванні операційної системи. Не забезпечує реальної безпеки.</translation>
     </message>
     <message>
-        <source>For anonymization and staking only</source>
-        <translation>Лише для анонімності</translation>
-    </message>
-    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Введіть нове кодове слово гамамнця. &lt;br/&gt;Будь ласка, використовуйте кодове слово з &lt;b&gt;десяти і більше хаотичних символів&lt;/b&gt;, або &lt;b&gt;восьми і більше слів &lt;/b&gt;.</translation>
     </message>
@@ -193,6 +189,9 @@
     </message>
     </context>
 <context>
+    <name>BanTableModel</name>
+    </context>
+<context>
     <name>Bip38ToolDialog</name>
     </context>
 <context>
@@ -222,6 +221,9 @@
     <name>FreespaceChecker</name>
     </context>
 <context>
+    <name>GovernancePage</name>
+    </context>
+<context>
     <name>HelpMessageDialog</name>
     </context>
 <context>
@@ -236,9 +238,13 @@
     </context>
 <context>
     <name>MultiSendDialog</name>
+    <message>
+        <source>(no label)</source>
+        <translation>(без міток)</translation>
+    </message>
     </context>
 <context>
-    <name>ObfuscationConfig</name>
+    <name>MultisigDialog</name>
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -254,6 +260,12 @@
     </context>
 <context>
     <name>PeerTableModel</name>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    </context>
+<context>
+    <name>ProposalFrame</name>
     </context>
 <context>
     <name>QObject</name>
@@ -283,6 +295,10 @@
     <message>
         <source>Label</source>
         <translation>Мітка</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адреса</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -362,6 +378,9 @@
         <source>Export the data in the current tab to a file</source>
         <translation>Експортуйтувати дані поточної вкладки у файл</translation>
     </message>
+    </context>
+<context>
+    <name>ZOpcxControlDialog</name>
     </context>
 <context>
     <name>opcx-core</name>

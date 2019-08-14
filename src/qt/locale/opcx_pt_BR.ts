@@ -132,8 +132,12 @@
         <translation>Repita a nova palavra-chave</translation>
     </message>
     <message>
-        <source>For anonymization and staking only</source>
-        <translation>Para anonimização e staking somente</translation>
+        <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
+        <translation>Server irá desabilitar o sendmoney trivial quando a conta do sistema operacional for comprometido. Não oferece segurança real.</translation>
+    </message>
+    <message>
+        <source>For anonymization, automint, and staking only</source>
+        <translation>Somente para anonimização, automint e staking</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -225,6 +229,17 @@
     </message>
 </context>
 <context>
+    <name>BanTableModel</name>
+    <message>
+        <source>IP/Netmask</source>
+        <translation>IP/Netmask</translation>
+    </message>
+    <message>
+        <source>Banned Until</source>
+        <translation>Proibido até</translation>
+    </message>
+</context>
+<context>
     <name>Bip38ToolDialog</name>
     <message>
         <source>BIP 38 Tool</source>
@@ -235,16 +250,12 @@
         <translation>&amp;Encriptação BIP 38</translation>
     </message>
     <message>
-        <source>Enter a OPCX address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Insira um endereço que você deseja criptografar usando a BIP 38. Insira a palavra-chave na caixa do meio. Pressione criptografar para computar a chave privada criptografada.</translation>
-    </message>
-    <message>
         <source>Address:</source>
         <translation>Endereço:</translation>
     </message>
     <message>
-        <source>The OPCX address to sign the message with</source>
-        <translation>O endereço OPCX para assinar a mensagem</translation>
+        <source>Enter a OPCX Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Insira um endereço que você deseja criptografar usando a BIP 38. Insira a palavra-chave na caixa do meio. Pressione criptografar para computar a chave privada criptografada.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -275,36 +286,20 @@
         <translation>Copia a assinatura atual do sistema de transferência</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this OPCX address</source>
-        <translation>Assine a mensagem para provar que você possui este endereço OPCX</translation>
-    </message>
-    <message>
         <source>Encrypt &amp;Key</source>
         <translation>Chave encriptada:</translation>
-    </message>
-    <message>
-        <source>Reset all sign message fields</source>
-        <translation>Reiniciar todos os campos de mensagem</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
         <translation>Limpar &amp;Tudo</translation>
     </message>
     <message>
-        <source>The OPCX address the message was signed with</source>
-        <translation>O endereço OPCX que assinou a mensagem</translation>
-    </message>
-    <message>
-        <source>Verify the message to ensure it was signed with the specified OPCX address</source>
-        <translation>Verifique a mensagem para ter certeza que foi assinada com o endereço OPCX especificado.</translation>
+        <source>&amp;BIP 38 Decrypt</source>
+        <translation>&amp;Descriptografar BIP 38</translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
         <translation>Descriptografar &amp;Chave</translation>
-    </message>
-    <message>
-        <source>Reset all verify message fields</source>
-        <translation>Reiniciar todos os campos de mensagem</translation>
     </message>
     <message>
         <source>Decrypted Key:</source>
@@ -412,6 +407,10 @@
     <message>
         <source>Browse transaction history</source>
         <translation>Olhar histórico de transação</translation>
+    </message>
+    <message>
+        <source>Privacy Actions for zOPCX</source>
+        <translation>Ações privadas para zOPCX</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -554,6 +553,30 @@
         <translation>Mostrar a lista de endereços de recebimento e rótulos utilizados</translation>
     </message>
     <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp;Criação de multiassinaturas</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>Crie um novo endereço multiassinatura e adicione à esta carteira</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp;Gasto multiassinatura...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>Gastar de um endereço multiassinatura</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>&amp;Assinando multiassinatura...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>Assinar com um endereço multiassinatura</translation>
+    </message>
+    <message>
         <source>Open &amp;URI...</source>
         <translation>Abrir &amp;URI...</translation>
     </message>
@@ -564,6 +587,10 @@
     <message>
         <source>Synchronizing additional data: %p%</source>
         <translation>Sincronizando informação adicional: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 atrás. Escaneado bloco %2</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -596,6 +623,10 @@
     <message>
         <source>Request payments (generates QR codes and opcx: URIs)</source>
         <translation>Requisitar pagamentos (gera códigos QR e opcx: URIs)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;Privacidade</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -698,10 +729,6 @@
         <translation>%1 e %2</translation>
     </message>
     <message>
-        <source>%1 behind</source>
-        <translation>%1 atrás</translation>
-    </message>
-    <message>
         <source>Catching up...</source>
         <translation>Correndo atrás...</translation>
     </message>
@@ -779,19 +806,23 @@ MultiSend: %1</translation>
         <translation>A Carteira está &lt;b&gt;criptografada&lt;/b&gt; e atualmente &lt;b&gt;desbloqueada&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization and staking only</source>
-        <translation>A Carteira está &lt;b&gt;criptografada&lt;/b&gt; e atualmente &lt;b&gt;desbloqueada&lt;/b&gt; somente para anonimização e staking</translation>
-    </message>
-    <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>A carteira está &lt;b&gt;criptografada&lt;/b&gt; e atualmente &lt;b&gt;travada&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
         <source>Blockchain Explorer</source>
         <translation>Explorador Blockchain</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Avançar</translation>
     </message>
     <message>
         <source>Address / Block / Transaction</source>
@@ -813,8 +844,8 @@ MultiSend: %1</translation>
 <context>
     <name>ClientModel</name>
     <message>
-        <source>Total: %1 (OBF compatible: %2 / Enabled: %3)</source>
-        <translation>Total: %1 (OBF compatível: %2 / Ativado: %3)</translation>
+        <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
+        <translation>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Desconhecido: %5)</translation>
     </message>
     <message>
         <source>Network Alert</source>
@@ -888,6 +919,10 @@ MultiSend: %1</translation>
         <translation>Recebido no endereço</translation>
     </message>
     <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
         <source>Date</source>
         <translation>Data</translation>
     </message>
@@ -956,10 +991,6 @@ MultiSend: %1</translation>
         <translation>Favor alterar para o "Modo de lista" para usar esta função.</translation>
     </message>
     <message>
-        <source>Non-anonymized input selected. &lt;b&gt;Obfuscation will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use Obfuscation, please deselect all non-nonymized inputs first and then check Obfuscation checkbox again.</source>
-        <translation>Input não-anonimizado selecionado. &lt;b&gt;Ofuscação será desabilitada.&lt;/b&gt;&lt;br&gt;&lt;br&gt; Se você ainda quiser usar a Ofuscação, favor desmarcar todos os inputs não anônimos primeiro e então marque a opção de Ofuscação novamente.</translation>
-    </message>
-    <message>
         <source>highest</source>
         <translation>mais alto</translation>
     </message>
@@ -974,14 +1005,6 @@ MultiSend: %1</translation>
     <message>
         <source>medium-high</source>
         <translation>médio-alto</translation>
-    </message>
-    <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
-        <translation>pode variar entre +/-%1 duff(s) por input</translation>
-    </message>
-    <message>
-        <source>n/a</source>
-        <translation>n/a</translation>
     </message>
     <message>
         <source>medium</source>
@@ -1135,6 +1158,17 @@ MultiSend: %1</translation>
     </message>
 </context>
 <context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Formulário</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
     <name>HelpMessageDialog</name>
     <message>
         <source>version</source>
@@ -1163,6 +1197,14 @@ MultiSend: %1</translation>
     <message>
         <source>command-line options</source>
         <translation>opções de linha de comando</translation>
+    </message>
+    <message>
+        <source>UI Options:</source>
+        <translation>Opções de UI:</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Escolher diretório de informações ao inicializar (padrão: %u)</translation>
     </message>
     <message>
         <source>Set language, for example "de_DE" (default: system locale)</source>
@@ -1231,10 +1273,6 @@ MultiSend: %1</translation>
         <translation>Formulário</translation>
     </message>
     <message>
-        <source>My Masternodes</source>
-        <translation>Meus Masternodes</translation>
-    </message>
-    <message>
         <source>Alias</source>
         <translation>Apelido</translation>
     </message>
@@ -1265,6 +1303,10 @@ MultiSend: %1</translation>
     <message>
         <source>S&amp;tart alias</source>
         <translation>iniciar apelido</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>Iniciar &amp;todos</translation>
     </message>
     <message>
         <source>&amp;Update status</source>
@@ -1366,6 +1408,10 @@ MultiSend: %1</translation>
         <translation>Endereço:</translation>
     </message>
     <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Coloque uma etiqueta neste endereço para adicioná-lo à lista de contatos</translation>
+    </message>
+    <message>
         <source>Delete Address From MultiSend Vector</source>
         <translation>Deleta endereço do vetor MultiSend</translation>
     </message>
@@ -1398,110 +1444,87 @@ MultiSend: %1</translation>
         <translation>Enviar para recompensas de Masternode</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>O endereço informado:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>é inválido.
-
-Favor verificar o endereço e tente novamente.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>A quantia total de seu vetor MultiSend é superior a 100% da recompensa de seu stake
-</translation>
+        <source>(no label)</source>
+        <translation>(sem rótulo)</translation>
     </message>
     <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Favor inserir 1 - 100 para porcentagem.</translation>
     </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>Vetor MultiSend
-</translation>
-    </message>
-    <message>
-        <source>Removed </source>
-        <translation>Removido</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Não foi possível localizar o endereço
-</translation>
-    </message>
 </context>
 <context>
-    <name>ObfuscationConfig</name>
+    <name>MultisigDialog</name>
     <message>
-        <source>Configure Obfuscation</source>
-        <translation>Configurar Ofuscação</translation>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>Criar &amp;Endereço multiassinatura</translation>
     </message>
     <message>
-        <source>Basic Privacy</source>
-        <translation>Privacidade Básica</translation>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>Quantas pessoas devem assinar para verificar uma transação</translation>
     </message>
     <message>
-        <source>High Privacy</source>
-        <translation>Alta Privacidade</translation>
+        <source>Address Label:</source>
+        <translation>Rótulo do endereço:</translation>
     </message>
     <message>
-        <source>Maximum Privacy</source>
-        <translation>Privacidade Máxima</translation>
+        <source>Create a new multisig address</source>
+        <translation>Criar um novo endereço multisig</translation>
     </message>
     <message>
-        <source>Please select a privacy level.</source>
-        <translation>Favor selecionar o nível de privacidade.</translation>
+        <source>C&amp;reate</source>
+        <translation>C&amp;riar</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 OPCX</source>
-        <translation>Use 2 masternodes separados para embaralhar fundos até 10000 OPCX</translation>
+        <source>Status:</source>
+        <translation>Situação:</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 OPCX</source>
-        <translation>Use 8 masternodes separados para embaralhar fundos até 10000 OPCX</translation>
+        <source>Inputs:</source>
+        <translation>Inputs:</translation>
     </message>
     <message>
-        <source>Use 16 separate masternodes</source>
-        <translation>Use 16 masternodes separados</translation>
+        <source>Quantity Selected:</source>
+        <translation>Quantia selecionada:</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 OPCX to anonymize 10000 OPCX</source>
-        <translation>Está opção é a mais rápida e vai custar em torno de ~0.025 OPCX para anonimizar 10000 OPCX</translation>
+        <source>0</source>
+        <translation>0</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 OPCX to anonymize 10000 OPCX</source>
-        <translation>Está opção moderamente rápida e vai custar em torno de ~0.05 OPCX para anonimizar 10000 OPCX</translation>
+        <source>Amount:</source>
+        <translation>Quantia:</translation>
     </message>
     <message>
-        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
-        <translation>Esta é a opção mais lenta e mais segura. Usando a anonimização máxima vai custar</translation>
+        <source>Address / Amount:</source>
+        <translation>Endereço / Quantia:</translation>
     </message>
     <message>
-        <source>0.1 OPCX per 10000 OPCX you anonymize.</source>
-        <translation>0.1 OPCX por 10000 OPCX que deixar anônima.</translation>
+        <source>Cr&amp;eate</source>
+        <translation>Cr&amp;iar</translation>
     </message>
     <message>
-        <source>Obfuscation Configuration</source>
-        <translation>Configuração de ofuscação</translation>
+        <source>S&amp;ign</source>
+        <translation>A&amp;ssinar</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening OPCX's configuration screen.</source>
-        <translation>Ofuscação foi definida com sucesso para o básico (%1 e 2 rodadas) Você pode mudar isto a qualquer tempo ao abrir a configuração de tela OPCX's.</translation>
+        <source>Add Private &amp;Key</source>
+        <translation>Adicionar &amp;Chave Privada</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening OPCX's configuration screen.</source>
-        <translation>Ofuscação foi definida com sucesso para alto (%1 e 8 rodadas). Você pode mudar isto a qualquer tempo ao abrir a configuração de tela OPCX's.</translation>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>Assinar somente com chaves privadas (Não Recomendado)</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening OPCX's configuration screen.</source>
-        <translation>Ofuscação foi definida com sucesso para máxima (%1 e 16 rodadas). Você pode mudar isto a qualquer tempo ao abrir a configuração de tela OPCX's.</translation>
+        <source>Invalid Tx Hash.</source>
+        <translation>Tx Hash inválido.</translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>Quantidade:</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>Máximo (15)</translation>
     </message>
 </context>
 <context>
@@ -1582,18 +1605,6 @@ Favor verificar o endereço e tente novamente.</translation>
         <translation>&amp;Iniciar OPCX ao logar no sistema</translation>
     </message>
     <message>
-        <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</source>
-        <translation>Esta configuração determina a quantidade de masternodes individuais em que um input será feito anônimo. &lt;br/&gt;Mais rodadas de anonimidade darão um grau maior de privacidade, mas também custarão mais em taxas. </translation>
-    </message>
-    <message>
-        <source>Obfuscation rounds to use</source>
-        <translation>Rodadas de ofuscação para usar</translation>
-    </message>
-    <message>
-        <source>Amount of OPCX to keep anonymized</source>
-        <translation>Quantidade de OPCX a manter anônima</translation>
-    </message>
-    <message>
         <source>Enable coin &amp;control features</source>
         <translation>Habilitar &amp;funcções de controle de moeda</translation>
     </message>
@@ -1664,10 +1675,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Usar tema de inferface:</translation>
     </message>
     <message>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;Unidades para mostrar as quantias:</translation>
-    </message>
-    <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
         <translation>Escolha uma unidade padrão para mostrar quando estiver enviando moedas.</translation>
     </message>
@@ -1723,7 +1730,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <source>The supplied proxy address is invalid.</source>
         <translation>O endereço proxy fornecido é inválido.</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>OverviewPage</name>
     <message>
@@ -1751,10 +1758,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Imaturo:</translation>
     </message>
     <message>
-        <source>Balances</source>
-        <translation>Fundos</translation>
-    </message>
-    <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the OPCX network after a connection is established, but this process has not completed yet.</source>
         <translation>A informação mostrada pode estar desatualizada. A sua carteira se sincroniza automaticamente com a rede OPCX após estabelecer uma conexão, mas esse processo ainda não foi concluído.</translation>
     </message>
@@ -1765,10 +1768,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Total:</source>
         <translation>Total:</translation>
-    </message>
-    <message>
-        <source>Your current total balance</source>
-        <translation>Seu saldo total atual</translation>
     </message>
     <message>
         <source>Current total balance in watch-only addresses</source>
@@ -1783,132 +1782,22 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Disponível:</translation>
     </message>
     <message>
-        <source>Status:</source>
-        <translation>Situação:</translation>
+        <source>Locked:</source>
+        <translation>Travado:</translation>
     </message>
     <message>
-        <source>Obfuscation Balance:</source>
-        <translation>Saldo ofuscado:</translation>
-    </message>
-    <message>
-        <source>0 OPCX / 0 Rounds</source>
-        <translation>0 OPCX / 0 Rodadas</translation>
-    </message>
-    <message>
-        <source>Enabled/Disabled</source>
-        <translation>Ativado/Desativado</translation>
-    </message>
-    <message>
-        <source>Try to manually submit a Obfuscation request.</source>
-        <translation>Tente encaminhar uma requisição manualmente de Ofuscação.</translation>
-    </message>
-    <message>
-        <source>Reset the current status of Obfuscation (can interrupt Obfuscation if it's in the process of Mixing, which can cost you money!)</source>
-        <translation>Reinicia o presente estado de ofuscação (pode interromper a Ofuscação se estiver em processo de Embaralhamento, o que pode lhe custar dinheiro!)</translation>
-    </message>
-    <message>
-        <source>Obfuscation</source>
-        <translation>Ofuscação</translation>
-    </message>
-    <message>
-        <source>Completion:</source>
-        <translation>Conclusão:</translation>
-    </message>
-    <message>
-        <source>Amount and Rounds:</source>
-        <translation>Quantia e Rodadas:</translation>
-    </message>
-    <message>
-        <source>n/a</source>
-        <translation>n/a</translation>
+        <source>Unconfirmed:</source>
+        <translation>Não confirmado:</translation>
     </message>
     <message>
         <source>Recent transactions</source>
         <translation>Transações recentes</translation>
     </message>
     <message>
-        <source>Start/Stop Mixing</source>
-        <translation>Iniciar/Parar embaralhamento</translation>
-    </message>
-    <message>
-        <source>(Last Message)</source>
-        <translation>(Última mensagem)</translation>
-    </message>
-    <message>
-        <source>Try Mix</source>
-        <translation>Tente embaralhar</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>Reinicia</translation>
-    </message>
-    <message>
         <source>out of sync</source>
         <translation>fora de sincronia</translation>
     </message>
-    <message>
-        <source>Disabled</source>
-        <translation>Desativado</translation>
-    </message>
-    <message>
-        <source>No inputs detected</source>
-        <translation>Nenhum input detectado</translation>
-    </message>
-    <message>
-        <source>Overall progress</source>
-        <translation>Progresso geral</translation>
-    </message>
-    <message>
-        <source>Denominated</source>
-        <translation>Denominado</translation>
-    </message>
-    <message>
-        <source>Anonymized</source>
-        <translation>Anonimizado</translation>
-    </message>
-    <message>
-        <source>Last Obfuscation message:
-</source>
-        <translation>Última mensagem de ofuscação:
-</translation>
-    </message>
-    <message>
-        <source>Obfuscation was successfully reset.</source>
-        <translation>Ofuscação foi reiniciada com sucesso.</translation>
-    </message>
-    <message>
-        <source>Obfuscation requires at least %1 to use.</source>
-        <translation>Ofuscação requer pelo menos %1 para usar.</translation>
-    </message>
-    <message>
-        <source>Wallet is locked and user declined to unlock. Disabling Obfuscation.</source>
-        <translation>A carteira está travada e o usuário recusou o destravamento. Desabilitando a Ofuscação.</translation>
-    </message>
-    <message>
-        <source>Found enough compatible inputs to anonymize %1</source>
-        <translation>Foram encontrados inputos suficientes para anonimizar %1</translation>
-    </message>
-    <message>
-        <source>Start Obfuscation</source>
-        <translation>Iniciar ofuscação</translation>
-    </message>
-    <message>
-        <source>Stop Obfuscation</source>
-        <translation>Parar ofuscação</translation>
-    </message>
-    <message>
-        <source>Mixed</source>
-        <translation>Embaralhado</translation>
-    </message>
-    <message>
-        <source>Enabled</source>
-        <translation>Ativado</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>PaymentServer</name>
     <message>
@@ -1960,6 +1849,196 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
 </context>
 <context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>Ações Zerocoin:</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the OPCX network after a connection is established, but this process has not completed yet.</source>
+        <translation>A informação mostrada pode estar desatualizada. A sua carteira se sincroniza automaticamente com a rede OPCX após estabelecer uma conexão, mas esse processo ainda não foi concluído.</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zOPCX</source>
+        <translation>zOPCX</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Reinicia</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Quantia selecionada:</translation>
+    </message>
+    <message>
+        <source>Available Balance:</source>
+        <translation>Saldo disponível:</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Pagar &amp;Para:</translation>
+    </message>
+    <message>
+        <source>The OPCX address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>O endereço OPCX para enviar o pagamento. Cria um pagamento local para si mesmo quando vazio.</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Escolha o endereço previamente utilizado</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Cole o endereço da área de transferência</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Rótulo:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Coloque uma etiqueta neste endereço para adicioná-lo à lista de endereços utilizados</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>Quantia:</translation>
+    </message>
+    <message>
+        <source>Information about the available Zerocoin funds.</source>
+        <translation>Informação sobre os fundos disponíveis em Zerocoin.</translation>
+    </message>
+    <message>
+        <source>Zerocoin Stats:</source>
+        <translation>Estatísticas zerocoin:</translation>
+    </message>
+    <message>
+        <source>Total Balance including unconfirmed and immature zOPCX</source>
+        <translation>Balanço Total incluindo não confirmadas e imaturas zOPCX</translation>
+    </message>
+    <message>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>Balanço Total Zerocoin:</translation>
+    </message>
+    <message>
+        <source>0 x</source>
+        <translation>0 x</translation>
+    </message>
+    <message>
+        <source>Denominations with value 10:</source>
+        <translation>Denominações com valor 10:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 50:</source>
+        <translation>Denominações com valor 50:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 100:</source>
+        <translation>Denominações com valor 100:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 500:</source>
+        <translation>Denominações com valor 500:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1000:</source>
+        <translation>Denominações com valor 1000:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5000:</source>
+        <translation>Denominações com valor 5000:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioridade:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>Rótulo</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Taxa:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>não</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bytes:</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Fundos insuficientes!</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>médio</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Funções do Controle de Moedas</translation>
+    </message>
+    <message>
+        <source>Amount After Fee:</source>
+        <translation>Quantia depois da taxa:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Troco:</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>fora de sincronia</translation>
+    </message>
+    <message>
+        <source>Confirm additional Fees</source>
+        <translation>Confirmar Taxas adicionais</translation>
+    </message>
+    <message>
+        <source> to address </source>
+        <translation>para o endereço</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Confirmar envio de moedas</translation>
+    </message>
+    <message>
+        <source>denomination: </source>
+        <translation>denominação:</translation>
+    </message>
+    <message>
+        <source>address: </source>
+        <translation>endereço:</translation>
+    </message>
+    <message>
+        <source>Sending successful, return code: </source>
+        <translation>Enviado com sucesso, código de retorno:</translation>
+    </message>
+    <message>
+        <source>txid: </source>
+        <translation>txid:</translation>
+    </message>
+    <message>
+        <source>fee: </source>
+        <translation>taxa:</translation>
+    </message>
+</context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
@@ -2005,7 +2084,11 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    <message>
+        <source>OPCX Core</source>
+        <translation>OPCX Core</translation>
+    </message>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -2144,14 +2227,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Serviços</translation>
     </message>
     <message>
-        <source>Starting Height</source>
-        <translation>Altura de início</translation>
-    </message>
-    <message>
-        <source>Sync Height</source>
-        <translation>Altura da sincronização</translation>
-    </message>
-    <message>
         <source>Connection Time</source>
         <translation>Tempo de conexão</translation>
     </message>
@@ -2180,6 +2255,18 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>&amp;Reparo da Carteira</translation>
     </message>
     <message>
+        <source>Delete local Blockchain Folders</source>
+        <translation>Excluir pastas locais Blockchain</translation>
+    </message>
+    <message>
+        <source>Wallet In Use:</source>
+        <translation>Carteiro em uso:</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
+        <translation>Tentar recuperar chaves privadas de um wallet.dat corrompido.</translation>
+    </message>
+    <message>
         <source>Rescan blockchain files</source>
         <translation>Reescanear os arquivos da blockchain</translation>
     </message>
@@ -2194,6 +2281,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Upgrade wallet format</source>
         <translation>Atualizar formato da carteira</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>Deleta todos os arquivos locais da blockchain para que a carteira sincronize do zero.</translation>
     </message>
     <message>
         <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
@@ -2220,8 +2311,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Bem-vindo ao console da OPCX RPC</translation>
     </message>
     <message>
-        <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Utilize as teclas para cima ou baixo para navegar no histórico e &lt;b&gt;Ctrl-L&lt;/b&gt; para limpar a tela.</translation>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation>Você deseja continuar?.&lt;br /&gt;</translation>
     </message>
     <message>
         <source>%1 B</source>
@@ -2255,10 +2346,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <source>Unknown</source>
         <translation>Desconhecido</translation>
     </message>
-    <message>
-        <source>Fetching...</source>
-        <translation>buscando...</translation>
-    </message>
 </context>
 <context>
     <name>ReceiveCoinsDialog</name>
@@ -2271,12 +2358,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Um rótulo opcional para associar a novos endereços de recebimento.</translation>
     </message>
     <message>
-        <source>&amp;Label:</source>
-        <translation>Rótu&amp;lo:</translation>
+        <source>A&amp;mount:</source>
+        <translation>Quantia:</translation>
     </message>
     <message>
-        <source>&amp;Amount:</source>
-        <translation>&amp;Quantidade:</translation>
+        <source>&amp;Label:</source>
+        <translation>&amp;Rótulo:</translation>
     </message>
     <message>
         <source>&amp;Request payment</source>
@@ -2322,6 +2409,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <source>Copy amount</source>
         <translation>Copiar quantia</translation>
     </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Copiar endereço</translation>
+    </message>
 </context>
 <context>
     <name>ReceiveRequestDialog</name>
@@ -2332,6 +2423,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Copy &amp;URI</source>
         <translation>Copiar &amp;URI</translation>
+    </message>
+    <message>
+        <source>Copy &amp;Address</source>
+        <translation>Copiar &amp;Endereço</translation>
     </message>
     <message>
         <source>&amp;Save Image...</source>
@@ -2389,6 +2484,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Mensagem</translation>
     </message>
     <message>
+        <source>Address</source>
+        <translation>Endereço</translation>
+    </message>
+    <message>
         <source>Amount</source>
         <translation>Quantidade</translation>
     </message>
@@ -2414,10 +2513,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Coin Control Features</source>
         <translation>Funções do Controle de Moedas</translation>
-    </message>
-    <message>
-        <source>automatically selected</source>
-        <translation>selecionado automaticamente</translation>
     </message>
     <message>
         <source>Insufficient funds!</source>
@@ -2492,10 +2587,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Minimizar</translation>
     </message>
     <message>
-        <source>Obfuscation</source>
-        <translation>Ofuscação</translation>
-    </message>
-    <message>
         <source>per kilobyte</source>
         <translation>por kilobyte</translation>
     </message>
@@ -2510,6 +2601,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
         <translation>(Smart fee não inicializada ainda. Isso geralmente leva alguns blocos...)</translation>
+    </message>
+    <message>
+        <source>SwiftX</source>
+        <translation>SwiftX</translation>
     </message>
     <message>
         <source>Confirmation time:</source>
@@ -2548,6 +2643,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Confirma a ação de envio</translation>
     </message>
     <message>
+        <source>S&amp;end</source>
+        <translation>E&amp;nviar</translation>
+    </message>
+    <message>
         <source>Clear all fields of the form.</source>
         <translation>Limpa todos os campos do formulário.</translation>
     </message>
@@ -2564,8 +2663,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Adicionar &amp;Recipiente</translation>
     </message>
     <message>
-        <source>SwiftTX</source>
-        <translation>SwiftTX</translation>
+        <source>Anonymized OPCX</source>
+        <translation>OPCX anonimizadas</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -2600,24 +2699,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Copiar troco</translation>
     </message>
     <message>
-        <source>using</source>
-        <translation>usando</translation>
-    </message>
-    <message>
-        <source>anonymous funds</source>
-        <translation>fundos anônimos</translation>
-    </message>
-    <message>
         <source>Warning: Invalid OPCX address</source>
         <translation>Aviso: endereço OPCX inválido</translation>
-    </message>
-    <message>
-        <source>any available funds (not recommended)</source>
-        <translation>quaisquer fundos disponíveis (não recomendado)</translation>
-    </message>
-    <message>
-        <source>and SwiftTX</source>
-        <translation>e SwiftTX</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -2924,7 +3007,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Os desenvolvedores do Dash Core</translation>
     </message>
     <message>
-        <source>The PIVX Core developers</source>
+        <source>The OPCX Core developers</source>
         <translation>Os desenvolvedores do OPCX Core</translation>
     </message>
     <message>
@@ -2950,18 +3033,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>conflitou</translation>
     </message>
     <message>
-        <source>%1/offline (verified via swifttx)</source>
-        <translation>%1/offline (verificado via swifttx)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (verified via swifttx)</source>
-        <translation>%1/confirmado (verificado via swifttx)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (verified via swifttx)</source>
-        <translation>%1 confirmações (verificado via swifttx)</translation>
-    </message>
-    <message>
         <source>%1/offline</source>
         <translation>%1/offline</translation>
     </message>
@@ -2974,24 +3045,36 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>%1 confirmações</translation>
     </message>
     <message>
-        <source>%1/offline (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1/offline (verificação SwiftTX em progresso - %2 de %3 assinaturas)</translation>
+        <source>%1/offline (verified via SwiftX)</source>
+        <translation>%1/offline (verificado via SwiftX)</translation>
     </message>
     <message>
-        <source>%1/confirmed (SwiftTX verification in progress - %2 of %3 signatures )</source>
-        <translation>%1/confirmado (verificação SwiftTX em progresso - %2 de %3 assinaturas)</translation>
+        <source>%1/confirmed (verified via SwiftX)</source>
+        <translation>%1/confirmado (verificado via SwiftX)</translation>
     </message>
     <message>
-        <source>%1 confirmations (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1 confirmações (verificação SwiftTX em progresso - %2 de %3 assinaturas)</translation>
+        <source>%1 confirmations (verified via SwiftX)</source>
+        <translation>%1 confirmações (verificado via SwiftX)</translation>
     </message>
     <message>
-        <source>%1/offline (SwiftTX verification failed)</source>
-        <translation>%1/offline (verificação SwiftTX falhou)</translation>
+        <source>%1/offline (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1/offline (verificação SwiftX  em progresso - %2 de %3 assinaturas)</translation>
     </message>
     <message>
-        <source>%1/confirmed (SwiftTX verification failed)</source>
-        <translation>%1/confirmado (verificação SwiftTX falhou)</translation>
+        <source>%1/confirmed (SwiftX verification in progress - %2 of %3 signatures )</source>
+        <translation>%1/confirmado (verificação SwiftX  em progresso - %2 de %3 assinaturas )</translation>
+    </message>
+    <message>
+        <source>%1 confirmations (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1 confirmações ( verificação SwiftX  em progresso - %2 de %3 assinaturas)</translation>
+    </message>
+    <message>
+        <source>%1/offline (SwiftX verification failed)</source>
+        <translation>%1/offline ( verificação SwiftX falhou)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (SwiftX verification failed)</source>
+        <translation>%1/confirmado (verificação SwiftX falhou)</translation>
     </message>
     <message>
         <source>Status</source>
@@ -3084,6 +3167,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Merchant</source>
         <translation>Vendedor</translation>
+    </message>
+    <message>
+        <source>Debug information</source>
+        <translation>Informação de depuração</translation>
     </message>
     <message>
         <source>Transaction</source>
@@ -3180,12 +3267,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Enviado para</translation>
     </message>
     <message>
-        <source>Payment to yourself</source>
-        <translation>Pagamento para si mesmo</translation>
+        <source>Orphan Block - Generated but not accepted. This does not impact your holdings.</source>
+        <translation>Bloco órfão - Gerado, porém não aceito. Isto não impacta seus fundos.</translation>
     </message>
     <message>
-        <source>Minted</source>
-        <translation>Cunhado</translation>
+        <source>Payment to yourself</source>
+        <translation>Pagamento para si mesmo</translation>
     </message>
     <message>
         <source>Mined</source>
@@ -3269,10 +3356,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Sent to</source>
         <translation>Enviado para</translation>
-    </message>
-    <message>
-        <source>Obfuscated</source>
-        <translation>Ofuscado</translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -3407,11 +3490,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <source>Send Coins</source>
         <translation>Enviar Moedas</translation>
     </message>
-    <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 OPCX.</source>
-        <translation>SwiftTX ainda não suporta o envio de valores altos assim. As transações atualmente são limitadas a %1 OPCX.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WalletView</name>
     <message>
@@ -3434,36 +3513,31 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <source>Wallet Data (*.dat)</source>
         <translation>Wallet Data (.dat)</translation>
     </message>
-    <message>
-        <source>Backup Failed</source>
-        <translation>Backup falhou</translation>
-    </message>
-    <message>
-        <source>There was an error trying to save the wallet data to %1.</source>
-        <translation>Aconteceu um erro na tentativa de salvar os dados da carteira em %1.</translation>
-    </message>
-    <message>
-        <source>Backup Successful</source>
-        <translation>Backup com sucesso</translation>
-    </message>
-    <message>
-        <source>The wallet data was successfully saved to %1.</source>
-        <translation>Os dados da carteira foram salvos em %1 com sucesso.</translation>
-    </message>
 </context>
+<context>
+    <name>ZOpcxControlDialog</name>
+    <message>
+        <source>Quantity</source>
+        <translation>Quantia</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zOPCX</source>
+        <translation>zOPCX</translation>
+    </message>
+    <message>
+        <source>Select/Deselect All</source>
+        <translation>Selecionar/Deselecionar todos</translation>
+    </message>
+    </context>
 <context>
     <name>opcx-core</name>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
         <translation>Deletar todas as transações da carteira e somente recuperar aquelas partes da blockchain através de -rescan na inicialização</translation>
-    </message>
-    <message>
-        <source>Disable all OPCX specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)</source>
-        <translation>Desabilitar todas as funcionalidades específicas OPCX (Masternodes, Ofuscação, SwiftTX, Budgeting) (0-1, padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Enable use of automated obfuscation for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>Permitir o uso de ofuscação automática para fundos armazenados nesta carteira (0-1, padrão: %u)</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
@@ -3500,10 +3574,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
         <translation>Define o tamanho máximo de transações de alta prioridade/taxa baixa em bytes (padrão: %d)</translation>
-    </message>
-    <message>
-        <source>SwiftTX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>SwiftTX requer inputs com pelo menos 6 confirmações, você precisar aguardar alguns minutos e tentar novamente.</translation>
     </message>
     <message>
         <source>Unable to locate enough funds for this transaction that are not equal 10000 OPCX.</source>
@@ -3562,20 +3632,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Adicionar um nó para conectar e tentar manter uma conexão aberta</translation>
     </message>
     <message>
-        <source>Already have that input.</source>
-        <translation>Já possui este input.</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>Opções de criação de bloco:</translation>
-    </message>
-    <message>
-        <source>Can't find random Masternode.</source>
-        <translation>Não conseguiu encontrar um Masternode aleatório.</translation>
-    </message>
-    <message>
-        <source>Can't mix while sync in progress.</source>
-        <translation>Não é possível embaralhar enquanto a sincronia estiver em progresso.</translation>
     </message>
     <message>
         <source>Connect only to the specified node(s)</source>
@@ -3602,12 +3660,20 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Todos os direitos reservados (C) 2014-%i aos Desenvolvedores do Dash Core</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The PIVX Core Developers</source>
+        <source>Copyright (C) 2015-%i The OPCX Core Developers</source>
         <translation>Todos os direitos reservados (C) 2015-%i aos Desenvolvedores do OPCX Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
         <translation>database de blocos corrompida</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation>Opções de depuração/teste:</translation>
+    </message>
+    <message>
+        <source>Disable OS notifications for incoming transactions (default: %u)</source>
+        <translation>Desabilitar notificações OS para transações chegando (padrão: %u)</translation>
     </message>
     <message>
         <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
@@ -3624,14 +3690,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Enable the client to act as a masternode (0-1, default: %u)</source>
         <translation>Permite ao cliente atuar como um masternode (0-1, padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Entries are full.</source>
-        <translation>As entradas estão cheias.</translation>
-    </message>
-    <message>
-        <source>Error connecting to Masternode.</source>
-        <translation>Erro ao conectar ao Masternode.</translation>
     </message>
     <message>
         <source>Error initializing block database</source>
@@ -3686,8 +3744,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>erro: Carteira travada, não foi possível criar a transação!</translation>
     </message>
     <message>
-        <source>Error: You already have pending entries in the Obfuscation pool</source>
-        <translation>Erro: Você já possui entradas pendentes na pool de Ofuscação</translation>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation>Falhou em escutar qualquer porta. Use -listen=0 se você quiser isso.</translation>
     </message>
     <message>
         <source>Failed to read block</source>
@@ -3698,20 +3756,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Taxa (em OPCX/kB) a adicionar em transações que você enviar (padrão: %s)</translation>
     </message>
     <message>
-        <source>Finalizing transaction.</source>
-        <translation>Encerrando a transação.</translation>
-    </message>
-    <message>
         <source>Force safe mode (default: %u)</source>
         <translation>Forçar modo seguro (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Found enough users, signing ( waiting %s )</source>
-        <translation>Encontrou usuários suficientes, autenticando (aguardando %s)</translation>
-    </message>
-    <message>
-        <source>Found enough users, signing ...</source>
-        <translation>Encontrou usuários suficientes, autenticando...</translation>
     </message>
     <message>
         <source>Generate coins (default: %u)</source>
@@ -3726,14 +3772,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Importando...</translation>
     </message>
     <message>
-        <source>Incompatible mode.</source>
-        <translation>Modo incompatível.</translation>
-    </message>
-    <message>
-        <source>Incompatible version.</source>
-        <translation>Versão incompatível.</translation>
-    </message>
-    <message>
         <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
         <translation>Incorreto ou bloco gênesis não encontrado. O datadir de rede estaria errado?</translation>
     </message>
@@ -3742,20 +3780,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Informação</translation>
     </message>
     <message>
-        <source>Input is not valid.</source>
-        <translation>O input não é válido.</translation>
+        <source>Insufficient funds</source>
+        <translation>Fundos insuficientes</translation>
     </message>
     <message>
         <source>Insufficient funds.</source>
         <translation>Fundos insuficientes.</translation>
-    </message>
-    <message>
-        <source>Invalid -onion address: '%s'</source>
-        <translation>Inválido -onion endereço: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: '%s'</source>
-        <translation>Inválido -proxy endereço: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
@@ -3782,6 +3812,10 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Quantia inválida para -reservebalance=&lt;quantidade&gt;</translation>
     </message>
     <message>
+        <source>Invalid amount</source>
+        <translation>quantia inválida</translation>
+    </message>
+    <message>
         <source>Invalid masternodeprivkey. Please see documenation.</source>
         <translation>masternodeprivkey inválido. Favor conferir o manual.</translation>
     </message>
@@ -3798,20 +3832,18 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Chave privada inválida.</translation>
     </message>
     <message>
-        <source>Invalid script detected.</source>
-        <translation>Script inválido detectado.</translation>
+        <source>SwiftX options:</source>
+        <translation>opções SwiftX:</translation>
     </message>
     <message>
-        <source>Keep N OPCX anonymized (default: %u)</source>
-        <translation>Manter N OPCX anônimo (padrão: %u)</translation>
+        <source> unconfirmed transactions removed
+</source>
+        <translation>transações não confirmadas removidas
+</translation>
     </message>
     <message>
-        <source>Last Obfuscation was too recent.</source>
-        <translation>Última ofuscação foi muito recente.</translation>
-    </message>
-    <message>
-        <source>Last successful Obfuscation action was too recent.</source>
-        <translation>Última ação de ofuscação com sucesso foi muito recente.</translation>
+        <source>&lt;category&gt; can be:</source>
+        <translation>&lt;category&gt; pode ser:</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
@@ -3846,10 +3878,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Carregando carteira...</translation>
     </message>
     <message>
-        <source>Lock is already in place.</source>
-        <translation>Trava já está no lugar.</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
         <translation>Manter pelo menos &lt;n&gt; conexões aos pares (padrão: %u)</translation>
     </message>
@@ -3858,64 +3886,16 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Opções de Masternode:</translation>
     </message>
     <message>
-        <source>Masternode queue is full.</source>
-        <translation>A fila do Masternode está cheia.</translation>
-    </message>
-    <message>
-        <source>Masternode:</source>
-        <translation>Masternode:</translation>
-    </message>
-    <message>
-        <source>Mixing in progress...</source>
-        <translation>Embaralhamento em progresso.</translation>
-    </message>
-    <message>
         <source>Need to specify a port with -whitebind: '%s'</source>
         <translation>Necessário especificar uma porta com -whitebind: '%s'</translation>
-    </message>
-    <message>
-        <source>No Masternodes detected.</source>
-        <translation>Nenhum Masternode detectado.</translation>
-    </message>
-    <message>
-        <source>No compatible Masternode found.</source>
-        <translation>Nenhum Masternode compatível encontrado.</translation>
     </message>
     <message>
         <source>Node relay options:</source>
         <translation>Opções de propagação do Nó:</translation>
     </message>
     <message>
-        <source>Non-standard public key detected.</source>
-        <translation>Chave pública não-padronizada detectada.</translation>
-    </message>
-    <message>
-        <source>Not compatible with existing transactions.</source>
-        <translation>Não é compatível com as transações existentes.</translation>
-    </message>
-    <message>
-        <source>Not in the Masternode list.</source>
-        <translation>Não está na lista de Masternodes.</translation>
-    </message>
-    <message>
         <source>Number of automatic wallet backups (default: 10)</source>
         <translation>Número de backups automáticos da carteira (padrão: 10)</translation>
-    </message>
-    <message>
-        <source>Obfuscation is idle.</source>
-        <translation>Ofuscação está ociosa.</translation>
-    </message>
-    <message>
-        <source>Obfuscation options:</source>
-        <translation>Opções de ofuscação:</translation>
-    </message>
-    <message>
-        <source>Obfuscation request complete:</source>
-        <translation>Requisição de ofuscação completa:</translation>
-    </message>
-    <message>
-        <source>Obfuscation request incomplete:</source>
-        <translation>Requisição de ofuscação incompleta:</translation>
     </message>
     <message>
         <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
@@ -3930,8 +3910,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Senha para conexões JSON-RPC</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>Opções de SSL RPC (veja a Bitcoin Wiki para instruções na configuração do SSL)</translation>
+        <source>Preparing for resync...</source>
+        <translation>Preparando para ressincronizar... </translation>
     </message>
     <message>
         <source>RPC server options:</source>
@@ -3948,14 +3928,6 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     <message>
         <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
         <translation>Enviar transações com taxa zero se possível (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Server private key (default: %s)</source>
-        <translation>Chave privada do servidor (padrão: %s)</translation>
-    </message>
-    <message>
-        <source>Session not complete!</source>
-        <translation>Sessão não está completa!</translation>
     </message>
     <message>
         <source>Session timed out.</source>
@@ -4022,24 +3994,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Especifique seu próprio endereço público</translation>
     </message>
     <message>
+        <source>Staking options:</source>
+        <translation>Opções de staking:</translation>
+    </message>
+    <message>
         <source>Stop running after importing blocks from disk (default: %u)</source>
         <translation>Parar de rodar depois de importar blocos do disco (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Submitted following entries to masternode: %u / %d</source>
-        <translation>Enviadas as seguintes entradas ao masternode: %u / %d</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation>Enviado ao masternode, aguardando por mais entradas ( %u / %d) %s</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting in queue %s</source>
-        <translation>Enviado ao masternode, aguardando na fila %s</translation>
-    </message>
-    <message>
-        <source>SwiftTX options:</source>
-        <translation>opções SwiftTX:</translation>
     </message>
     <message>
         <source>Synchronization failed</source>
@@ -4066,28 +4026,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Este software é experimental.</translation>
     </message>
     <message>
-        <source>This is not a Masternode.</source>
-        <translation>Isto não é um Masternode.</translation>
-    </message>
-    <message>
         <source>Transaction amount too small</source>
         <translation>Quantia de transação muito pequena</translation>
     </message>
     <message>
         <source>Transaction amounts must be positive</source>
         <translation>Quantias de transação devem ser positivas</translation>
-    </message>
-    <message>
-        <source>Transaction created successfully.</source>
-        <translation>Transação criada com sucesso.</translation>
-    </message>
-    <message>
-        <source>Transaction fees are too high.</source>
-        <translation>Taxa de transação muito elevada.</translation>
-    </message>
-    <message>
-        <source>Transaction not valid.</source>
-        <translation>Transação não é válida.</translation>
     </message>
     <message>
         <source>Transaction too large for fee policy</source>
@@ -4098,24 +4042,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Transação muito grande</translation>
     </message>
     <message>
-        <source>Transmitting final transaction.</source>
-        <translation>Transmitindo transação final.</translation>
-    </message>
-    <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Rede desconhecida especificada em -onlynet: '%s'</translation>
     </message>
     <message>
-        <source>Unknown state: id = %u</source>
-        <translation>Estado desconhecido: id = %u</translation>
-    </message>
-    <message>
         <source>Upgrade wallet to latest format</source>
         <translation>Atualize a carteira para o último formato</translation>
-    </message>
-    <message>
-        <source>Use OpenSSL (https) for JSON-RPC connections</source>
-        <translation>Usar OpenSSL (https) para conexões JSON-RPC</translation>
     </message>
     <message>
         <source>Use the test network</source>
@@ -4126,20 +4058,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Nome de usuário para conexões JSON-RPC</translation>
     </message>
     <message>
-        <source>Value more than Obfuscation pool maximum allows.</source>
-        <translation>Valor maior que o máximo permitido pela pool de Ofuscação </translation>
-    </message>
-    <message>
         <source>Verifying blocks...</source>
         <translation>Verificando blocos...</translation>
     </message>
     <message>
         <source>Verifying wallet...</source>
         <translation>Verificando carteira...</translation>
-    </message>
-    <message>
-        <source>Wallet is locked.</source>
-        <translation>Carteira está travada.</translation>
     </message>
     <message>
         <source>Wallet needed to be rewritten: restart OPCX Core to complete</source>
@@ -4170,24 +4094,16 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Aviso: Argumento não suportado -debugnet ignorado, use -debug=net.</translation>
     </message>
     <message>
-        <source>Will retry...</source>
-        <translation>Tentando novamente...</translation>
-    </message>
-    <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
         <translation>Você precisa refazer a base de dados usando -reindex para mudar -txindex</translation>
     </message>
     <message>
-        <source>Your entries added successfully.</source>
-        <translation>Suas entradas foram adicionadas com sucesso.</translation>
-    </message>
-    <message>
-        <source>Your transaction was accepted into the pool!</source>
-        <translation>Sua transação foi aceita na pool!</translation>
-    </message>
-    <message>
         <source>Zapping all transactions from wallet...</source>
         <translation>Eliminando todas as transações da carteira...</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>opções Zerocoin:</translation>
     </message>
     <message>
         <source>on startup</source>

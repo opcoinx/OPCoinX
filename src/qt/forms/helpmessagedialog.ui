@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>585</width>
-    <height>225</height>
+    <height>488</height>
    </rect>
   </property>
   <property name="font">
@@ -27,14 +27,8 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="minimumSize">
-      <size>
-       <width>64</width>
-       <height>378</height>
-      </size>
-     </property>
      <property name="pixmap">
-      <pixmap>:/images/about</pixmap>
+      <pixmap resource="../opcx.qrc">:/images/about</pixmap>
      </property>
     </widget>
    </item>
@@ -61,7 +55,7 @@
           <x>0</x>
           <y>0</y>
           <width>479</width>
-          <height>68</height>
+          <height>213</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -102,7 +96,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../opcx.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>okButton</sender>

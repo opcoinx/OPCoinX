@@ -16,8 +16,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "OPCoinX"
-            VALUE "FileDescription",    "opcxd (OSS daemon/client for Pivx)"
+            VALUE "CompanyName",        "OPCX"
+            VALUE "FileDescription",    "opcxd (OSS daemon/client for OPCX)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "opcxd"
             VALUE "LegalCopyright",     COPYRIGHT_STR

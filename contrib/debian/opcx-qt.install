@@ -1,0 +1,6 @@
+usr/local/bin/opcx-qt usr/bin
+share/pixmaps/opcx32.xpm usr/share/pixmaps
+share/pixmaps/opcx16.xpm usr/share/pixmaps
+share/pixmaps/opcx128.png usr/share/pixmaps
+debian/opcx-qt.desktop usr/share/applications
+debian/opcx-qt.protocol usr/share/kde4/services/

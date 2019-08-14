@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=OPCX Core
+Comment=OPCX P2P Cryptocurrency
+Comment[fr]=OPCX, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=OPCX, eşten eşe kriptografik sanal para birimi
+Exec=opcx-qt %u
+Terminal=false
+Type=Application
+Icon=opcx128
+MimeType=x-scheme-handler/opcx;
+Categories=Office;Finance;
+StartupWMClass=OPCoinX-qt

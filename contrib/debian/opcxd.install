@@ -1,0 +1,3 @@
+usr/local/bin/opcxd usr/bin
+usr/local/bin/opcx-cli usr/bin
+debian/examples/opcx.conf etc/opcx
