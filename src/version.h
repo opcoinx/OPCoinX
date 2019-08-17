@@ -40,7 +40,7 @@ static const int MEMPOOL_GD_VERSION = 60002;
 static const int NO_BLOOM_VERSION = 70005;
 
 //! fork blocks
-static const int SOFT_FORK_VERSION_200 = 648126;
+static const int SOFT_FORK_VERSION_200 = 653452 ;
 
 
 #endif // BITCOIN_VERSION_H
