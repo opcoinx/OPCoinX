@@ -56,6 +56,7 @@ public:
     int RejectBlockOutdatedMajority() const { return nRejectBlockOutdatedMajority; }
     int ToCheckBlockUpgradeMajority() const { return nToCheckBlockUpgradeMajority; }
     int MaxReorganizationDepth() const { return nMaxReorganizationDepth; }
+    int StakeMinAge() const { return nStakeMinAge; }
 
     /** Used if GenerateBitcoins is called with a negative number of threads */
     int DefaultMinerThreads() const { return nMinerThreads; }
@@ -137,7 +138,6 @@ public:
     int Zerocoin_Block_Double_Accumulated() const { return nBlockDoubleAccumulated; }
     CAmount InvalidAmountFiltered() const { return nInvalidAmountFiltered; };
     int Zerocoin_Block_Public_Spend_Enabled() const { return nPublicZCSpends; }
-    virtual int64_t GetMinStakeAge(int nTargetHeight) const = 0;
     virtual CAmount StakingMinInput(int nTargetHeight)  const = 0;
 protected:
     CChainParams() {}
@@ -148,6 +148,7 @@ protected:
     std::vector<unsigned char> vAlertPubKey;
     int nDefaultPort;
     uint256 bnProofOfWorkLimit;
+    int nStakeMinAge;
     int nMaxReorganizationDepth;
     int nSubsidyHalvingInterval;
     int nEnforceBlockUpgradeMajority;

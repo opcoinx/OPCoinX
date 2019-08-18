@@ -1812,7 +1812,7 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
             }
 
             //check for min age
-            if ((GetAdjustedTime() - nTxTime < Params().GetMinStakeAge(nTargetHeight) ) && Params().NetworkID() != CBaseChainParams::REGTEST)
+            if (GetAdjustedTime() - nTxTime < Params().StakeMinAge() && Params().NetworkID() != CBaseChainParams::REGTEST)
                 continue;
 
             //check that it is matured
@@ -1892,7 +1892,7 @@ bool CWallet::MintableCoins(int nTargetHeight) const
                 nTxTime = mapBlockIndex.at(out.tx->hashBlock)->GetBlockTime();
             }
 
-        if (GetAdjustedTime() - nTxTime > Params().GetMinStakeAge(nTargetHeight))
+            if (Params().NetworkID() == CBaseChainParams::REGTEST || GetAdjustedTime() - nTxTime >= Params().StakeMinAge())
                 return true;
         }
     }
@@ -2365,19 +2365,16 @@ bool CWallet::CreateCoinStake(
     if (nBalance > 0 && nBalance <= nReserveBalance)
         return false;
 
+    // Get the list of stakable inputs
+    static std::list<std::unique_ptr<CStakeInput> > listInputs;
     static int nLastStakeSetUpdate = 0;
 
-    // Get the list of stakable inputs
-    static  std::list<std::unique_ptr<CStakeInput> > listInputs;
-
     if (GetAdjustedTime() - nLastStakeSetUpdate > nStakeSetUpdateTime) {
-         listInputs.clear();
-         if (!SelectStakeCoins(listInputs, nBalance - nReserveBalance, chainActive.Height() + 1)) {
-	    LogPrintf("CreateCoinStake(): selectStakeCoins failed\n");
-            return false;
-	 }
-         
-         nLastStakeSetUpdate = GetAdjustedTime();
+	    if (!SelectStakeCoins(listInputs, nBalance - nReserveBalance, chainActive.Height() + 1)) {
+		LogPrintf("CreateCoinStake(): selectStakeCoins failed\n");
+		return false;
+	    }
+       nLastStakeSetUpdate = GetAdjustedTime();
     }
 
     if (listInputs.empty()) {
@@ -2409,7 +2406,8 @@ bool CWallet::CreateCoinStake(
         //make sure that enough time has elapsed between
         CBlockIndex* pindex = stakeInput->GetIndexFrom();
         if (!pindex || pindex->nHeight < 1) {
-            LogPrintf("CreateCoinStake(): no pindexfrom\n");
+            if (fDebug)
+               LogPrintf("CreateCoinStake(): no pindexfrom\n");
             continue;
         }
 
@@ -4865,7 +4863,7 @@ void CWallet::PrecomputeSpends()
 
         // Get the list of zOPCX inputs
         std::list <std::unique_ptr<CStakeInput>> listInputs;
-        if (!SelectStakeCoins(listInputs, 0, true)) {
+        if (!SelectStakeCoins(listInputs, 0, chainActive.Height() + 1, true)) {
             MilliSleep(5000);
             continue;
         }

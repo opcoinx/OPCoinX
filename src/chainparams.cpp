@@ -125,6 +125,7 @@ public:
         nTargetTimespan = 5 * 60; // OPCoinX: 5 minute
         nTargetSpacing = 5 * 60;  // OPCoinX: 5 minute
         nMaturity = 100;
+        nStakeMinAge = 60*60*6; //6 hours
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 800000000 * COIN;
 
@@ -241,11 +242,6 @@ public:
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
         nProposalEstablishmentTime = 60 * 60 * 24; // Proposals must be at least a day old to make it into a budget
     }
-
-    int64_t GetMinStakeAge(int nTargetHeight) const
-    {
-        return 60*60*6; //6 hours
-    }
     
     CAmount GetRequiredMasternodeCollateral(int nTargetHeight) const
     {
@@ -359,11 +355,6 @@ public:
         nProposalEstablishmentTime = 60 * 5; // Proposals must be at least 5 mns old to make it into a test budget
     }
 
-    int64_t GetMinStakeAge(int nTargetHeight) const
-    {
-        return 60*60*8; //8 hours
-    }
-
     CAmount GetRequiredMasternodeCollateral(int nTargetHeight) const
     {
         if(nTargetHeight > 2000) {
@@ -414,6 +405,7 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nLastPOWBlock = 250;
         nMaturity = 100;
+        nStakeMinAge = 0;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 0; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
@@ -486,11 +478,6 @@ public:
         fDefaultConsistencyChecks = true;
         fAllowMinDifficultyBlocks = false;
         fMineBlocksOnDemand = true;
-    }
-
-    int64_t GetMinStakeAge(int nTargetHeight) const
-    {
-        return 60*60*8; //8 hours
     }
     
     CAmount StakingMinInput(int nTargetHeight) const
