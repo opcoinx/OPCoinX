@@ -1472,8 +1472,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
                 }
             }
 
-            if (chainActive.Height() >= Params().Zerocoin_StartHeight())
-            {
+
                 // Check that zOPCX mints (if included) are not already known
                 for (auto& out : tx.vout) {
                     if (!out.IsZerocoinMint())
@@ -1486,7 +1485,6 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
                     if (!ContextualCheckZerocoinMint(tx, coin, chainActive.Tip()))
                         return state.Invalid(error("%s: zerocoin mint failed contextual check", __func__));
                 }
-            }
 
             // are the actual inputs available?
             if (!view.HaveInputs(tx))
@@ -2837,7 +2835,7 @@ bool UpdateZOPCXSupply(const CBlock& block, CBlockIndex* pindex, bool fJustCheck
     std::list<libzerocoin::CoinDenomination> listSpends = ZerocoinSpendListFromBlock(block, fFilterInvalid);
 
     // Initialize zerocoin supply to the supply from previous block
-    if (pindex->pprev && pindex->pprev->GetBlockHeader().nVersion > 5) {
+    if (pindex->pprev && pindex->pprev->GetBlockHeader().nVersion > 3) {
         for (auto& denom : libzerocoin::zerocoinDenomList) {
             pindex->mapZerocoinSupply.at(denom) = pindex->pprev->GetZcMints(denom);
         }
@@ -4703,8 +4701,6 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         }
 
 
-        if (pindex!= NULL && pindex->nHeight > SOFT_FORK_VERSION_200)
-        {
         // If the stake is not a zPoS then let's check if the inputs were spent on the main chain
         const CCoinsViewCache coins(pcoinsTip);
         if(!stakeTxIn.HasZerocoinSpendInputs()) {
@@ -4731,7 +4727,6 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
                                     stakeTxIn.GetHash().GetHex()), REJECT_INVALID, "bad-txns-invalid-zopcx");
                 }
 
-        }
         }
 
     }

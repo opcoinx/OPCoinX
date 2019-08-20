@@ -146,7 +146,7 @@ public:
         nRejectOldSporkKey = 1527811200; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
 
         // Public coin spend enforcement
-        nPublicZCSpends = 0;
+        nPublicZCSpends = std::numeric_limits<int>::max();
 
         // Fake Serial Attack
         nFakeSerialBlockheightEnd = -1;
@@ -245,7 +245,7 @@ public:
     
     CAmount GetRequiredMasternodeCollateral(int nTargetHeight) const
     {
-        if(nTargetHeight > 650000) {
+        if(nTargetHeight > 675000) {
             return 150000;
         }
 
