@@ -5,9 +5,8 @@
 // Copyright (c) 2017 The OPCoinX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
+#include "libzerocoin/Params.h"
 #include "chainparams.h"
-
 #include "random.h"
 #include "util.h"
 #include "utilstrencodings.h"
@@ -83,6 +82,15 @@ static const Checkpoints::CCheckpointData dataRegtest = {
     0,
     100};
 
+libzerocoin::ZerocoinParams* CChainParams::Zerocoin_Params() const
+{
+    assert(this);
+    static CBigNum bnTrustedModulus(zerocoinModulus);
+    static libzerocoin::ZerocoinParams ZCParams = libzerocoin::ZerocoinParams(bnTrustedModulus);
+
+    return &ZCParams;
+}
+
 class CMainParams : public CChainParams
 {
 public:
@@ -103,6 +111,7 @@ public:
         nDefaultPort = 18051;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // OPCoinX starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
+        //PIVX nMaxReorganizationDepth = 100;
         nMaxReorganizationDepth = 30;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
@@ -110,17 +119,13 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 5 * 60; // OPCoinX: 5 minute
         nTargetSpacing = 5 * 60;  // OPCoinX: 5 minute
-        nPastBlocksMin = 24;
         nLastPOWBlock = 2016;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
+        //PIVX nModifierUpdateBlock = 615800;
         nModifierUpdateBlock = 0;
         nMaxMoneyOut = int64_t(800000000) * COIN;
-        nModifierInterval = 60;
-        nModifierIntervalRatio = 3;
-        nBudgetPercent = 0;
-        nMasternodePaymentSigTotal = 10;
-        nMasternodePaymentSigRequired = 6;
+        //nBudgetPercent = 0;
         nMasternodeRewardPercent = 75; // % of block reward that goes to masternodes
         nRequiredMasternodeCollateral = 37500 * COIN; //37,500
 
@@ -182,17 +187,28 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
+        strSporkKeyOld = "0484698d3ba6ba6e7423fa5cbd6a89e0a9a5348f88d332b44a5cb1a8b7ed2c1eaa335fc8dc4f012cb8241cc0bdafd6ca70c5f5448916e4e6f511bcd746ed57dc50";
+        strSporkKey = "04aba216b85c979800b143d2cfea00297cf501c9250033b08b924861d33dd07490f70a3da3922f3d1dfa3b851e35c272092d91d111d2554d13c55ddcf2cc5381c5";
+        strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
+        nStopDualSporkKeys = 1569706375; // aturday 28 September 2019 21:32:55
+        nStartMasternodePayments = 1403728576; //Wed, 25 Jun 2014 20:36:16 GMT
 
-        strSporkKey = "04d2b1db171839f074bc85d751dd0663b90faa017f2d78ba9713b7428891204fe462ce11e78d3c3c44c809400fc559ce342a06819851faac636cca72cadd456029";
-        strObfuscationPoolDummyAddress = "oe2brxts38pc9ZkraSJc5oE5ki6oeyuGnU";
-        nStartMasternodePayments = genesis.nTime + 21600; // 24 hours after genesis creation;
+        /** Zerocoin */
+        zerocoinModulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
+            "4069182906412495150821892985591491761845028084891200728449926873928072877767359714183472702618963750149718246911"
+            "6507761337985909570009733045974880842840179742910064245869181719511874612151517265463228221686998754918242243363"
+            "7259085141865462043576798423387184774447920739934236584823824281198163815010674810451660377306056201619676256133"
+            "8441436038339044149526344321901146575444541784240209246165157233507787077498171257724679629263863563732899121548"
+            "31438167899885040445364023527381951378636564391212010397122822120720357";
+        nMaxZerocoinSpendsPerTransaction = 7; // Assume about 20kb each
+        nMinZerocoinMintFee = 1 * CENT; //high fee required for zerocoin mints
+        nMintRequiredConfirmations = 20; //the maximum amount of confirmations until accumulated in 19
+        nDefaultSecurityLevel = 100; //full security level for accumulators
+        nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
+        nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
 
-    int64_t GetMinStakeAge(int nTargetHeight) const
-    {
-        return 60*60*6; //6 hours
-    }
-
+    
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
         return data;
@@ -223,19 +239,14 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // OPCoinX: 1 hour
         nTargetSpacing = 1 * 60;  // OPCoinX: 1 hour
-        nPastBlocksMin = 200;
         nLastPOWBlock = 200;
         nMaturity = 15;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 0; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = int64_t(3500000000) * COIN;
-        nModifierInterval = 60;
-        nModifierIntervalRatio = 3;
-        nBudgetPercent = 5;
+        //nBudgetPercent = 5;
         nMasternodeRewardPercent = 60; // % of block reward that goes to masternodes
         nRequiredMasternodeCollateral = 37500 * COIN; //37,500
-        nMasternodePaymentSigTotal = 10;
-        nMasternodePaymentSigRequired = 1;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1520769358;
@@ -261,9 +272,9 @@ public:
 
         fRequireRPCPassword = true;
         fMiningRequiresPeers = true;
-        fAllowMinDifficultyBlocks = false;
+        fAllowMinDifficultyBlocks = true;
         fDefaultConsistencyChecks = false;
-        fRequireStandard = true;
+        fRequireStandard = false;
         fMineBlocksOnDemand = false;
         fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = true;
@@ -272,14 +283,11 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "046a6ef3c13c172242d6ebfaa95b0a1cdb9d26d15e042c6a2d954fcf4480b03d38b807a5036035fced8385e6e135dee73fc88743481706dc6452b9bbdb897f6a83";
         strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
+        nStopDualSporkKeys = 1491004800; // April 1 2017 00:00:00 GMT
         nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
+        nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short 
+                                       // here because we only have a 8 block finalization window on testnet
     }
-
-    int64_t GetMinStakeAge(int nTargetHeight) const
-    {
-        return 60*60*8; //8 hours
-    }
-
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
         return dataTestnet;
@@ -308,7 +316,6 @@ public:
         nMinerThreads = 1;
         nTargetTimespan = 24 * 60 * 60; // OPCX: 1 day
         nTargetSpacing = 1 * 60;        // OPCX: 1 minutes
-        nPastBlocksMin = 200;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1525482708;
         genesis.nBits = 0x207fffff;

@@ -1,6 +1,6 @@
 [Protocol]
-exec=opcx-qt '%u'
-protocol=opcx
+exec=pivx-qt '%u'
+protocol=pivx
 input=none
 output=none
 helper=true

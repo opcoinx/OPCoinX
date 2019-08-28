@@ -1,4 +1,4 @@
-Source: opcx
+Source: pivx
 Section: utils
 Priority: optional
 Maintainer: Jonas Smedegaard <dr@jones.dk> ***TODO***
@@ -22,11 +22,11 @@ Build-Depends: debhelper,
  libqrencode-dev,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
-Homepage: http://www.opcx.org
-Vcs-Git: git://github.com/OPCX-Project/OPCX.git
-Vcs-Browser: http://github.com/OPCX-Project/OPCX
+Homepage: http://www.pivx.org
+Vcs-Git: git://github.com/PIVX-Project/PIVX.git
+Vcs-Browser: http://github.com/PIVX-Project/PIVX
 
-Package: opcxd
+Package: pivxd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
@@ -39,10 +39,10 @@ Description: peer-to-peer network based digital currency - daemon
  Full transaction history is stored locally at each client.  This
  requires 1+ GB of space, slowly growing.
  .
- This package provides the daemon, opcxd, and the CLI tool
- opcx-cli to interact with the daemon.
+ This package provides the daemon, pivxd, and the CLI tool
+ pivx-cli to interact with the daemon.
 
-Package: opcx-qt
+Package: pivx-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI

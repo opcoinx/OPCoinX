@@ -22,7 +22,7 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define STYLE_INVALID "background:#FF8080"
 
 /* Transaction list -- unconfirmed transaction */
-#define COLOR_UNCONFIRMED QColor(55,144,190)
+#define COLOR_UNCONFIRMED QColor(128, 128, 128)
 /* Transaction list -- negative amount */
 #define COLOR_NEGATIVE QColor(255, 0, 0)
 /* Transaction list -- bare address (without label) */
@@ -33,7 +33,6 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define COLOR_TX_STATUS_OFFLINE QColor(192, 192, 192)
 /* Transaction list -- TX status decoration - default color */
 #define COLOR_BLACK QColor(51, 51, 51)
-#define COLOR_WHITE QColor(255, 255, 255)
 
 /* Tooltips longer than this (in characters) are converted into rich text,
    so that they can be word-wrapped.
@@ -49,9 +48,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 35
 
-#define QAPP_ORG_NAME "OPCoinX"
-#define QAPP_ORG_DOMAIN "overpoweredcoin.com"
-#define QAPP_APP_NAME_DEFAULT "OPCoinX-Qt"
-#define QAPP_APP_NAME_TESTNET "OPCoinX-Qt-testnet"
+#define QAPP_ORG_NAME "PIVX"
+#define QAPP_ORG_DOMAIN "pivx.org"
+#define QAPP_APP_NAME_DEFAULT "PIVX-Qt"
+#define QAPP_APP_NAME_TESTNET "PIVX-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

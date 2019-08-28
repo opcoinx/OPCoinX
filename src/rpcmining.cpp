@@ -93,14 +93,14 @@ Value getnetworkhashps(const Array& params, bool fHelp)
     return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 120, params.size() > 1 ? params[1].get_int() : -1);
 }
 
-
+#ifdef ENABLE_WALLET
 Value getgenerate(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getgenerate\n"
             "\nReturn if the server is set to generate coins or not. The default is false.\n"
-            "It is set with the command line argument -gen (or opcx.conf setting gen)\n"
+            "It is set with the command line argument -gen (or pivx.conf setting gen)\n"
             "It can also be set with the setgenerate call.\n"
             "\nResult\n"
             "true|false      (boolean) If the server is set to generate coins or not\n"
@@ -146,11 +146,49 @@ Value setgenerate(const Array& params, bool fHelp)
             fGenerate = false;
     }
 
+    // -regtest mode: don't return until nGenProcLimit blocks are generated
+    if (fGenerate && Params().MineBlocksOnDemand()) {
+        int nHeightStart = 0;
+        int nHeightEnd = 0;
+        int nHeight = 0;
+        int nGenerate = (nGenProcLimit > 0 ? nGenProcLimit : 1);
+        CReserveKey reservekey(pwalletMain);
 
+        { // Don't keep cs_main locked
+            LOCK(cs_main);
+            nHeightStart = chainActive.Height();
+            nHeight = nHeightStart;
+            nHeightEnd = nHeightStart + nGenerate;
+        }
+        unsigned int nExtraNonce = 0;
+        Array blockHashes;
+        while (nHeight < nHeightEnd) {
+            auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey, pwalletMain, false));
+            if (!pblocktemplate.get())
+                throw JSONRPCError(RPC_INTERNAL_ERROR, "Wallet keypool empty");
+            CBlock* pblock = &pblocktemplate->block;
+            {
+                LOCK(cs_main);
+                IncrementExtraNonce(pblock, chainActive.Tip(), nExtraNonce);
+            }
+            while (!CheckProofOfWork(pblock->GetHash(), pblock->nBits)) {
+                // Yes, there is a chance every nonce could fail to satisfy the -regtest
+                // target -- 1 in 2^(2^32). That ain't gonna happen.
+                ++pblock->nNonce;
+            }
+            CValidationState state;
+            if (!ProcessNewBlock(state, NULL, pblock))
+                throw JSONRPCError(RPC_INTERNAL_ERROR, "ProcessNewBlock, block not accepted");
+            ++nHeight;
+            blockHashes.push_back(pblock->GetHash().GetHex());
+        }
+        return blockHashes;
+    } else // Not -regtest: start generate thread, return immediately
+    {
         mapArgs["-gen"] = (fGenerate ? "1" : "0");
         mapArgs["-genproclimit"] = itostr(nGenProcLimit);
         GenerateBitcoins(fGenerate, pwalletMain, nGenProcLimit);
-
+    }
 
     return Value::null;
 }
@@ -171,7 +209,7 @@ Value gethashespersec(const Array& params, bool fHelp)
         return (int64_t)0;
     return (int64_t)dHashesPerSec;
 }
-
+#endif
 
 
 Value getmininginfo(const Array& params, bool fHelp)
@@ -378,10 +416,10 @@ Value getblocktemplate(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
 
     if (vNodes.empty())
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "OPCX is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "PIVX is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "OPCX is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "PIVX is downloading blocks...");
 
     static unsigned int nTransactionsUpdatedLast;
 
@@ -524,8 +562,8 @@ Value getblocktemplate(const Array& params, bool fHelp)
     result.push_back(Pair("mintime", (int64_t)pindexPrev->GetMedianTimePast() + 1));
     result.push_back(Pair("mutable", aMutable));
     result.push_back(Pair("noncerange", "00000000ffffffff"));
-    result.push_back(Pair("sigoplimit", (int64_t)MAX_BLOCK_SIGOPS));
-    result.push_back(Pair("sizelimit", (int64_t)MAX_BLOCK_SIZE));
+//    result.push_back(Pair("sigoplimit", (int64_t)MAX_BLOCK_SIGOPS));
+//    result.push_back(Pair("sizelimit", (int64_t)MAX_BLOCK_SIZE));
     result.push_back(Pair("curtime", pblock->GetBlockTime()));
     result.push_back(Pair("bits", strprintf("%08x", pblock->nBits)));
     result.push_back(Pair("height", (int64_t)(pindexPrev->nHeight + 1)));
@@ -621,9 +659,6 @@ Value submitblock(const Array& params, bool fHelp)
         if (!sc.found)
             return "inconclusive";
         state = sc.state;
-
-        for (CNode* node : vNodes)
-            node->PushInventory(CInv(MSG_BLOCK, block.GetHash()));
     }
     return BIP22ValidationResult(state);
 }

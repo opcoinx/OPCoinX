@@ -15,7 +15,6 @@
 #include <QString>
 #include <QTableView>
 #include <QTableWidget>
-#include <QProcess>
 
 #include <boost/filesystem.hpp>
 
@@ -31,7 +30,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the OPCoinX Qt UI.
+/** Utility functions used by the PIVX Qt UI.
  */
 namespace GUIUtil
 {
@@ -100,9 +99,6 @@ Qt::ConnectionType blockingGUIThreadConnection();
 
 // Determine whether a widget is hidden behind other windows
 bool isObscured(QWidget* w);
-
-// Open file in text editor
-void openLocalFile(const boost::filesystem::path& p);
 
 // Open debug.log
 void openDebugLogfile();

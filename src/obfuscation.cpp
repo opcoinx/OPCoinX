@@ -37,7 +37,7 @@ map<uint256, CObfuscationBroadcastTx> mapObfuscationBroadcastTxes;
 // Keep track of the active Masternode
 CActiveMasternode activeMasternode;
 
-/* *** BEGIN OBFUSCATION MAGIC - OPCX **********
+/* *** BEGIN OBFUSCATION MAGIC - PIV **********
     Copyright (c) 2014-2015, Dash Developers
         eduffield - evan@dashpay.io
         udjinm6   - udjinm6@dashpay.io
@@ -777,9 +777,9 @@ void CObfuscationPool::ChargeRandomFees()
 
                 Being that Obfuscation has "no fees" we need to have some kind of cost associated
                 with using it to stop abuse. Otherwise it could serve as an attack vector and
-                allow endless transaction that would bloat OPCX and make it unusable. To
+                allow endless transaction that would bloat PIVX and make it unusable. To
                 stop these kinds of attacks 1 in 10 successful transactions are charged. This
-                adds up to a cost of 0.001 OPCX per transaction on average.
+                adds up to a cost of 0.001 PIV per transaction on average.
             */
             if (r <= 10) {
                 LogPrintf("CObfuscationPool::ChargeRandomFees -- charging random fees. %u\n", i);
@@ -802,7 +802,7 @@ void CObfuscationPool::ChargeRandomFees()
 //
 void CObfuscationPool::CheckTimeout()
 {
-    if (!fEnableObfuscation && !fMasterNode) return;
+    if (!fEnableZeromint && !fMasterNode) return;
 
     // catching hanging sessions
     if (!fMasterNode) {
@@ -887,7 +887,7 @@ void CObfuscationPool::CheckTimeout()
 //
 void CObfuscationPool::CheckForCompleteQueue()
 {
-    if (!fEnableObfuscation && !fMasterNode) return;
+    if (!fEnableZeromint && !fMasterNode) return;
 
     /* Check to see if we're ready for submissions from clients */
     //
@@ -1146,7 +1146,7 @@ void CObfuscationPool::SendObfuscationDenominate(std::vector<CTxIn>& vin, std::v
     if (!CheckDiskSpace()) {
         UnlockCoins();
         SetNull();
-        fEnableObfuscation = false;
+        fEnableZeromint = false;
         LogPrintf("CObfuscationPool::SendObfuscationDenominate() - Not enough disk space, disabling Obfuscation.\n");
         return;
     }
@@ -1380,7 +1380,9 @@ void CObfuscationPool::ClearLastMessage()
 //
 bool CObfuscationPool::DoAutomaticDenominating(bool fDryRun)
 {
-    if (!fEnableObfuscation) return false;
+    return false;  // Disabled until Obfuscation is completely removed
+
+    if (!fEnableZeromint) return false;
     if (fMasterNode) return false;
     if (state == POOL_STATUS_ERROR || state == POOL_STATUS_SUCCESS) return false;
     if (GetEntriesCount() > 0) {
@@ -1450,7 +1452,7 @@ bool CObfuscationPool::DoAutomaticDenominating(bool fDryRun)
     LogPrint("obfuscation", "DoAutomaticDenominating : nLowestDenom=%d, nBalanceNeedsAnonymized=%d\n", nLowestDenom, nBalanceNeedsAnonymized);
 
     // select coins that should be given to the pool
-    if (!pwalletMain->SelectCoinsDark(nValueMin, nBalanceNeedsAnonymized, vCoins, nValueIn, 0, nObfuscationRounds)) {
+    if (!pwalletMain->SelectCoinsDark(nValueMin, nBalanceNeedsAnonymized, vCoins, nValueIn, 0, nZeromintPercentage)) {
         nValueIn = 0;
         vCoins.clear();
 
@@ -1555,7 +1557,7 @@ bool CObfuscationPool::DoAutomaticDenominating(bool fDryRun)
                 std::vector<CTxIn> vTempCoins;
                 std::vector<COutput> vTempCoins2;
                 // Try to match their denominations if possible
-                if (!pwalletMain->SelectCoinsByDenominations(dsq.nDenom, nValueMin, nBalanceNeedsAnonymized, vTempCoins, vTempCoins2, nValueIn, 0, nObfuscationRounds)) {
+                if (!pwalletMain->SelectCoinsByDenominations(dsq.nDenom, nValueMin, nBalanceNeedsAnonymized, vTempCoins, vTempCoins2, nValueIn, 0, nZeromintPercentage)) {
                     LogPrintf("DoAutomaticDenominating --- Couldn't match denominations %d\n", dsq.nDenom);
                     continue;
                 }
@@ -1648,14 +1650,14 @@ bool CObfuscationPool::PrepareObfuscationDenominate()
     std::string strError = "";
     // Submit transaction to the pool if we get here
     // Try to use only inputs with the same number of rounds starting from lowest number of rounds possible
-    for (int i = 0; i < nObfuscationRounds; i++) {
+    for (int i = 0; i < nZeromintPercentage; i++) {
         strError = pwalletMain->PrepareObfuscationDenominate(i, i + 1);
         LogPrintf("DoAutomaticDenominating : Running Obfuscation denominate for %d rounds. Return '%s'\n", i, strError);
         if (strError == "") return true;
     }
 
     // We failed? That's strange but let's just make final attempt and try to mix everything
-    strError = pwalletMain->PrepareObfuscationDenominate(0, nObfuscationRounds);
+    strError = pwalletMain->PrepareObfuscationDenominate(0, nZeromintPercentage);
     LogPrintf("DoAutomaticDenominating : Running Obfuscation denominate for all rounds. Return '%s'\n", strError);
     if (strError == "") return true;
 
@@ -1667,8 +1669,8 @@ bool CObfuscationPool::PrepareObfuscationDenominate()
 
 bool CObfuscationPool::SendRandomPaymentToSelf()
 {
-    CAmount nBalance = pwalletMain->GetBalance();
-    CAmount nPayment = (nBalance * 0.35) + (rand() % nBalance);
+    int64_t nBalance = pwalletMain->GetBalance();
+    int64_t nPayment = (nBalance * 0.35) + (rand() % nBalance);
 
     if (nPayment > nBalance) nPayment = nBalance - (0.1 * COIN);
 
@@ -1915,10 +1917,10 @@ void CObfuscationPool::GetDenominationsToString(int nDenom, std::string& strDeno
 {
     // Function returns as follows:
     //
-    // bit 0 - 100OPCX+1 ( bit on if present )
-    // bit 1 - 10OPCX+1
-    // bit 2 - 1OPCX+1
-    // bit 3 - .1OPCX+1
+    // bit 0 - 100PIV+1 ( bit on if present )
+    // bit 1 - 10PIV+1
+    // bit 2 - 1PIV+1
+    // bit 3 - .1PIV+1
     // bit 3 - non-denom
 
 
@@ -1988,10 +1990,10 @@ int CObfuscationPool::GetDenominations(const std::vector<CTxOut>& vout, bool fSi
 
     // Function returns as follows:
     //
-    // bit 0 - 100OPCX+1 ( bit on if present )
-    // bit 1 - 10OPCX+1
-    // bit 2 - 1OPCX+1
-    // bit 3 - .1OPCX+1
+    // bit 0 - 100PIV+1 ( bit on if present )
+    // bit 1 - 10PIV+1
+    // bit 2 - 1PIV+1
+    // bit 3 - .1PIV+1
 
     return denom;
 }
@@ -2108,10 +2110,11 @@ bool CObfuScationSigner::IsVinAssociatedWithPubkey(CTxIn& vin, CPubKey& pubkey)
     CTransaction txVin;
     uint256 hash;
     if (GetTransaction(vin.prevout.hash, txVin, hash, true)) {
-        for (CTxOut out : txVin.vout) {
-            if (out.nValue == Params().GetRequiredMasternodeCollateral())
+        BOOST_FOREACH (CTxOut out, txVin.vout) {
+            if (out.nValue == Params().GetRequiredMasternodeCollateral()) {
                 if (out.scriptPubKey == payee2) return true;
-        }
+            }
+    	}
     }
 
     return false;
@@ -2283,7 +2286,7 @@ void ThreadCheckObfuScationPool()
     if (fLiteMode) return; //disable all Obfuscation/Masternode related functionality
 
     // Make this thread recognisable as the wallet flushing thread
-    RenameThread("opcx-obfuscation");
+    RenameThread("pivx-obfuscation");
 
     unsigned int c = 0;
 

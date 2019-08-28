@@ -35,7 +35,7 @@ enum NumConnections {
     CONNECTIONS_ALL = (CONNECTIONS_IN | CONNECTIONS_OUT),
 };
 
-/** Model for OPCoinX network client. */
+/** Model for PIVX network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT

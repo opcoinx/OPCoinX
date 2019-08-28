@@ -25,12 +25,7 @@ CAmount CFeeRate::GetFee(size_t nSize) const
     return nFee;
 }
 
-CAmount CFeeRate::GetFeePerK() const
-{
-    return GetFee(1000);
-}
-
 std::string CFeeRate::ToString() const
 {
-    return strprintf("%d.%08d OPCX/kB", nSatoshisPerK / COIN, nSatoshisPerK % COIN);
+    return strprintf("%d.%08d PIV/kB", nSatoshisPerK / COIN, nSatoshisPerK % COIN);
 }

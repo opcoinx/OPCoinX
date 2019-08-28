@@ -1,19 +1,19 @@
 [Unit]
-Description=OPCX's distributed currency daemon
+Description=PIVX's distributed currency daemon
 After=network.target
 
 [Service]
-User=opcx
-Group=opcx
+User=pivx
+Group=pivx
 
 Type=forking
-PIDFile=/var/lib/opcxd/opcxd.pid
+PIDFile=/var/lib/pivxd/pivxd.pid
 
-ExecStart=/usr/bin/opcxd -daemon -pid=/var/lib/opcxd/opcxd.pid \
-          -conf=/etc/opcx/opcx.conf -datadir=/var/lib/opcxd
+ExecStart=/usr/bin/pivxd -daemon -pid=/var/lib/pivxd/pivxd.pid \
+          -conf=/etc/pivx/pivx.conf -datadir=/var/lib/pivxd
 
-ExecStop=-/usr/bin/opcx-cli -conf=/etc/opcx/opcx.conf \
-         -datadir=/var/lib/opcxd stop
+ExecStop=-/usr/bin/pivx-cli -conf=/etc/pivx/pivx.conf \
+         -datadir=/var/lib/pivxd stop
 
 Restart=always
 PrivateTmp=true

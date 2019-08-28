@@ -1,7 +1,6 @@
 /* @flow */
 // Copyright (c) 2012-2013 The PPCoin developers
-// Copyright (c) 2015 The HyperStake developers
-// Copyright (c) 2016-2017 The PIVX developers
+// Copyright (c) 2015-2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,9 +17,27 @@ using namespace std;
 
 bool fTestNet = false; //Params().NetworkID() == CBaseChainParams::TESTNET;
 
+// Modifier interval: time to elapse before new modifier is computed
+// Set to 3-hour for production network and 20-minute for test network
+unsigned int nModifierInterval;
+int nStakeTargetSpacing = 60;
+unsigned int getIntervalVersion(bool fTestNet)
+{
+    if (fTestNet)
+        return MODIFIER_INTERVAL_TESTNET;
+    else
+        return MODIFIER_INTERVAL;
+}
+
 // Hard checkpoints of stake modifiers to ensure they are deterministic
 static std::map<int, unsigned int> mapStakeModifierCheckpoints =
     boost::assign::map_list_of(0, 0xfd11f4e7u);
+
+// Get time weight
+int64_t GetWeight(int64_t nIntervalBeginning, int64_t nIntervalEnd)
+{
+    return nIntervalEnd - nIntervalBeginning - nStakeMinAge;
+}
 
 // Get the last stake modifier and its generation time from a given block
 static bool GetLastStakeModifier(const CBlockIndex* pindex, uint64_t& nStakeModifier, int64_t& nModifierTime)
@@ -40,7 +57,7 @@ static bool GetLastStakeModifier(const CBlockIndex* pindex, uint64_t& nStakeModi
 static int64_t GetStakeModifierSelectionIntervalSection(int nSection)
 {
     assert(nSection >= 0 && nSection < 64);
-    int64_t a = Params().GetModifierInterval() * 63 / (63 + ((63 - nSection) * (Params().GetModifierIntervalRatio() - 1)));
+    int64_t a = getIntervalVersion(fTestNet) * 63 / (63 + ((63 - nSection) * (MODIFIER_INTERVAL_RATIO - 1)));
     return a;
 }
 
@@ -148,22 +165,20 @@ bool ComputeNextStakeModifier(const CBlockIndex* pindexPrev, uint64_t& nStakeMod
     // First find current stake modifier and its generation block time
     // if it's not old enough, return the same stake modifier
     int64_t nModifierTime = 0;
-    if (pindexPrev->nHeight == 0)
-        nModifierTime = pindexPrev->GetBlockTime();
-    else if (!GetLastStakeModifier(pindexPrev, nStakeModifier, nModifierTime))
+    if (!GetLastStakeModifier(pindexPrev, nStakeModifier, nModifierTime))
         return error("ComputeNextStakeModifier: unable to get last modifier");
 
     if (GetBoolArg("-printstakemodifier", false))
         LogPrintf("ComputeNextStakeModifier: prev modifier= %s time=%s\n", boost::lexical_cast<std::string>(nStakeModifier).c_str(), DateTimeStrFormat("%Y-%m-%d %H:%M:%S", nModifierTime).c_str());
 
-    if (nModifierTime / Params().GetModifierInterval() >= pindexPrev->GetBlockTime() / Params().GetModifierInterval())
+    if (nModifierTime / getIntervalVersion(fTestNet) >= pindexPrev->GetBlockTime() / getIntervalVersion(fTestNet))
         return true;
 
     // Sort candidate blocks by timestamp
     vector<pair<int64_t, uint256> > vSortedByTimestamp;
-    vSortedByTimestamp.reserve(64 * Params().GetModifierInterval() / Params().TargetSpacing());
+    vSortedByTimestamp.reserve(64 * getIntervalVersion(fTestNet) / nStakeTargetSpacing);
     int64_t nSelectionInterval = GetStakeModifierSelectionInterval();
-    int64_t nSelectionIntervalStart = (pindexPrev->GetBlockTime() / Params().GetModifierInterval()) * Params().GetModifierInterval() - nSelectionInterval;
+    int64_t nSelectionIntervalStart = (pindexPrev->GetBlockTime() / getIntervalVersion(fTestNet)) * getIntervalVersion(fTestNet) - nSelectionInterval;
     const CBlockIndex* pindex = pindexPrev;
 
     while (pindex && pindex->GetBlockTime() >= nSelectionIntervalStart) {
@@ -284,9 +299,8 @@ bool CheckStakeKernelHash(unsigned int nBits, const CBlock blockFrom, const CTra
     if (nTimeTx < nTimeBlockFrom) // Transaction timestamp violation
         return error("CheckStakeKernelHash() : nTime violation");
 
-    const int64_t nMinStakeAge = Params().GetMinStakeAge(chainActive.Height() + 1);
-    if (nTimeBlockFrom + nMinStakeAge > nTimeTx) // Min age requirement
-        return error("CheckStakeKernelHash() : min age violation - nTimeBlockFrom=%d nStakeMinAge=%d nTimeTx=%d", nTimeBlockFrom, nMinStakeAge, nTimeTx);
+    if (nTimeBlockFrom + nStakeMinAge > nTimeTx) // Min age requirement
+        return error("CheckStakeKernelHash() : min age violation - nTimeBlockFrom=%d nStakeMinAge=%d nTimeTx=%d", nTimeBlockFrom, nStakeMinAge, nTimeTx);
 
     //grab difficulty
     uint256 bnTargetPerCoinDay;

@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both opcxd and opcx-qt, to make it harder for attackers to
+ * for both pivxd and pivx-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("OPCoinX Core");
+const std::string CLIENT_NAME("PIVX Core");
 
 /**
  * Client version number

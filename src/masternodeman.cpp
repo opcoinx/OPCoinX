@@ -13,6 +13,8 @@
 #include <boost/filesystem.hpp>
 #include <boost/lexical_cast.hpp>
 
+#define MN_WINNER_MINIMUM_AGE 8000    // Age in seconds. This should be > MASTERNODE_REMOVAL_SECONDS to avoid misconfigured new nodes in the list.
+
 /** Masternode manager */
 CMasternodeMan mnodeman;
 
@@ -350,7 +352,7 @@ int CMasternodeMan::stable_size ()
 {
     int nStable_size = 0;
     int nMinProtocol = ActiveProtocol();
-    int64_t nMasternode_Min_Age = GetSporkValue(SPORK_16_MN_WINNER_MINIMUM_AGE);
+    int64_t nMasternode_Min_Age = MN_WINNER_MINIMUM_AGE;
     int64_t nMasternode_Age = 0;
 
     BOOST_FOREACH (CMasternode& mn, vMasternodes) {
@@ -385,6 +387,31 @@ int CMasternodeMan::CountEnabled(int protocolVersion)
     }
 
     return i;
+}
+
+void CMasternodeMan::CountNetworks(int protocolVersion, int& ipv4, int& ipv6, int& onion)
+{
+    protocolVersion = protocolVersion == -1 ? masternodePayments.GetMinMasternodePaymentsProto() : protocolVersion;
+
+    BOOST_FOREACH (CMasternode& mn, vMasternodes) {
+        mn.Check();
+        std::string strHost;
+        int port;
+        SplitHostPort(mn.addr.ToString(), port, strHost);
+        CNetAddr node = CNetAddr(strHost, false);
+        int nNetwork = node.GetNetwork();
+        switch (nNetwork) {
+            case 1 :
+                ipv4++;
+                break;
+            case 2 :
+                ipv6++;
+                break;
+            case 3 :
+                onion++;
+                break;
+        }
+    }
 }
 
 void CMasternodeMan::DsegUpdate(CNode* pnode)
@@ -567,7 +594,7 @@ CMasternode* CMasternodeMan::GetCurrentMasterNode(int mod, int64_t nBlockHeight,
 int CMasternodeMan::GetMasternodeRank(const CTxIn& vin, int64_t nBlockHeight, int minProtocol, bool fOnlyActive)
 {
     std::vector<pair<int64_t, CTxIn> > vecMasternodeScores;
-    int64_t nMasternode_Min_Age = GetSporkValue(SPORK_16_MN_WINNER_MINIMUM_AGE);
+    int64_t nMasternode_Min_Age = MN_WINNER_MINIMUM_AGE;
     int64_t nMasternode_Age = 0;
 
     //make sure we know about this block
@@ -584,9 +611,7 @@ int CMasternodeMan::GetMasternodeRank(const CTxIn& vin, int64_t nBlockHeight, in
         if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT)) {
             nMasternode_Age = GetAdjustedTime() - mn.sigTime;
             if ((nMasternode_Age) < nMasternode_Min_Age) {
-                if (fDebug){
-                    LogPrintf("Skipping just activated Masternode. Age: %ld\n", nMasternode_Age);
-                }
+                if (fDebug) LogPrintf("Skipping just activated Masternode. Age: %ld\n", nMasternode_Age);
                 continue;  // Skip masternodes younger than (default) 8000 sec
             }
         }

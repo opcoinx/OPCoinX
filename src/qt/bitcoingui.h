@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/opcx-config.h"
+#include "config/pivx-config.h"
 #endif
 
 #include "amount.h"
@@ -103,6 +103,7 @@ private:
     QAction* bip38ToolAction;
     QAction* aboutAction;
     QAction* receiveCoinsAction;
+    QAction* privacyAction;
     QAction* optionsAction;
     QAction* toggleHideAction;
     QAction* encryptWalletAction;
@@ -201,8 +202,10 @@ private slots:
     void gotoBlockExplorerPage();
     /** Switch to masternode page */
     void gotoMasternodePage();
-    /** Switch to receive coins page */
+    /** Switch to privacy page */
     void gotoReceiveCoinsPage();
+    /** Switch to receive coins page */
+    void gotoPrivacyPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage(QString addr = "");
 

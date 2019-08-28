@@ -20,8 +20,10 @@
 
 #include <stdint.h>
 
+#include "libzerocoin/Coin.h"
 #include "json/json_spirit_utils.h"
 #include "json/json_spirit_value.h"
+#include "spork.h"
 #include <boost/assign/list_of.hpp>
 
 using namespace std;
@@ -81,13 +83,13 @@ Value getnewaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "getnewaddress ( \"account\" )\n"
-            "\nReturns a new OPCX address for receiving payments.\n"
+            "\nReturns a new PIVX address for receiving payments.\n"
             "If 'account' is specified (recommended), it is added to the address book \n"
             "so payments received with the address will be credited to 'account'.\n"
             "\nArguments:\n"
             "1. \"account\"        (string, optional) The account name for the address to be linked to. if not provided, the default account \"\" is used. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created if there is no account by the given name.\n"
             "\nResult:\n"
-            "\"opcxaddress\"    (string) The new opcx address\n"
+            "\"pivxaddress\"    (string) The new pivx address\n"
             "\nExamples:\n" +
             HelpExampleCli("getnewaddress", "") + HelpExampleCli("getnewaddress", "\"\"") + HelpExampleCli("getnewaddress", "\"myaccount\"") + HelpExampleRpc("getnewaddress", "\"myaccount\""));
 
@@ -150,11 +152,11 @@ Value getaccountaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "getaccountaddress \"account\"\n"
-            "\nReturns the current OPCX address for receiving payments to this account.\n"
+            "\nReturns the current PIVX address for receiving payments to this account.\n"
             "\nArguments:\n"
             "1. \"account\"       (string, required) The account name for the address. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.\n"
             "\nResult:\n"
-            "\"opcxaddress\"   (string) The account opcx address\n"
+            "\"pivxaddress\"   (string) The account pivx address\n"
             "\nExamples:\n" +
             HelpExampleCli("getaccountaddress", "") + HelpExampleCli("getaccountaddress", "\"\"") + HelpExampleCli("getaccountaddress", "\"myaccount\"") + HelpExampleRpc("getaccountaddress", "\"myaccount\""));
 
@@ -174,7 +176,7 @@ Value getrawchangeaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "getrawchangeaddress\n"
-            "\nReturns a new OPCX address, for receiving change.\n"
+            "\nReturns a new PIVX address, for receiving change.\n"
             "This is for use with raw transactions, NOT normal use.\n"
             "\nResult:\n"
             "\"address\"    (string) The address\n"
@@ -201,17 +203,17 @@ Value setaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount \"opcxaddress\" \"account\"\n"
+            "setaccount \"pivxaddress\" \"account\"\n"
             "\nSets the account associated with the given address.\n"
             "\nArguments:\n"
-            "1. \"opcxaddress\"  (string, required) The opcx address to be associated with an account.\n"
+            "1. \"pivxaddress\"  (string, required) The pivx address to be associated with an account.\n"
             "2. \"account\"         (string, required) The account to assign the address to.\n"
             "\nExamples:\n" +
             HelpExampleCli("setaccount", "\"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg\" \"tabby\"") + HelpExampleRpc("setaccount", "\"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg\", \"tabby\""));
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid OPCX address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PIVX address");
 
 
     string strAccount;
@@ -238,10 +240,10 @@ Value getaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount \"opcxaddress\"\n"
+            "getaccount \"pivxaddress\"\n"
             "\nReturns the account associated with the given address.\n"
             "\nArguments:\n"
-            "1. \"opcxaddress\"  (string, required) The opcx address for account lookup.\n"
+            "1. \"pivxaddress\"  (string, required) The pivx address for account lookup.\n"
             "\nResult:\n"
             "\"accountname\"        (string) the account address\n"
             "\nExamples:\n" +
@@ -249,7 +251,7 @@ Value getaccount(const Array& params, bool fHelp)
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid OPCX address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PIVX address");
 
     string strAccount;
     map<CTxDestination, CAddressBookData>::iterator mi = pwalletMain->mapAddressBook.find(address.Get());
@@ -269,7 +271,7 @@ Value getaddressesbyaccount(const Array& params, bool fHelp)
             "1. \"account\"  (string, required) The account name.\n"
             "\nResult:\n"
             "[                     (json array of string)\n"
-            "  \"opcxaddress\"  (string) a opcx address associated with the given account\n"
+            "  \"pivxaddress\"  (string) a pivx address associated with the given account\n"
             "  ,...\n"
             "]\n"
             "\nExamples:\n" +
@@ -304,7 +306,7 @@ void SendMoney(const CTxDestination& address, CAmount nValue, CWalletTx& wtxNew,
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
     }
 
-    // Parse OPCX address
+    // Parse PIVX address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // Create and send the transaction
@@ -324,12 +326,12 @@ Value sendtoaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-            "sendtoaddress \"opcxaddress\" amount ( \"comment\" \"comment-to\" )\n"
+            "sendtoaddress \"pivxaddress\" amount ( \"comment\" \"comment-to\" )\n"
             "\nSend an amount to a given address. The amount is a real and is rounded to the nearest 0.00000001\n" +
             HelpRequiringPassphrase() +
             "\nArguments:\n"
-            "1. \"opcxaddress\"  (string, required) The opcx address to send to.\n"
-            "2. \"amount\"      (numeric, required) The amount in OPCX to send. eg 0.1\n"
+            "1. \"pivxaddress\"  (string, required) The pivx address to send to.\n"
+            "2. \"amount\"      (numeric, required) The amount in btc to send. eg 0.1\n"
             "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
             "                             This is not part of the transaction, just kept in your wallet.\n"
             "4. \"comment-to\"  (string, optional) A comment to store the name of the person or organization \n"
@@ -342,7 +344,7 @@ Value sendtoaddress(const Array& params, bool fHelp)
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid OPCX address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PIVX address");
 
     // Amount
     CAmount nAmount = AmountFromValue(params[1]);
@@ -365,12 +367,12 @@ Value sendtoaddressix(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-            "sendtoaddressix \"opcxaddress\" amount ( \"comment\" \"comment-to\" )\n"
+            "sendtoaddressix \"pivxaddress\" amount ( \"comment\" \"comment-to\" )\n"
             "\nSend an amount to a given address. The amount is a real and is rounded to the nearest 0.00000001\n" +
             HelpRequiringPassphrase() +
             "\nArguments:\n"
-            "1. \"opcxaddress\"  (string, required) The opcx address to send to.\n"
-            "2. \"amount\"      (numeric, required) The amount in OPCX to send. eg 0.1\n"
+            "1. \"pivxaddress\"  (string, required) The pivx address to send to.\n"
+            "2. \"amount\"      (numeric, required) The amount in btc to send. eg 0.1\n"
             "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
             "                             This is not part of the transaction, just kept in your wallet.\n"
             "4. \"comment-to\"  (string, optional) A comment to store the name of the person or organization \n"
@@ -383,7 +385,7 @@ Value sendtoaddressix(const Array& params, bool fHelp)
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid OPCX address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PIVX address");
 
     // Amount
     CAmount nAmount = AmountFromValue(params[1]);
@@ -413,7 +415,7 @@ Value listaddressgroupings(const Array& params, bool fHelp)
             "[\n"
             "  [\n"
             "    [\n"
-            "      \"opcxaddress\",     (string) The opcx address\n"
+            "      \"pivxaddress\",     (string) The pivx address\n"
             "      amount,                 (numeric) The amount in btc\n"
             "      \"account\"             (string, optional) The account\n"
             "    ]\n"
@@ -448,11 +450,11 @@ Value signmessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage \"opcxaddress\" \"message\"\n"
+            "signmessage \"pivxaddress\" \"message\"\n"
             "\nSign a message with the private key of an address" +
             HelpRequiringPassphrase() + "\n"
                                         "\nArguments:\n"
-                                        "1. \"opcxaddress\"  (string, required) The opcx address to use for the private key.\n"
+                                        "1. \"pivxaddress\"  (string, required) The pivx address to use for the private key.\n"
                                         "2. \"message\"         (string, required) The message to create a signature of.\n"
                                         "\nResult:\n"
                                         "\"signature\"          (string) The signature of the message encoded in base 64\n"
@@ -495,10 +497,10 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress \"opcxaddress\" ( minconf )\n"
-            "\nReturns the total amount received by the given opcxaddress in transactions with at least minconf confirmations.\n"
+            "getreceivedbyaddress \"pivxaddress\" ( minconf )\n"
+            "\nReturns the total amount received by the given pivxaddress in transactions with at least minconf confirmations.\n"
             "\nArguments:\n"
-            "1. \"opcxaddress\"  (string, required) The opcx address for transactions.\n"
+            "1. \"pivxaddress\"  (string, required) The pivx address for transactions.\n"
             "2. minconf             (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
             "\nResult:\n"
             "amount   (numeric) The total amount in btc received at this address.\n"
@@ -509,10 +511,10 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
             "\nThe amount with at least 6 confirmation, very safe\n" + HelpExampleCli("getreceivedbyaddress", "\"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg\" 6") +
             "\nAs a json rpc call\n" + HelpExampleRpc("getreceivedbyaddress", "\"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg\", 6"));
 
-    // opcx address
+    // pivx address
     CBitcoinAddress address = CBitcoinAddress(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid OPCX address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PIVX address");
     CScript scriptPubKey = GetScriptForDestination(address.Get());
     if (!IsMine(*pwalletMain, scriptPubKey))
         return (double)0.0;
@@ -621,7 +623,7 @@ Value getbalance(const Array& params, bool fHelp)
     if (fHelp || params.size() > 3)
         throw runtime_error(
             "getbalance ( \"account\" minconf includeWatchonly )\n"
-            "\nIf account is not specified, returns the server's total available balance.\n"
+            "\nIf account is not specified, returns the server's total available balance (excluding zerocoins).\n"
             "If account is specified, returns the balance in the account.\n"
             "Note that the account \"\" is not the same as leaving the parameter out.\n"
             "The server total may be different to the balance in the default \"\" account.\n"
@@ -759,13 +761,13 @@ Value sendfrom(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-            "sendfrom \"fromaccount\" \"toopcxaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
-            "\nSent an amount from an account to a opcx address.\n"
+            "sendfrom \"fromaccount\" \"topivxaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
+            "\nSent an amount from an account to a pivx address.\n"
             "The amount is a real and is rounded to the nearest 0.00000001." +
             HelpRequiringPassphrase() + "\n"
                                         "\nArguments:\n"
                                         "1. \"fromaccount\"       (string, required) The name of the account to send funds from. May be the default account using \"\".\n"
-                                        "2. \"toopcxaddress\"  (string, required) The opcx address to send funds to.\n"
+                                        "2. \"topivxaddress\"  (string, required) The pivx address to send funds to.\n"
                                         "3. amount                (numeric, required) The amount in btc. (transaction fee is added on top).\n"
                                         "4. minconf               (numeric, optional, default=1) Only use funds with at least this many confirmations.\n"
                                         "5. \"comment\"           (string, optional) A comment used to store what the transaction is for. \n"
@@ -784,7 +786,7 @@ Value sendfrom(const Array& params, bool fHelp)
     string strAccount = AccountFromValue(params[0]);
     CBitcoinAddress address(params[1].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid OPCX address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PIVX address");
     CAmount nAmount = AmountFromValue(params[2]);
     int nMinDepth = 1;
     if (params.size() > 3)
@@ -821,7 +823,7 @@ Value sendmany(const Array& params, bool fHelp)
                                         "1. \"fromaccount\"         (string, required) The account to send the funds from, can be \"\" for the default account\n"
                                         "2. \"amounts\"             (string, required) A json object with addresses and amounts\n"
                                         "    {\n"
-                                        "      \"address\":amount   (numeric) The opcx address is the key, the numeric amount in btc is the value\n"
+                                        "      \"address\":amount   (numeric) The pivx address is the key, the numeric amount in btc is the value\n"
                                         "      ,...\n"
                                         "    }\n"
                                         "3. minconf                 (numeric, optional, default=1) Only use the balance confirmed at least this many times.\n"
@@ -853,7 +855,7 @@ Value sendmany(const Array& params, bool fHelp)
     BOOST_FOREACH (const Pair& s, sendTo) {
         CBitcoinAddress address(s.name_);
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid OPCX address: ") + s.name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid PIVX address: ") + s.name_);
 
         if (setAddress.count(address))
             throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ") + s.name_);
@@ -894,20 +896,20 @@ Value addmultisigaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() < 2 || params.size() > 3) {
         string msg = "addmultisigaddress nrequired [\"key\",...] ( \"account\" )\n"
                      "\nAdd a nrequired-to-sign multisignature address to the wallet.\n"
-                     "Each key is a OPCX address or hex-encoded public key.\n"
+                     "Each key is a PIVX address or hex-encoded public key.\n"
                      "If 'account' is specified, assign address to that account.\n"
 
                      "\nArguments:\n"
                      "1. nrequired        (numeric, required) The number of required signatures out of the n keys or addresses.\n"
-                     "2. \"keysobject\"   (string, required) A json array of opcx addresses or hex-encoded public keys\n"
+                     "2. \"keysobject\"   (string, required) A json array of pivx addresses or hex-encoded public keys\n"
                      "     [\n"
-                     "       \"address\"  (string) opcx address or hex-encoded public key\n"
+                     "       \"address\"  (string) pivx address or hex-encoded public key\n"
                      "       ...,\n"
                      "     ]\n"
                      "3. \"account\"      (string, optional) An account to assign the addresses to.\n"
 
                      "\nResult:\n"
-                     "\"opcxaddress\"  (string) A opcx address associated with the keys.\n"
+                     "\"pivxaddress\"  (string) A pivx address associated with the keys.\n"
 
                      "\nExamples:\n"
                      "\nAdd a multisig address from 2 addresses\n" +
@@ -1222,7 +1224,7 @@ Value listtransactions(const Array& params, bool fHelp)
             "  {\n"
             "    \"account\":\"accountname\",       (string) The account name associated with the transaction. \n"
             "                                                It will be \"\" for the default account.\n"
-            "    \"address\":\"opcxaddress\",    (string) The opcx address of the transaction. Not present for \n"
+            "    \"address\":\"pivxaddress\",    (string) The pivx address of the transaction. Not present for \n"
             "                                                move transactions (category = move).\n"
             "    \"category\":\"send|receive|move\", (string) The transaction category. 'move' is a local (off blockchain)\n"
             "                                                transaction between accounts, and not associated with an address,\n"
@@ -1397,7 +1399,7 @@ Value listsinceblock(const Array& params, bool fHelp)
             "{\n"
             "  \"transactions\": [\n"
             "    \"account\":\"accountname\",       (string) The account name associated with the transaction. Will be \"\" for the default account.\n"
-            "    \"address\":\"opcxaddress\",    (string) The opcx address of the transaction. Not present for move transactions (category = move).\n"
+            "    \"address\":\"pivxaddress\",    (string) The pivx address of the transaction. Not present for move transactions (category = move).\n"
             "    \"category\":\"send|receive\",     (string) The transaction category. 'send' has negative amounts, 'receive' has positive amounts.\n"
             "    \"amount\": x.xxx,          (numeric) The amount in btc. This is negative for the 'send' category, and for the 'move' category for moves \n"
             "                                          outbound. It is positive for the 'receive' category, and for the 'move' category for inbound funds.\n"
@@ -1487,7 +1489,7 @@ Value gettransaction(const Array& params, bool fHelp)
             "  \"details\" : [\n"
             "    {\n"
             "      \"account\" : \"accountname\",  (string) The account name involved in the transaction, can be \"\" for the default account.\n"
-            "      \"address\" : \"opcxaddress\",   (string) The opcx address involved in the transaction\n"
+            "      \"address\" : \"pivxaddress\",   (string) The pivx address involved in the transaction\n"
             "      \"category\" : \"send|receive\",    (string) The category, either 'send' or 'receive'\n"
             "      \"amount\" : x.xxx                  (numeric) The amount in btc\n"
             "      \"vout\" : n,                       (numeric) the vout value\n"
@@ -1598,7 +1600,7 @@ Value walletpassphrase(const Array& params, bool fHelp)
         throw runtime_error(
             "walletpassphrase \"passphrase\" timeout ( anonymizeonly )\n"
             "\nStores the wallet decryption key in memory for 'timeout' seconds.\n"
-            "This is needed prior to performing transactions related to private keys such as sending OPCXs\n"
+            "This is needed prior to performing transactions related to private keys such as sending PIVs\n"
             "\nArguments:\n"
             "1. \"passphrase\"     (string, required) The wallet passphrase\n"
             "2. timeout            (numeric, required) The time to keep the decryption key in seconds.\n"
@@ -1735,8 +1737,8 @@ Value encryptwallet(const Array& params, bool fHelp)
             "\nExamples:\n"
             "\nEncrypt you wallet\n" +
             HelpExampleCli("encryptwallet", "\"my pass phrase\"") +
-            "\nNow set the passphrase to use the wallet, such as for signing or sending OPCXs\n" + HelpExampleCli("walletpassphrase", "\"my pass phrase\"") +
-            "\nNow we can so something like sign\n" + HelpExampleCli("signmessage", "\"opcxaddress\" \"test message\"") +
+            "\nNow set the passphrase to use the wallet, such as for signing or sending PIVs\n" + HelpExampleCli("walletpassphrase", "\"my pass phrase\"") +
+            "\nNow we can so something like sign\n" + HelpExampleCli("signmessage", "\"pivxaddress\" \"test message\"") +
             "\nNow lock the wallet again by removing the passphrase\n" + HelpExampleCli("walletlock", "") +
             "\nAs a json rpc call\n" + HelpExampleRpc("encryptwallet", "\"my pass phrase\""));
 
@@ -1763,7 +1765,7 @@ Value encryptwallet(const Array& params, bool fHelp)
     // slack space in .dat files; that is bad if the old data is
     // unencrypted private keys. So:
     StartShutdown();
-    return "wallet encrypted; opcx server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup.";
+    return "wallet encrypted; pivx server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup.";
 }
 
 Value lockunspent(const Array& params, bool fHelp)
@@ -1773,7 +1775,7 @@ Value lockunspent(const Array& params, bool fHelp)
             "lockunspent unlock [{\"txid\":\"txid\",\"vout\":n},...]\n"
             "\nUpdates list of temporarily unspendable outputs.\n"
             "Temporarily lock (unlock=false) or unlock (unlock=true) specified transaction outputs.\n"
-            "A locked transaction output will not be chosen by automatic coin selection, when spending OPCXs.\n"
+            "A locked transaction output will not be chosen by automatic coin selection, when spending PIVs.\n"
             "Locks are stored in memory only. Nodes start with zero locked outputs, and the locked output list\n"
             "is always cleared (by virtue of process exit) when a node stops or fails.\n"
             "Also see the listunspent call\n"
@@ -1885,7 +1887,7 @@ Value settxfee(const Array& params, bool fHelp)
             "settxfee amount\n"
             "\nSet the transaction fee per kB.\n"
             "\nArguments:\n"
-            "1. amount         (numeric, required) The transaction fee in OPCX/kB rounded to the nearest 0.00000001\n"
+            "1. amount         (numeric, required) The transaction fee in PIV/kB rounded to the nearest 0.00000001\n"
             "\nResult\n"
             "true|false        (boolean) Returns true if successful\n"
             "\nExamples:\n" +
@@ -1909,7 +1911,7 @@ Value getwalletinfo(const Array& params, bool fHelp)
             "\nResult:\n"
             "{\n"
             "  \"walletversion\": xxxxx,     (numeric) the wallet version\n"
-            "  \"balance\": xxxxxxx,         (numeric) the total OPCX balance of the wallet\n"
+            "  \"balance\": xxxxxxx,         (numeric) the total PIV balance of the wallet\n"
             "  \"txcount\": xxxxxxx,         (numeric) the total number of transactions in the wallet\n"
             "  \"keypoololdest\": xxxxxx,    (numeric) the timestamp (seconds since GMT epoch) of the oldest pre-generated key in the key pool\n"
             "  \"keypoolsize\": xxxx,        (numeric) how many new keys are pre-generated\n"
@@ -1934,11 +1936,20 @@ Value reservebalance(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
         throw runtime_error(
-            "reservebalance [<reserve> [amount]]\n"
-            "<reserve> is true or false to turn balance reserve on or off.\n"
-            "<amount> is a real and rounded to cent.\n"
-            "Set reserve amount not participating in network protection.\n"
-            "If no parameters provided current setting is printed.\n");
+            "reservebalance ( reserve amount )\n"
+            "\nShow or set the reserve amount not participating in network protection\n"
+            "If no parameters provided current setting is printed.\n"
+
+            "\nArguments:\n"
+            "1. reserve     (boolean, optional) is true or false to turn balance reserve on or off.\n"
+            "2. amount      (numeric, optional) is a real and rounded to cent.\n"
+
+            "\nResult:\n"
+            "{\n"
+            "  \"reserve\": true|false,     (boolean) Status of the reserve balance\n"
+            "  \"amount\": x.xxxx       (numeric) Amount reserved\n"
+            "\nExamples:\n" +
+            HelpExampleCli("reservebalance", "true 5000") + HelpExampleRpc("reservebalance", "true 5000"));
 
     if (params.size() > 0) {
         bool fReserve = params[0].get_bool();
@@ -1968,13 +1979,24 @@ Value setstakesplitthreshold(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "setstakesplitthreshold <1 - 999,999>\n"
-            "This will set the output size of your stakes to never be below this number\n");
+            "setstakesplitthreshold value\n"
+            "\nThis will set the output size of your stakes to never be below this number\n"
+
+            "\nArguments:\n"
+            "1. value   (numeric, required) Threshold value between 1 and 999999\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"threshold\": n,    (numeric) Threshold value set\n"
+            "  \"saved\": true|false    (boolean) 'true' if successfully saved to the wallet file\n"
+            "}\n"
+            "\nExamples:\n" +
+            HelpExampleCli("setstakesplitthreshold", "5000") + HelpExampleRpc("setstakesplitthreshold", "5000"));
+
     uint64_t nStakeSplitThreshold = params[0].get_int();
     if (pwalletMain->IsLocked())
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Unlock wallet to use this feature");
     if (nStakeSplitThreshold > 999999)
-        return "out of range - setting split threshold failed";
+        throw runtime_error("Value out of range, max allowed is 999999");
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
     LOCK(pwalletMain->cs_wallet);
@@ -1983,12 +2005,12 @@ Value setstakesplitthreshold(const Array& params, bool fHelp)
 
         Object result;
         pwalletMain->nStakeSplitThreshold = nStakeSplitThreshold;
-        result.push_back(Pair("split stake threshold set to ", int(pwalletMain->nStakeSplitThreshold)));
+        result.push_back(Pair("threshold", int(pwalletMain->nStakeSplitThreshold)));
         if (fFileBacked) {
             walletdb.WriteStakeSplitThreshold(nStakeSplitThreshold);
-            result.push_back(Pair("saved to wallet.dat ", "true"));
+            result.push_back(Pair("saved", "true"));
         } else
-            result.push_back(Pair("saved to wallet.dat ", "false"));
+            result.push_back(Pair("saved", "false"));
 
         return result;
     }
@@ -2000,31 +2022,38 @@ Value getstakesplitthreshold(const Array& params, bool fHelp)
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getstakesplitthreshold\n"
-            "Returns the set splitstakethreshold\n");
+            "Returns the threshold for stake splitting\n"
+            "\nResult:\n"
+            "n      (numeric) Threshold value\n"
+            "\nExamples:\n" +
+            HelpExampleCli("getstakesplitthreshold", "") + HelpExampleRpc("getstakesplitthreshold", ""));
 
-    Object result;
-    result.push_back(Pair("split stake threshold set to ", int(pwalletMain->nStakeSplitThreshold)));
-    return result;
+    return int(pwalletMain->nStakeSplitThreshold);
 }
 
 Value autocombinerewards(const Array& params, bool fHelp)
 {
-    if (fHelp || params.size() < 1)
+    bool fEnable;
+    if (params.size() >= 1)
+        fEnable = params[0].get_bool();
+
+    if (fHelp || params.size() < 1 || (fEnable && params.size() != 2) || params.size() > 2)
         throw runtime_error(
-            "autocombinerewards <true/false> threshold\n"
-            "Wallet will automatically monitor for any coins with value below the threshold amount, and combine them if they reside with the same OPCX address\n"
-            "When autocombinerewards runs it will create a transaction, and therefore will be subject to transaction fees.\n");
+            "autocombinerewards true|false ( threshold )\n"
+            "\nWallet will automatically monitor for any coins with value below the threshold amount, and combine them if they reside with the same PIVX address\n"
+            "When autocombinerewards runs it will create a transaction, and therefore will be subject to transaction fees.\n"
+
+            "\nArguments:\n"
+            "1. true|false      (boolean, required) Enable auto combine (true) or disable (false)\n"
+            "2. threshold       (numeric, optional) Threshold amount (default: 0)\n"
+            "\nExamples:\n" +
+            HelpExampleCli("autocombinerewards", "true 500") + HelpExampleRpc("autocombinerewards", "true 500"));
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    bool fEnable = params[0].get_bool();
     CAmount nThreshold = 0;
 
-    if (fEnable) {
-        if (params.size() != 2)
-            throw runtime_error("Input Error: use format: autocombinerewards <true/false> threshold\n");
-
+    if (fEnable)
         nThreshold = params[1].get_int();
-    }
 
     pwalletMain->fCombineDust = fEnable;
     pwalletMain->nAutoCombineThreshold = nThreshold;
@@ -2032,7 +2061,7 @@ Value autocombinerewards(const Array& params, bool fHelp)
     if (!walletdb.WriteAutoCombineSettings(fEnable, nThreshold))
         throw runtime_error("Changed settings in wallet but failed to save to database\n");
 
-    return "Auto Combine Rewards Threshold Set";
+    return Value::null;
 }
 
 Array printMultiSend()
@@ -2219,7 +2248,7 @@ Value multisend(const Array& params, bool fHelp)
             "The MultiSend transaction is sent when the staked coins mature (100 confirmations)\n"
             "****************************************************************\n"
             "TO CREATE OR ADD TO THE MULTISEND VECTOR:\n"
-            "multisend <OPCX Address> <percent>\n"
+            "multisend <PIVX Address> <percent>\n"
             "This will add a new address to the MultiSend vector\n"
             "Percent is a whole number 1 to 100.\n"
             "****************************************************************\n"
@@ -2238,7 +2267,7 @@ Value multisend(const Array& params, bool fHelp)
     string strAddress = params[0].get_str();
     CBitcoinAddress address(strAddress);
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid OPCX address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PIV address");
     if (boost::lexical_cast<int>(params[1].get_str()) < 0)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected valid percentage");
     if (pwalletMain->IsLocked())
@@ -2275,4 +2304,506 @@ Value multisend(const Array& params, bool fHelp)
         }
     }
     return printMultiSend();
+}
+Value getzerocoinbalance(const Array& params, bool fHelp)
+{
+
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+                            "getzerocoinbalance\n"
+                            + HelpRequiringPassphrase());
+
+    if (pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+
+    return ValueFromAmount(pwalletMain->GetZerocoinBalance());
+
+}
+Value listmintedzerocoins(const Array& params, bool fHelp)
+{
+    
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+                            "listmintedzerocoins\n"
+                            + HelpRequiringPassphrase());
+    
+    if (pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+    
+    CWalletDB walletdb(pwalletMain->strWalletFile);
+    list<CBigNum> listPubCoin = walletdb.ListMintedCoinsSerial();
+    
+    Array jsonList;
+    for (const CBigNum& pubCoinItem : listPubCoin) {
+        jsonList.push_back(pubCoinItem.GetHex());
+    }
+    
+    return jsonList;
+}
+
+Value listzerocoinamounts(const Array& params, bool fHelp)
+{
+
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+            "listzerocoinamounts\n"
+            + HelpRequiringPassphrase());
+
+    if (pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+
+    CWalletDB walletdb(pwalletMain->strWalletFile);
+    list<CZerocoinMint> listPubCoin = walletdb.ListMintedCoins(true, true, true);
+ 
+    std::map<libzerocoin::CoinDenomination, CAmount> spread;
+    for (const auto& denom : libzerocoin::zerocoinDenomList)
+        spread.insert(std::pair<libzerocoin::CoinDenomination, CAmount>(denom, 0));
+    for (auto& mint : listPubCoin) spread.at(mint.GetDenomination())++;
+
+
+    Array jsonList;
+    Object val;
+    for (const auto& m : libzerocoin::zerocoinDenomList) {
+        stringstream s1;
+        s1 << "Denomination Value " << libzerocoin::ZerocoinDenominationToInt(m);
+        stringstream s2;
+        s2 << spread.at(m) << " coins";
+        val.push_back(Pair(s1.str(),s2.str()));
+    }
+    jsonList.push_back(val);
+    return jsonList;
+}
+Value listspentzerocoins(const Array& params, bool fHelp)
+{
+
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+            "listspentzerocoins\n"
+            + HelpRequiringPassphrase());
+
+    if (pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+
+    CWalletDB walletdb(pwalletMain->strWalletFile);
+    list<CBigNum> listPubCoin = walletdb.ListSpentCoinsSerial();
+
+    Array jsonList;
+    for (const CBigNum& pubCoinItem : listPubCoin) {
+        jsonList.push_back(pubCoinItem.GetHex());
+    }
+
+    return jsonList;
+}
+
+Value mintzerocoin(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "mintzerocoin <amount>\n"
+            "Usage: Enter an amount of Piv to convert to zPiv"
+            + HelpRequiringPassphrase());
+
+    int64_t nTime = GetTimeMillis();
+
+    if (GetAdjustedTime() < GetSporkValue(SPORK_17_ENABLE_ZEROCOIN))
+        throw JSONRPCError(RPC_WALLET_ERROR, "Error: Zerocoin functionality is not enabled on the PIVX network yet.");
+
+    if (pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+
+    CAmount nAmount = params[0].get_int() * COIN;
+
+    CWalletTx wtx;
+    vector<CZerocoinMint> vMints;
+    string strError = pwalletMain->MintZerocoin(nAmount, wtx, vMints);
+
+    if (strError != "")
+        throw JSONRPCError(RPC_WALLET_ERROR, strError);
+
+    Array arrMints;
+    for (CZerocoinMint mint : vMints) {
+        Object m;
+        m.push_back(Pair("txid", wtx.GetHash().ToString()));
+        m.push_back(Pair("value", ValueFromAmount(libzerocoin::ZerocoinDenominationToAmount(mint.GetDenomination()))));
+        m.push_back(Pair("pubcoin", mint.GetValue().GetHex()));
+        m.push_back(Pair("randomness", mint.GetRandomness().GetHex()));
+        m.push_back(Pair("serial", mint.GetSerialNumber().GetHex()));
+        m.push_back(Pair("time", GetTimeMillis() - nTime));
+        arrMints.push_back(m);
+    }
+    
+    return arrMints;
+}
+
+Value spendzerocoin(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() > 5 || params.size() < 4)
+        throw runtime_error(
+            "spendzerocoin <amount> <mintchange [true|false]> <minimizechange [true|false]>  <securitylevel [1-100]> <address>\n"
+            "Overview: Convert zPIV (zerocoins) into PIV. \n"
+            "amount: amount to spend\n"
+            "mintchange: if there is left over PIV (change), the wallet can convert it automatically back to zerocoins [true]\n"
+            "minimizechange: try to minimize the returning change  [false]\n"
+            "security level: the amount of checkpoints to add to the accumulator. A checkpoint contains 10 blocks worth of zerocoinmints."
+                    "The more checkpoints that are added, the more untraceable the transaction will be. Use [100] to add the maximum amount"
+                    "of checkpoints available. Tip: adding more checkpoints makes the minting process take longer\n"
+            "address: Send straight to an address or leave the address blank and the wallet will send to a change address. If there is change then"
+                    "an address is required"
+            + HelpRequiringPassphrase());
+
+    if (GetAdjustedTime() < GetSporkValue(SPORK_17_ENABLE_ZEROCOIN))
+        throw JSONRPCError(RPC_WALLET_ERROR, "Error: Zerocoin functionality is not enabled on the PIVX network yet.");
+
+    int64_t nTimeStart = GetTimeMillis();
+    if (pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+
+    CAmount nAmount = AmountFromValue(params[0]);   // Spending amount
+    bool fMintChange = params[1].get_bool();        // Mint change to zPIV
+    bool fMinimizeChange = params[2].get_bool();    // Minimize change
+    int nSecurityLevel = params[3].get_int();       // Security level
+
+    CBitcoinAddress address = CBitcoinAddress(); // Optional sending address. Dummy initialization here.
+    if (params.size() == 5) {
+        // Destination address was supplied as params[4]. Optional parameters MUST be at the end
+        // to avoid type confusion from the JSON interpreter
+        address = CBitcoinAddress(params[4].get_str());
+        if(!address.IsValid())
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PIVX address");
+    }
+
+    CWalletTx wtx;
+    vector<CZerocoinMint> vMintsSelected;
+    CZerocoinSpendReceipt receipt;
+    bool fSuccess;
+
+    if(params.size() == 5) // Spend to supplied destination address
+        fSuccess = pwalletMain->SpendZerocoin(nAmount, nSecurityLevel, wtx, receipt, vMintsSelected, fMintChange, fMinimizeChange, &address);
+    else                   // Spend to newly generated local address
+        fSuccess = pwalletMain->SpendZerocoin(nAmount, nSecurityLevel, wtx, receipt, vMintsSelected, fMintChange, fMinimizeChange);
+
+    if (!fSuccess)
+        throw JSONRPCError(RPC_WALLET_ERROR, receipt.GetStatusMessage());
+
+    CAmount nValueIn = 0;
+    Array arrSpends;
+    for (CZerocoinSpend spend : receipt.GetSpends()) {
+        Object obj;
+        obj.push_back(Pair("denomination", spend.GetDenomination()));
+        obj.push_back(Pair("pubcoin", spend.GetPubCoin().GetHex()));
+        obj.push_back(Pair("serial", spend.GetSerial().GetHex()));
+        uint32_t nChecksum = spend.GetAccumulatorChecksum();
+        obj.push_back(Pair("acc_checksum", HexStr(BEGIN(nChecksum), END(nChecksum))));
+        arrSpends.push_back(obj);
+        nValueIn += libzerocoin::ZerocoinDenominationToAmount(spend.GetDenomination());
+    }
+
+    CAmount nValueOut = 0;
+    Array vout;
+    for (unsigned int i = 0; i < wtx.vout.size(); i++) {
+        const CTxOut& txout = wtx.vout[i];
+        Object out;
+        out.push_back(Pair("value", ValueFromAmount(txout.nValue)));
+        nValueOut += txout.nValue;
+
+        CTxDestination dest;
+        if(txout.scriptPubKey.IsZerocoinMint())
+            out.push_back(Pair("address", "zerocoinmint"));
+        else if(ExtractDestination(txout.scriptPubKey, dest))
+            out.push_back(Pair("address", CBitcoinAddress(dest).ToString()));
+        vout.push_back(out);
+    }
+
+    //construct JSON to return
+    Object ret;
+    ret.push_back(Pair("txid", wtx.GetHash().ToString()));
+    ret.push_back(Pair("bytes", (int64_t)wtx.GetSerializeSize(SER_NETWORK, CTransaction::CURRENT_VERSION)));
+    ret.push_back(Pair("fee", ValueFromAmount(nValueIn - nValueOut)));
+    ret.push_back(Pair("duration_millis", (GetTimeMillis() - nTimeStart)));
+    ret.push_back(Pair("spends", arrSpends));
+    ret.push_back(Pair("outputs", vout));
+
+    return ret;
+}
+
+Value resetmintzerocoin(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() > 1)
+        throw runtime_error(
+            "resetmintzerocoin <extended_search>\n"
+            "Scan the blockchain for all of the zerocoins that are held in the wallet.dat. Update any meta-data that is incorrect.\n"
+            "Archive any mints that are not able to be found."
+
+            "\nArguments:\n"
+            "1. \"extended_search\"      (bool, optional) Rescan each block of the blockchain looking for your mints. WARNING - may take 30+ minutes!\n"
+
+            + HelpRequiringPassphrase());
+
+    bool fExtendedSearch = false;
+    if (params.size() == 1)
+        fExtendedSearch = params[0].get_bool();
+
+    CWalletDB walletdb(pwalletMain->strWalletFile);
+    list<CZerocoinMint> listMints = walletdb.ListMintedCoins(false, false, true);
+    vector<CZerocoinMint> vMintsToFind{ std::make_move_iterator(std::begin(listMints)), std::make_move_iterator(std::end(listMints)) };
+    vector<CZerocoinMint> vMintsMissing;
+    vector<CZerocoinMint> vMintsToUpdate;
+
+    // search all of our available data for these mints
+    FindMints(vMintsToFind, vMintsToUpdate, vMintsMissing, fExtendedSearch);
+
+    // update the meta data of mints that were marked for updating
+    Array arrUpdated;
+    for (CZerocoinMint mint : vMintsToUpdate) {
+        walletdb.WriteZerocoinMint(mint);
+        arrUpdated.push_back(mint.GetValue().GetHex());
+    }
+
+    // delete any mints that were unable to be located on the blockchain
+    Array arrDeleted;
+    for (CZerocoinMint mint : vMintsMissing) {
+        arrDeleted.push_back(mint.GetValue().GetHex());
+        walletdb.ArchiveMintOrphan(mint);
+    }
+
+    Object obj;
+    obj.push_back(Pair("updated", arrUpdated));
+    obj.push_back(Pair("archived", arrDeleted));
+    return obj;
+}
+
+Value resetspentzerocoin(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+            "resetspentzerocoin\n"
+                "Scan the blockchain for all of the zerocoins that are held in the wallet.dat. Reset mints that are considered spent that did not make it into the blockchain."
+            + HelpRequiringPassphrase());
+
+    CWalletDB walletdb(pwalletMain->strWalletFile);
+    list<CZerocoinMint> listMints = walletdb.ListMintedCoins(false, false, true);
+    list<CZerocoinSpend> listSpends = walletdb.ListSpentCoins();
+    list<CZerocoinSpend> listUnconfirmedSpends;
+
+    for (CZerocoinSpend spend : listSpends) {
+        CTransaction tx;
+        uint256 hashBlock = 0;
+        if (!GetTransaction(spend.GetTxHash(), tx, hashBlock)) {
+            listUnconfirmedSpends.push_back(spend);
+            continue;
+        }
+
+        //no confirmations
+        if (hashBlock == 0)
+            listUnconfirmedSpends.push_back(spend);
+    }
+
+    Object objRet;
+    Array arrRestored;
+    for (CZerocoinSpend spend : listUnconfirmedSpends) {
+        for (CZerocoinMint mint : listMints) {
+            if (mint.GetSerialNumber() == spend.GetSerial()) {
+                mint.SetUsed(false);
+                mint.SetTxHash(0);
+                mint.SetHeight(0);
+
+                walletdb.WriteZerocoinMint(mint);
+                walletdb.EraseZerocoinSpendSerialEntry(spend.GetSerial());
+                Object obj;
+                obj.push_back(Pair("serial", spend.GetSerial().GetHex()));
+                arrRestored.push_back(obj);
+                continue;
+            }
+        }
+    }
+
+    objRet.push_back(Pair("restored", arrRestored));
+    return objRet;
+}
+
+Value getarchivedzerocoin(const Array& params, bool fHelp)
+{
+    if(fHelp || params.size() != 0)
+        throw runtime_error(
+            "getarchivedzerocoin\n"
+            "Display zerocoins that were archived because they were believed to be orphans."
+            "Provides enough information to recover mint if it was incorrectly archived."
+            + HelpRequiringPassphrase());
+
+    CWalletDB walletdb(pwalletMain->strWalletFile);
+    list<CZerocoinMint> listMints = walletdb.ListArchivedZerocoins();
+
+    Array arrRet;
+    for (const CZerocoinMint mint : listMints) {
+        Object objMint;
+        objMint.push_back(Pair("txid", mint.GetTxHash().GetHex()));
+        objMint.push_back(Pair("denomination", FormatMoney(mint.GetDenominationAsAmount())));
+        objMint.push_back(Pair("serial", mint.GetSerialNumber().GetHex()));
+        objMint.push_back(Pair("randomness", mint.GetRandomness().GetHex()));
+        objMint.push_back(Pair("pubcoin", mint.GetValue().GetHex()));
+        arrRet.push_back(objMint);
+    }
+
+    return arrRet;
+}
+
+Value exportzerocoins(const Array& params, bool fHelp)
+{
+    if(fHelp || params.empty() || params.size() > 2)
+        throw runtime_error(
+            "exportzerocoins include_spent ( denomination )\n"
+                "Exports zerocoin mints that are held by this wallet.dat\n"
+
+                "\nArguments:\n"
+                "1. \"include_spent\"        (bool, required) Include mints that have already been spent\n"
+                "2. \"denomination\"         (integer, optional) Export a specific denomination of zPiv\n"
+
+                "\nResult\n"
+                "[                   (array of json object)\n"
+                "  {\n"
+                "    \"d\" : n,        (numeric) the mint's zerocoin denomination \n"
+                "    \"p\" : \"pubcoin\", (string) The public coin\n"
+                "    \"s\" : \"serial\",  (string) The secret serial number\n"
+                "    \"r\" : \"random\",  (string) The secret random number\n"
+                "    \"t\" : \"txid\",    (string) The txid that the coin was minted in\n"
+                "    \"h\" : n,         (numeric) The height the tx was added to the blockchain\n"
+                "    \"u\" : used       (boolean) Whether the mint has been spent\n"
+                "  }\n"
+                "  ,...\n"
+                "]\n"
+
+                "\nExamples\n" +
+            HelpExampleCli("exportzerocoins", "false 5") + HelpExampleRpc("exportzerocoins", "false 5"));
+
+    if (pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+
+    CWalletDB walletdb(pwalletMain->strWalletFile);
+
+    bool fIncludeSpent = params[0].get_bool();
+    libzerocoin::CoinDenomination denomination = libzerocoin::ZQ_ERROR;
+    if (params.size() == 2)
+        denomination = libzerocoin::IntToZerocoinDenomination(params[1].get_int());
+    list<CZerocoinMint> listMints = walletdb.ListMintedCoins(!fIncludeSpent, false, false);
+
+    Array jsonList;
+    for (const CZerocoinMint mint : listMints) {
+        if (denomination != libzerocoin::ZQ_ERROR && denomination != mint.GetDenomination())
+            continue;
+
+        Object objMint;
+        objMint.emplace_back(Pair("d", mint.GetDenomination()));
+        objMint.emplace_back(Pair("p", mint.GetValue().GetHex()));
+        objMint.emplace_back(Pair("s", mint.GetSerialNumber().GetHex()));
+        objMint.emplace_back(Pair("r", mint.GetRandomness().GetHex()));
+        objMint.emplace_back(Pair("t", mint.GetTxHash().GetHex()));
+        objMint.emplace_back(Pair("h", mint.GetHeight()));
+        objMint.emplace_back(Pair("u", mint.IsUsed()));
+        jsonList.emplace_back(objMint);
+    }
+
+    return jsonList;
+}
+
+Value importzerocoins(const Array& params, bool fHelp)
+{
+    if(fHelp || params.size() == 0)
+        throw runtime_error(
+            "importzerocoins importdata \n"
+                "[{\"d\":denomination,\"p\":\"pubcoin_hex\",\"s\":\"serial_hex\",\"r\":\"randomness_hex\",\"t\":\"txid\",\"h\":height, \"u\":used},{\"d\":...}]\n"
+                "\nImport zerocoin mints.\n"
+                "Adds raw zerocoin mints to the wallet.dat\n"
+                "Note it is recommended to use the json export created from the exportzerocoins RPC call\n"
+
+                "\nArguments:\n"
+                "1. \"importdata\"    (string, required) A json array of json objects containing zerocoin mints\n"
+
+                "\nResult:\n"
+                "\"added\"            (int) the quantity of zerocoin mints that were added\n"
+                "\"value\"            (string) the total zPiv value of zerocoin mints that were added\n"
+
+                "\nExamples\n" +
+            HelpExampleCli("importzerocoins", "\'[{\"d\":100,\"p\":\"mypubcoin\",\"s\":\"myserial\",\"r\":\"randomness_hex\",\"t\":\"mytxid\",\"h\":104923, \"u\":false},{\"d\":5,...}]\'") +
+                HelpExampleRpc("importzerocoins", "[{\"d\":100,\"p\":\"mypubcoin\",\"s\":\"myserial\",\"r\":\"randomness_hex\",\"t\":\"mytxid\",\"h\":104923, \"u\":false},{\"d\":5,...}]"));
+
+    if(pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+
+    RPCTypeCheck(params, list_of(array_type)(obj_type));
+    Array arrMints = params[0].get_array();
+    CWalletDB walletdb(pwalletMain->strWalletFile);
+
+    int count = 0;
+    CAmount nValue = 0;
+    for (const Value &val : arrMints) {
+        const Object &o = val.get_obj();
+
+        int d = ParseInt(o, "d");
+        if (d < 0)
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, d must be positive");
+
+        libzerocoin::CoinDenomination denom = libzerocoin::IntToZerocoinDenomination(d);
+        CBigNum bnValue = CBigNum(find_value(o, "p").get_str());
+        CBigNum bnSerial = CBigNum(find_value(o, "s").get_str());
+        CBigNum bnRandom = CBigNum(find_value(o, "r").get_str());
+        uint256 txid(find_value(o, "t").get_str());
+
+        int nHeight = ParseInt(o, "h");
+        if (nHeight < 0)
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, h must be positive");
+
+        bool fUsed = ParseBool(o, "u");
+        CZerocoinMint mint(denom, bnValue, bnRandom, bnSerial, fUsed);
+        mint.SetTxHash(txid);
+        mint.SetHeight(nHeight);
+        walletdb.WriteZerocoinMint(mint);
+        count++;
+        nValue += libzerocoin::ZerocoinDenominationToAmount(denom);
+    }
+
+    Object ret;
+    ret.emplace_back(Pair("added", count));
+    ret.emplace_back(Pair("value", FormatMoney(nValue)));
+    return ret;
+}
+
+Value reconsiderzerocoins(const Array& params, bool fHelp)
+{
+    if(fHelp || !params.empty())
+        throw runtime_error(
+            "reconsiderzerocoins\n"
+                "\nCheck archived zPiv list to see if any mints were added to the blockchain.\n"
+
+                "\nResult\n"
+                "[                                 (array of json objects)\n"
+                "  {\n"
+                "    \"txid\" : txid,              (numeric) the mint's zerocoin denomination \n"
+                "    \"denomination\" : \"denom\", (numeric) the mint's zerocoin denomination\n"
+                "    \"pubcoin\" : \"pubcoin\",    (string) The mint's public identifier\n"
+                "    \"height\" : n,               (numeric) The height the tx was added to the blockchain\n"
+                "  }\n"
+                "  ,...\n"
+                "]\n"
+
+                "\nExamples\n" +
+            HelpExampleCli("reconsiderzerocoins", "") + HelpExampleRpc("reconsiderzerocoins", ""));
+
+    if(pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED,
+                           "Error: Please enter the wallet passphrase with walletpassphrase first.");
+
+    list<CZerocoinMint> listMints;
+    pwalletMain->ReconsiderZerocoins(listMints);
+
+    Array arrRet;
+    for (const CZerocoinMint mint : listMints) {
+        Object objMint;
+        objMint.emplace_back(Pair("txid", mint.GetTxHash().GetHex()));
+        objMint.emplace_back(Pair("denomination", FormatMoney(mint.GetDenominationAsAmount())));
+        objMint.emplace_back(Pair("pubcoin", mint.GetValue().GetHex()));
+        objMint.emplace_back(Pair("height", mint.GetHeight()));
+        arrRet.emplace_back(objMint);
+    }
+
+    return arrRet;
 }

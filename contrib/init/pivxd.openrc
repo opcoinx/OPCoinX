@@ -2,24 +2,24 @@
 
 # backward compatibility for existing gentoo layout
 #
-if [ -d "/var/lib/opcx/.opcx" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/opcx/.opcx"
+if [ -d "/var/lib/pivx/.pivx" ]; then
+	BITCOIND_DEFAULT_DATADIR="/var/lib/pivx/.pivx"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/opcxd"
+	BITCOIND_DEFAULT_DATADIR="/var/lib/pivxd"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/opcx/opcx.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/opcxd}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/opcxd.pid}
+BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/pivx/pivx.conf}
+BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/pivxd}
+BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/pivxd.pid}
 BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-opcx}
-BITCOIND_GROUP=${BITCOIND_GROUP:-opcx}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/opcxd}
+BITCOIND_USER=${BITCOIND_USER:-pivx}
+BITCOIND_GROUP=${BITCOIND_GROUP:-pivx}
+BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/pivxd}
 
-name="OPCX Core Daemon"
-description="OPCX crypto-currency p2p network daemon"
+name="PIVX Core Daemon"
+description="PIVX crypto-currency p2p network daemon"
 
-command="/usr/bin/opcxd"
+command="/usr/bin/pivxd"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \
 		-conf=\"${BITCOIND_CONFIGFILE}\" \
 		-datadir=\"${BITCOIND_DATADIR}\" \
@@ -65,7 +65,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run opcxd."
+		eerror "ERROR: You must set a secure rpcpassword to run pivxd."
 		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "

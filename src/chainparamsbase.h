@@ -9,7 +9,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between opcx-cli and opcxd)
+ * CBaseChainParams defines the base parameters (shared between pivx-cli and pivxd)
  * of a given instance of the Pivx system.
  */
 class CBaseChainParams

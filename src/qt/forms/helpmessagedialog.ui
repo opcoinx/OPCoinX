@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string notr="true">OPCX Core - Command-line options</string>
+   <string notr="true">PIVX Core - Command-line options</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
@@ -27,14 +27,8 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="minimumSize">
-      <size>
-       <width>64</width>
-       <height>378</height>
-      </size>
-     </property>
      <property name="pixmap">
-      <pixmap>:/images/about</pixmap>
+      <pixmap resource="../pivx.qrc">:/images/about</pixmap>
      </property>
     </widget>
    </item>
@@ -60,7 +54,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>479</width>
+          <width>447</width>
           <height>68</height>
          </rect>
         </property>
@@ -102,7 +96,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../pivx.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>okButton</sender>

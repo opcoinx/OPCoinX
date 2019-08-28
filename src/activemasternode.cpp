@@ -1,3 +1,7 @@
+// Copyright (c) 2014-2016 The Dash developers
+// Copyright (c) 2015-2017 The PIVX developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "activemasternode.h"
 #include "addrman.h"
@@ -70,7 +74,7 @@ void CActiveMasternode::ManageStatus()
                 return;
             }
         } else if (service.GetPort() == Params().GetDefaultPort()) {
-            notCapableReason = strprintf("Invalid port: %u - Params().GetDefaultPort() is only supported on mainnet.", service.GetPort());
+            notCapableReason = strprintf("Invalid port: %u - 18051 is only supported on mainnet.", service.GetPort());
             LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
             return;
         }
@@ -269,7 +273,7 @@ bool CActiveMasternode::Register(std::string strService, std::string strKeyMaste
             return false;
         }
     } else if (service.GetPort() == Params().GetDefaultPort()) {
-        errorMessage = strprintf("Invalid port %u for masternode %s - Params().GetDefaultPort() is only supported on mainnet.", service.GetPort(), strService);
+        errorMessage = strprintf("Invalid port %u for masternode %s - 18051 is only supported on mainnet.", service.GetPort(), strService);
         LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
         return false;
     }
@@ -467,7 +471,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
     }
 
     // Filter
-    for (const COutput& out : vCoins) {
+    BOOST_FOREACH (const COutput& out, vCoins) {
         if (out.tx->vout[out.i].nValue == Params().GetRequiredMasternodeCollateral()) { //exactly
             filteredCoins.push_back(out);
         }

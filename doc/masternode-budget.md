@@ -16,7 +16,7 @@ Budgets go through a series of stages before being paid:
 Prepare collateral transaction
 ------------------------
 
-mnbudget prepare \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<opcx_address\> \<monthly_payment_opcx\> [use_ix(true|false)]
+mnbudget prepare \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<pivx_address\> \<monthly_payment_pivx\> [use_ix(true|false)]
 
 Example:
 ```
@@ -25,14 +25,14 @@ mnbudget prepare cool-project http://www.cool-project/one.json 12 100000 y6R9oN1
 
 Output: `464a0eb70ea91c94295214df48c47baa72b3876cfb658744aaf863c7b5bf1ff0` - This is the collateral hash, copy this output for the next step
 
-In this transaction we prepare collateral for "_cool-project_". This proposal will pay _1200_ OPCX, _12_ times over the course of a year totaling _24000_ OPCX.
+In this transaction we prepare collateral for "_cool-project_". This proposal will pay _1200_ PIVX, _12_ times over the course of a year totaling _24000_ PIVX.
 
 **Warning -- if you change any fields within this command, the collateral transaction will become invalid.**
 
 Submit proposal to network
 ------------------------
 
-mnbudget submit \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<opcx_address\> \<monthly_payment_opcx\> \<collateral_hash\>
+mnbudget submit \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<pivx_address\> \<monthly_payment_pivx\> \<collateral_hash\>
 
 Example:
 ```
@@ -138,7 +138,7 @@ Finalized budget
 Get paid
 ------------------------
 
-When block `1000000` is reached you'll receive a payment for `1200` OPCX.
+When block `1000000` is reached you'll receive a payment for `1200` PIVX.
 
 
 RPC Commands

@@ -6,7 +6,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/opcx-config.h"
+#include "config/pivx-config.h"
 #endif
 
 #include "util.h"
@@ -105,20 +105,26 @@ std::string to_internal(const std::string&);
 
 using namespace std;
 
-//OPCX only features
+// PIVX only features
+// Masternode
 bool fMasterNode = false;
 string strMasterNodePrivKey = "";
 string strMasterNodeAddr = "";
 bool fLiteMode = false;
+// SwiftTX
 bool fEnableSwiftTX = true;
 int nSwiftTXDepth = 5;
-int nObfuscationRounds = 2;
+// Automatic Zerocoin minting
+bool fEnableZeromint = false;
+int nZeromintPercentage = 0;
+int nPreferredDenom = 0;
+const int64_t AUTOMINT_DELAY = (60 * 5); // Wait at least 5 minutes until Automint starts
+
 int nAnonymizePivxAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
 bool fSucessfullyLoaded = false;
-bool fEnableObfuscation = false;
 /** All denominations used by obfuscation */
 std::vector<int64_t> obfuScationDenominations;
 string strBudgetMode = "";
@@ -231,12 +237,13 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "opcx" is a composite category enabling all OPCoinX-related debug output
-            if (ptrCategory->count(string("opcx"))) {
+            // "pivx" is a composite category enabling all PIVX-related debug output
+            if (ptrCategory->count(string("pivx"))) {
                 ptrCategory->insert(string("obfuscation"));
                 ptrCategory->insert(string("swifttx"));
                 ptrCategory->insert(string("masternode"));
                 ptrCategory->insert(string("mnpayments"));
+                ptrCategory->insert(string("zero"));
                 ptrCategory->insert(string("mnbudget"));
             }
         }
@@ -396,7 +403,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "opcx";
+    const char* pszModule = "pivx";
 #endif
     if (pex)
         return strprintf(
@@ -417,13 +424,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-// Windows < Vista: C:\Documents and Settings\Username\Application Data\OPCoinX
-// Windows >= Vista: C:\Users\Username\AppData\Roaming\OPCoinX
-// Mac: ~/Library/Application Support/OPCoinX
-// Unix: ~/.opcx
+// Windows < Vista: C:\Documents and Settings\Username\Application Data\PIVX
+// Windows >= Vista: C:\Users\Username\AppData\Roaming\PIVX
+// Mac: ~/Library/Application Support/PIVX
+// Unix: ~/.pivx
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "OPCoinX";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "PIVX";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -435,10 +442,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "OPCoinX";
+    return pathRet / "PIVX";
 #else
     // Unix
-    return pathRet / ".OPCoinX";
+    return pathRet / ".pivx";
 #endif
 #endif
 }
@@ -485,7 +492,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "OPCoinX.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "pivx.conf"));
     if (!pathConfigFile.is_complete())
         pathConfigFile = GetDataDir(false) / pathConfigFile;
 
@@ -504,7 +511,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()) {
-        // Create empty opcx.conf if it does not exist
+        // Create empty pivx.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -515,7 +522,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it) {
-        // Don't overwrite existing settings so command line settings override opcx.conf
+        // Don't overwrite existing settings so command line settings override pivx.conf
         string strKey = string("-") + it->string_key;
         string strValue = it->value[0];
         InterpretNegativeSetting(strKey, strValue);
@@ -530,7 +537,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 #ifndef WIN32
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "opcxd.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "pivxd.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
