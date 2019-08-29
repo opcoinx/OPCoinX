@@ -207,6 +207,11 @@ bool CAccumulators::GetCheckpoint(int nHeight, uint256& nCheckpoint)
     CBlockIndex *pindex = chainActive[nHeight - 20];
     while (pindex->nHeight < nHeight - 10) {
         //make sure this block is eligible for accumulation
+        if (ShutdownRequested()) {
+            return false;
+        }
+
+        //make sure this block is eligible for accumulation
         if (pindex->GetBlockHeader().nVersion < Params().Zerocoin_HeaderVersion()) {
             pindex = chainActive[pindex->nHeight + 1];
             continue;

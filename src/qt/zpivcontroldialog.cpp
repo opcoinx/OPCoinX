@@ -82,6 +82,11 @@ void ZPivControlDialog::updateList()
         itemMint->setText(COLUMN_PUBCOIN, QString::fromStdString(strPubCoin));
 
         int nConfirmations = (mint.GetHeight() ? chainActive.Height() - mint.GetHeight() : 0);
+        if (nConfirmations < 0) {
+            // Sanity check
+            nConfirmations = 0;
+        }
+
         itemMint->setText(COLUMN_CONFIRMATIONS, QString::number(nConfirmations));
 
         // check to make sure there are at least 3 other mints added to the accumulators after this
@@ -130,20 +135,20 @@ void ZPivControlDialog::updateSelection(QTreeWidgetItem* item, int column)
     // only want updates from non top level items that are available to spend
     if (item->parent() && column == COLUMN_CHECKBOX && !item->isDisabled()){
 
-    // see if this mint is already selected in the selection list
-    std::string strPubcoin = item->text(COLUMN_PUBCOIN).toStdString();
-    auto iter = std::find(listSelectedMints.begin(), listSelectedMints.end(), strPubcoin);
-    bool fSelected = iter != listSelectedMints.end();
+        // see if this mint is already selected in the selection list
+        std::string strPubcoin = item->text(COLUMN_PUBCOIN).toStdString();
+        auto iter = std::find(listSelectedMints.begin(), listSelectedMints.end(), strPubcoin);
+        bool fSelected = iter != listSelectedMints.end();
 
-    // set the checkbox to the proper state and add or remove the mint from the selection list
-    if (item->checkState(COLUMN_CHECKBOX) == Qt::Checked) {
-        if (fSelected) return;
-        listSelectedMints.emplace_back(strPubcoin);
-    } else {
-        if (!fSelected) return;
-        listSelectedMints.erase(iter);
-    }
-    updateLabels();
+        // set the checkbox to the proper state and add or remove the mint from the selection list
+        if (item->checkState(COLUMN_CHECKBOX) == Qt::Checked) {
+            if (fSelected) return;
+            listSelectedMints.emplace_back(strPubcoin);
+        } else {
+            if (!fSelected) return;
+            listSelectedMints.erase(iter);
+        }
+        updateLabels();
     }
 }
 

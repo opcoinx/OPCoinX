@@ -86,7 +86,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test241)
     // Also setup Map array corresponding to DenomAmount which is the current set of coins available
 
     for (const auto& denom : zerocoinDenomList) {
-        bool set = false;
         for (int i = 0; i < DenomAmounts[j]; i++) {
             CAmount currentAmount = ZerocoinDenominationToAmount(denom);
             nTotalAmount += currentAmount;
@@ -96,7 +95,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test241)
             bool isUsed = false;
             CZerocoinMint mint(denom, value, rand, serial, isUsed);
             listMints.push_back(mint);
-            set = true;
         }
         mapDenom.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));
         j++;
@@ -116,6 +114,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test241)
     CAmount OneCoinAmount = ZerocoinDenominationToAmount(ZQ_ONE);
     CAmount nValueTarget = OneCoinAmount;
     int nCoinsReturned;
+    int nNeededSpends = 0;  // Number of spends which would be needed if selection failed
 
     bool fDebug = 0;
 
@@ -126,7 +125,8 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test241)
                                                                  fMinimizeChange,
                                                                  nCoinsReturned,
                                                                  listMints,
-                                                                 mapDenom);
+                                                                 mapDenom,
+                                                                 nNeededSpends);
         
         if (fDebug) {
             if (vSpends.size() > 0) {
@@ -165,7 +165,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test115)
     // Create a set of Minted coins that fits profile given by DenomAmounts
     // Also setup Map array corresponding to DenomAmount which is the current set of coins available
     for (const auto& denom : zerocoinDenomList) {
-        bool set = false;
         for (int i = 0; i < DenomAmounts[j]; i++) {
             CAmount currentAmount = ZerocoinDenominationToAmount(denom);
             nTotalAmount += currentAmount;
@@ -175,7 +174,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test115)
             bool isUsed = false;
             CZerocoinMint mint(denom, value, rand, serial, isUsed);
             listMints.push_back(mint);
-            set = true;
         }
         mapDenom.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));
         j++;
@@ -194,13 +192,15 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test115)
 
     bool fDebug = 0;
     int nCoinsReturned;
+    int nNeededSpends = 0;  // Number of spends which would be needed if selection failed
 
     std::vector<CZerocoinMint> vSpends = SelectMintsFromList(nValueTarget, nSelectedValue,
                                                              nMaxNumberOfSpends,
                                                              fMinimizeChange,
                                                              nCoinsReturned,
                                                              listMints,
-                                                             mapDenom);
+                                                             mapDenom,
+                                                             nNeededSpends);
 
     if (fDebug) {
         if (vSpends.size() > 0) {
@@ -244,7 +244,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_245)
     // Create a set of Minted coins that fits profile given by DenomAmounts
     // Also setup Map array corresponding to DenomAmount which is the current set of coins available
     for (const auto& denom : zerocoinDenomList) {
-        bool set = false;
         for (int i = 0; i < DenomAmounts[j]; i++) {
             CAmount currentAmount = ZerocoinDenominationToAmount(denom);
             nTotalAmount += currentAmount;
@@ -254,7 +253,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_245)
             bool isUsed = false;
             CZerocoinMint mint(denom, value, rand, serial, isUsed);
             listMints.push_back(mint);
-            set = true;
         }
         mapOfDenomsHeld.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));
         j++;
@@ -273,6 +271,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_245)
 
     bool fDebug = 0;
     int nCoinsReturned;
+    int nNeededSpends = 0;  // Number of spends which would be needed if selection failed
     
     // Go through all possible spend between 1 and 241 and see if it's possible or not
     for (int i = 0; i < CoinsHeld; i++) {
@@ -281,7 +280,8 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_245)
                                                                  false,
                                                                  nCoinsReturned,
                                                                  listMints,
-                                                                 mapOfDenomsHeld);
+                                                                 mapOfDenomsHeld,
+                                                                 nNeededSpends);
         
         if (fDebug) {
             if (vSpends.size() > 0) {
@@ -302,7 +302,8 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_245)
                                                                     true,
                                                                     nCoinsReturned,
                                                                     listMints,
-                                                                    mapOfDenomsHeld);
+                                                                    mapOfDenomsHeld,
+                                                                    nNeededSpends);
         
         
         if (fDebug) {
@@ -340,7 +341,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_145)
     // Create a set of Minted coins that fits profile given by DenomAmounts
     // Also setup Map array corresponding to DenomAmount which is the current set of coins available
     for (const auto& denom : zerocoinDenomList) {
-        bool set = false;
         for (int i = 0; i < DenomAmounts[j]; i++) {
             CAmount currentAmount = ZerocoinDenominationToAmount(denom);
             nTotalAmount += currentAmount;
@@ -350,7 +350,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_145)
             bool isUsed = false;
             CZerocoinMint mint(denom, value, rand, serial, isUsed);
             listMints.push_back(mint);
-            set = true;
         }
         mapOfDenomsHeld.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));
         j++;
@@ -372,6 +371,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_145)
 
     bool fDebug = 0;
     int nCoinsReturned;
+    int nNeededSpends = 0;  // Number of spends which would be needed if selection failed
     
     // Go through all possible spend between 1 and 241 and see if it's possible or not
     for (int i = 0; i < CoinsHeld; i++) {
@@ -380,7 +380,8 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_145)
                                                                  false,
                                                                  nCoinsReturned,
                                                                  listMints,
-                                                                 mapOfDenomsHeld);
+                                                                 mapOfDenomsHeld,
+                                                                 nNeededSpends);
         
         if (fDebug) {
             if (vSpends.size() > 0) {
@@ -401,7 +402,8 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_145)
                                                                     true,
                                                                     nCoinsReturned,
                                                                     listMints,
-                                                                    mapOfDenomsHeld);
+                                                                    mapOfDenomsHeld,
+                                                                    nNeededSpends);
         
         
         if (fDebug) {
@@ -440,7 +442,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test99)
     // Create a set of Minted coins that fits profile given by DenomAmounts
     // Also setup Map array corresponding to DenomAmount which is the current set of coins available
     for (const auto& denom : zerocoinDenomList) {
-        bool set = false;
         for (int i = 0; i < DenomAmounts[j]; i++) {
             CAmount currentAmount = ZerocoinDenominationToAmount(denom);
             nTotalAmount += currentAmount;
@@ -450,7 +451,6 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test99)
             bool isUsed = false;
             CZerocoinMint mint(denom, value, rand, serial, isUsed);
             listMints.push_back(mint);
-            set = true;
         }
         mapOfDenomsHeld.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));
         j++;
@@ -469,13 +469,15 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test99)
 
     bool fDebug = 0;
     int nCoinsReturned;
+    int nNeededSpends = 0;  // Number of spends which would be needed if selection failed
 
     std::vector<CZerocoinMint> vSpends = SelectMintsFromList(nValueTarget, nSelectedValue,
                                                              nMaxNumberOfSpends,
                                                              fMinimizeChange,
                                                              nCoinsReturned,
                                                             listMints,
-                                                             mapOfDenomsHeld);
+                                                             mapOfDenomsHeld,
+                                                             nNeededSpends);
 
     if (fDebug) {
         if (vSpends.size() > 0) {

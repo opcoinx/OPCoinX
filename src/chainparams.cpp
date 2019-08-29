@@ -122,10 +122,12 @@ public:
         nLastPOWBlock = 2016;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
+
         //PIVX nModifierUpdateBlock = 615800;
         nModifierUpdateBlock = 0;
         nMaxMoneyOut = int64_t(800000000) * COIN;
         //nBudgetPercent = 0;
+        /** Height or Time Based Activations **/
         nMasternodeRewardPercent = 75; // % of block reward that goes to masternodes
         nRequiredMasternodeCollateral = 37500 * COIN; //37,500
 
@@ -276,9 +278,7 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
-        fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = true;
-        fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
         strSporkKey = "046a6ef3c13c172242d6ebfaa95b0a1cdb9d26d15e042c6a2d954fcf4480b03d38b807a5036035fced8385e6e135dee73fc88743481706dc6452b9bbdb897f6a83";
