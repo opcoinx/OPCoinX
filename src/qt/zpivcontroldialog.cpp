@@ -127,8 +127,8 @@ void ZPivControlDialog::updateList()
 // Update the list when a checkbox is clicked
 void ZPivControlDialog::updateSelection(QTreeWidgetItem* item, int column)
 {
-    if (column != COLUMN_CHECKBOX)
-        return;
+    // only want updates from non top level items that are available to spend
+    if (item->parent() && column == COLUMN_CHECKBOX && !item->isDisabled()){
 
     // see if this mint is already selected in the selection list
     std::string strPubcoin = item->text(COLUMN_PUBCOIN).toStdString();
@@ -144,6 +144,7 @@ void ZPivControlDialog::updateSelection(QTreeWidgetItem* item, int column)
         listSelectedMints.erase(iter);
     }
     updateLabels();
+    }
 }
 
 // Update the Quantity and Amount display
