@@ -15,6 +15,7 @@
 #include "walletmodel.h"
 #include "coincontrol.h"
 #include "zpivcontroldialog.h"
+#include "spork.h"
 
 #include <QClipboard>
 #include <QSettings>
@@ -90,6 +91,15 @@ PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent),
     // Hide those placeholder elements needed for CoinControl interaction
     ui->WarningLabel->hide();    // Explanatory text visible in QT-Creator
     ui->dummyHideWidget->hide(); // Dummy widget with elements to hide
+
+    //temporary disable for maintenance
+    if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
+        ui->pushButtonMintzPIV->setEnabled(false);
+        ui->pushButtonMintzPIV->setToolTip(tr("zPIV is currently disabled due to maintenance."));
+
+        ui->pushButtonSpendzPIV->setEnabled(false);
+        ui->pushButtonSpendzPIV->setToolTip(tr("zPIV is currently disabled due to maintenance."));
+    }
 }
 
 PrivacyDialog::~PrivacyDialog()
@@ -136,8 +146,10 @@ void PrivacyDialog::on_pushButtonMintzPIV_clicked()
     if (!walletModel || !walletModel->getOptionsModel())
         return;
 
-    if (GetAdjustedTime() < GetSporkValue(SPORK_17_ENABLE_ZEROCOIN)) {
-        QMessageBox::information(this, tr("Mint Zerocoin"), tr("Zerocoin functionality is not enabled on the PIVX network yet."), QMessageBox::Ok, QMessageBox::Ok);
+    if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
+        QMessageBox::information(this, tr("Mint Zerocoin"),
+                                 tr("zPIV is currently undergoing maintenance."), QMessageBox::Ok,
+                                 QMessageBox::Ok);
         return;
     }
 
@@ -247,8 +259,9 @@ void PrivacyDialog::on_pushButtonSpendzPIV_clicked()
     if (!walletModel || !walletModel->getOptionsModel() || !pwalletMain)
         return;
 
-    if (GetAdjustedTime() < GetSporkValue(SPORK_17_ENABLE_ZEROCOIN)) {
-        QMessageBox::information(this, tr("Spend Zerocoin"), tr("Zerocoin functionality is not enabled on the PIVX network yet."), QMessageBox::Ok, QMessageBox::Ok);
+    if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
+        QMessageBox::information(this, tr("Mint Zerocoin"),
+                                 tr("zPIV is currently undergoing maintenance."), QMessageBox::Ok, QMessageBox::Ok);
         return;
     }
 
@@ -555,21 +568,21 @@ void PrivacyDialog::setBalance(const CAmount& balance, const CAmount& unconfirme
         // All denominations
         mapDenomBalances.at(mint.GetDenomination())++;
 
-        if (!mint.GetHeight() || mint.GetHeight() > chainActive.Height() - Params().Zerocoin_MintRequiredConfirmations()) {
+        if (!mint.GetHeight() || chainActive.Height() - mint.GetHeight() <= Params().Zerocoin_MintRequiredConfirmations()) {
             // All unconfirmed denominations
             mapUnconfirmed.at(mint.GetDenomination())++;
         }
         else {
             // After a denomination is confirmed it might still be immature because < 3 of the same denomination were minted after it
-            CBlockIndex *pindex = chainActive[mint.GetHeight()];
+            CBlockIndex *pindex = chainActive[mint.GetHeight() + 1];
             int nMintsAdded = 0;
-            while(pindex->nHeight < chainActive.Height() - 30) { // 30 just to make sure that its at least 2 checkpoints from the top block
+            while (pindex->nHeight < chainActive.Height() - 30) { // 30 just to make sure that its at least 2 checkpoints from the top block
                 nMintsAdded += count(pindex->vMintDenominationsInBlock.begin(), pindex->vMintDenominationsInBlock.end(), mint.GetDenomination());
-                if(nMintsAdded >= 3)
+                if (nMintsAdded >= Params().Zerocoin_RequiredAccumulation())
                     break;
                 pindex = chainActive[pindex->nHeight + 1];
             }
-            if(nMintsAdded < 3){
+            if (nMintsAdded < Params().Zerocoin_RequiredAccumulation()){
                 // Immature denominations
                 mapImmature.at(mint.GetDenomination())++;
             }

@@ -119,17 +119,21 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 5 * 60; // OPCoinX: 5 minute
         nTargetSpacing = 5 * 60;  // OPCoinX: 5 minute
-        nLastPOWBlock = 2016;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
-
-        //PIVX nModifierUpdateBlock = 615800;
-        nModifierUpdateBlock = 0;
         nMaxMoneyOut = int64_t(800000000) * COIN;
-        //nBudgetPercent = 0;
-        /** Height or Time Based Activations **/
         nMasternodeRewardPercent = 75; // % of block reward that goes to masternodes
         nRequiredMasternodeCollateral = 37500 * COIN; //37,500
+
+        /** Height or Time Based Activations **/
+         nLastPOWBlock = 2016;
+        nModifierUpdateBlock = 0;
+        nZerocoinStartHeight = 863787;
+        nBlockEnforceSerialRange = 999999999; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 999999999; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 891737; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 891730; //Last valid accumulator checkpoint
+        nZerocoinStartTime = 1508214600; // October 17, 2017 4:30:00 AM
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -205,12 +209,12 @@ public:
         nMaxZerocoinSpendsPerTransaction = 7; // Assume about 20kb each
         nMinZerocoinMintFee = 1 * CENT; //high fee required for zerocoin mints
         nMintRequiredConfirmations = 20; //the maximum amount of confirmations until accumulated in 19
+        nRequiredAccumulation = 2;
         nDefaultSecurityLevel = 100; //full security level for accumulators
         nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
 
-    
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
         return data;
@@ -234,7 +238,6 @@ public:
         pchMessageStart[3] = 0xbd;
         vAlertPubKey = ParseHex("04057c908a8b772c8f11b923cbc3b58d1f6896061ba0e4912dbd62d756baf7d1e052f1b1387e786a6318f7677ac5339cf1c28a936f9b65db23906b72871b3b2d22");
         nDefaultPort = 18053;
-        bnProofOfWorkLimit = ~uint256(0) >> 1;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
@@ -246,10 +249,10 @@ public:
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 0; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = int64_t(3500000000) * COIN;
+        nZerocoinStartHeight = 201576;
         //nBudgetPercent = 5;
         nMasternodeRewardPercent = 60; // % of block reward that goes to masternodes
         nRequiredMasternodeCollateral = 37500 * COIN; //37,500
-
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1520769358;
         genesis.nNonce = 823545;
@@ -323,7 +326,6 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18053;
-        
         assert(hashGenesisBlock == uint256("0x647ceccaa95bcc7647fb41ece2b7b6c2e082d0ea94405fef7af88e11e0cdd2a8"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
@@ -337,7 +339,6 @@ public:
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
     }
-
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
         return dataRegtest;

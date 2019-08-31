@@ -10,6 +10,7 @@
 #include "keystore.h"
 #include "script/script.h"
 #include "script/standard.h"
+#include "util.h"
 
 #include <boost/foreach.hpp>
 
@@ -36,11 +37,19 @@ isminetype IsMine(const CKeyStore& keystore, const CTxDestination& dest)
 
 isminetype IsMine(const CKeyStore& keystore, const CScript& scriptPubKey)
 {
+    if(keystore.HaveWatchOnly(scriptPubKey))
+        return ISMINE_WATCH_ONLY;
+    if(keystore.HaveMultiSig(scriptPubKey))
+        return ISMINE_MULTISIG;
+
     vector<valtype> vSolutions;
     txnouttype whichType;
     if (!Solver(scriptPubKey, whichType, vSolutions)) {
         if (keystore.HaveWatchOnly(scriptPubKey))
             return ISMINE_WATCH_ONLY;
+        if(keystore.HaveMultiSig(scriptPubKey))
+            return ISMINE_MULTISIG;
+
         return ISMINE_NO;
     }
 
@@ -65,7 +74,7 @@ isminetype IsMine(const CKeyStore& keystore, const CScript& scriptPubKey)
         CScript subscript;
         if (keystore.GetCScript(scriptID, subscript)) {
             isminetype ret = IsMine(keystore, subscript);
-            if (ret == ISMINE_SPENDABLE)
+            if(ret != ISMINE_NO)
                 return ret;
         }
         break;
@@ -85,5 +94,8 @@ isminetype IsMine(const CKeyStore& keystore, const CScript& scriptPubKey)
 
     if (keystore.HaveWatchOnly(scriptPubKey))
         return ISMINE_WATCH_ONLY;
+    if(keystore.HaveMultiSig(scriptPubKey))
+        return ISMINE_MULTISIG;
+
     return ISMINE_NO;
 }

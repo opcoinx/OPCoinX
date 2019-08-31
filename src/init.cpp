@@ -11,6 +11,7 @@
 
 #include "init.h"
 
+#include "accumulators.h"
 #include "activemasternode.h"
 #include "addrman.h"
 #include "amount.h"
@@ -70,6 +71,7 @@ int nWalletBackups = 10;
 #endif
 volatile bool fFeeEstimatesInitialized = false;
 volatile bool fRestartRequested = false; // true: restart false: shutdown
+extern std::list<uint256> listAccCheckpointsNoDB;
 
 #if ENABLE_ZMQ
 static CZMQNotificationInterface* pzmqNotificationInterface = NULL;
@@ -330,6 +332,8 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-pid=<file>", strprintf(_("Specify pid file (default: %s)"), "pivxd.pid"));
 #endif
     strUsage += HelpMessageOpt("-reindex", _("Rebuild block chain index from current blk000??.dat files") + " " + _("on startup"));
+    strUsage += HelpMessageOpt("-reindexaccumulators", _("Reindex the accumulator database") + " " + _("on startup"));
+    strUsage += HelpMessageOpt("-reindexmoneysupply", _("Reindex the PIV and zPIV money supply statistics") + " " + _("on startup"));
     strUsage += HelpMessageOpt("-resync", _("Delete blockchain folders and resync from scratch") + " " + _("on startup"));
 #if !defined(WIN32)
     strUsage += HelpMessageOpt("-sysperms", _("Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)"));
@@ -406,10 +410,10 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageGroup(_("ZeroMQ notification options:"));
     strUsage += HelpMessageOpt("-zmqpubhashblock=<address>", _("Enable publish hash block in <address>"));
     strUsage += HelpMessageOpt("-zmqpubhashtx=<address>", _("Enable publish hash transaction in <address>"));
-    strUsage += HelpMessageOpt("-zmqpubhashtxlock=<address>", _("Enable publish hash transaction (locked via SwiftTX) in <address>"));
+    strUsage += HelpMessageOpt("-zmqpubhashtxlock=<address>", _("Enable publish hash transaction (locked via SwiftX) in <address>"));
     strUsage += HelpMessageOpt("-zmqpubrawblock=<address>", _("Enable publish raw block in <address>"));
     strUsage += HelpMessageOpt("-zmqpubrawtx=<address>", _("Enable publish raw transaction in <address>"));
-    strUsage += HelpMessageOpt("-zmqpubrawtxlock=<address>", _("Enable publish raw transaction (locked via SwiftTX) in <address>"));
+    strUsage += HelpMessageOpt("-zmqpubrawtxlock=<address>", _("Enable publish raw transaction (locked via SwiftX) in <address>"));
 #endif
 
     strUsage += HelpMessageGroup(_("Debugging/Testing options:"));
@@ -427,7 +431,7 @@ std::string HelpMessage(HelpMessageMode mode)
         strUsage += HelpMessageOpt("-stopafterblockimport", strprintf(_("Stop running after importing blocks from disk (default: %u)"), 0));
         strUsage += HelpMessageOpt("-sporkkey=<privkey>", _("Enable spork administration functionality with the appropriate private key."));
     }
-    string debugCategories = "addrman, alert, bench, coindb, db, lock, rand, rpc, selectcoins, tor, mempool, net, proxy, pivx, (obfuscation, swifttx, masternode, mnpayments, mnbudget, zero)"; // Don't translate these and qt below
+    string debugCategories = "addrman, alert, bench, coindb, db, lock, rand, rpc, selectcoins, tor, mempool, net, proxy, pivx, (obfuscation, swiftx, masternode, mnpayments, mnbudget, zero)"; // Don't translate these and qt below
     if (mode == HMM_BITCOIN_QT)
         debugCategories += ", qt";
     strUsage += HelpMessageOpt("-debug=<category>", strprintf(_("Output debugging information (default: %u, supplying <category> is optional)"), 0) + ". " +
@@ -457,7 +461,7 @@ std::string HelpMessage(HelpMessageMode mode)
     }
     strUsage += HelpMessageOpt("-shrinkdebugfile", _("Shrink debug.log file on client startup (default: 1 when no -debug)"));
     strUsage += HelpMessageOpt("-testnet", _("Use the test network"));
-    strUsage += HelpMessageOpt("-litemode=<n>", strprintf(_("Disable all PIVX specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)"), 0));
+    strUsage += HelpMessageOpt("-litemode=<n>", strprintf(_("Disable all PIVX specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)"), 0));
 
 #ifdef ENABLE_WALLET
     strUsage += HelpMessageGroup(_("Staking options:"));
@@ -486,8 +490,8 @@ std::string HelpMessage(HelpMessageMode mode)
 //    strUsage += "  -anonymizepivxamount=<n>     " + strprintf(_("Keep N PIV anonymized (default: %u)"), 0) + "\n";
 //    strUsage += "  -liquidityprovider=<n>       " + strprintf(_("Provide liquidity to Obfuscation by infrequently mixing coins on a continual basis (0-100, default: %u, 1=very frequent, high fees, 100=very infrequent, low fees)"), 0) + "\n";
 
-    strUsage += HelpMessageGroup(_("SwiftTX options:"));
-    strUsage += HelpMessageOpt("-enableswifttx=<n>", strprintf(_("Enable swifttx, show confirmations for locked transactions (bool, default: %s)"), "true"));
+    strUsage += HelpMessageGroup(_("SwiftX options:"));
+    strUsage += HelpMessageOpt("-enableswifttx=<n>", strprintf(_("Enable SwiftX, show confirmations for locked transactions (bool, default: %s)"), "true"));
     strUsage += HelpMessageOpt("-swifttxdepth=<n>", strprintf(_("Show N confirmations for a successfully locked transaction (0-9999, default: %u)"), nSwiftTXDepth));
 
     strUsage += HelpMessageGroup(_("Node relay options:"));
@@ -1346,114 +1350,28 @@ bool AppInit2(boost::thread_group& threadGroup)
                     break;
                 }
 
+                // Populate list of invalid/fraudulent outpoints that are banned from the chain
+                PopulateInvalidOutPointMap();
+/*
                 // Recalculate money supply for blocks that are impacted by accounting issue after zerocoin activation
-                bool fVecFixed = false;
-                pblocktree->ReadFlag("msvecfix", fVecFixed);
-                bool fReindexRange = chainActive.Height() > GetZerocoinStartHeight();
-                if (fReindexRange && !fVecFixed) {
-                    uiInterface.InitMessage(_("Recalculating supply statistics may take 30-60 minutes..."));
-                    LogPrintf("%s : Recalculating supply statistics\n", __func__);
-
-                    //If recalculation was exited before it was finished, then start where it left off
-                    int nStartHeight = 0;
-                    if (!pblocktree->ReadInt("msvecindex", nStartHeight))
-                        nStartHeight = GetZerocoinStartHeight();
-                    CBlockIndex *pindex = chainActive[nStartHeight];
-                    int nHeightEnd = chainActive.Height();
-                    while (true) {
-                        if (ShutdownRequested())
-                            return false;
-
-                        double dPercent = 1 - ((nHeightEnd - pindex->nHeight) / (double)(nHeightEnd - nStartHeight));
-                        string strMessage = strprintf("Recalculating supply statistics may take 30-60 minutes block %d...", pindex->nHeight);
-                        uiInterface.ShowProgress(_(strMessage.c_str()), (int)(dPercent * 100));
-
-                        //overwrite possibly wrong vMintsInBlock data
-                        CBlock block;
-                        if (!ReadBlockFromDisk(block, pindex)) {
-                            return InitError(_("Failed to read block index"));
-                        }
-
-                        std::list<CZerocoinMint> listMints;
-                        BlockToZerocoinMintList(block, listMints);
-
-                        pindex->vMintDenominationsInBlock.clear();
-                        for (auto mint : listMints) {
-                            pindex->vMintDenominationsInBlock.emplace_back(mint.GetDenomination());
-                        }
-
-                        if (!pblocktree->WriteBlockIndex(CDiskBlockIndex(pindex))) {
-                            return InitError(_("Failed to write block index"));
-                        }
-
-                        LogPrintf("%s : rewrote vMintDenominationsInBlock for %d\n", __func__, pindex->nHeight);
-
-                        //Track progress in case of shutdown
-                        pblocktree->WriteInt("msvecindex", pindex->nHeight);
-
-                        if (pindex->nHeight < nHeightEnd)
-                            pindex = chainActive.Next(pindex);
-                        else
-                            break;
+                if (GetBoolArg("-reindexmoneysupply", false)) {
+                    if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
+                        RecalculateZPIVMinted();
+                        RecalculateZPIVSpent();
                     }
-
-                    //This flag indicates that the fix has already been done and not needed in the future
-                    pblocktree->WriteFlag("msvecfix", true);
+                    RecalculatePIVSupply(1);
                 }
 
-                bool msIndexFixed = false;
-                pblocktree->ReadFlag("msindexfix", msIndexFixed);
-                if (fReindexRange && !msIndexFixed){
-                    uiInterface.InitMessage(_("Recalculating coin supply may take 30-60 minutes..."));
-                    LogPrintf("%s : Recalculating money supply statistics\n", __func__);
-
-                    //If recalculation was exited before it was finished, then start where it left off
-                    int nStartHeight = 0;
-                    if (!pblocktree->ReadInt("msindex", nStartHeight))
-                        nStartHeight = GetZerocoinStartHeight();
-                    CBlockIndex *pindex = chainActive[nStartHeight];
-                    int nHeightEnd = chainActive.Height();
-
-                    // Remove possible zPiv spends from the supply
-                    CAmount nzPivSpent = 0;
-                    while (true) {
-                        // get each blocks amount of zPiv minted and the zpiv money supply change for that block
-                        // figure out amount spent by difference in zpiv supply per denom and the amount minted per denom
-                        CAmount nBlockzPivSpent = 0;
-                        for (auto denom : libzerocoin::zerocoinDenomList) {
-                            int nDenomAdded = count(pindex->vMintDenominationsInBlock.begin(), pindex->vMintDenominationsInBlock.end(), denom);
-                            int64_t nDenomMinted = nDenomAdded * denom;
-
-                            //note zPiv supply is quantity of zPiv for the denom, not the amount
-                            int64_t nSupplyZPivLast = pindex->pprev->mapZerocoinSupply.at(denom) * denom;
-                            int64_t nSupplyZPiv = pindex->mapZerocoinSupply.at(denom) * denom;
-                            int64_t nDenomZPivSpent = (nSupplyZPivLast + nDenomMinted) - nSupplyZPiv;
-                            nBlockzPivSpent += nDenomZPivSpent * COIN;
-                        }
-
-                        //Total zPiv spent up to and including this block
-                        nzPivSpent += nBlockzPivSpent;
-
-                        //Rewrite money supply
-                        pindex->nMoneySupply = pindex->nMoneySupply - nzPivSpent;
-                        if (!pblocktree->WriteBlockIndex(CDiskBlockIndex(pindex))) {
-                            return InitError(_("Failed to write block index"));
-                        }
-
-                        //Track progress in case of shutdown
-                        pblocktree->WriteInt("msindex", pindex->nHeight);
-
-                        if (pindex->nHeight < nHeightEnd)
-                            pindex = chainActive.Next(pindex);
-                        else
-                            break;
+                // Force recalculation of accumulators.
+                if (GetBoolArg("-reindexaccumulators", false)) {
+                    CBlockIndex* pindex = chainActive[Params().Zerocoin_StartHeight()];
+                    while (pindex->nHeight < chainActive.Height()) {
+                        if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(), pindex->nAccumulatorCheckpoint))
+                            listAccCheckpointsNoDB.emplace_back(pindex->nAccumulatorCheckpoint);
+                        pindex = chainActive.Next(pindex);
                     }
-
-                    //Mark reindexing as done, and not needed again in the futures
-                    pblocktree->WriteFlag("msindexfix", true);
                 }
-
-                list<uint256> listAccCheckpointsNoDB = CAccumulators::getInstance().GetAccCheckpointsNoDB();
+*/
                 // PIVX: recalculate Accumulator Checkpoints that failed to database properly
                 if (!listAccCheckpointsNoDB.empty() && chainActive.Tip()->GetBlockHeader().nVersion >= Params().Zerocoin_HeaderVersion()) {
                     uiInterface.InitMessage(_("Calculating missing accumulators..."));
@@ -1484,11 +1402,13 @@ bool AppInit2(boost::thread_group& threadGroup)
                             uiInterface.ShowProgress(_("Calculating missing accumulators..."), (int)(dPercent * 100));
                             if(find(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(), pindex->nAccumulatorCheckpoint) != listAccCheckpointsNoDB.end()) {
                                 uint256 nCheckpointCalculated = 0;
-                                CAccumulators::getInstance().GetCheckpoint(pindex->nHeight, nCheckpointCalculated);
+                                if (!CalculateAccumulatorCheckpoint(pindex->nHeight, nCheckpointCalculated)) {
+                                    // GetCheckpoint could have terminated due to a shutdown request. Check this here.
+                                    if (ShutdownRequested())
+                                        break;
+                                    return InitError(_("Failed to calculate accumulator checkpoint"));
+                                }
 
-                                //check that the calculated checkpoint is what is in the index.
-                                if (ShutdownRequested())
-                                    break;
                                 //check that the calculated checkpoint is what is in the index.
                                 if(nCheckpointCalculated != pindex->nAccumulatorCheckpoint) {
                                     LogPrintf("%s : height=%d calculated_checkpoint=%s actual=%s\n", __func__, pindex->nHeight, nCheckpointCalculated.GetHex(), pindex->nAccumulatorCheckpoint.GetHex());
@@ -1507,7 +1427,6 @@ bool AppInit2(boost::thread_group& threadGroup)
                             break;
                     }
                 }
-                CAccumulators::getInstance().ClearAccCheckpointsNoDB();
 
                 uiInterface.InitMessage(_("Verifying blocks..."));
 
