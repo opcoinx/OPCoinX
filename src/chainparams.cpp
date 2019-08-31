@@ -129,11 +129,12 @@ public:
          nLastPOWBlock = 2016;
         nModifierUpdateBlock = 0;
         nZerocoinStartHeight = 863787;
+        nZerocoinStartTime = 1508214600; // October 17, 2017 4:30:00 AM
         nBlockEnforceSerialRange = 999999999; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = 999999999; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = 891737; //First block that bad serials emerged
         nBlockLastGoodCheckpoint = 891730; //Last valid accumulator checkpoint
-        nZerocoinStartTime = 1508214600; // October 17, 2017 4:30:00 AM
+        nBlockEnforceInvalidUTXO = 999999999; //Start enforcing the invalid UTXO's
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -253,6 +254,13 @@ public:
         //nBudgetPercent = 5;
         nMasternodeRewardPercent = 60; // % of block reward that goes to masternodes
         nRequiredMasternodeCollateral = 37500 * COIN; //37,500
+        nZerocoinStartTime = 1501776000;
+        nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 9908000; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 9891737; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 9891730; //Last valid accumulator checkpoint
+        nBlockEnforceInvalidUTXO = 9902850; //Start enforcing the invalid UTXO's
+
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1520769358;
         genesis.nNonce = 823545;
