@@ -144,8 +144,8 @@ public:
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 2016;
-        nPivxBadBlockTime = 1471401614; // Skip nBit validation of Block 259201 per PR #915
-        nPivxBadBlocknBits = 0x1c056dac; // Skip nBit validation of Block 259201 per PR #915
+        nOpcxBadBlockTime = 1471401614; // Skip nBit validation of Block 259201 per PR #915
+        nOpcxBadBlocknBits = 0x1c056dac; // Skip nBit validation of Block 259201 per PR #915
         nModifierUpdateBlock = 0;
         nZerocoinStartHeight = std::numeric_limits<int>::max();
         nZerocoinStartTime = 1908214600; // October 17, 2017 4:30:00 AM
@@ -306,8 +306,8 @@ public:
         nMinerThreads = 0;
         nTargetSpacing = 1 * 60;  // PIVX: 1 minute
         nLastPOWBlock = 200;
-        nPivxBadBlockTime = 1489001494; // Skip nBit validation of Block 259201 per PR #915
-        nPivxBadBlocknBits = 0x1e0a20bd; // Skip nBit validation of Block 201 per PR #915
+        nOpcxBadBlockTime = 1489001494; // Skip nBit validation of Block 259201 per PR #915
+        nOpcxBadBlocknBits = 0x1e0a20bd; // Skip nBit validation of Block 201 per PR #915
         nMaturity = 15;
         nStakeMinDepth = 100;
         nMasternodeCountDrift = 4;
