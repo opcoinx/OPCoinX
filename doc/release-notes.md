@@ -1,8 +1,6 @@
-(note: this is a temporary file, to be added-to by anybody, and moved to release-notes at release time)
+OPCX Core version *2.2.0* is now available from:  <https://github.com/opcx-project/opcx/releases>
 
-OPCX Core version *version* is now available from:  <https://github.com/opcx-project/opcx/releases>
-
-This is a new major version release, including various bug fixes and performance improvements, as well as updated translations.
+This is a new major version release, including various bug fixes and performance improvements.
 
 Please report bugs using the issue tracker at github: <https://github.com/opcx-project/opcx/issues>
 
@@ -10,6 +8,14 @@ Please report bugs using the issue tracker at github: <https://github.com/opcx-p
 Mandatory Update
 ==============
 
+OPCX Core v2.0.0 is a mandatory update for all users. This release contains new consensus rules and improvements that are not backwards compatible with older versions. Users will need to update their clients before enforcement of this update goes into effect.
+
+Update enforcement goes into effect at the following times:
+
+    Testnet: Tuesday, August 27, 2019 7:00:00 PM GMT
+    Mainnet: Friday, August 30, 2019 4:00:00 PM GMT
+
+Masternodes will need to be restarted once both the masternode daemon and the controller wallet have been upgraded.
 
 How to Upgrade
 ==============
@@ -32,128 +38,120 @@ OPCX Core should also work on most other Unix-like systems but is not frequently
 Notable Changes
 ==============
 
-## zOPCX Public Spends
+## Internal (Core) Changes
 
-Recent exploits of the Zerocoin protocol (Wrapped serials and broken P1 proof) required us to enable the zerocoin spork and deactivate zOPCX functionality in order to secure the supply until the pertinent review process was completed.
+### Version 2 Stake Modifier
 
-Moving forward from this undesired situation, we are enabling a secure and chain storage friendly solution for the zerocoin public spend (aka zOPCX to OPCX conversion).
+A new 256-bit modifier for the proof of stake protocol has been defined, `CBlockIndex::nStakeModifierV2`.
+It is computed at every block, by taking the hash of the modifier of previous block along with the coinstake input.
+To meet the protocol, the PoS kernel must comprise the modifier of the previous block.
 
-The explanation of how this works can be found in #891
+Changeover enforcement of this new modifier is set to occur at block `1214000` for testnet and block `1967000` for mainnet.
 
-After block `1,880,000` has past, `SPORK_16` will be deactivated to allow zOPCX spends to occur using this new public spend method for version 2 zOPCX (version 1 zOPCX won't be spendable, see note below). zOPCX public spends, as the name suggests, are **NOT** private, they reveal the input mint that is being spent. The minting of **NEW** zOPCX, as well as zOPCX staking will remain disabled for the time being.
+### Block index batch writing
 
-It is advised that users spend/convert their existing zOPCX to OPCX, which can be done via the GUI or RPC as it was prior to the disabling of zOPCX. Note that with the public spend method, the restriction on the number of denominations per transaction (previously 7) has been lifted, and now allows for several hundred denominations per transaction.
+Block index writes are now done in a batch. This allows for less frequent disk access, meaning improved performances and less data corruption risks.
 
-*Note on version 1 zOPCX*: Version 1 zOPCX was only available to me minted between versions v3.0.0 (Oct 6, 2017) and v3.1.0 (May 8, 2018). The announcement that version 1 zOPCX was deprecated went out on May 1, 2018 with a recommendation for users to spend/convert their version 1 zOPCX.
+### Eliminate needless key generation
 
-Version 1 zOPCX will be made spendable at a later date due to the extra work required in order to make these version 1 mints spendable.
+The staking process has been improved to no longer request a new (unused) key from the keypool. This should reduce wallet file size bloat as well as slightly improve staking efficiency.
+
+### Fix crash scenario at wallet startup
+
+A program crash bug that happens when the wallet.dat file contains a zc public spend transaction (input) and the user had removed the chain data has been fixed.
 
 ## GUI Changes
 
-### Options Dialog Cleanup
+### Removal of zero-fee transaction option
 
-The options/settings UI dialog has been cleaned up to no longer show settings that are wallet related when running in "disable wallet" (`-disablewallet`) mode.
+The long term viability of acceptable zero-fee transaction conditions is in need of review. As such, we are temporarily disabling the ability to create zero-fee transactions.
 
-### Privacy Tab
+### Show latest block hash and datadir information tab
 
-Notice text has been added to the privacy tab indicating that zOPCX minting is disabled, as well as the removal of UI elements that supported such functionality. Notice text has also been added indicating that zOPCX spends are currently **NOT** private.
+A QoL addition has been made to the Information tab of the UI's console window, which adds the display of both the current data directory and the latest block hash seen by the client.
 
 ## RPC Changes
 
-### Removal of Deprecated Commands
+### Require valid URL scheme when preparing/submitting a proposal
 
-The `masternode` and `mnbudget` RPC commands, which were marked as deprecated in OPCX Core v2.3.1 (September 19, 2017), have now been completely removed from OPCX Core.
+The `preparebudget` and `submitbudget` RPC commands now require the inclusion of a canonical URL scheme as part of their `url` parameter. Strings that don't include either `http://` or `https://` will be rejected.
 
-Several new commands were added in v2.3.1 to replace the two aforementioned commands, reference the [v2.3.1 Release Notes](https://github.com/OPCX-Project/OPCX/blob/master/doc/release-notes/release-notes-2.3.1.md#rpc-changes) for further details.
+The 64 character limit for the `url` field is inclusive of this change, so the use of a URL shortening service may be needed.
 
-### New `getblockindexstats` Command
+## Testing Suite Changes
 
-A new RPC command (`getblockindexstats`) has been introduced which serves the purpose of obtaining statistical information on a range of blocks. The information returned is as follows:
-  * transaction count (not including coinbase/coinstake txes)
-  * transaction count (including coinbase/coinstake txes)
-  * zOPCX per-denom mint count
-  * zOPCX per-denom spend count
-  * total transaction bytes
-  * total fees in block range
-  * average fee per kB
+### Functional testing readability
 
-Command Reference:
-```$xslt
-getblockindexstats height range ( fFeeOnly )
-nReturns aggregated BlockIndex data for blocks
-height, height+1, height+2, ..., height+range-1]
-
-nArguments:
-1. height             (numeric, required) block height where the search starts.
-2. range              (numeric, required) number of blocks to include.
-3. fFeeOnly           (boolean, optional, default=False) return only fee info.
-```
-Result:
-```
-{
-  first_block: x,              (integer) First counted block
-  last_block: x,               (integer) Last counted block
-  txcount: xxxxx,              (numeric) tx count (excluding coinbase/coinstake)
-  txcount_all: xxxxx,          (numeric) tx count (including coinbase/coinstake)
-  mintcount: {              [if fFeeOnly=False]
-        denom_1: xxxx,         (numeric) number of mints of denom_1 occurred over the block range
-        denom_5: xxxx,         (numeric) number of mints of denom_5 occurred over the block range
-         ...                    ... number of mints of other denominations: ..., 10, 50, 100, 500, 1000, 5000
-  },
-  spendcount: {             [if fFeeOnly=False]
-        denom_1: xxxx,         (numeric) number of spends of denom_1 occurred over the block range
-        denom_5: xxxx,         (numeric) number of spends of denom_5 occurred over the block range
-         ...                    ... number of spends of other denominations: ..., 10, 50, 100, 500, 1000, 5000
-  },
-  pubspendcount: {          [if fFeeOnly=False]
-        denom_1: xxxx,         (numeric) number of PUBLIC spends of denom_1 occurred over the block range
-        denom_5: xxxx,         (numeric) number of PUBLIC spends of denom_5 occurred over the block range
-         ...                   ... number of PUBLIC spends of other denominations: ..., 10, 50, 100, 500, 1000, 5000
-  },
-  txbytes: xxxxx,              (numeric) Sum of the size of all txes (zOPCX excluded) over block range
-  ttlfee: xxxxx,               (numeric) Sum of the fee amount of all txes (zOPCX mints excluded) over block range
-  ttlfee_all: xxxxx,           (numeric) Sum of the fee amount of all txes (zOPCX mints included) over block range
-  feeperkb: xxxxx,             (numeric) Average fee per kb (excluding zc txes)
-}
-```
+Several changes have been introduced to the travis script in order to make the output more readable. Specifically it now lists tests left to run and prints the output of failing scripts.
 
 ## Build System Changes
 
-### New Architectures for Depends
+### OpenSSL configure information
 
-The depends system has new added support for the `s390x` and `ppc64el` architectures. This is done in order to support the future integration with [Snapcraft](https://www.snapcraft.io), as well as to support any developers who may use systems based on such architectures.
+When the configure step fails because of an unsupported OpenSSL (or other library), it now displays more information on using an override flag to compile anyways. The long term plan is to ensure that the consensus code doesn't depend on OpenSSL in any way and then remove this configure step and related override flag.
 
-### Basic CMake Support
-
-While the existing Autotools based build system is our standard build system, and will continue to be so, we have added basic support for compiling with CMake on macOS and linux systems.
-
-This is intended to be used in conjunction with IDEs like CLion (which relies heavily on CMake) in order to streamline the development process. Developers can now use, for example, CLion's internal debugger and profiling tools.
-
-Note that it is still required to have relevant dependencies installed on the system for this to function properly.
-
-*version* Change log
+*2.0.0* Change log
 ==============
 
 Detailed release notes follow. This overview includes changes that affect behavior, not code moves, refactors and string updates. For convenience in locating the code changes and accompanying discussion, both the pull request and git merge commit are mentioned.
 
 ### Core Features
+ - #983 `ac8cb7376d` [PoS] Stake Modifier V2 (random-zebra)
+ - #958 `454c487424` [Staking] Modify miner and staking thread for efficiency (Cave Spectre)
+ - #915 `9c5a300624` Modify GetNextWorkRequired to set Target Limit correctly (Cave Spectre)
+ - #952 `7ab673f6fa` [Staking] Prevent potential negative out values during stake splitting (Cave Spectre)
+ - #941 `0ac0116ae4` [Refactor] Move ThreadStakeMinter out of net.cpp (Fuzzbawls)
+ - #932 `924ec4f6dd` [Node] Do all block index writes in a batch (Pieter Wuille)
 
 ### Build System
+ - #934 `92aa6c2daa` [Build] Bump master to 3.3.99 (pre-3.4) (Fuzzbawls)
+ - #943 `918852cb90` [Travis] Show functional tests progress (warrows)
+ - #957 `2c9f624455` [Build] Add info about '--with-unsupported-ssl' (Warrows)
  
 ### P2P Protocol and Network Code
+ - #987 `fa1dbab247` [Net] Protocol update enforcement for 70917 and new spork keys (Fuzzbawls)
 
 ### GUI
+ - #933 `e47fe3d379` [Qt] Add blockhash + datadir to information tab (Mrs-X)
  
 ### RPC/REST
+ - #950 `3d7e16e753` [RPC] require valid URL scheme on budget commands (Cave Spectre)
+ - #964 `a03fa6236d` [Refactor] Combine parameter checking of budget commands (Cave Spectre)
+ - #965 `b9ce433bd5` [RPC] Correct issues with budget commands (Cave Spectre)
 
 ### Wallet
+ - #939 `37ad934ad8` [Wallet] Remove (explicitely) unused tx comparator (warrows)
+ - #971 `bbeabc4d63` [Wallet][zOPC] zc public spend parse crash in wallet startup. (furszy)
+ - #980 `8b81d8f6f9` [Wallet] Remove Bitcoin Core 0.8 block hardlinking (JSKitty)
+ - #982 `a0a1af9f78` [Miner] Don't create new keys when generating PoS blocks (random-zebra)
+
+### Test Suites
+ - #961 `2269f10fd9` [Trivial][Tests] Do not fail test when warnings are written to stderr (random-zebra)
+ - #974 `f9d4ee0b15` [Tests] Add Spork functional test and update RegTest spork key (random-zebra)
+ - #976 `12de5ec1dc` [Refactor] Fix stake age checks for regtest (random-zebra)
  
 ### Miscellaneous
+ - #947 `6ce55eec2d` [Scripts] Sync github-merge.py with upstream (Fuzzbawls)
+ - #948 `4a2b4831a9` [Docs] Clean and re-structure the gitian-keys directory (Fuzzbawls)
+ - #949 `9e4c3576af` [Refactor] Remove all "using namespace" statements (warrows)
+ - #951 `fa40040f80` [Trivial] typo fixes (Cave Spectre)
+ - #986 `fdd0cdb72f` [Doc] Release notes update (Fuzzbawls)
  
  
 ## Credits
 
 Thanks to everyone who directly contributed to this release:
-
+- Cave Spectre
+- Chun Kuan Lee
+- Fuzzbawls
+- Isidoro Ghezzi
+- JSKitty
+- MarcoFalke
+- Mrs-X
+- Pieter Wuille
+- Steven Roose
+- Warrows
+- furszy
+- random-zebra
 
 As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/opcx-project-translations/), the QA team during Testing and the Node hosts supporting our Testnet.

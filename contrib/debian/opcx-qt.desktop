@@ -10,4 +10,4 @@ Type=Application
 Icon=opcx128
 MimeType=x-scheme-handler/opcx;
 Categories=Office;Finance;
-StartupWMClass=OPCoinX-qt
+StartupWMClass=Opcx-qt

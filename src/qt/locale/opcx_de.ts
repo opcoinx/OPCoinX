@@ -433,8 +433,8 @@
         <translation>Transaktionsverlauf durchsuchen</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Datenschutzmaßnahmen für zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Datenschutzmaßnahmen für zOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1827,28 +1827,28 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Port mit &amp;UPnP mappen</translation>
     </message>
     <message>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
-        <translation>Aktivieren Sie die automatische Prägung von OPCX-Einheiten zu zOPCX</translation>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
+        <translation>Aktivieren Sie die automatische Prägung von OPCX-Einheiten zu zOPC</translation>
     </message>
     <message>
-        <source>Enable zOPCX Automint</source>
-        <translation>Aktivieren Sie zOPCX Automint</translation>
+        <source>Enable zOPC Automint</source>
+        <translation>Aktivieren Sie zOPC Automint</translation>
     </message>
     <message>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Anteil des eingehenden OPCX, welcher automatisch zu zOPCX via Zerocoin Protokoll konvertiert wird (min: 10%)</translation>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Anteil des eingehenden OPCX, welcher automatisch zu zOPC via Zerocoin Protokoll konvertiert wird (min: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zOPCX</source>
-        <translation>Prozentsatz der automatisierten zOPCX</translation>
+        <source>Percentage of autominted zOPC</source>
+        <translation>Prozentsatz der automatisierten zOPC</translation>
     </message>
     <message>
         <source>Wait with automatic conversion to Zerocoin until enough OPCX for this denomination is available</source>
         <translation>Warte mit automatischer Konvertierung zu Zerocoin, bis genügend OPCX für diese Stückelung verfügbar ist</translation>
     </message>
     <message>
-        <source>Preferred Automint zOPCX Denomination</source>
-        <translation>Bevorzugte automatisierte zOPCX Stückelung </translation>
+        <source>Preferred Automint zOPC Denomination</source>
+        <translation>Bevorzugte automatisierte zOPC Stückelung </translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2034,14 +2034,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Ihr aktueller OPCX-Saldo, unbestätigte und unreife Transaktionen sind enthalten</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>zOPCX Bilanzen</translation>
+        <source>zOPC Balance</source>
+        <translation>zOPC Bilanzen</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation>Ausgereift: Mehr als 20 Bestätigungen und mehr als 1 Prägungen der selben Stückelung nach erfolgter Prägung.
-Diese zOPCX sind Verwendbar.</translation>
+Diese zOPC sind Verwendbar.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2094,8 +2094,8 @@ Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter
         <translation>Verfügbar:</translation>
     </message>
     <message>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
-        <translation>Gesperrte OPCX oder Masternode Pfand. Diese sind vom zOPCX Prägen ausgeschlossen.</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
+        <translation>Gesperrte OPCX oder Masternode Pfand. Diese sind vom zOPC Prägen ausgeschlossen.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2106,8 +2106,8 @@ Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter
         <translation>Unbestätigt:</translation>
     </message>
     <message>
-        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
-        <translation>Ihre aktuelle zOPCX-Bilanz, unbestätigte und unreife zOPCX enthalten.</translation>
+        <source>Your current zOPC balance, unconfirmed and immature zOPC included.</source>
+        <translation>Ihre aktuelle zOPC-Bilanz, unbestätigte und unreife zOPC enthalten.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2118,10 +2118,10 @@ Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter
         <translation>nicht synchron</translation>
     </message>
     <message>
-        <source>Current percentage of zOPCX.
+        <source>Current percentage of zOPC.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Aktueller Prozentsatz an zOPCX.
+        <translation>Aktueller Prozentsatz an zOPC.
 Falls das automatische Prägen aktiviert ist, wird sich dieser Prozentsatz um den eingestellten Prozentsatz fürs automatisierte Prägen einpendeln (Standard = 10%).
 </translation>
     </message>
@@ -2265,8 +2265,8 @@ Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablez
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2293,12 +2293,12 @@ Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablez
         <translation>PRIVATSPHÄRE</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>zOPCX Control</translation>
+        <source>zOPC Control</source>
+        <translation>zOPC Control</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>zOPCX ausgewählt:</translation>
+        <source>zOPC Selected:</source>
+        <translation>zOPC ausgewählt:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2313,24 +2313,24 @@ Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablez
         <translation>Überweise Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending</source>
-        <translation>Verfügbare (ausgereifte und aufwendbare) zOPCX zum Überweisen</translation>
+        <source>Available (mature and spendable) zOPC for spending</source>
+        <translation>Verfügbare (ausgereifte und aufwendbare) zOPC zum Überweisen</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Verfügbare Bilanz:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending
+        <source>Available (mature and spendable) zOPC for spending
 
-zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>Verfügbare (ausgereifte und aufwendbare) zOPCX zum Überweisen
+zOPC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Verfügbare (ausgereifte und aufwendbare) zOPC zum Überweisen
 
-zOPCX sind ausgereift wenn sie mehr als 20 Bestätigungen und mehr als 2 Prägungen in der selben Stückelung nach erfolgter Prägung halten.</translation>
+zOPC sind ausgereift wenn sie mehr als 20 Bestätigungen und mehr als 2 Prägungen in der selben Stückelung nach erfolgter Prägung halten.</translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2389,8 +2389,8 @@ zOPCX sind ausgereift wenn sie mehr als 20 Bestätigungen und mehr als 2 Prägun
         <translation>Zerocoin Statistiken:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
-        <translation>Totales Guthaben, einschließlich unbestätigter und unreifer zOPCX</translation>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
+        <translation>Totales Guthaben, einschließlich unbestätigter und unreifer zOPC</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2411,24 +2411,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter Prägung</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zOPCX minting.
+        <source>Show the current status of automatic zOPC minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to opcx.conf
 - disable: add 'enablezeromint=0' to opcx.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zOPCX
+- menu Settings-&gt;Options-&gt;Percentage of autominted zOPC
 
 </source>
-        <translation>Zeigt den aktuellen Status der automatischen zOPCX-Prägung an
+        <translation>Zeigt den aktuellen Status der automatischen zOPC-Prägung an
 
 Um den Status zu ändern (Neustart erforderlich): 
 - enable: füge 'enablezeromint = 1' zu opcx.conf hinzu
 - disable: füge 'enablezeromint = 0' zu opcx.conf hinzu
 
 Um den Prozentsatz zu ändern (kein Neustart erforderlich): 
-- Menü Einstellungen-&gt; Optionen-&gt; Prozentsatz der autom. zOPCX
+- Menü Einstellungen-&gt; Optionen-&gt; Prozentsatz der autom. zOPC
 </translation>
     </message>
     <message>
@@ -2602,12 +2602,12 @@ Please be patient...</source>
 Bitte haben Sie etwas Geduld...</translation>
     </message>
     <message>
-        <source>zOPCX Spend #: </source>
-        <translation>zOPCX Ausgeben #:</translation>
+        <source>zOPC Spend #: </source>
+        <translation>zOPC Ausgeben #:</translation>
     </message>
     <message>
-        <source>zOPCX Mint</source>
-        <translation>zOPCX Prägen</translation>
+        <source>zOPC Mint</source>
+        <translation>zOPC Prägen</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2622,12 +2622,12 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Konfigurierter Zielprozentsatz: &lt;b&gt;</translation>
     </message>
     <message>
-        <source>zOPCX is currently disabled due to maintenance.</source>
-        <translation>zOPCX ist aktuell deaktiviert aufgrund von Wartungsarbeiten.</translation>
+        <source>zOPC is currently disabled due to maintenance.</source>
+        <translation>zOPC ist aktuell deaktiviert aufgrund von Wartungsarbeiten.</translation>
     </message>
     <message>
-        <source>zOPCX is currently undergoing maintenance.</source>
-        <translation>zOPCX unterliegt momentan Wartungsarbeiten.</translation>
+        <source>zOPC is currently undergoing maintenance.</source>
+        <translation>zOPC unterliegt momentan Wartungsarbeiten.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2716,7 +2716,7 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Keine "Pay To"-Adresse zur Verfügung. Erstelle lokale Zahlung</translation>
     </message>
     <message>
-        <source>Invalid OPCoinX Address</source>
+        <source>Invalid Opcx Address</source>
         <translation>Ungültige OPCX-Adresse </translation>
     </message>
     <message>
@@ -3072,8 +3072,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Benutzerdefinierter Sicherungspfad:</translation>
     </message>
     <message>
-        <source>Custom zOPCX Backup Path:</source>
-        <translation>Benutzerdefinierter zOPCX Sicherungspfad:</translation>
+        <source>Custom zOPC Backup Path:</source>
+        <translation>Benutzerdefinierter zOPC Sicherungspfad:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -4280,8 +4280,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>OPCX Stake</translation>
     </message>
     <message>
-        <source>zOPCX Stake</source>
-        <translation>zOPCX Stake</translation>
+        <source>zOPC Stake</source>
+        <translation>zOPC Stake</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4300,32 +4300,32 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Verschleierung Erzeugung der Stückelung</translation>
     </message>
     <message>
-        <source>Converted OPCX to zOPCX</source>
-        <translation>Umgewandeltes OPCX zu zOPCX</translation>
+        <source>Converted OPCX to zOPC</source>
+        <translation>Umgewandeltes OPCX zu zOPC</translation>
     </message>
     <message>
-        <source>Spent zOPCX</source>
-        <translation>Ausgegebene zOPCX</translation>
+        <source>Spent zOPC</source>
+        <translation>Ausgegebene zOPC</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Empfangene OPCX von zOPCX</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Empfangene OPCX von zOPC</translation>
     </message>
     <message>
-        <source>Minted Change as zOPCX from zOPCX Spend</source>
-        <translation>Geprägtes zOPCX Wechselgeld aus zOPCX Überweisung</translation>
+        <source>Minted Change as zOPC from zOPC Spend</source>
+        <translation>Geprägtes zOPC Wechselgeld aus zOPC Überweisung</translation>
     </message>
     <message>
-        <source>Converted zOPCX to OPCX</source>
-        <translation>Umgewandeltes zOPCX zu OPCX</translation>
+        <source>Converted zOPC to OPCX</source>
+        <translation>Umgewandeltes zOPC zu OPCX</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Transaction)</source>
-        <translation>Anonym (zOPCX Transaktion)</translation>
+        <source>Anonymous (zOPC Transaction)</source>
+        <translation>Anonym (zOPC Transaktion)</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Stake)</source>
-        <translation>Anonym (zOPCX Stake)</translation>
+        <source>Anonymous (zOPC Stake)</source>
+        <translation>Anonym (zOPC Stake)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4535,12 +4535,12 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Exportieren erfolgreich</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Empfangene OPCX von zOPCX</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Empfangene OPCX von zOPC</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zOPCX</source>
-        <translation>Zerocoin Überweisung, Wechselgeld in zOPCX</translation>
+        <source>Zerocoin Spend, Change in zOPC</source>
+        <translation>Zerocoin Überweisung, Wechselgeld in zOPC</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4608,10 +4608,10 @@ Bitte haben Sie etwas Geduld...</translation>
     </message>
 </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
-        <source>Select zOPCX to Spend</source>
-        <translation>Wählen Sie die zOPCX aus, die Sie ausgeben möchten</translation>
+        <source>Select zOPC to Spend</source>
+        <translation>Wählen Sie die zOPC aus, die Sie ausgeben möchten</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4622,8 +4622,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4685,16 +4685,16 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Veröffentlicht unter der MIT-Software-Lizenz, siehe die beigelegte Datei COPYING oder &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</source>
-        <translation>Aktiviere nach jeder zOPCX-Prägung ausgelöste automatische Wallet-Backups (0-1, Standard: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each zOPC minting (0-1, default: %u)</source>
+        <translation>Aktiviere nach jeder zOPC-Prägung ausgelöste automatische Wallet-Backups (0-1, Standard: %u)</translation>
     </message>
     <message>
         <source>Enable or disable staking functionality for OPCX inputs (0-1, default: %u)</source>
         <translation>Aktiviere oder deaktiviere Staking-Funktionalität für OPCX Eingänge (0-1, default: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</source>
-        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für zOPCX Eingänge (0-1, default: %u)</translation>
+        <source>Enable or disable staking functionality for zOPC inputs (0-1, default: %u)</source>
+        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für zOPC Eingänge (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -4889,8 +4889,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Sie müssen einen privaten Masternode-Schlüssel in der Konfiguration festlegen. Bitte nutzen Sie die Dokumentation zwecks Hilfe.</translation>
     </message>
     <message>
-        <source>(18051 could be used only on mainnet)</source>
-        <translation>(18051 kann nur im Mainnet verwendet werden)</translation>
+        <source>(51472 could be used only on mainnet)</source>
+        <translation>(51472 kann nur im Mainnet verwendet werden)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4901,8 +4901,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>(default: 1)</translation>
     </message>
     <message>
-        <source>(must be 18051 for mainnet)</source>
-        <translation>(muss im Mainnet 18051 sein)</translation>
+        <source>(must be 51472 for mainnet)</source>
+        <translation>(muss im Mainnet 51472 sein)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5229,8 +5229,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Prozent automatisch geprägter Zerocoins (1-100, Standard: %u)</translation>
     </message>
     <message>
-        <source>Reindex the OPCX and zOPCX money supply statistics</source>
-        <translation>Die Geldmengenstatistik OPCX und zOPCX neu indizieren</translation>
+        <source>Reindex the OPCX and zOPC money supply statistics</source>
+        <translation>Die Geldmengenstatistik OPCX und zOPC neu indizieren</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5305,8 +5305,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Bervorzugte Stückelung für automatisch geprägte Zerocoins (1/5/10/50/100/500/1000/5000), 0 falls keine bestimmte Stückelung präferiert wird. Standard: %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Benutzerdefinierten Sicherungspfad festlegen, in den Kopien von allen automatischen zOPCX-Sicherungen abgelegt werden. Wenn ein Verzeichnis ausgewählt ist, wird jede Sicherung als Datei mit Zeitstempel erstellt. Wenn eine Datei ausgewählt ist, wird diese Datei bei jeder Sicherung überschrieben. Wenn der Sicherungspfad auch festgelegt ist, werden 4 Sicherungen erstellt.</translation>
+        <source>Specify custom backup path to add a copy of any automatic zOPC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Benutzerdefinierten Sicherungspfad festlegen, in den Kopien von allen automatischen zOPC-Sicherungen abgelegt werden. Wenn ein Verzeichnis ausgewählt ist, wird jede Sicherung als Datei mit Zeitstempel erstellt. Wenn eine Datei ausgewählt ist, wird diese Datei bei jeder Sicherung überschrieben. Wenn der Sicherungspfad auch festgelegt ist, werden 4 Sicherungen erstellt.</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -5717,8 +5717,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Synchronisiere Sporks....</translation>
     </message>
     <message>
-        <source>Syncing zOPCX wallet...</source>
-        <translation>Synchronisiere zOPCX Wallet... </translation>
+        <source>Syncing zOPC wallet...</source>
+        <translation>Synchronisiere zOPC Wallet... </translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -5825,8 +5825,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Benutzername für JSON-RPC-Verbindungen</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zOPCX</source>
-        <translation>Der Betrag ist unterhalb des kleinsten Wertes (=1) an zOPCX</translation>
+        <source>Value is below the smallest available denomination (= 1) of zOPC</source>
+        <translation>Der Betrag ist unterhalb des kleinsten Wertes (=1) an zOPC</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>

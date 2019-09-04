@@ -1284,7 +1284,7 @@ MultiSend: %1</translation>
     </message>
     </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     </context>
 <context>
     <name>opcx-core</name>

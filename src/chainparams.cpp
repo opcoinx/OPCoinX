@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2019 The OPCX developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,6 +14,7 @@
 #include <assert.h>
 
 #include <boost/assign/list_of.hpp>
+#include <limits>
 
 
 struct SeedSpec6 {
@@ -97,6 +98,17 @@ libzerocoin::ZerocoinParams* CChainParams::Zerocoin_Params(bool useModulusV1) co
     return &ZCParamsDec;
 }
 
+bool CChainParams::HasStakeMinAgeOrDepth(const int contextHeight, const uint32_t contextTime,
+        const int utxoFromBlockHeight, const uint32_t utxoFromBlockTime) const
+{
+    // before stake modifier V2, the age required was 60 * 60 (1 hour) / not required on regtest
+    if (!IsStakeModifierV2(contextHeight))
+        return (NetworkID() == CBaseChainParams::REGTEST || (utxoFromBlockTime + 6* 3600 <= contextTime));
+
+    // after stake modifier V2, we require the utxo to be nStakeMinDepth deep in the chain
+    return (contextHeight - utxoFromBlockHeight >= nStakeMinDepth);
+}
+
 class CMainParams : public CChainParams
 {
 public:
@@ -115,25 +127,28 @@ public:
         pchMessageStart[3] = 0xe1;
         vAlertPubKey = ParseHex("04621f9882ab9dc7f316b30385e4695f2b686470ff11dd0e4a62866d4d084e2bfff546ed46a2330c806e464dea584fa6e4ddb75ccc8b1abef170b0ee060a4f1bf1");
         nDefaultPort = 18051;
-        bnProofOfWorkLimit = ~uint256(0) >> 20; // OPCX starting difficulty is 1 / 2^12
+        bnProofOfWorkLimit = ~uint256(0) >> 20; // PIVX starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
-        nMaxReorganizationDepth = 30;
+        nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 5 * 60; // OPCoinX: 5 minute
         nTargetSpacing = 5 * 60;  // OPCoinX: 5 minute
         nMaturity = 100;
-        nStakeMinAge = 60*60*6; //6 hours
+        nStakeMinDepth = 600;
+        nFutureTimeDriftPoW = 7200;
+        nFutureTimeDriftPoS = 180;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 800000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 2016;
+        nPivxBadBlockTime = 1471401614; // Skip nBit validation of Block 259201 per PR #915
+        nPivxBadBlocknBits = 0x1c056dac; // Skip nBit validation of Block 259201 per PR #915
         nModifierUpdateBlock = 0;
         nZerocoinStartHeight = std::numeric_limits<int>::max();
-        nZerocoinStartTime = 1808214600; // October 17, 2017 4:30:00 AM
+        nZerocoinStartTime = 1908214600; // October 17, 2017 4:30:00 AM
         nBlockEnforceSerialRange = std::numeric_limits<int>::max(); //Enforce serial range starting this block
         nBlockRecalculateAccumulators = std::numeric_limits<int>::max(); //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = std::numeric_limits<int>::max(); //First block that bad serials emerged
@@ -142,9 +157,9 @@ public:
         nInvalidAmountFiltered = 0*COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
         nBlockZerocoinV2 = std::numeric_limits<int>::max(); //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
         nBlockDoubleAccumulated = std::numeric_limits<int>::max();
-        nEnforceNewSporkKey = 1525158000; //!> Sporks signed after (GMT): Tuesday, May 1, 2018 7:00:00 AM GMT must use the new spork key
-        nRejectOldSporkKey = 1527811200; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
-
+        nEnforceNewSporkKey = 1568248150; //!> Sporks signed after (GMT): Tuesday, May 1, 2018 7:00:00 AM GMT must use the new spork key
+        nRejectOldSporkKey = 1568939350; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
+        nBlockStakeModifierlV2 = 695000;
         // Public coin spend enforcement
         nPublicZCSpends = std::numeric_limits<int>::max();
 
@@ -153,7 +168,7 @@ public:
         nSupplyBeforeFakeSerial = 0;
 
         nMasternodeRewardPercent = 75; // % of block reward that goes to masternodes
-        nRequiredMasternodeCollateral = 37500 * COIN; //37,500
+        nRequiredMasternodeCollateral = 37500; //37,500
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -191,9 +206,9 @@ public:
         vSeeds.push_back(CDNSSeedData("45.76.37.37", "45.76.37.37"));
         vSeeds.push_back(CDNSSeedData("92.60.44.117", "92.60.44.117"));
         vSeeds.push_back(CDNSSeedData("185.239.239.75", "185.239.239.75"));
-        vSeeds.push_back(CDNSSeedData("seed1.opcx.info", "seed1.opcx.info"));
-        vSeeds.push_back(CDNSSeedData("seed2.opcx.info", "seed2.opcx.info"));
-        vSeeds.push_back(CDNSSeedData("seed3.opcx.info", "seed3.opcx.info"));
+        vSeeds.push_back(CDNSSeedData("seed1.pivx.info", "seed1.pivx.info"));
+        vSeeds.push_back(CDNSSeedData("seed2.pivx.info", "seed2.pivx.info"));
+        vSeeds.push_back(CDNSSeedData("seed3.pivx.info", "seed3.pivx.info"));
         vSeeds.push_back(CDNSSeedData("opc1.freeddns.org", "opc1.freeddns.org"));
         vSeeds.push_back(CDNSSeedData("opc2.freeddns.org", "opc2.freeddns.org"));
 
@@ -216,8 +231,8 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
         fHeadersFirstSyncingActive = false;
 
-        nBudgetCycleBlocks = 43200; //!< Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
         nPoolMaxTransactions = 3;
+	nBudgetCycleBlocks = 43200; //!< Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
         strSporkKey = "04aba216b85c979800b143d2cfea00297cf501c9250033b08b924861d33dd07490f70a3da3922f3d1dfa3b851e35c272092d91d111d2554d13c55ddcf2cc5381c5";
         strSporkKeyOld = "04aba216b85c979800b143d2cfea00297cf501c9250033b08b924861d33dd07490f70a3da3922f3d1dfa3b851e35c272092d91d111d2554d13c55ddcf2cc5381c5";
         strObfuscationPoolDummyAddress = "oe2brxts38pc9ZkraSJc5oE5ki6oeyuGnU";
@@ -236,8 +251,8 @@ public:
         nMintRequiredConfirmations = 20; //the maximum amount of confirmations until accumulated in 19
         nRequiredAccumulation = 1;
         nDefaultSecurityLevel = 100; //full security level for accumulators
-        nZerocoinHeaderVersion = 6; //Block headers must be this version once zerocoin is active
-        nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zopcx to be stakable
+        nZerocoinHeaderVersion = 7; //Block headers must be this version once zerocoin is active
+        nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zpiv to be stakable
 
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
         nProposalEstablishmentTime = 60 * 60 * 24; // Proposals must be at least a day old to make it into a budget
@@ -245,7 +260,7 @@ public:
     
     CAmount GetRequiredMasternodeCollateral(int nTargetHeight) const
     {
-        if(nTargetHeight > 675000) {
+        if(nTargetHeight > 700000) {
             return 150000;
         }
 
@@ -265,6 +280,7 @@ public:
     {
         return data;
     }
+
 };
 static CMainParams mainParams;
 
@@ -288,10 +304,12 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // OPCX: 1 day
-        nTargetSpacing = 1 * 60;  // OPCX: 1 minute
+        nTargetSpacing = 1 * 60;  // PIVX: 1 minute
         nLastPOWBlock = 200;
+        nPivxBadBlockTime = 1489001494; // Skip nBit validation of Block 259201 per PR #915
+        nPivxBadBlocknBits = 0x1e0a20bd; // Skip nBit validation of Block 201 per PR #915
         nMaturity = 15;
+        nStakeMinDepth = 100;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 0; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 3500000000 * COIN;
@@ -325,14 +343,14 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet opcx addresses start with 'x' or 'y'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet opcx script addresses start with '8' or '9'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet pivx addresses start with 'x' or 'y'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet pivx script addresses start with '8' or '9'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 239);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        // Testnet opcx BIP32 pubkeys start with 'DRKV'
+        // Testnet pivx BIP32 pubkeys start with 'DRKV'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa0).convert_to_container<std::vector<unsigned char> >();
-        // Testnet opcx BIP32 prvkeys start with 'DRKP'
+        // Testnet pivx BIP32 prvkeys start with 'DRKP'
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x3a)(0x80)(0x58)(0x37).convert_to_container<std::vector<unsigned char> >();
-        // Testnet opcx BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet pivx BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
@@ -400,25 +418,25 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 24 * 60 * 60; // OPCX: 1 day
-        nTargetSpacing = 1 * 60;        // OPCX: 1 minutes
+        nTargetSpacing = 1 * 60;        // PIVX: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nLastPOWBlock = 250;
         nMaturity = 100;
-        nStakeMinAge = 0;
+        nStakeMinDepth = 0;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 0; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
-        nZerocoinStartHeight = std::numeric_limits<int>::max();
-        nBlockZerocoinV2 = std::numeric_limits<int>::max();
-        nZerocoinStartTime = 1801776000;
+        nZerocoinStartHeight = 300;
+        nBlockZerocoinV2 = 300;
+        nZerocoinStartTime = 1501776000;
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
-        nBlockRecalculateAccumulators = std::numeric_limits<int>::max(); //Trigger a recalculation of accumulators
-        nBlockFirstFraudulent = std::numeric_limits<int>::max(); //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = std::numeric_limits<int>::max(); //Last valid accumulator checkpoint
-
+        nBlockRecalculateAccumulators = 999999999; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 999999999; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 999999999; //Last valid accumulator checkpoint
+        nBlockStakeModifierlV2 = std::numeric_limits<int>::max(); // max integer value (never switch on regtest)
+        
         // Public coin spend enforcement
-        nPublicZCSpends = 0;
+        nPublicZCSpends = 350;
 
         // Fake Serial Attack
         nFakeSerialBlockheightEnd = -1;
@@ -442,8 +460,14 @@ public:
         fMineBlocksOnDemand = true;
         fSkipProofOfWorkCheck = true;
         fTestnetToBeDeprecatedFieldRPC = false;
+
+        /* Spork Key for RegTest:
+        WIF private key: 932HEevBSujW2ud7RfB1YF91AFygbBRQj3de3LyaCRqNzKKgWXi
+        private key hex: bd4960dcbd9e7f2223f24e7164ecb6f1fe96fc3a416f5d3a830ba5720c84b8ca
+        Address: yCvUVd72w7xpimf981m114FSFbmAmne7j9
+        */
+        strSporkKey = "043969b1b0e6f327de37f297a015d37e2235eaaeeb3933deecd8162c075cee0207b13537618bde640879606001a8136091c62ec272dd0133424a178704e6e75bb7";
     }
-    
     CAmount GetRequiredMasternodeCollateral(int nTargetHeight) const
     {
         if(nTargetHeight > 2000) {
@@ -505,7 +529,6 @@ public:
     virtual void setSkipProofOfWorkCheck(bool afSkipProofOfWorkCheck) { fSkipProofOfWorkCheck = afSkipProofOfWorkCheck; }
 };
 static CUnitTestParams unitTestParams;
-
 
 static CChainParams* pCurrentParams = 0;
 

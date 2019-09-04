@@ -17,13 +17,13 @@
 #include "utilmoneystr.h"
 #include "wallet.h"
 #include "walletdb.h"
-#include "zopcxchain.h"
+#include "zopcchain.h"
 
 #include <stdint.h>
 
 #include "libzerocoin/Coin.h"
 #include "spork.h"
-#include "zopcx/deterministicmint.h"
+#include "zopc/deterministicmint.h"
 #include <boost/assign/list_of.hpp>
 #include <boost/thread/thread.hpp>
 
@@ -2541,11 +2541,11 @@ UniValue getzerocoinbalance(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 0)
         throw std::runtime_error(
             "getzerocoinbalance\n"
-            "\nReturn the wallet's total zOPCX balance.\n" +
+            "\nReturn the wallet's total zOPC balance.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
-            "amount         (numeric) Total zOPCX balance.\n"
+            "amount         (numeric) Total zOPC balance.\n"
 
             "\nExamples:\n" +
             HelpExampleCli("getzerocoinbalance", "") + HelpExampleRpc("getzerocoinbalance", ""));
@@ -2569,7 +2569,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 2)
         throw std::runtime_error(
             "listmintedzerocoins (fVerbose) (fMatureOnly)\n"
-            "\nList all zOPCX mints in the wallet.\n" +
+            "\nList all zOPC mints in the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
@@ -2587,7 +2587,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
             "  {\n"
             "    \"serial hash\": \"xxx\",   (string) Mint serial hash in hex format.\n"
             "    \"version\": n,   (numeric) Zerocoin version number.\n"
-            "    \"zOPCX ID\": \"xxx\",   (string) Pubcoin in hex format.\n"
+            "    \"zOPC ID\": \"xxx\",   (string) Pubcoin in hex format.\n"
             "    \"denomination\": n,   (numeric) Coin denomination.\n"
             "    \"mint height\": n     (numeric) Height of the block containing this mint.\n"
             "    \"confirmations\": n   (numeric) Number of confirmations.\n"
@@ -2609,7 +2609,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
     EnsureWalletIsUnlocked(true);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    std::set<CMintMeta> setMints = pwalletMain->zopcxTracker->ListMints(true, fMatureOnly, true);
+    std::set<CMintMeta> setMints = pwalletMain->zopcTracker->ListMints(true, fMatureOnly, true);
 
     int nBestHeight = chainActive.Height();
 
@@ -2620,7 +2620,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
             UniValue objMint(UniValue::VOBJ);
             objMint.push_back(Pair("serial hash", m.hashSerial.GetHex()));  // Serial hash
             objMint.push_back(Pair("version", m.nVersion));                 // Zerocoin version
-            objMint.push_back(Pair("zOPCX ID", m.hashPubcoin.GetHex()));     // PubCoin
+            objMint.push_back(Pair("zOPC ID", m.hashPubcoin.GetHex()));     // PubCoin
             int denom = libzerocoin::ZerocoinDenominationToInt(m.denom);
             objMint.push_back(Pair("denomination", denom));                 // Denomination
             objMint.push_back(Pair("mint height", m.nHeight));              // Mint Height
@@ -2633,7 +2633,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
                     uint256 hashStake = mint.GetSerialNumber().getuint256();
                     hashStake = Hash(hashStake.begin(), hashStake.end());
                     m.hashStake = hashStake;
-                    pwalletMain->zopcxTracker->UpdateState(m);
+                    pwalletMain->zopcTracker->UpdateState(m);
                 }
             }
             objMint.push_back(Pair("hash stake", m.hashStake.GetHex()));       // Confirmations
@@ -2674,7 +2674,7 @@ UniValue listzerocoinamounts(const UniValue& params, bool fHelp)
     EnsureWalletIsUnlocked(true);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    std::set<CMintMeta> setMints = pwalletMain->zopcxTracker->ListMints(true, true, true);
+    std::set<CMintMeta> setMints = pwalletMain->zopcTracker->ListMints(true, true, true);
 
     std::map<libzerocoin::CoinDenomination, CAmount> spread;
     for (const auto& denom : libzerocoin::zerocoinDenomList)
@@ -2698,7 +2698,7 @@ UniValue listspentzerocoins(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 0)
         throw std::runtime_error(
             "listspentzerocoins\n"
-            "\nList all the spent zOPCX mints in the wallet.\n" +
+            "\nList all the spent zOPC mints in the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
@@ -2730,11 +2730,11 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw std::runtime_error(
             "mintzerocoin amount ( utxos )\n"
-            "\nMint the specified zOPCX amount\n" +
+            "\nMint the specified zOPC amount\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
-            "1. amount      (numeric, required) Enter an amount of Opcx to convert to zOPCX\n"
+            "1. amount      (numeric, required) Enter an amount of Piv to convert to zOPC\n"
             "2. utxos       (string, optional) A json array of objects.\n"
             "                   Each object needs the txid (string) and vout (numeric)\n"
             "  [\n"
@@ -2768,7 +2768,7 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
 
 
     if (Params().NetworkID() != CBaseChainParams::REGTEST)
-        throw JSONRPCError(RPC_WALLET_ERROR, "zOPCX minting is DISABLED");
+        throw JSONRPCError(RPC_WALLET_ERROR, "zOPC minting is DISABLED");
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
@@ -2782,7 +2782,7 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
 
     int64_t nTime = GetTimeMillis();
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
-        throw JSONRPCError(RPC_WALLET_ERROR, "zOPCX is currently disabled due to maintenance.");
+        throw JSONRPCError(RPC_WALLET_ERROR, "zOPC is currently disabled due to maintenance.");
 
     EnsureWalletIsUnlocked(true);
 
@@ -2845,7 +2845,7 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 4 || params.size() < 3)
         throw std::runtime_error(
             "spendzerocoin amount mintchange minimizechange ( \"address\" )\n"
-            "\nSpend zOPCX to a OPCX address.\n" +
+            "\nSpend zOPC to a OPCX address.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
@@ -2886,14 +2886,14 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
-        throw JSONRPCError(RPC_WALLET_ERROR, "zOPCX is currently disabled due to maintenance.");
+        throw JSONRPCError(RPC_WALLET_ERROR, "zOPC is currently disabled due to maintenance.");
 
     EnsureWalletIsUnlocked();
 
     CAmount nAmount = AmountFromValue(params[0]);   // Spending amount
-    bool fMintChange = params[1].get_bool();        // Mint change to zOPCX
+    bool fMintChange = params[1].get_bool();        // Mint change to zOPC
     if (fMintChange && Params().NetworkID() != CBaseChainParams::REGTEST)
-        throw JSONRPCError(RPC_WALLET_ERROR, "zOPCX minting is DISABLED, cannot mint change");
+        throw JSONRPCError(RPC_WALLET_ERROR, "zOPC minting is DISABLED, cannot mint change");
     bool fMinimizeChange = params[2].get_bool();    // Minimize change
     std::string address_str = params.size() > 3 ? params[3].get_str() : "";
     bool ispublicspend = params.size() > 4 ? params[3].get_bool() : true;
@@ -2901,10 +2901,10 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
     std::vector<CZerocoinMint> vMintsSelected;
 
     if (!ispublicspend && Params().NetworkID() != CBaseChainParams::REGTEST) {
-        throw JSONRPCError(RPC_WALLET_ERROR, "zOPCX old spend only available in regtest for tests purposes");
+        throw JSONRPCError(RPC_WALLET_ERROR, "zOPC old spend only available in regtest for tests purposes");
     }
 
-    return DoZopcxSpend(nAmount, fMintChange, fMinimizeChange, vMintsSelected, address_str, ispublicspend);
+    return DoZopcSpend(nAmount, fMintChange, fMinimizeChange, vMintsSelected, address_str, ispublicspend);
 }
 
 
@@ -2913,7 +2913,7 @@ UniValue spendzerocoinmints(const UniValue& params, bool fHelp)
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw std::runtime_error(
             "spendzerocoinmints mints_list (\"address\") \n"
-            "\nSpend zOPCX mints to a OPCX address.\n" +
+            "\nSpend zOPC mints to a OPCX address.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
@@ -2950,7 +2950,7 @@ UniValue spendzerocoinmints(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
-        throw JSONRPCError(RPC_WALLET_ERROR, "zOPCX is currently disabled due to maintenance.");
+        throw JSONRPCError(RPC_WALLET_ERROR, "zOPC is currently disabled due to maintenance.");
 
     std::string address_str = "";
     if (params.size() > 1) {
@@ -2998,15 +2998,15 @@ UniValue spendzerocoinmints(const UniValue& params, bool fHelp)
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid OPCX address");
     }
 
-    return DoZopcxSpend(nAmount, false, true, vMintsSelected, address_str);
+    return DoZopcSpend(nAmount, false, true, vMintsSelected, address_str);
 }
 
 
-extern UniValue DoZopcxSpend(const CAmount nAmount, bool fMintChange, bool fMinimizeChange, std::vector<CZerocoinMint>& vMintsSelected, std::string address_str, bool ispublicspend)
+extern UniValue DoZopcSpend(const CAmount nAmount, bool fMintChange, bool fMinimizeChange, std::vector<CZerocoinMint>& vMintsSelected, std::string address_str, bool ispublicspend)
 {
     // zerocoin MINT is disabled. fMintChange should be false here. Double check
     if (fMintChange && Params().NetworkID() != CBaseChainParams::REGTEST)
-        throw JSONRPCError(RPC_WALLET_ERROR, "zOPCX minting is DISABLED, cannot mint change");
+        throw JSONRPCError(RPC_WALLET_ERROR, "zOPC minting is DISABLED, cannot mint change");
 
     int64_t nTimeStart = GetTimeMillis();
     CBitcoinAddress address = CBitcoinAddress(); // Optional sending address. Dummy initialization here.
@@ -3098,8 +3098,8 @@ UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CzOPCXTracker* zopcxTracker = pwalletMain->zopcxTracker.get();
-    std::set<CMintMeta> setMints = zopcxTracker->ListMints(false, false, true);
+    CzOPCTracker* zopcTracker = pwalletMain->zopcTracker.get();
+    std::set<CMintMeta> setMints = zopcTracker->ListMints(false, false, true);
     std::vector<CMintMeta> vMintsToFind(setMints.begin(), setMints.end());
     std::vector<CMintMeta> vMintsMissing;
     std::vector<CMintMeta> vMintsToUpdate;
@@ -3110,14 +3110,14 @@ UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
     // update the meta data of mints that were marked for updating
     UniValue arrUpdated(UniValue::VARR);
     for (CMintMeta meta : vMintsToUpdate) {
-        zopcxTracker->UpdateState(meta);
+        zopcTracker->UpdateState(meta);
         arrUpdated.push_back(meta.hashPubcoin.GetHex());
     }
 
     // delete any mints that were unable to be located on the blockchain
     UniValue arrDeleted(UniValue::VARR);
     for (CMintMeta mint : vMintsMissing) {
-        zopcxTracker->Archive(mint);
+        zopcTracker->Archive(mint);
         arrDeleted.push_back(mint.hashPubcoin.GetHex());
     }
 
@@ -3151,8 +3151,8 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CzOPCXTracker* zopcxTracker = pwalletMain->zopcxTracker.get();
-    std::set<CMintMeta> setMints = zopcxTracker->ListMints(false, false, false);
+    CzOPCTracker* zopcTracker = pwalletMain->zopcTracker.get();
+    std::set<CMintMeta> setMints = zopcTracker->ListMints(false, false, false);
     std::list<CZerocoinSpend> listSpends = walletdb.ListSpentCoins();
     std::list<CZerocoinSpend> listUnconfirmedSpends;
 
@@ -3174,7 +3174,7 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
     for (CZerocoinSpend spend : listUnconfirmedSpends) {
         for (auto& meta : setMints) {
             if (meta.hashSerial == GetSerialHash(spend.GetSerial())) {
-                zopcxTracker->SetPubcoinNotUsed(meta.hashPubcoin);
+                zopcTracker->SetPubcoinNotUsed(meta.hashPubcoin);
                 walletdb.EraseZerocoinSpendSerialEntry(spend.GetSerial());
                 RemoveSerialFromDB(spend.GetSerial());
                 UniValue obj(UniValue::VOBJ);
@@ -3256,12 +3256,12 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
 
             "\nArguments:\n"
             "1. \"include_spent\"        (bool, required) Include mints that have already been spent\n"
-            "2. \"denomination\"         (integer, optional) Export a specific denomination of zOPCX\n"
+            "2. \"denomination\"         (integer, optional) Export a specific denomination of zOPC\n"
 
             "\nResult:\n"
             "[                   (array of json object)\n"
             "  {\n"
-            "    \"id\": \"serial hash\",  (string) the mint's zOPCX serial hash \n"
+            "    \"id\": \"serial hash\",  (string) the mint's zOPC serial hash \n"
             "    \"d\": n,         (numeric) the mint's zerocoin denomination \n"
             "    \"p\": \"pubcoin\", (string) The public coin\n"
             "    \"s\": \"serial\",  (string) The secret serial number\n"
@@ -3269,8 +3269,8 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
             "    \"t\": \"txid\",    (string) The txid that the coin was minted in\n"
             "    \"h\": n,         (numeric) The height the tx was added to the blockchain\n"
             "    \"u\": used,      (boolean) Whether the mint has been spent\n"
-            "    \"v\": version,   (numeric) The version of the zOPCX\n"
-            "    \"k\": \"privkey\"  (string) The zOPCX private key (V2+ zOPCX only)\n"
+            "    \"v\": version,   (numeric) The version of the zOPC\n"
+            "    \"k\": \"privkey\"  (string) The zOPC private key (V2+ zOPC only)\n"
             "  }\n"
             "  ,...\n"
             "]\n"
@@ -3289,8 +3289,8 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
     if (params.size() == 2)
         denomination = libzerocoin::IntToZerocoinDenomination(params[1].get_int());
 
-    CzOPCXTracker* zopcxTracker = pwalletMain->zopcxTracker.get();
-    std::set<CMintMeta> setMints = zopcxTracker->ListMints(!fIncludeSpent, false, false);
+    CzOPCTracker* zopcTracker = pwalletMain->zopcTracker.get();
+    std::set<CMintMeta> setMints = zopcTracker->ListMints(!fIncludeSpent, false, false);
 
     UniValue jsonList(UniValue::VARR);
     for (const CMintMeta& meta : setMints) {
@@ -3341,7 +3341,7 @@ UniValue importzerocoins(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "{\n"
             "  \"added\": n,        (numeric) The quantity of zerocoin mints that were added\n"
-            "  \"value\": amount    (numeric) The total zOPCX value of zerocoin mints that were added\n"
+            "  \"value\": amount    (numeric) The total zOPC value of zerocoin mints that were added\n"
             "}\n"
 
             "\nExamples\n" +
@@ -3405,7 +3405,7 @@ UniValue importzerocoins(const UniValue& params, bool fHelp)
         CZerocoinMint mint(denom, bnValue, bnRandom, bnSerial, fUsed, nVersion, &privkey);
         mint.SetTxHash(txid);
         mint.SetHeight(nHeight);
-        pwalletMain->zopcxTracker->Add(mint, true);
+        pwalletMain->zopcTracker->Add(mint, true);
         count++;
         nValue += libzerocoin::ZerocoinDenominationToAmount(denom);
     }
@@ -3421,7 +3421,7 @@ UniValue reconsiderzerocoins(const UniValue& params, bool fHelp)
     if(fHelp || !params.empty())
         throw std::runtime_error(
             "reconsiderzerocoins\n"
-            "\nCheck archived zOPCX list to see if any mints were added to the blockchain.\n" +
+            "\nCheck archived zOPC list to see if any mints were added to the blockchain.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
@@ -3467,30 +3467,30 @@ UniValue reconsiderzerocoins(const UniValue& params, bool fHelp)
     return arrRet;
 }
 
-UniValue setzopcxseed(const UniValue& params, bool fHelp)
+UniValue setzopcseed(const UniValue& params, bool fHelp)
 {
     if(fHelp || params.size() != 1)
         throw std::runtime_error(
-            "setzopcxseed \"seed\"\n"
-            "\nSet the wallet's deterministic zopcx seed to a specific value.\n" +
+            "setzopcseed \"seed\"\n"
+            "\nSet the wallet's deterministic zopc seed to a specific value.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
-            "1. \"seed\"        (string, required) The deterministic zopcx seed.\n"
+            "1. \"seed\"        (string, required) The deterministic zopc seed.\n"
 
             "\nResult\n"
             "\"success\" : b,  (boolean) Whether the seed was successfully set.\n"
 
             "\nExamples\n" +
-            HelpExampleCli("setzopcxseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5") +
-            HelpExampleRpc("setzopcxseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5"));
+            HelpExampleCli("setzopcseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5") +
+            HelpExampleRpc("setzopcseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5"));
 
     EnsureWalletIsUnlocked();
 
     uint256 seed;
     seed.SetHex(params[0].get_str());
 
-    CzOPCXWallet* zwallet = pwalletMain->getZWallet();
+    CzOPCWallet* zwallet = pwalletMain->getZWallet();
     bool fSuccess = zwallet->SetMasterSeed(seed, true);
     if (fSuccess)
         zwallet->SyncWithChain();
@@ -3501,23 +3501,23 @@ UniValue setzopcxseed(const UniValue& params, bool fHelp)
     return ret;
 }
 
-UniValue getzopcxseed(const UniValue& params, bool fHelp)
+UniValue getzopcseed(const UniValue& params, bool fHelp)
 {
     if(fHelp || !params.empty())
         throw std::runtime_error(
-            "getzopcxseed\n"
-            "\nCheck archived zOPCX list to see if any mints were added to the blockchain.\n" +
+            "getzopcseed\n"
+            "\nCheck archived zOPC list to see if any mints were added to the blockchain.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult\n"
-            "\"seed\" : s,  (string) The deterministic zOPCX seed.\n"
+            "\"seed\" : s,  (string) The deterministic zOPC seed.\n"
 
             "\nExamples\n" +
-            HelpExampleCli("getzopcxseed", "") + HelpExampleRpc("getzopcxseed", ""));
+            HelpExampleCli("getzopcseed", "") + HelpExampleRpc("getzopcseed", ""));
 
     EnsureWalletIsUnlocked();
 
-    CzOPCXWallet* zwallet = pwalletMain->getZWallet();
+    CzOPCWallet* zwallet = pwalletMain->getZWallet();
     uint256 seed = zwallet->GetMasterSeed();
 
     UniValue ret(UniValue::VOBJ);
@@ -3531,12 +3531,12 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
     if(fHelp || params.size() != 2)
         throw std::runtime_error(
             "generatemintlist\n"
-            "\nShow mints that are derived from the deterministic zOPCX seed.\n" +
+            "\nShow mints that are derived from the deterministic zOPC seed.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments\n"
-            "1. \"count\"  : n,  (numeric) Which sequential zOPCX to start with.\n"
-            "2. \"range\"  : n,  (numeric) How many zOPCX to generate.\n"
+            "1. \"count\"  : n,  (numeric) Which sequential zOPC to start with.\n"
+            "2. \"range\"  : n,  (numeric) How many zOPC to generate.\n"
 
             "\nResult:\n"
             "[\n"
@@ -3556,7 +3556,7 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
 
     int nCount = params[0].get_int();
     int nRange = params[1].get_int();
-    CzOPCXWallet* zwallet = pwalletMain->zwalletMain;
+    CzOPCWallet* zwallet = pwalletMain->zwalletMain;
 
     UniValue arrRet(UniValue::VARR);
     for (int i = nCount; i < nCount + nRange; i++) {
@@ -3575,28 +3575,28 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
     return arrRet;
 }
 
-UniValue dzopcxstate(const UniValue& params, bool fHelp) {
+UniValue dzopcstate(const UniValue& params, bool fHelp) {
     if (fHelp || params.size() != 0)
         throw std::runtime_error(
-                "dzopcxstate\n"
-                        "\nThe current state of the mintpool of the deterministic zOPCX wallet.\n" +
+                "dzopcstate\n"
+                        "\nThe current state of the mintpool of the deterministic zOPC wallet.\n" +
                 HelpRequiringPassphrase() + "\n"
 
                         "\nExamples\n" +
                 HelpExampleCli("mintpoolstatus", "") + HelpExampleRpc("mintpoolstatus", ""));
 
-    CzOPCXWallet* zwallet = pwalletMain->zwalletMain;
+    CzOPCWallet* zwallet = pwalletMain->zwalletMain;
     UniValue obj(UniValue::VOBJ);
     int nCount, nCountLastUsed;
     zwallet->GetState(nCount, nCountLastUsed);
-    obj.push_back(Pair("dzopcx_count", nCount));
+    obj.push_back(Pair("dzopc_count", nCount));
     obj.push_back(Pair("mintpool_count", nCountLastUsed));
 
     return obj;
 }
 
 
-void static SearchThread(CzOPCXWallet* zwallet, int nCountStart, int nCountEnd)
+void static SearchThread(CzOPCWallet* zwallet, int nCountStart, int nCountEnd)
 {
     LogPrintf("%s: start=%d end=%d\n", __func__, nCountStart, nCountEnd);
     CWalletDB walletDB(pwalletMain->strWalletFile);
@@ -3613,7 +3613,7 @@ void static SearchThread(CzOPCXWallet* zwallet, int nCountStart, int nCountEnd)
             CBigNum bnSerial;
             CBigNum bnRandomness;
             CKey key;
-            zwallet->SeedToZOPCX(zerocoinSeed, bnValue, bnSerial, bnRandomness, key);
+            zwallet->SeedToZOPC(zerocoinSeed, bnValue, bnSerial, bnRandomness, key);
 
             uint256 hashPubcoin = GetPubCoinHash(bnValue);
             zwallet->AddToMintPool(std::make_pair(hashPubcoin, i), true);
@@ -3626,21 +3626,21 @@ void static SearchThread(CzOPCXWallet* zwallet, int nCountStart, int nCountEnd)
     }
 }
 
-UniValue searchdzopcx(const UniValue& params, bool fHelp)
+UniValue searchdzopc(const UniValue& params, bool fHelp)
 {
     if(fHelp || params.size() != 3)
         throw std::runtime_error(
-            "searchdzopcx\n"
-            "\nMake an extended search for deterministically generated zOPCX that have not yet been recognized by the wallet.\n" +
+            "searchdzopc\n"
+            "\nMake an extended search for deterministically generated zOPC that have not yet been recognized by the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments\n"
-            "1. \"count\"       (numeric) Which sequential zOPCX to start with.\n"
-            "2. \"range\"       (numeric) How many zOPCX to generate.\n"
+            "1. \"count\"       (numeric) Which sequential zOPC to start with.\n"
+            "2. \"range\"       (numeric) How many zOPC to generate.\n"
             "3. \"threads\"     (numeric) How many threads should this operation consume.\n"
 
             "\nExamples\n" +
-            HelpExampleCli("searchdzopcx", "1, 100, 2") + HelpExampleRpc("searchdzopcx", "1, 100, 2"));
+            HelpExampleCli("searchdzopc", "1, 100, 2") + HelpExampleRpc("searchdzopc", "1, 100, 2"));
 
     EnsureWalletIsUnlocked();
 
@@ -3654,9 +3654,9 @@ UniValue searchdzopcx(const UniValue& params, bool fHelp)
 
     int nThreads = params[2].get_int();
 
-    CzOPCXWallet* zwallet = pwalletMain->zwalletMain;
+    CzOPCWallet* zwallet = pwalletMain->zwalletMain;
 
-    boost::thread_group* dzopcxThreads = new boost::thread_group();
+    boost::thread_group* dzopcThreads = new boost::thread_group();
     int nRangePerThread = nRange / nThreads;
 
     int nPrevThreadEnd = nCount - 1;
@@ -3664,12 +3664,12 @@ UniValue searchdzopcx(const UniValue& params, bool fHelp)
         int nStart = nPrevThreadEnd + 1;;
         int nEnd = nStart + nRangePerThread;
         nPrevThreadEnd = nEnd;
-        dzopcxThreads->create_thread(boost::bind(&SearchThread, zwallet, nStart, nEnd));
+        dzopcThreads->create_thread(boost::bind(&SearchThread, zwallet, nStart, nEnd));
     }
 
-    dzopcxThreads->join_all();
+    dzopcThreads->join_all();
 
-    zwallet->RemoveMintsFromPool(pwalletMain->zopcxTracker->GetSerialHashes());
+    zwallet->RemoveMintsFromPool(pwalletMain->zopcTracker->GetSerialHashes());
     zwallet->SyncWithChain(false);
 
     //todo: better response
@@ -3737,7 +3737,7 @@ UniValue spendrawzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     if (GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
-            throw JSONRPCError(RPC_WALLET_ERROR, "zOPCX is currently disabled due to maintenance.");
+            throw JSONRPCError(RPC_WALLET_ERROR, "zOPC is currently disabled due to maintenance.");
 
     CBigNum serial;
     serial.SetHex(params[0].get_str());
@@ -3771,7 +3771,7 @@ UniValue spendrawzerocoin(const UniValue& params, bool fHelp)
     std::vector<CZerocoinMint> vMintsSelected = {mint};
     CAmount nAmount = mint.GetDenominationAsAmount();
 
-    return DoZopcxSpend(nAmount, false, true, vMintsSelected, address_str);
+    return DoZopcSpend(nAmount, false, true, vMintsSelected, address_str);
 }
 
 UniValue clearspendcache(const UniValue& params, bool fHelp)
@@ -3779,7 +3779,7 @@ UniValue clearspendcache(const UniValue& params, bool fHelp)
     if(fHelp || params.size() != 0)
         throw std::runtime_error(
             "clearspendcache\n"
-            "\nClear the pre-computed zOPCX spend cache, and database.\n" +
+            "\nClear the pre-computed zOPC spend cache, and database.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nExamples\n" +
@@ -3787,14 +3787,14 @@ UniValue clearspendcache(const UniValue& params, bool fHelp)
 
     EnsureWalletIsUnlocked();
 
-    CzOPCXTracker* zopcxTracker = pwalletMain->zopcxTracker.get();
+    CzOPCTracker* zopcTracker = pwalletMain->zopcTracker.get();
 
     {
         int nTries = 0;
         while (nTries < 100) {
-            TRY_LOCK(zopcxTracker->cs_spendcache, fLocked);
+            TRY_LOCK(zopcTracker->cs_spendcache, fLocked);
             if (fLocked) {
-                if (zopcxTracker->ClearSpendCache()) {
+                if (zopcTracker->ClearSpendCache()) {
                     fClearSpendCache = true;
                     CWalletDB walletdb("precomputes.dat", "cr+");
                     walletdb.EraseAllPrecomputes();

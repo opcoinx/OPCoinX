@@ -255,7 +255,7 @@
     </message>
     <message>
         <source>Enter a OPCX Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Въведете OPCoinX адрес, който искате да криптиране с BIP 38. Въведете парола в средното поле. Натиснете 'криптирай', за да се изчисли криптирания таен ключ. </translation>
+        <translation>Въведете Opcx адрес, който искате да криптиране с BIP 38. Въведете парола в средното поле. Натиснете 'криптирай', за да се изчисли криптирания таен ключ. </translation>
     </message>
     <message>
         <source>The OPCX address to encrypt</source>
@@ -433,8 +433,8 @@
         <translation>История на транзакциите</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Поверителни Действия за ZOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Поверителни Действия за ZOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1828,28 +1828,28 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Картографирай портовете използвайки &amp;UPnP</translation>
     </message>
     <message>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
-        <translation>Включи автоматичното емитиране на OPCX единици в zOPCX</translation>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
+        <translation>Включи автоматичното емитиране на OPCX единици в zOPC</translation>
     </message>
     <message>
-        <source>Enable zOPCX Automint</source>
-        <translation>Включи Автоматично емитиране на zOPCX</translation>
+        <source>Enable zOPC Automint</source>
+        <translation>Включи Автоматично емитиране на zOPC</translation>
     </message>
     <message>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Процент от входящите OPCX, който автоматично да се конвертира в zOPCX посредтвом Zerocoin Протокола (мин: 10%)</translation>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Процент от входящите OPCX, който автоматично да се конвертира в zOPC посредтвом Zerocoin Протокола (мин: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zOPCX</source>
-        <translation>Процент автоматично сечени zOPCX</translation>
+        <source>Percentage of autominted zOPC</source>
+        <translation>Процент автоматично сечени zOPC</translation>
     </message>
     <message>
         <source>Wait with automatic conversion to Zerocoin until enough OPCX for this denomination is available</source>
-        <translation>Не бързай с автоматичното конвертиране в zOPCX докато не се съберат достатъчно OPCX за тази деноминация</translation>
+        <translation>Не бързай с автоматичното конвертиране в zOPC докато не се съберат достатъчно OPCX за тази деноминация</translation>
     </message>
     <message>
-        <source>Preferred Automint zOPCX Denomination</source>
-        <translation>Предпочитани деноминации, в които да се сече автоматичен zOPCX</translation>
+        <source>Preferred Automint zOPC Denomination</source>
+        <translation>Предпочитани деноминации, в които да се сече автоматичен zOPC</translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2035,14 +2035,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Вашите OPCX наличности, включително непотвърдените и неузрели преводи</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>zOPCX Наличности</translation>
+        <source>zOPC Balance</source>
+        <translation>zOPC Наличности</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation>Узрели: повече от 20 потвърждения и повече от 1 емисии от същата деноминация след като е била емитирана.
-Тези zOPCX могат да се похарчат.</translation>
+Тези zOPC могат да се похарчат.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2095,8 +2095,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>Налични за харчене:</translation>
     </message>
     <message>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
-        <translation>Заключен OPCX или допълнителни гаранции в Главни Възли. Тези не са включени в zOPCX емитирането.</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
+        <translation>Заключен OPCX или допълнителни гаранции в Главни Възли. Тези не са включени в zOPC емитирането.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2107,8 +2107,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>Непотвърден</translation>
     </message>
     <message>
-        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
-        <translation>Вашите zOPCX наличности, включеително непотвърдените и неузрелите zOPCX.</translation>
+        <source>Your current zOPC balance, unconfirmed and immature zOPC included.</source>
+        <translation>Вашите zOPC наличности, включеително непотвърдените и неузрелите zOPC.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2258,8 +2258,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2286,12 +2286,12 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
         <translation>КОНФИДЕНЦИАЛНОСТ</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>zOPCX Контрол</translation>
+        <source>zOPC Control</source>
+        <translation>zOPC Контрол</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>Избрани zOPCX:</translation>
+        <source>zOPC Selected:</source>
+        <translation>Избрани zOPC:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2306,24 +2306,24 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
         <translation>Похарчи Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending</source>
-        <translation>Налични (узрели и готови за харчене) zOPCX за употреба</translation>
+        <source>Available (mature and spendable) zOPC for spending</source>
+        <translation>Налични (узрели и готови за харчене) zOPC за употреба</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Налични:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending
+        <source>Available (mature and spendable) zOPC for spending
 
-zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>Налични (узрели и готови за харчене) zOPCX за употреба
+zOPC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Налични (узрели и готови за харчене) zOPC за употреба
 
-zOPCX са узрели, тогава когато имат повече от 20 потвърждения И повече от 2 емисии от същата деноминация след като са биле емитирани</translation>
+zOPC са узрели, тогава когато имат повече от 20 потвърждения И повече от 2 емисии от същата деноминация след като са биле емитирани</translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2363,7 +2363,7 @@ zOPCX са узрели, тогава когато имат повече от 20
     </message>
     <message>
         <source>Convert Change to Zerocoin (might cost additional fees)</source>
-        <translation>Изсечи zOPCX от рестото (ще струва допълнително заради таксите)</translation>
+        <translation>Изсечи zOPC от рестото (ще струва допълнително заради таксите)</translation>
     </message>
     <message>
         <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
@@ -2382,8 +2382,8 @@ zOPCX са узрели, тогава когато имат повече от 20
         <translation>Zerocoin статистика:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
-        <translation>Обща Наличност включеително непотвърдените и неузрели zOPCX</translation>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
+        <translation>Обща Наличност включеително непотвърдените и неузрели zOPC</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2404,24 +2404,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 Неузрели: потвърдени, но с по-малко от 1 емисии от същата деноминация след като са биле емитирани</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zOPCX minting.
+        <source>Show the current status of automatic zOPC minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to opcx.conf
 - disable: add 'enablezeromint=0' to opcx.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zOPCX
+- menu Settings-&gt;Options-&gt;Percentage of autominted zOPC
 
 </source>
-        <translation>Покажи състоянието на автоматичното zOPCX емитиране.
+        <translation>Покажи състоянието на автоматичното zOPC емитиране.
 
 За да пормените състоянието (изисква рестарт):
 - вклчване: добавете 'enablezeromint=1' в opcx.conf
 - изключване: добавете 'enablezeromint=0' в opcx.conf
 
 За промяна в процентите (не изисква рестарт):
-- меню Настройки -&gt; Опции -&gt; Процент на автоемитиран zOPCX
+- меню Настройки -&gt; Опции -&gt; Процент на автоемитиран zOPC
 </translation>
     </message>
     <message>
@@ -2595,12 +2595,12 @@ Please be patient...</source>
 Моля изчакате...</translation>
     </message>
     <message>
-        <source>zOPCX Spend #: </source>
-        <translation>zOPCX Похарчени #:</translation>
+        <source>zOPC Spend #: </source>
+        <translation>zOPC Похарчени #:</translation>
     </message>
     <message>
-        <source>zOPCX Mint</source>
-        <translation>Сечене на zOPCX</translation>
+        <source>zOPC Mint</source>
+        <translation>Сечене на zOPC</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2615,12 +2615,12 @@ Please be patient...</source>
         <translation>Конфигуриран целеви процент: &lt;b&gt;</translation>
     </message>
     <message>
-        <source>zOPCX is currently disabled due to maintenance.</source>
-        <translation>В момента zOPCX не работи поради ремонт.</translation>
+        <source>zOPC is currently disabled due to maintenance.</source>
+        <translation>В момента zOPC не работи поради ремонт.</translation>
     </message>
     <message>
-        <source>zOPCX is currently undergoing maintenance.</source>
-        <translation>В момента zOPCX е в ремонт.</translation>
+        <source>zOPC is currently undergoing maintenance.</source>
+        <translation>В момента zOPC е в ремонт.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2709,7 +2709,7 @@ Please be patient...</source>
         <translation>Без 'Плати На' адрес, плащането е локално</translation>
     </message>
     <message>
-        <source>Invalid OPCoinX Address</source>
+        <source>Invalid Opcx Address</source>
         <translation>Невалиден OPCX адрес</translation>
     </message>
     <message>
@@ -3065,8 +3065,8 @@ Please be patient...</source>
         <translation>Персонален резервен път:</translation>
     </message>
     <message>
-        <source>Custom zOPCX Backup Path:</source>
-        <translation>Персонализиран zOPCX резервен път:</translation>
+        <source>Custom zOPC Backup Path:</source>
+        <translation>Персонализиран zOPC резервен път:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -4273,8 +4273,8 @@ Please be patient...</source>
         <translation>OPCX Stake</translation>
     </message>
     <message>
-        <source>zOPCX Stake</source>
-        <translation>zOPCX Stake</translation>
+        <source>zOPC Stake</source>
+        <translation>zOPC Stake</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4293,32 +4293,32 @@ Please be patient...</source>
         <translation>Обфускация и направа на Деноминации</translation>
     </message>
     <message>
-        <source>Converted OPCX to zOPCX</source>
-        <translation>Конвертиран OPCX във zOPCX</translation>
+        <source>Converted OPCX to zOPC</source>
+        <translation>Конвертиран OPCX във zOPC</translation>
     </message>
     <message>
-        <source>Spent zOPCX</source>
-        <translation>Похарчени zOPCX</translation>
+        <source>Spent zOPC</source>
+        <translation>Похарчени zOPC</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Получен OPCX от zOPCX</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Получен OPCX от zOPC</translation>
     </message>
     <message>
-        <source>Minted Change as zOPCX from zOPCX Spend</source>
-        <translation>Исечено ресто като zOPCX от похарчените zOPCX</translation>
+        <source>Minted Change as zOPC from zOPC Spend</source>
+        <translation>Исечено ресто като zOPC от похарчените zOPC</translation>
     </message>
     <message>
-        <source>Converted zOPCX to OPCX</source>
-        <translation>Конвертиран zOPCX във OPCX</translation>
+        <source>Converted zOPC to OPCX</source>
+        <translation>Конвертиран zOPC във OPCX</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Transaction)</source>
-        <translation>Анонимен (транзакция zOPCX)</translation>
+        <source>Anonymous (zOPC Transaction)</source>
+        <translation>Анонимен (транзакция zOPC)</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Stake)</source>
-        <translation>Анонимен (zOPCX Stake)</translation>
+        <source>Anonymous (zOPC Stake)</source>
+        <translation>Анонимен (zOPC Stake)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4528,12 +4528,12 @@ Please be patient...</source>
         <translation>Експортирането Успешно</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Получен OPCX от zOPCX</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Получен OPCX от zOPC</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zOPCX</source>
-        <translation>Харчене на Zerocoin, Ресто в zOPCX</translation>
+        <source>Zerocoin Spend, Change in zOPC</source>
+        <translation>Харчене на Zerocoin, Ресто в zOPC</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4601,10 +4601,10 @@ Please be patient...</source>
     </message>
 </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
-        <source>Select zOPCX to Spend</source>
-        <translation>Изберете zOPCX за Изпращане</translation>
+        <source>Select zOPC to Spend</source>
+        <translation>Изберете zOPC за Изпращане</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4615,8 +4615,8 @@ Please be patient...</source>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4678,16 +4678,16 @@ Please be patient...</source>
         <translation>Разпространява се пот MIT софтуерен лиценз, виж съпровождащия файл от &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</source>
-        <translation>Включи автоматичните бекъпи на портфейла след всяко zOPCX емитиране (0-1, по подразбиране: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each zOPC minting (0-1, default: %u)</source>
+        <translation>Включи автоматичните бекъпи на портфейла след всяко zOPC емитиране (0-1, по подразбиране: %u)</translation>
     </message>
     <message>
         <source>Enable or disable staking functionality for OPCX inputs (0-1, default: %u)</source>
         <translation>Активиране или деактивиране на функцията за зареждане за OPCX входове (0-1, по подразбиране: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</source>
-        <translation>Активиране или деактивиране на функцията за зареждане за zOPCX входове (0-1, по подразбиране: %u)</translation>
+        <source>Enable or disable staking functionality for zOPC inputs (0-1, default: %u)</source>
+        <translation>Активиране или деактивиране на функцията за зареждане за zOPC входове (0-1, по подразбиране: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -4882,8 +4882,8 @@ Please be patient...</source>
         <translation>Трябва да зададете masternodeprivkey в конфигурационния файл. Консултирайте се с документацията за повече помощ.</translation>
     </message>
     <message>
-        <source>(18051 could be used only on mainnet)</source>
-        <translation>(18051 може да се ползва само в mainnet)</translation>
+        <source>(51472 could be used only on mainnet)</source>
+        <translation>(51472 може да се ползва само в mainnet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4894,8 +4894,8 @@ Please be patient...</source>
         <translation>(по подразбиране: 1)</translation>
     </message>
     <message>
-        <source>(must be 18051 for mainnet)</source>
-        <translation>(трябва да е 18051 за mainnet)</translation>
+        <source>(must be 51472 for mainnet)</source>
+        <translation>(трябва да е 51472 за mainnet)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5214,8 +5214,8 @@ Please be patient...</source>
         <translation>Процент автоматично емитирани Zerocoin (1-100, по подразбиране: %u)</translation>
     </message>
     <message>
-        <source>Reindex the OPCX and zOPCX money supply statistics</source>
-        <translation>Индексирай наново OPCX и zOPCX данните по наличности</translation>
+        <source>Reindex the OPCX and zOPC money supply statistics</source>
+        <translation>Индексирай наново OPCX и zOPC данните по наличности</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5290,8 +5290,8 @@ Please be patient...</source>
         <translation>Предпочитани деноминации за автоматично изсечените Zerocoin (1/5/10/50/100/500/1000/5000), 0 за каквито и да е. (По подразбиране: %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Посочете персонализиран път за архивиране, за да добавите копие на всяко автоматично архивиране zOPCX. Ако е зададено като реж., Всеки архив генерира файл с времева маркировка. Ако е зададен като файл, ще пренапише към този файл всеки архив. Ако е зададено и резервно копие, ще се случат 4 архиви</translation>
+        <source>Specify custom backup path to add a copy of any automatic zOPC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Посочете персонализиран път за архивиране, за да добавите копие на всяко автоматично архивиране zOPC. Ако е зададено като реж., Всеки архив генерира файл с времева маркировка. Ако е зададен като файл, ще пренапише към този файл всеки архив. Ако е зададено и резервно копие, ще се случат 4 архиви</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -5702,8 +5702,8 @@ Please be patient...</source>
         <translation>Синхронизиране на вилицо-лъжиците...</translation>
     </message>
     <message>
-        <source>Syncing zOPCX wallet...</source>
-        <translation>Синхронизиране на zOPCX портфейла ...</translation>
+        <source>Syncing zOPC wallet...</source>
+        <translation>Синхронизиране на zOPC портфейла ...</translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -5810,8 +5810,8 @@ Please be patient...</source>
         <translation>Потребителско име за JSON-RPC свръзките</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zOPCX</source>
-        <translation>Стойността е под най-малката налична деноминация (= 1) в zOPCX</translation>
+        <source>Value is below the smallest available denomination (= 1) of zOPC</source>
+        <translation>Стойността е под най-малката налична деноминация (= 1) в zOPC</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>

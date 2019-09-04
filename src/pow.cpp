@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The OPCX developers
+// Copyright (c) 2015-2018 The OPCX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,7 +42,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         int64_t nTargetSpacing = 60;
         int64_t nTargetTimespan = 60 * 40;
 
-    int64_t nActualSpacing = 60;
+        int64_t nActualSpacing = 60;
         if (pindexLast->nHeight != 0)
             nActualSpacing = pindexLast->GetBlockTime() - pindexLast->pprev->GetBlockTime();
 
@@ -62,7 +62,8 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
             bnNew = bnTargetLimit;
 
         return bnNew.GetCompact();
-  //  }
+//    }
+
 /*
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
         if (PastBlocksMax > 0 && i > PastBlocksMax) {
@@ -128,7 +129,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
         return error("CheckProofOfWork() : nBits below minimum work");
 
     // Check proof of work matches claimed amount
-    if (hash != Params().HashGenesisBlock() && hash > bnTarget) {
+    if (hash > bnTarget) {
         if (Params().MineBlocksOnDemand())
             return false;
         else

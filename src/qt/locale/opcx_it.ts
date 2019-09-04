@@ -433,8 +433,8 @@
         <translation>Espora la cronologia delle transazioni</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Operazioni di privacy per zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Operazioni di privacy per zOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1638,24 +1638,24 @@ MultiSend non verrà attivato a meno che tu non prema su Attiva</translation>
         <translation>Mappa la porta utilizzando &amp;UPnP</translation>
     </message>
     <message>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
-        <translation>Attiva il conio automatico di unità OPCX in zOPCX</translation>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
+        <translation>Attiva il conio automatico di unità OPCX in zOPC</translation>
     </message>
     <message>
-        <source>Enable zOPCX Automint</source>
-        <translation>Attiva Conio automatico zOPCX</translation>
+        <source>Enable zOPC Automint</source>
+        <translation>Attiva Conio automatico zOPC</translation>
     </message>
     <message>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Percentuale di OPCX in entrata che viene automaticamente convertita in zOPCX attraverso il protocollo Zerocoin (min: 10%)</translation>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Percentuale di OPCX in entrata che viene automaticamente convertita in zOPC attraverso il protocollo Zerocoin (min: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zOPCX</source>
-        <translation>Percentuale di zOPCX Percentuale di zOPCX da coniare automaticamente</translation>
+        <source>Percentage of autominted zOPC</source>
+        <translation>Percentuale di zOPC Percentuale di zOPC da coniare automaticamente</translation>
     </message>
     <message>
-        <source>Preferred Automint zOPCX Denomination</source>
-        <translation>Denominazione preferita conio automatico zOPCX</translation>
+        <source>Preferred Automint zOPC Denomination</source>
+        <translation>Denominazione preferita conio automatico zOPC</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1733,14 +1733,14 @@ MultiSend non verrà attivato a meno che tu non prema su Attiva</translation>
         <translation>Il tuo saldo OPCX corrente, incluse le transazioni non confermate e non mature</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>Bilancio zOPCX</translation>
+        <source>zOPC Balance</source>
+        <translation>Bilancio zOPC</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation>Maturi: più di 20 conferme e più di 1 conio della stessa denominazione dopo il conio.
-Questi zOPCX sono spendibili.</translation>
+Questi zOPC sono spendibili.</translation>
     </message>
     <message>
         <source>OVERVIEW</source>
@@ -1771,8 +1771,8 @@ Questi zOPCX sono spendibili.</translation>
         <translation>Spendibili:</translation>
     </message>
     <message>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
-        <translation>OPCX bloccati o collaterali Masternodo. Questi sono esclusi dal conio di zOPCX.</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
+        <translation>OPCX bloccati o collaterali Masternodo. Questi sono esclusi dal conio di zOPC.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -1783,18 +1783,18 @@ Questi zOPCX sono spendibili.</translation>
         <translation>Non confermati:</translation>
     </message>
     <message>
-        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
-        <translation>Il tuo saldo zOPCX corrente, inclusi zOPCX non confermati e non maturi</translation>
+        <source>Your current zOPC balance, unconfirmed and immature zOPC included.</source>
+        <translation>Il tuo saldo zOPC corrente, inclusi zOPC non confermati e non maturi</translation>
     </message>
     <message>
         <source>Recent transactions</source>
         <translation>Transazioni recenti</translation>
     </message>
     <message>
-        <source>Current percentage of zOPCX.
+        <source>Current percentage of zOPC.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Percentuale corrente di zOPCX.
+        <translation>Percentuale corrente di zOPC.
 Se il conio automatico è attivato questa percentuale si stabilizzerà all'incirca sulla percentuale stabilita per il conio automatico (percentuale prestabilita = 10%).
 </translation>
     </message>
@@ -1858,8 +1858,8 @@ Per attivare il Conio automatico cambiare 'enablezeromint=0' in 'enablezeromint=
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -1870,12 +1870,12 @@ Per attivare il Conio automatico cambiare 'enablezeromint=0' in 'enablezeromint=
         <translation>PRIVACY</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>Controllo zOPCX</translation>
+        <source>zOPC Control</source>
+        <translation>Controllo zOPC</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>zOPCX selezionati:</translation>
+        <source>zOPC Selected:</source>
+        <translation>zOPC selezionati:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -1886,23 +1886,23 @@ Per attivare il Conio automatico cambiare 'enablezeromint=0' in 'enablezeromint=
         <translation>Spendi Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending</source>
-        <translation>zOPCX disponibili disponibili per essere spesi (maturi e spendibili)</translation>
+        <source>Available (mature and spendable) zOPC for spending</source>
+        <translation>zOPC disponibili disponibili per essere spesi (maturi e spendibili)</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Bilancio Disponibile:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending
+        <source>Available (mature and spendable) zOPC for spending
 
-zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>zOPCX disponibili disponibili per essere spesi (maturi e spendibili)
-Gli zOPCX sono maturi quando hanno più di 20 conferme E più di 2 conii della stessa denominazione dopo che sono stati coniati</translation>
+zOPC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>zOPC disponibili disponibili per essere spesi (maturi e spendibili)
+Gli zOPC sono maturi quando hanno più di 20 conferme E più di 2 conii della stessa denominazione dopo che sono stati coniati</translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -1945,31 +1945,31 @@ Gli zOPCX sono maturi quando hanno più di 20 conferme E più di 2 conii della s
         <translation>Statistiche Zerocoin:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
-        <translation>Saldo totale inclusi zOPCX non confermati e non maturi</translation>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
+        <translation>Saldo totale inclusi zOPC non confermati e non maturi</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
         <translation>Saldo totale Zerocoin:</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zOPCX minting.
+        <source>Show the current status of automatic zOPC minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to opcx.conf
 - disable: add 'enablezeromint=0' to opcx.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zOPCX
+- menu Settings-&gt;Options-&gt;Percentage of autominted zOPC
 
 </source>
-        <translation>Mostra lo stato corrente del conio automatico zOPCX.
+        <translation>Mostra lo stato corrente del conio automatico zOPC.
 Per cambiare lo stato (riavvio necessario):
 - attivato: aggiungi 'enablezeromint=1' a opcx.conf
 - disattivato: aggiungi 'enablezeromint=0' a opcx.conf
 
 Per cambiare la percentuale (riavvio non necessario):
-- menu Impostazioni-&gt;Opzioni-&gt;Percentuale di zOPCX da coniare automaticamente
+- menu Impostazioni-&gt;Opzioni-&gt;Percentuale di zOPC da coniare automaticamente
 
 </translation>
     </message>
@@ -2110,8 +2110,8 @@ Per cambiare la percentuale (riavvio non necessario):
         <translation>Differenza:</translation>
     </message>
     <message>
-        <source>zOPCX Mint</source>
-        <translation>Conio zOPCX</translation>
+        <source>zOPC Mint</source>
+        <translation>Conio zOPC</translation>
     </message>
     <message>
         <source>AutoMint Status:</source>
@@ -2594,14 +2594,14 @@ Per cambiare la percentuale (riavvio non necessario):
     </message>
     </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     </context>
 <context>

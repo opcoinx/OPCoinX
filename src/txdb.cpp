@@ -9,7 +9,7 @@
 #include "main.h"
 #include "pow.h"
 #include "uint256.h"
-#include "zopcx/accumulators.h"
+#include "zopc/accumulators.h"
 
 #include <stdint.h>
 
@@ -256,7 +256,11 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
                 pindexNew->nMint = diskindex.nMint;
                 pindexNew->nMoneySupply = diskindex.nMoneySupply;
                 pindexNew->nFlags = diskindex.nFlags;
-                pindexNew->nStakeModifier = diskindex.nStakeModifier;
+                if (!Params().IsStakeModifierV2(pindexNew->nHeight)) {
+                    pindexNew->nStakeModifier = diskindex.nStakeModifier;
+                } else {
+                    pindexNew->nStakeModifierV2 = diskindex.nStakeModifierV2;
+                }
                 pindexNew->prevoutStake = diskindex.prevoutStake;
                 pindexNew->nStakeTime = diskindex.nStakeTime;
                 pindexNew->hashProofOfStake = diskindex.hashProofOfStake;
@@ -268,7 +272,7 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
 
                 //populate accumulator checksum map in memory
                 if(pindexNew->nAccumulatorCheckpoint != 0 && pindexNew->nAccumulatorCheckpoint != nPreviousCheckpoint) {
-                    //Don't load any checkpoints that exist before v2 zopcx. The accumulator is invalid for v1 and not used.
+                    //Don't load any checkpoints that exist before v2 zopc. The accumulator is invalid for v1 and not used.
                     if (pindexNew->nHeight >= Params().Zerocoin_Block_V2_Start())
                         LoadAccumulatorValuesFromDB(pindexNew->nAccumulatorCheckpoint);
 

@@ -75,7 +75,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Use 2 separate masternodes to mix funds up to 10000 OPCX</string>
+    <string>Use 2 separate masternodes to mix funds up to 37500 OPCX</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -88,7 +88,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Use 8 separate masternodes to mix funds up to 10000 OPCX</string>
+    <string>Use 8 separate masternodes to mix funds up to 37500 OPCX</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -153,7 +153,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>0.1 OPCX per 10000 OPCX you anonymize.</string>
+    <string>0.1 OPCX per 37500 OPCX you anonymize.</string>
    </property>
   </widget>
   <widget class="Line" name="line">

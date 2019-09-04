@@ -23,13 +23,13 @@ def setup():
         programs += ['apt-cacher-ng', 'lxc', 'debootstrap']
     subprocess.check_call(['sudo', 'apt-get', 'install', '-qq'] + programs)
     if not os.path.isdir('gitian.sigs'):
-        subprocess.check_call(['git', 'clone', 'https://github.com/opcoinx/gitian.sigs.git'])
+        subprocess.check_call(['git', 'clone', 'https://github.com/opcx-Project/gitian.sigs.git'])
     if not os.path.isdir('opcx-detached-sigs'):
-        subprocess.check_call(['git', 'clone', 'https://github.com/opcoinx/OPCoinX-detached-sigs.git'])
+        subprocess.check_call(['git', 'clone', 'https://github.com/opcx-Project/opcx-detached-sigs.git'])
     if not os.path.isdir('gitian-builder'):
         subprocess.check_call(['git', 'clone', 'https://github.com/devrandom/gitian-builder.git'])
     if not os.path.isdir('opcx'):
-        subprocess.check_call(['git', 'clone', 'https://github.com/opcoinx/OPCoinX.git'])
+        subprocess.check_call(['git', 'clone', 'https://github.com/opcx-Project/opcx.git'])
     os.chdir('gitian-builder')
     make_image_prog = ['bin/make-base-vm', '--suite', 'bionic', '--arch', 'amd64']
     if args.docker:

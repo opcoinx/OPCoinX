@@ -60,12 +60,12 @@ QT_TRANSLATE_NOOP("opcx-core", ""
 QT_TRANSLATE_NOOP("opcx-core", ""
 "Enable automatic Zerocoin minting from specific addresses (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("opcx-core", ""
-"Enable automatic wallet backups triggered after each zOPCX minting (0-1, "
+"Enable automatic wallet backups triggered after each zOPC minting (0-1, "
 "default: %u)"),
 QT_TRANSLATE_NOOP("opcx-core", ""
 "Enable or disable staking functionality for OPCX inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("opcx-core", ""
-"Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)"),
+"Enable or disable staking functionality for zOPC inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("opcx-core", ""
 "Enable spork administration functionality with the appropriate private key."),
 QT_TRANSLATE_NOOP("opcx-core", ""
@@ -178,7 +178,7 @@ QT_TRANSLATE_NOOP("opcx-core", ""
 "Show N confirmations for a successfully locked transaction (0-9999, default: "
 "%u)"),
 QT_TRANSLATE_NOOP("opcx-core", ""
-"Specify custom backup path to add a copy of any automatic zOPCX backup. If "
+"Specify custom backup path to add a copy of any automatic zOPC backup. If "
 "set as dir, every backup generates a timestamped file. If set as file, will "
 "rewrite to that file every backup. If backuppath is set as well, 4 backups "
 "will happen"),
@@ -250,10 +250,10 @@ QT_TRANSLATE_NOOP("opcx-core", ""
 QT_TRANSLATE_NOOP("opcx-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("opcx-core", "(18051 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("opcx-core", "(51472 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("opcx-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("opcx-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("opcx-core", "(must be 18051 for mainnet)"),
+QT_TRANSLATE_NOOP("opcx-core", "(must be 51472 for mainnet)"),
 QT_TRANSLATE_NOOP("opcx-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("opcx-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("opcx-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
@@ -297,7 +297,7 @@ QT_TRANSLATE_NOOP("opcx-core", "Do not load the wallet and disable wallet RPC ca
 QT_TRANSLATE_NOOP("opcx-core", "Do you want to rebuild the block database now?"),
 QT_TRANSLATE_NOOP("opcx-core", "Done loading"),
 QT_TRANSLATE_NOOP("opcx-core", "Enable automatic Zerocoin minting (0-1, default: %u)"),
-QT_TRANSLATE_NOOP("opcx-core", "Enable precomputation of zOPCX spends and stakes (0-1, default %u)"),
+QT_TRANSLATE_NOOP("opcx-core", "Enable precomputation of zOPC spends and stakes (0-1, default %u)"),
 QT_TRANSLATE_NOOP("opcx-core", "Enable publish hash block in <address>"),
 QT_TRANSLATE_NOOP("opcx-core", "Enable publish hash transaction (locked via SwiftX) in <address>"),
 QT_TRANSLATE_NOOP("opcx-core", "Enable publish hash transaction in <address>"),
@@ -399,10 +399,10 @@ QT_TRANSLATE_NOOP("opcx-core", "Randomly drop 1 of every <n> network messages"),
 QT_TRANSLATE_NOOP("opcx-core", "Randomly fuzz 1 of every <n> network messages"),
 QT_TRANSLATE_NOOP("opcx-core", "Rebuild block chain index from current blk000??.dat files"),
 QT_TRANSLATE_NOOP("opcx-core", "Recalculating OPCX supply..."),
-QT_TRANSLATE_NOOP("opcx-core", "Recalculating minted ZOPCX..."),
-QT_TRANSLATE_NOOP("opcx-core", "Recalculating spent ZOPCX..."),
+QT_TRANSLATE_NOOP("opcx-core", "Recalculating minted ZOPC..."),
+QT_TRANSLATE_NOOP("opcx-core", "Recalculating spent ZOPC..."),
 QT_TRANSLATE_NOOP("opcx-core", "Receive and display P2P network alerts (default: %u)"),
-QT_TRANSLATE_NOOP("opcx-core", "Reindex the OPCX and zOPCX money supply statistics"),
+QT_TRANSLATE_NOOP("opcx-core", "Reindex the OPCX and zOPC money supply statistics"),
 QT_TRANSLATE_NOOP("opcx-core", "Reindex the accumulator database"),
 QT_TRANSLATE_NOOP("opcx-core", "Reindexing zerocoin database..."),
 QT_TRANSLATE_NOOP("opcx-core", "Reindexing zerocoin failed"),
@@ -451,7 +451,7 @@ QT_TRANSLATE_NOOP("opcx-core", "Synchronizing budgets..."),
 QT_TRANSLATE_NOOP("opcx-core", "Synchronizing masternode winners..."),
 QT_TRANSLATE_NOOP("opcx-core", "Synchronizing masternodes..."),
 QT_TRANSLATE_NOOP("opcx-core", "Synchronizing sporks..."),
-QT_TRANSLATE_NOOP("opcx-core", "Syncing zOPCX wallet..."),
+QT_TRANSLATE_NOOP("opcx-core", "Syncing zOPC wallet..."),
 QT_TRANSLATE_NOOP("opcx-core", "The coin spend has been used"),
 QT_TRANSLATE_NOOP("opcx-core", "The transaction did not verify"),
 QT_TRANSLATE_NOOP("opcx-core", "This help message"),
@@ -482,7 +482,7 @@ QT_TRANSLATE_NOOP("opcx-core", "Use block spam filter (default: %u)"),
 QT_TRANSLATE_NOOP("opcx-core", "Use the test network"),
 QT_TRANSLATE_NOOP("opcx-core", "User Agent comment (%s) contains unsafe characters."),
 QT_TRANSLATE_NOOP("opcx-core", "Username for JSON-RPC connections"),
-QT_TRANSLATE_NOOP("opcx-core", "Value is below the smallest available denomination (= 1) of zOPCX"),
+QT_TRANSLATE_NOOP("opcx-core", "Value is below the smallest available denomination (= 1) of zOPC"),
 QT_TRANSLATE_NOOP("opcx-core", "Verifying blocks..."),
 QT_TRANSLATE_NOOP("opcx-core", "Verifying wallet..."),
 QT_TRANSLATE_NOOP("opcx-core", "Wallet %s resides outside data directory %s"),

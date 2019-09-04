@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2017 The OPCX developers
+// Copyright (c) 2017-2018 The OPCX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +11,7 @@
 
 class CScheduler;
 class CWallet;
-class CzOPCXWallet;
+class CzOPCWallet;
 
 namespace boost
 {
@@ -19,7 +19,7 @@ class thread_group;
 } // namespace boost
 
 extern CWallet* pwalletMain;
-extern CzOPCXWallet* zwalletMain;
+extern CzOPCWallet* zwalletMain;
 
 void StartShutdown();
 bool ShutdownRequested();

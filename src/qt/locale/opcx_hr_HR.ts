@@ -433,8 +433,8 @@
         <translation>Pregled povijesti transakcija</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Postavke privatnosti za zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Postavke privatnosti za zOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1831,28 +1831,28 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
 </translation>
     </message>
     <message>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
-        <translation>Omogućite automint OPCX jedinica na zOPCX</translation>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
+        <translation>Omogućite automint OPCX jedinica na zOPC</translation>
     </message>
     <message>
-        <source>Enable zOPCX Automint</source>
-        <translation>Omogući zOPCX Automint</translation>
+        <source>Enable zOPC Automint</source>
+        <translation>Omogući zOPC Automint</translation>
     </message>
     <message>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Postotak dolaznih OPCX koji se automatski pretvara u zOPCX putem protokola Zerocoin (min: 10%)</translation>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Postotak dolaznih OPCX koji se automatski pretvara u zOPC putem protokola Zerocoin (min: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zOPCX</source>
-        <translation>Postotak automatiziranog zOPCX</translation>
+        <source>Percentage of autominted zOPC</source>
+        <translation>Postotak automatiziranog zOPC</translation>
     </message>
     <message>
         <source>Wait with automatic conversion to Zerocoin until enough OPCX for this denomination is available</source>
         <translation>Pričekajte s automatskom pretvorbom u Zerocoin dok ne bude dostupno dovoljno OPCX za apoen</translation>
     </message>
     <message>
-        <source>Preferred Automint zOPCX Denomination</source>
-        <translation>Preferirana Automint zOPCX denominacijad</translation>
+        <source>Preferred Automint zOPC Denomination</source>
+        <translation>Preferirana Automint zOPC denominacijad</translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2038,14 +2038,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Uključena je vaša trenutna bilanca OPCX, nepotvrđene i nezrele transakcije</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>zOPCX Bilanca</translation>
+        <source>zOPC Balance</source>
+        <translation>zOPC Bilanca</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation>Mature: više od 20 potvrda i više od 1 mint od iste denominacije nakon što je mintan.
-Ti zOPCXs se mogu potrošiti.</translation>
+Ti zOPCs se mogu potrošiti.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2098,8 +2098,8 @@ Nezreli: potvrđeno, ali manje od 1 minta iste denominacije nakon mintanja</tran
         <translation>Po potrošiti:</translation>
     </message>
     <message>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
-        <translation>Zaključani OPCX ili Masternode kolateral. Oni su isključeni iz zOPCX kovanja.</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
+        <translation>Zaključani OPCX ili Masternode kolateral. Oni su isključeni iz zOPC kovanja.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2110,8 +2110,8 @@ Nezreli: potvrđeno, ali manje od 1 minta iste denominacije nakon mintanja</tran
         <translation>Nepotvrđeno:</translation>
     </message>
     <message>
-        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
-        <translation>Vaša trenutačna zOPCX bilanca, nepotvrđena i nezrela zOPCX.</translation>
+        <source>Your current zOPC balance, unconfirmed and immature zOPC included.</source>
+        <translation>Vaša trenutačna zOPC bilanca, nepotvrđena i nezrela zOPC.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2122,10 +2122,10 @@ Nezreli: potvrđeno, ali manje od 1 minta iste denominacije nakon mintanja</tran
         <translation>nije sinkronizirano</translation>
     </message>
     <message>
-        <source>Current percentage of zOPCX.
+        <source>Current percentage of zOPC.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Trenutni postotak zOPCX.
+        <translation>Trenutni postotak zOPC.
 Ako je omogućeno automatsko navođenje, ovaj postotak će se podmiriti oko konfiguriranog postotka automatskog navođenja (zadano = 10%).
 </translation>
     </message>
@@ -2269,8 +2269,8 @@ Da biste omogućili, promjenite postavke AutoMint 'enablezeromint=0' na 'enablez
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2297,12 +2297,12 @@ Da biste omogućili, promjenite postavke AutoMint 'enablezeromint=0' na 'enablez
         <translation>PRIVATNOST</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>Upravljanje zOPCX</translation>
+        <source>zOPC Control</source>
+        <translation>Upravljanje zOPC</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>zOPCX Odabrani:</translation>
+        <source>zOPC Selected:</source>
+        <translation>zOPC Odabrani:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2317,24 +2317,24 @@ Da biste omogućili, promjenite postavke AutoMint 'enablezeromint=0' na 'enablez
         <translation>Potroši Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending</source>
-        <translation>Dostupni (zreli) zOPCX za potrošnju</translation>
+        <source>Available (mature and spendable) zOPC for spending</source>
+        <translation>Dostupni (zreli) zOPC za potrošnju</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Dostupna Bilanca:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending
+        <source>Available (mature and spendable) zOPC for spending
 
-zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>Dostupni (zreli) zOPCX za potrošnju
+zOPC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Dostupni (zreli) zOPC za potrošnju
 
-zOPCX su zreli kada imaju više od 20 potvrda I više od 2 mint od iste denominacije nakon što su bili mintani</translation>
+zOPC su zreli kada imaju više od 20 potvrda I više od 2 mint od iste denominacije nakon što su bili mintani</translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2393,8 +2393,8 @@ zOPCX su zreli kada imaju više od 20 potvrda I više od 2 mint od iste denomina
         <translation>Statistike Zerocoina:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
-        <translation>Ukupni saldo uključujući nepotvrđeni i nedovršeni zOPCX</translation>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
+        <translation>Ukupni saldo uključujući nepotvrđeni i nedovršeni zOPC</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2415,24 +2415,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 Nezreli: potvrđeno, ali manje od 1 minta iste denominacije nakon mintanja</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zOPCX minting.
+        <source>Show the current status of automatic zOPC minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to opcx.conf
 - disable: add 'enablezeromint=0' to opcx.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zOPCX
+- menu Settings-&gt;Options-&gt;Percentage of autominted zOPC
 
 </source>
-        <translation>Pokažite trenutačni status automatskog zOPCX mintanja.
+        <translation>Pokažite trenutačni status automatskog zOPC mintanja.
 
 Da biste promijenili status (potrebno je ponovno pokretanje):
 - omogući: dodajte 'enablezeromint = 1' u opcx.conf
 - onemogućiti: dodajte 'enablezeromint = 0' na opcx.conf
 
 Promjena postotka (nije potrebno ponovno pokretanje):
-- izbornik Postavke-&gt; Opcije-&gt; Postotak zOPCX</translation>
+- izbornik Postavke-&gt; Opcije-&gt; Postotak zOPC</translation>
     </message>
     <message>
         <source>AutoMint Status</source>
@@ -2604,12 +2604,12 @@ Please be patient...</source>
         <translation>Pokretanje ResetMintZerocoin: ponovno skeniranje potpunog blockchain, to će trajati i do 30 minuta, ovisno o vašem hardveru.</translation>
     </message>
     <message>
-        <source>zOPCX Spend #: </source>
-        <translation>zOPCX utrošeno #: </translation>
+        <source>zOPC Spend #: </source>
+        <translation>zOPC utrošeno #: </translation>
     </message>
     <message>
-        <source>zOPCX Mint</source>
-        <translation>zOPCX Mint</translation>
+        <source>zOPC Mint</source>
+        <translation>zOPC Mint</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2624,12 +2624,12 @@ Please be patient...</source>
         <translation> Konfigirani ciljani postotak: &lt;b&gt;</translation>
     </message>
     <message>
-        <source>zOPCX is currently disabled due to maintenance.</source>
-        <translation>Zbog održavanja zOPCX je trenutačno onemogućen.</translation>
+        <source>zOPC is currently disabled due to maintenance.</source>
+        <translation>Zbog održavanja zOPC je trenutačno onemogućen.</translation>
     </message>
     <message>
-        <source>zOPCX is currently undergoing maintenance.</source>
-        <translation>Radovi u tijeku na zOPCX.</translation>
+        <source>zOPC is currently undergoing maintenance.</source>
+        <translation>Radovi u tijeku na zOPC.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2718,8 +2718,8 @@ Please be patient...</source>
         <translation>Nije dodijeljena adresa "Plati", stvarajući lokalnu uplatu</translation>
     </message>
     <message>
-        <source>Invalid OPCoinX Address</source>
-        <translation>Nevažeća OPCoinX Adresa</translation>
+        <source>Invalid Opcx Address</source>
+        <translation>Nevažeća Opcx Adresa</translation>
     </message>
     <message>
         <source>Invalid Send Amount</source>
@@ -3075,8 +3075,8 @@ Please be patient...</source>
         <translation>Put prilagođenog sigurnosnog kopiranja:</translation>
     </message>
     <message>
-        <source>Custom zOPCX Backup Path:</source>
-        <translation>Prilagođeni put zOPCX sigurnosne kopije:</translation>
+        <source>Custom zOPC Backup Path:</source>
+        <translation>Prilagođeni put zOPC sigurnosne kopije:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -4287,8 +4287,8 @@ Please be patient...</source>
         <translation>OPCX Stake</translation>
     </message>
     <message>
-        <source>zOPCX Stake</source>
-        <translation>zOPCX Stake</translation>
+        <source>zOPC Stake</source>
+        <translation>zOPC Stake</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4307,32 +4307,32 @@ Please be patient...</source>
         <translation>Prikrivanje Stvara Denominacije</translation>
     </message>
     <message>
-        <source>Converted OPCX to zOPCX</source>
-        <translation>Pretvoreni OPCX u zOPCX</translation>
+        <source>Converted OPCX to zOPC</source>
+        <translation>Pretvoreni OPCX u zOPC</translation>
     </message>
     <message>
-        <source>Spent zOPCX</source>
-        <translation>Utrošeni zOPCX</translation>
+        <source>Spent zOPC</source>
+        <translation>Utrošeni zOPC</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Primljeni OPCX od zOPCX</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Primljeni OPCX od zOPC</translation>
     </message>
     <message>
-        <source>Minted Change as zOPCX from zOPCX Spend</source>
-        <translation>Mintana razlika zOPCX od zOPCX Utroška</translation>
+        <source>Minted Change as zOPC from zOPC Spend</source>
+        <translation>Mintana razlika zOPC od zOPC Utroška</translation>
     </message>
     <message>
-        <source>Converted zOPCX to OPCX</source>
-        <translation>Pretvoreni zOPCX u OPCX</translation>
+        <source>Converted zOPC to OPCX</source>
+        <translation>Pretvoreni zOPC u OPCX</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Transaction)</source>
-        <translation>Anonimno (zOPCX Transakcija)</translation>
+        <source>Anonymous (zOPC Transaction)</source>
+        <translation>Anonimno (zOPC Transakcija)</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Stake)</source>
-        <translation>Anonimno (zOPCX Stake)</translation>
+        <source>Anonymous (zOPC Stake)</source>
+        <translation>Anonimno (zOPC Stake)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4542,12 +4542,12 @@ Please be patient...</source>
         <translation>Izvoz uspješan</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Primljeni OPCX od zOPCX</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Primljeni OPCX od zOPC</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zOPCX</source>
-        <translation>Zerocoin Utrošeno, Razlika (ostatak) u zOPCX</translation>
+        <source>Zerocoin Spend, Change in zOPC</source>
+        <translation>Zerocoin Utrošeno, Razlika (ostatak) u zOPC</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4615,10 +4615,10 @@ Please be patient...</source>
     </message>
 </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
-        <source>Select zOPCX to Spend</source>
-        <translation>Odabrani zOPCX za utrošiti</translation>
+        <source>Select zOPC to Spend</source>
+        <translation>Odabrani zOPC za utrošiti</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4629,8 +4629,8 @@ Please be patient...</source>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4692,16 +4692,16 @@ Please be patient...</source>
         <translation>Distribuirano pod MIT softverskom licencom, pogledajte priloženu datoteku COPYING ili &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</source>
-        <translation>Omogući automatsko sigurnosno kopiranje novčanika nakon svakog zOPCX mintanja (0-1, default: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each zOPC minting (0-1, default: %u)</source>
+        <translation>Omogući automatsko sigurnosno kopiranje novčanika nakon svakog zOPC mintanja (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable or disable staking functionality for OPCX inputs (0-1, default: %u)</source>
         <translation>Omogući ili onemogući staking funkcionalnosti za OPCX unose (0-1, default: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</source>
-        <translation>Omogući ili onemogući staking funkcionalnosti za zOPCX unose (0-1, default: %u)</translation>
+        <source>Enable or disable staking functionality for zOPC inputs (0-1, default: %u)</source>
+        <translation>Omogući ili onemogući staking funkcionalnosti za zOPC unose (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -4896,8 +4896,8 @@ Please be patient...</source>
         <translation>Morate odrediti masternodeprivkey u konfiguraciji. Za pomoć pogledajte dokumentaciju.</translation>
     </message>
     <message>
-        <source>(18051 could be used only on mainnet)</source>
-        <translation>(18051 se može koristiti samo na mainnetu)</translation>
+        <source>(51472 could be used only on mainnet)</source>
+        <translation>(51472 se može koristiti samo na mainnetu)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4908,8 +4908,8 @@ Please be patient...</source>
         <translation>(default: 1)</translation>
     </message>
     <message>
-        <source>(must be 18051 for mainnet)</source>
-        <translation>(mora biti 18051 za glavnu mrežu)</translation>
+        <source>(must be 51472 for mainnet)</source>
+        <translation>(mora biti 51472 za glavnu mrežu)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5233,8 +5233,8 @@ Please be patient...</source>
         <translation>Postotak automatskog kovanog Zerocoina (1-100, zadano: %u)</translation>
     </message>
     <message>
-        <source>Reindex the OPCX and zOPCX money supply statistics</source>
-        <translation>Ponovno indeksirati statistiku OPCX i zOPCX ponude novca</translation>
+        <source>Reindex the OPCX and zOPC money supply statistics</source>
+        <translation>Ponovno indeksirati statistiku OPCX i zOPC ponude novca</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5308,8 +5308,8 @@ Please be patient...</source>
         <translation>Preferirana denominacija za automatski ovjereni Zerocoin (1/5/10/50/100/500/1000/5000), 0 bez preferencije. zadana vrijednost: %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Navedite put prilagođenog sigurnosnog kopiranja da biste dodali kopiju bilo koje automatske zOPCX sigurnosne kopije. Ako je postavljeno kao dir, svaka sigurnosna kopija generira vremensku datoteku. Ako je postavljen kao datoteka, prepisat će na tu datoteku svaku kopiju. Ako je postavljen backuppath, dogodit će se 4 sigurnosne kopije</translation>
+        <source>Specify custom backup path to add a copy of any automatic zOPC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Navedite put prilagođenog sigurnosnog kopiranja da biste dodali kopiju bilo koje automatske zOPC sigurnosne kopije. Ako je postavljeno kao dir, svaka sigurnosna kopija generira vremensku datoteku. Ako je postavljen kao datoteka, prepisat će na tu datoteku svaku kopiju. Ako je postavljen backuppath, dogodit će se 4 sigurnosne kopije</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -5720,8 +5720,8 @@ Please be patient...</source>
         <translation>Sinkronizacija sporka...</translation>
     </message>
     <message>
-        <source>Syncing zOPCX wallet...</source>
-        <translation>Sinkronizacija zOPCX novčanika...</translation>
+        <source>Syncing zOPC wallet...</source>
+        <translation>Sinkronizacija zOPC novčanika...</translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -5828,8 +5828,8 @@ Please be patient...</source>
         <translation>Korisničko ime za JSON-RPC veze</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zOPCX</source>
-        <translation>Vrijednost je niža od najmanje dostupne denominacije (= 1) zOPCX-a</translation>
+        <source>Value is below the smallest available denomination (= 1) of zOPC</source>
+        <translation>Vrijednost je niža od najmanje dostupne denominacije (= 1) zOPC-a</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>

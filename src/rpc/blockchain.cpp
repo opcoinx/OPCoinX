@@ -8,17 +8,18 @@
 #include "base58.h"
 #include "checkpoints.h"
 #include "clientversion.h"
+#include "kernel.h"
 #include "main.h"
 #include "rpc/server.h"
 #include "sync.h"
 #include "txdb.h"
 #include "util.h"
 #include "utilmoneystr.h"
-#include "zopcx/accumulatormap.h"
-#include "zopcx/accumulators.h"
+#include "zopc/accumulatormap.h"
+#include "zopc/accumulators.h"
 #include "wallet/wallet.h"
-#include "zopcx/zopcxmodule.h"
-#include "zopcxchain.h"
+#include "zopc/zopcmodule.h"
+#include "zopcchain.h"
 
 #include <stdint.h>
 #include <fstream>
@@ -135,15 +136,40 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
         result.push_back(Pair("nextblockhash", pnext->GetBlockHash().GetHex()));
 
     result.push_back(Pair("modifier", strprintf("%016x", blockindex->nStakeModifier)));
+    result.push_back(Pair("modifierV2", blockindex->nStakeModifierV2.GetHex()));
 
     result.push_back(Pair("moneysupply",ValueFromAmount(blockindex->nMoneySupply)));
 
-    UniValue zopcxObj(UniValue::VOBJ);
+    UniValue zopcObj(UniValue::VOBJ);
     for (auto denom : libzerocoin::zerocoinDenomList) {
-        zopcxObj.push_back(Pair(std::to_string(denom), ValueFromAmount(blockindex->mapZerocoinSupply.at(denom) * (denom*COIN))));
+        zopcObj.push_back(Pair(std::to_string(denom), ValueFromAmount(blockindex->mapZerocoinSupply.at(denom) * (denom*COIN))));
     }
-//    zopcxObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
-//    result.push_back(Pair("zOPCXsupply", zopcxObj));
+
+//    zopcObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
+//    result.push_back(Pair("zOPCXsupply", zopcObj));
+    ////////// Coin stake data ////////////////
+    /////////
+    if (block.IsProofOfStake()) {
+        // First grab it
+        uint256 hashProofOfStakeRet;
+        std::unique_ptr <CStakeInput> stake;
+        // Initialize the stake object (we should look for this in some other place and not initialize it every time..)
+        if (!initStakeInput(block, stake, blockindex->nHeight - 1))
+            throw JSONRPCError(RPC_INTERNAL_ERROR, "Cannot initialize stake input");
+
+        unsigned int nTxTime = block.nTime;
+        // todo: Add the debug as param..
+        if (!GetHashProofOfStake(blockindex->pprev, stake.get(), nTxTime, false, hashProofOfStakeRet))
+            throw JSONRPCError(RPC_INTERNAL_ERROR, "Cannot get proof of stake hash");
+
+        UniValue stakeData(UniValue::VOBJ);
+        stakeData.push_back(Pair("BlockFromHash", stake.get()->GetIndexFrom()->GetBlockHash().GetHex()));
+        stakeData.push_back(Pair("BlockFromHeight", stake.get()->GetIndexFrom()->nHeight));
+        stakeData.push_back(Pair("hashProofOfStake", hashProofOfStakeRet.GetHex()));
+        stakeData.push_back(Pair("stakeModifierHeight", ((stake->IsZOPC()) ? "Not available" : std::to_string(
+                stake->getStakeModifierHeight()))));
+        result.push_back(Pair("CoinStake", stakeData));
+    }
 
     return result;
 }
@@ -574,16 +600,22 @@ UniValue getblock(const UniValue& params, bool fHelp)
             "  \"moneysupply\" : \"supply\"       (numeric) The money supply when this block was added to the blockchain\n"
 /*            "  \"zOPCXsupply\" :\n"
             "  {\n"
-            "     \"1\" : n,            (numeric) supply of 1 zOPCX denomination\n"
-            "     \"5\" : n,            (numeric) supply of 5 zOPCX denomination\n"
-            "     \"10\" : n,           (numeric) supply of 10 zOPCX denomination\n"
-            "     \"50\" : n,           (numeric) supply of 50 zOPCX denomination\n"
-            "     \"100\" : n,          (numeric) supply of 100 zOPCX denomination\n"
-            "     \"500\" : n,          (numeric) supply of 500 zOPCX denomination\n"
-            "     \"1000\" : n,         (numeric) supply of 1000 zOPCX denomination\n"
-            "     \"5000\" : n,         (numeric) supply of 5000 zOPCX denomination\n"
-            "     \"total\" : n,        (numeric) The total supply of all zOPCX denominations\n"
-            "  }\n" */
+            "     \"1\" : n,            (numeric) supply of 1 zOPC denomination\n"
+            "     \"5\" : n,            (numeric) supply of 5 zOPC denomination\n"
+            "     \"10\" : n,           (numeric) supply of 10 zOPC denomination\n"
+            "     \"50\" : n,           (numeric) supply of 50 zOPC denomination\n"
+            "     \"100\" : n,          (numeric) supply of 100 zOPC denomination\n"
+            "     \"500\" : n,          (numeric) supply of 500 zOPC denomination\n"
+            "     \"1000\" : n,         (numeric) supply of 1000 zOPC denomination\n"
+            "     \"5000\" : n,         (numeric) supply of 5000 zOPC denomination\n"
+            "     \"total\" : n,        (numeric) The total supply of all zOPC denominations\n"
+            "  },\n" */
+            "  \"CoinStake\" :\n"
+            "    \"BlockFromHash\" : \"hash\",      (string) Block hash of the coin stake input\n"
+            "    \"BlockFromHeight\" : n,           (numeric) Block Height of the coin stake input\n"
+            "    \"hashProofOfStake\" : \"hash\",   (string) Proof of Stake hash\n"
+            "    \"stakeModifierHeight\" : \"nnn\"  (string) Stake modifier block height\n"
+            "  }\n"
             "}\n"
 
             "\nResult (for verbose=false):\n"
@@ -1259,7 +1291,7 @@ UniValue getaccumulatorwitness(const UniValue& params, bool fHelp)
     CZerocoinSpendReceipt receipt;
 
     if (!GenerateAccumulatorWitness(pubCoin, accumulator, witness, nMintsAdded, strFailReason)) {
-        receipt.SetStatus(_(strFailReason.c_str()), ZOPCX_FAILED_ACCUMULATOR_INITIALIZATION);
+        receipt.SetStatus(_(strFailReason.c_str()), ZOPC_FAILED_ACCUMULATOR_INITIALIZATION);
         throw JSONRPCError(RPC_DATABASE_ERROR, receipt.GetStatusMessage());
     }
 
@@ -1435,7 +1467,7 @@ UniValue getserials(const UniValue& params, bool fHelp) {
                         }
                         libzerocoin::ZerocoinParams *params = Params().Zerocoin_Params(false);
                         PublicCoinSpend publicSpend(params);
-                        if (!ZOPCXModule::parseCoinSpend(txin, tx, prevOut, publicSpend)) {
+                        if (!ZOPCModule::parseCoinSpend(txin, tx, prevOut, publicSpend)) {
                             throw JSONRPCError(RPC_INTERNAL_ERROR, "public zerocoin spend parse failed");
                         }
                         serial_str = publicSpend.getCoinSerialNumber().ToString(16);
@@ -1509,9 +1541,9 @@ UniValue getblockindexstats(const UniValue& params, bool fHelp) {
                 "        \"denom_5\": xxxx           (numeric) number of PUBLIC spends of denom_5 occurred over the block range\n"
                 "         ...                    ... number of PUBLIC spends of other denominations: ..., 10, 50, 100, 500, 1000, 5000\n"
                 "  }\n"
-                "  \"txbytes\": xxxxx                (numeric) Sum of the size of all txes (zOPCX excluded) over block range\n"
-                "  \"ttlfee\": xxxxx                 (numeric) Sum of the fee amount of all txes (zOPCX mints excluded) over block range\n"
-                "  \"ttlfee_all\": xxxxx             (numeric) Sum of the fee amount of all txes (zOPCX mints included) over block range\n"
+                "  \"txbytes\": xxxxx                (numeric) Sum of the size of all txes (zOPC excluded) over block range\n"
+                "  \"ttlfee\": xxxxx                 (numeric) Sum of the fee amount of all txes (zOPC mints excluded) over block range\n"
+                "  \"ttlfee_all\": xxxxx             (numeric) Sum of the fee amount of all txes (zOPC mints included) over block range\n"
                 "  \"feeperkb\": xxxxx               (numeric) Average fee per kb (excluding zc txes)\n"
                 "}\n"
 

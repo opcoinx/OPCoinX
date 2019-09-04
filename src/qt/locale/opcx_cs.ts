@@ -397,8 +397,8 @@
         <translation>Procházet historii transakcí</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Řešení soukromí pro zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Řešení soukromí pro zOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -2324,7 +2324,7 @@ MultiSend: %1</translation>
     </message>
     </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>

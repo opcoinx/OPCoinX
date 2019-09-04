@@ -433,8 +433,8 @@
         <translation>Vis transaktionshistorik</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Beskyttelse af personlige oplysninger for zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Beskyttelse af personlige oplysninger for zOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1846,28 +1846,28 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>MAP port ved hjælp af UPnP</translation>
     </message>
     <message>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
-        <translation>Aktivér automatisk mintning af OPCX-enheder til zOPCX</translation>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
+        <translation>Aktivér automatisk mintning af OPCX-enheder til zOPC</translation>
     </message>
     <message>
-        <source>Enable zOPCX Automint</source>
-        <translation>Aktivér zOPCX Automint</translation>
+        <source>Enable zOPC Automint</source>
+        <translation>Aktivér zOPC Automint</translation>
     </message>
     <message>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Procentdelen af indkommende OPCX, som automatisk konverteres til zOPCX via Zerocoin Protocol (min: 10%)</translation>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Procentdelen af indkommende OPCX, som automatisk konverteres til zOPC via Zerocoin Protocol (min: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zOPCX</source>
-        <translation>Procentdel af automatiseret zOPCX</translation>
+        <source>Percentage of autominted zOPC</source>
+        <translation>Procentdel af automatiseret zOPC</translation>
     </message>
     <message>
         <source>Wait with automatic conversion to Zerocoin until enough OPCX for this denomination is available</source>
         <translation>Vent med automatisk konvertering til Zerocoin, indtil nok OPCX til denne betegnelse er tilgængelig</translation>
     </message>
     <message>
-        <source>Preferred Automint zOPCX Denomination</source>
-        <translation>Foretrukket Automint zOPCX Denomination</translation>
+        <source>Preferred Automint zOPC Denomination</source>
+        <translation>Foretrukket Automint zOPC Denomination</translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2053,14 +2053,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Din nuværende OPCX-saldo, ubekræftede og umodne transaktioner inkluderet</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>zOPCX-saldo</translation>
+        <source>zOPC Balance</source>
+        <translation>zOPC-saldo</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation>Ældre: mere end 20 bekræftelser og mere end 1 minutter med samme betegnelse, efter at den blev minted
-Disse zOPCX kan bruges.</translation>
+Disse zOPC kan bruges.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2113,8 +2113,8 @@ Uplettet: bekræftet, men mindre end 1 minutter med samme betegnelse, efter at d
         <translation>Brugbare:</translation>
     </message>
     <message>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
-        <translation>Låste OPCX eller Masternode collaterals. Disse er udelukket fra zOPCX-mintning.</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
+        <translation>Låste OPCX eller Masternode collaterals. Disse er udelukket fra zOPC-mintning.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2125,8 +2125,8 @@ Uplettet: bekræftet, men mindre end 1 minutter med samme betegnelse, efter at d
         <translation>Ubekræftet:</translation>
     </message>
     <message>
-        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
-        <translation>Din nuværende zOPCX-saldo, ubekræftede og umodne zOPCX inkluderet.</translation>
+        <source>Your current zOPC balance, unconfirmed and immature zOPC included.</source>
+        <translation>Din nuværende zOPC-saldo, ubekræftede og umodne zOPC inkluderet.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2137,10 +2137,10 @@ Uplettet: bekræftet, men mindre end 1 minutter med samme betegnelse, efter at d
         <translation>Ude af synk</translation>
     </message>
     <message>
-        <source>Current percentage of zOPCX.
+        <source>Current percentage of zOPC.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Nuværende procentdel af zOPCX
+        <translation>Nuværende procentdel af zOPC
 Hvis AutoMint er aktiveret, vil denne procentdel sætte sig omkring den konfigurerede AutoMint-procent (default = 10%)</translation>
     </message>
     <message>
@@ -2283,8 +2283,8 @@ For at aktivere AutoMint-ændring 'enablezeromint = 0' til 'enablezeromint = 1' 
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2311,12 +2311,12 @@ For at aktivere AutoMint-ændring 'enablezeromint = 0' til 'enablezeromint = 1' 
         <translation>PRIVATLIV</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>zOPCX Control</translation>
+        <source>zOPC Control</source>
+        <translation>zOPC Control</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>zOPCX Selected:</translation>
+        <source>zOPC Selected:</source>
+        <translation>zOPC Selected:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2331,24 +2331,24 @@ For at aktivere AutoMint-ændring 'enablezeromint = 0' til 'enablezeromint = 1' 
         <translation>Tilbring Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending</source>
-        <translation>Tilgængelig (moden og brugt) zOPCX for udgifter</translation>
+        <source>Available (mature and spendable) zOPC for spending</source>
+        <translation>Tilgængelig (moden og brugt) zOPC for udgifter</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Disponibel saldo:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending
+        <source>Available (mature and spendable) zOPC for spending
 
-zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>Tilgængelig (moden og brugt) zOPCX for spending
+zOPC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Tilgængelig (moden og brugt) zOPC for spending
 
-zOPCX er modne, når de har mere end 20 bekræftelser OG mere end 2 minutter med samme betegnelse, efter at de blev præsenteret</translation>
+zOPC er modne, når de har mere end 20 bekræftelser OG mere end 2 minutter med samme betegnelse, efter at de blev præsenteret</translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2407,8 +2407,8 @@ zOPCX er modne, når de har mere end 20 bekræftelser OG mere end 2 minutter med
         <translation>Zerocoin Stats:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
-        <translation>Samlet saldo inklusive ubekræftede og umodne zOPCX</translation>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
+        <translation>Samlet saldo inklusive ubekræftede og umodne zOPC</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2429,24 +2429,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 Uplettet: bekræftet, men mindre end 1 minutter med samme betegnelse, efter at den blev mønnet</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zOPCX minting.
+        <source>Show the current status of automatic zOPC minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to opcx.conf
 - disable: add 'enablezeromint=0' to opcx.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zOPCX
+- menu Settings-&gt;Options-&gt;Percentage of autominted zOPC
 
 </source>
-        <translation>Vis den aktuelle status for automatisk zOPCX minting.øj
+        <translation>Vis den aktuelle status for automatisk zOPC minting.øj
 
 For at ændre status (genstart kræves):.
 - aktiver: tilføj 'enablezeromint = 1' til opcx.conf
 - deaktiver: tilføj 'enablezeromint = 0' til opcx.conf
 
 For at ændre procentdelen (ingen genstart kræves):.
-- menu Indstillinger-&gt; Indstillinger-&gt; Procentdel af automatiseret zOPCX
+- menu Indstillinger-&gt; Indstillinger-&gt; Procentdel af automatiseret zOPC
 </translation>
     </message>
     <message>
@@ -2620,12 +2620,12 @@ Please be patient...</source>
 Vær tålmodig...</translation>
     </message>
     <message>
-        <source>zOPCX Spend #: </source>
-        <translation>zOPCX Spend #: </translation>
+        <source>zOPC Spend #: </source>
+        <translation>zOPC Spend #: </translation>
     </message>
     <message>
-        <source>zOPCX Mint</source>
-        <translation>zOPCX Mint</translation>
+        <source>zOPC Mint</source>
+        <translation>zOPC Mint</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2640,12 +2640,12 @@ Vær tålmodig...</translation>
         <translation>Konfigureret målprocent:&lt;b&gt;</translation>
     </message>
     <message>
-        <source>zOPCX is currently disabled due to maintenance.</source>
-        <translation>zOPCX er i øjeblikket deaktiveret på grund af vedligeholdelse.</translation>
+        <source>zOPC is currently disabled due to maintenance.</source>
+        <translation>zOPC er i øjeblikket deaktiveret på grund af vedligeholdelse.</translation>
     </message>
     <message>
-        <source>zOPCX is currently undergoing maintenance.</source>
-        <translation>zOPCX er i øjeblikket under opretholdelse.</translation>
+        <source>zOPC is currently undergoing maintenance.</source>
+        <translation>zOPC er i øjeblikket under opretholdelse.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2734,7 +2734,7 @@ Vær tålmodig...</translation>
         <translation>Ingen 'Betal til' adresse, der er oprettet, skaber lokal betaling</translation>
     </message>
     <message>
-        <source>Invalid OPCoinX Address</source>
+        <source>Invalid Opcx Address</source>
         <translation> Ugyldig OPCX adresse</translation>
     </message>
     <message>
@@ -3090,8 +3090,8 @@ Vær tålmodig...</translation>
         <translation>Brugerdefineret Backup-sti:</translation>
     </message>
     <message>
-        <source>Custom zOPCX Backup Path:</source>
-        <translation>Brugerdefineret zOPCX Backup-sti:</translation>
+        <source>Custom zOPC Backup Path:</source>
+        <translation>Brugerdefineret zOPC Backup-sti:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -4302,8 +4302,8 @@ Vær tålmodig...</translation>
         <translation>OPCX Stake</translation>
     </message>
     <message>
-        <source>zOPCX Stake</source>
-        <translation>zOPCX Stake</translation>
+        <source>zOPC Stake</source>
+        <translation>zOPC Stake</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4322,32 +4322,32 @@ Vær tålmodig...</translation>
         <translation>Opret tilsløret designering</translation>
     </message>
     <message>
-        <source>Converted OPCX to zOPCX</source>
-        <translation>Konverteret OPCX til zOPCX</translation>
+        <source>Converted OPCX to zOPC</source>
+        <translation>Konverteret OPCX til zOPC</translation>
     </message>
     <message>
-        <source>Spent zOPCX</source>
-        <translation>Brugt zOpcx</translation>
+        <source>Spent zOPC</source>
+        <translation>Brugt zPiv</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Modtaget Opcx fra zOpcx</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Modtaget Piv fra zPiv</translation>
     </message>
     <message>
-        <source>Minted Change as zOPCX from zOPCX Spend</source>
-        <translation>Minted Change som zOPCX fra zOPCX Spend</translation>
+        <source>Minted Change as zOPC from zOPC Spend</source>
+        <translation>Minted Change som zOPC fra zOPC Spend</translation>
     </message>
     <message>
-        <source>Converted zOPCX to OPCX</source>
-        <translation>Konverteret OPCX til zOPCX</translation>
+        <source>Converted zOPC to OPCX</source>
+        <translation>Konverteret OPCX til zOPC</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Transaction)</source>
-        <translation>Anonym (zOPCX Transaction)</translation>
+        <source>Anonymous (zOPC Transaction)</source>
+        <translation>Anonym (zOPC Transaction)</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Stake)</source>
-        <translation>Anonym (zOPCX Stake)</translation>
+        <source>Anonymous (zOPC Stake)</source>
+        <translation>Anonym (zOPC Stake)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4557,12 +4557,12 @@ Vær tålmodig...</translation>
         <translation>Eksporteret!</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Modtaget Opcx fra zOpcx</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Modtaget Piv fra zPiv</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zOPCX</source>
-        <translation>Zerocoin Spend, Ændring i zOPCX</translation>
+        <source>Zerocoin Spend, Change in zOPC</source>
+        <translation>Zerocoin Spend, Ændring i zOPC</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4630,10 +4630,10 @@ Vær tålmodig...</translation>
     </message>
 </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
-        <source>Select zOPCX to Spend</source>
-        <translation>Vælg zOPCX for at bruge</translation>
+        <source>Select zOPC to Spend</source>
+        <translation>Vælg zOPC for at bruge</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4644,8 +4644,8 @@ Vær tålmodig...</translation>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4708,16 +4708,16 @@ Vær tålmodig...</translation>
 &lt;http://www.opensource.org/licenses/mit-license.php&gt;. </translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</source>
-        <translation>Aktivér automatiske wallet-sikkerhedskopier udløst efter hver zOpcx-mintning (0-1, standard: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each zOPC minting (0-1, default: %u)</source>
+        <translation>Aktivér automatiske wallet-sikkerhedskopier udløst efter hver zPiv-mintning (0-1, standard: %u)</translation>
     </message>
     <message>
         <source>Enable or disable staking functionality for OPCX inputs (0-1, default: %u)</source>
         <translation>Aktiver eller deaktiver staking-funktionalitet for OPCX-indgange (0-1, standard: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</source>
-        <translation>Aktiver eller deaktiver staking-funktionalitet for zOPCX-indgange (0-1, standard: %u)</translation>
+        <source>Enable or disable staking functionality for zOPC inputs (0-1, default: %u)</source>
+        <translation>Aktiver eller deaktiver staking-funktionalitet for zOPC-indgange (0-1, standard: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -4912,8 +4912,8 @@ Vær tålmodig...</translation>
         <translation>Der skal angives en masternodeprivkey i konfigurationen. For mere information, se i dokumentationen.</translation>
     </message>
     <message>
-        <source>(18051 could be used only on mainnet)</source>
-        <translation>(18051 kunne kun bruges på hovednettet)</translation>
+        <source>(51472 could be used only on mainnet)</source>
+        <translation>(51472 kunne kun bruges på hovednettet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4924,8 +4924,8 @@ Vær tålmodig...</translation>
         <translation>(default: 1)</translation>
     </message>
     <message>
-        <source>(must be 18051 for mainnet)</source>
-        <translation>(skal være 18051 for hovednettet)</translation>
+        <source>(must be 51472 for mainnet)</source>
+        <translation>(skal være 51472 for hovednettet)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5252,8 +5252,8 @@ Vær tålmodig...</translation>
         <translation>Procentdel af automatisk mintede Zerocoin (10-100, standard: %u)</translation>
     </message>
     <message>
-        <source>Reindex the OPCX and zOPCX money supply statistics</source>
-        <translation>Reindex OPCX og zOPCX pengemængde statistikker</translation>
+        <source>Reindex the OPCX and zOPC money supply statistics</source>
+        <translation>Reindex OPCX og zOPC pengemængde statistikker</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5328,8 +5328,8 @@ Vær tålmodig...</translation>
         <translation>Foretrukken Betegnelse for automatisk mintede Zerocoin (1/5/10/50/100/500/1000/5000), 0 uden præference. standard: %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Angiv brugerdefineret backup-vej for at tilføje en kopi af enhver zOPCX-backup. Hvis det er angivet som dig, genererer hver backup en tidsstempelet fil. Hvis den er angivet som fil, ønsker man at omskrive til den pågældende fil hver backup. Hvis backupath er indstillet, vil der ske 4 sikkerhedskopier</translation>
+        <source>Specify custom backup path to add a copy of any automatic zOPC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Angiv brugerdefineret backup-vej for at tilføje en kopi af enhver zOPC-backup. Hvis det er angivet som dig, genererer hver backup en tidsstempelet fil. Hvis den er angivet som fil, ønsker man at omskrive til den pågældende fil hver backup. Hvis backupath er indstillet, vil der ske 4 sikkerhedskopier</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -5740,8 +5740,8 @@ Vær tålmodig...</translation>
         <translation>Synkroniserer sporks...</translation>
     </message>
     <message>
-        <source>Syncing zOPCX wallet...</source>
-        <translation>Syncing zOPCX wallet ..</translation>
+        <source>Syncing zOPC wallet...</source>
+        <translation>Syncing zOPC wallet ..</translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -5848,8 +5848,8 @@ Vær tålmodig...</translation>
         <translation>Brugernavn til JSON-RPC forbindelser</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zOPCX</source>
-        <translation>Værdien er under den mindste tilgængelige værdi (= 1) for zOPCX</translation>
+        <source>Value is below the smallest available denomination (= 1) of zOPC</source>
+        <translation>Værdien er under den mindste tilgængelige værdi (= 1) for zOPC</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>

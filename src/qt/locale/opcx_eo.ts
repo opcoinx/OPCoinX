@@ -433,8 +433,8 @@
         <translation>&amp;Foliumi transakcio historio</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Privataj agoj por zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Privataj agoj por zOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1717,8 +1717,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Via aktuala OPCX totalo, nekonformita kaj nematurita transakcioj inkluzivita</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>zOPCX kvanto</translation>
+        <source>zOPC Balance</source>
+        <translation>zOPC kvanto</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -1788,20 +1788,20 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset</source>
         <translation>Restarigi</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>zOPCX kontrolu</translation>
+        <source>zOPC Control</source>
+        <translation>zOPC kontrolu</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>Elektita zOPCX</translation>
+        <source>zOPC Selected:</source>
+        <translation>Elektita zOPC</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -1812,12 +1812,12 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>Elspezi zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending</source>
-        <translation>Havebla (matura kaj elspezebla) zOPCX por elspezi</translation>
+        <source>Available (mature and spendable) zOPC for spending</source>
+        <translation>Havebla (matura kaj elspezebla) zOPC por elspezi</translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -1894,8 +1894,8 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>&lt;b&gt;malebligita&lt;/b&gt;.</translation>
     </message>
     <message>
-        <source>Invalid OPCoinX Address</source>
-        <translation>Nevalida OPCoinX adreso</translation>
+        <source>Invalid Opcx Address</source>
+        <translation>Nevalida Opcx adreso</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
@@ -2546,14 +2546,14 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
     </message>
     </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     </context>
 <context>

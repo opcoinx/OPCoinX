@@ -48,7 +48,6 @@ static const int TOOLTIP_WRAP_THRESHOLD = 80;
 /* Maximum allowed URI length */
 static const int MAX_URI_LENGTH = 255;
 
-static const char PROGRESS_BAR_STYLE[] = "QProgressBar { background-color: #F8F8F8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #00CCFF, stop: 1 #33CCFF); border-radius: 7px; margin: 0px; }";
 /* QRCodeDialog -- size of exported QR Code image */
 #define EXPORT_IMAGE_SIZE 256
 
@@ -61,4 +60,3 @@ static const char PROGRESS_BAR_STYLE[] = "QProgressBar { background-color: #F8F8
 #define QAPP_APP_NAME_TESTNET "OPCX-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H
-

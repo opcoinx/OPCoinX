@@ -409,8 +409,8 @@
         <translation>Pregledajte povijest transakcija</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Aktivnosti na privatnost za zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Aktivnosti na privatnost za zOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1560,7 +1560,7 @@
     </message>
     </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>

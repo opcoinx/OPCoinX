@@ -142,12 +142,12 @@ UniValue getinfo(const UniValue& params, bool fHelp)
     }
 
     obj.push_back(Pair("moneysupply",ValueFromAmount(chainActive.Tip()->nMoneySupply)));
-    UniValue zopcxObj(UniValue::VOBJ);
+    UniValue zopcObj(UniValue::VOBJ);
   //  for (auto denom : libzerocoin::zerocoinDenomList) {
-  //      zopcxObj.push_back(Pair(std::to_string(denom), ValueFromAmount(chainActive.Tip()->mapZerocoinSupply.at(denom) * (denom*COIN))));
+  //      zopcObj.push_back(Pair(std::to_string(denom), ValueFromAmount(chainActive.Tip()->mapZerocoinSupply.at(denom) * (denom*COIN))));
   //  }
-  //  zopcxObj.push_back(Pair("total", ValueFromAmount(chainActive.Tip()->GetZerocoinSupply())));
- //   obj.push_back(Pair("zOPCXsupply", zopcxObj));
+  //  zopcObj.push_back(Pair("total", ValueFromAmount(chainActive.Tip()->GetZerocoinSupply())));
+ //   obj.push_back(Pair("zOPCXsupply", zopcObj));
 
 #ifdef ENABLE_WALLET
     if (pwalletMain) {
@@ -618,7 +618,7 @@ UniValue getstakingstatus(const UniValue& params, bool fHelp)
     obj.push_back(Pair("haveconnections", !vNodes.empty()));
     if (pwalletMain) {
         obj.push_back(Pair("walletunlocked", !pwalletMain->IsLocked()));
-        obj.push_back(Pair("mintablecoins", pwalletMain->MintableCoins(chainActive.Height() + 1)));
+        obj.push_back(Pair("mintablecoins", pwalletMain->MintableCoins()));
         obj.push_back(Pair("enoughcoins", nReserveBalance <= pwalletMain->GetBalance()));
     }
     obj.push_back(Pair("mnsync", masternodeSync.IsSynced()));

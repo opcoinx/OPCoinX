@@ -433,8 +433,8 @@
         <translation>Bläddra i transaktions historiken</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Integritets funktioner för zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Integritets funktioner för zOPC</translation>
     </message>
     <message>
         <source>&amp;Governance</source>
@@ -1970,36 +1970,36 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Kartlägg port med &amp;UPnP</translation>
     </message>
     <message>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
-        <translation>Tillåt automatisk prägling med OPCX enheter till zOPCX</translation>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
+        <translation>Tillåt automatisk prägling med OPCX enheter till zOPC</translation>
     </message>
     <message>
-        <source>Enable zOPCX Automint</source>
-        <translation>Tillåt zOPCX Autoprägling</translation>
+        <source>Enable zOPC Automint</source>
+        <translation>Tillåt zOPC Autoprägling</translation>
     </message>
     <message>
-        <source>Enable automatic zOPCX minting from specific addresses</source>
-        <translation>Aktivera automatisk zOPCX prägling från specifika adresser</translation>
+        <source>Enable automatic zOPC minting from specific addresses</source>
+        <translation>Aktivera automatisk zOPC prägling från specifika adresser</translation>
     </message>
     <message>
         <source>Enable Automint Addresses</source>
         <translation>Aktivera autopräglingsadresser</translation>
     </message>
     <message>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Procent av inkommande OPCX som automatiskt konverteras till zOPCX via Zerocoin Protokollet (min: 10%)</translation>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Procent av inkommande OPCX som automatiskt konverteras till zOPC via Zerocoin Protokollet (min: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zOPCX</source>
-        <translation>Procent av autopräglade zOPCX</translation>
+        <source>Percentage of autominted zOPC</source>
+        <translation>Procent av autopräglade zOPC</translation>
     </message>
     <message>
         <source>Wait with automatic conversion to Zerocoin until enough OPCX for this denomination is available</source>
         <translation>Vänta med automatisk omvandling till Zerocoin tills tillräckligt många OPCX för denna valör är tillgängliga</translation>
     </message>
     <message>
-        <source>Preferred Automint zOPCX Denomination</source>
-        <translation>Preferens på zOPCX valör i autoprägling</translation>
+        <source>Preferred Automint zOPC Denomination</source>
+        <translation>Preferens på zOPC valör i autoprägling</translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2193,14 +2193,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Ditt nuvarande OPCX saldo, obekräftade och omogna transaktioner är inkluderade</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>zOPCX Saldo</translation>
+        <source>zOPC Balance</source>
+        <translation>zOPC Saldo</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation>Mogna: över 20 bekräftelser och över 1 prägling av samma valör efter den blev myntad.
-Dessa zOPCX kan spenderas.</translation>
+Dessa zOPC kan spenderas.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2253,8 +2253,8 @@ Omogna: bekräftade men under 1 myntning av samma valör efter den blev präglad
         <translation>Spenderbar:</translation>
     </message>
     <message>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
-        <translation>Låsta OPCX eller masternode som säkerhet. Dessa är uteslutna från zOPCX minting.</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
+        <translation>Låsta OPCX eller masternode som säkerhet. Dessa är uteslutna från zOPC minting.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2265,8 +2265,8 @@ Omogna: bekräftade men under 1 myntning av samma valör efter den blev präglad
         <translation>Obekräftade:</translation>
     </message>
     <message>
-        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
-        <translation>Ditt nuvarande zOPCX saldo, obekräftade och omogna zOPCX inräknade.</translation>
+        <source>Your current zOPC balance, unconfirmed and immature zOPC included.</source>
+        <translation>Ditt nuvarande zOPC saldo, obekräftade och omogna zOPC inräknade.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2277,10 +2277,10 @@ Omogna: bekräftade men under 1 myntning av samma valör efter den blev präglad
         <translation>osynkroniserad</translation>
     </message>
     <message>
-        <source>Current percentage of zOPCX.
+        <source>Current percentage of zOPC.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Nuvarande procent zOPCX.
+        <translation>Nuvarande procent zOPC.
 Om AutoMint är tillåten så kommer denna procent att vara som den konfigurerade AutoMint procenten (standard = 10%).
 </translation>
     </message>
@@ -2424,8 +2424,8 @@ För att aktivera AutoMint ändra 'enablezeromint=0' till 'enablezeromint=1' i o
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2452,12 +2452,12 @@ För att aktivera AutoMint ändra 'enablezeromint=0' till 'enablezeromint=1' i o
         <translation>SEKRETESS</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>zOPCX Kontroll</translation>
+        <source>zOPC Control</source>
+        <translation>zOPC Kontroll</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>Valda zOPCX:</translation>
+        <source>zOPC Selected:</source>
+        <translation>Valda zOPC:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2472,24 +2472,24 @@ För att aktivera AutoMint ändra 'enablezeromint=0' till 'enablezeromint=1' i o
         <translation>Spendera Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending</source>
-        <translation>Tillgängliga (mogna och spenderbara) zOPCX att spendera</translation>
+        <source>Available (mature and spendable) zOPC for spending</source>
+        <translation>Tillgängliga (mogna och spenderbara) zOPC att spendera</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Tillgängligt Saldo:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending
+        <source>Available (mature and spendable) zOPC for spending
 
-zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>Tillgängliga (mogna och spenderbara) zOPCX att spendera
+zOPC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Tillgängliga (mogna och spenderbara) zOPC att spendera
 
-zOPCX är mogna när de har över 20 bekräftelser OCH över 2 präglingar av samma valör efter de är myntade.</translation>
+zOPC är mogna när de har över 20 bekräftelser OCH över 2 präglingar av samma valör efter de är myntade.</translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2548,8 +2548,8 @@ zOPCX är mogna när de har över 20 bekräftelser OCH över 2 präglingar av sa
         <translation>Zerocoin Stats:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
-        <translation>Totalt Saldo, obekräftade och omogna zOPCX inkluderade</translation>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
+        <translation>Totalt Saldo, obekräftade och omogna zOPC inkluderade</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2570,24 +2570,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 Omogna: bekräftade men under 1 myntning av samma valör efter den blev präglad</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zOPCX minting.
+        <source>Show the current status of automatic zOPC minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to opcx.conf
 - disable: add 'enablezeromint=0' to opcx.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zOPCX
+- menu Settings-&gt;Options-&gt;Percentage of autominted zOPC
 
 </source>
-        <translation>Visa den nuvarande statusen av automatisk zOPCX minting.
+        <translation>Visa den nuvarande statusen av automatisk zOPC minting.
 
 För att ändra statusen (omstart krävs):
 -aktivera: lägg till 'enablezeromint=1' i opcx.conf
 -inaktivera: lägg till 'enablezeromint=0' i opcx.conf
 
 För att ändra procenten (ingen omstart krävs):
--meny Inställningar-&gt;Alternativ-&gt;Procent på autominted zOPCX
+-meny Inställningar-&gt;Alternativ-&gt;Procent på autominted zOPC
 
 </translation>
     </message>
@@ -2636,20 +2636,20 @@ För att ändra procenten (ingen omstart krävs):
         <translation>0 x</translation>
     </message>
     <message>
-        <source>Show zOPCX denominations list</source>
-        <translation>Visa zOPCX valör lista</translation>
+        <source>Show zOPC denominations list</source>
+        <translation>Visa zOPC valör lista</translation>
     </message>
     <message>
         <source>Show Denominations</source>
         <translation>Visa Valörer</translation>
     </message>
     <message>
-        <source>zOPCX minting is DISABLED</source>
-        <translation>zOPCX prägling är inaktiverad</translation>
+        <source>zOPC minting is DISABLED</source>
+        <translation>zOPC prägling är inaktiverad</translation>
     </message>
     <message>
-        <source>zOPCX spending is NOT private (links back to the mint transaction)</source>
-        <translation>Att spendera zOPCX är INTE privat (länkar tillbaka till den myntade transaktionen)</translation>
+        <source>zOPC spending is NOT private (links back to the mint transaction)</source>
+        <translation>Att spendera zOPC är INTE privat (länkar tillbaka till den myntade transaktionen)</translation>
     </message>
     <message>
         <source>Denominations with value 5:</source>
@@ -2782,12 +2782,12 @@ Please be patient...</source>
 Ha lite tålamod...</translation>
     </message>
     <message>
-        <source>zOPCX Spend #: </source>
-        <translation>zOPCX spendering #:</translation>
+        <source>zOPC Spend #: </source>
+        <translation>zOPC spendering #:</translation>
     </message>
     <message>
-        <source>zOPCX Mint</source>
-        <translation>zOPCX Prägling</translation>
+        <source>zOPC Mint</source>
+        <translation>zOPC Prägling</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2802,12 +2802,12 @@ Ha lite tålamod...</translation>
         <translation>Konfigurerat procent mål: &lt;b&gt;</translation>
     </message>
     <message>
-        <source>zOPCX is currently disabled due to maintenance.</source>
-        <translation>zOPCX är för nuvarande inaktiverat p.g.a. underhåll.</translation>
+        <source>zOPC is currently disabled due to maintenance.</source>
+        <translation>zOPC är för nuvarande inaktiverat p.g.a. underhåll.</translation>
     </message>
     <message>
-        <source>zOPCX is currently undergoing maintenance.</source>
-        <translation>zOPCX genomgår för tillfället underhåll.</translation>
+        <source>zOPC is currently undergoing maintenance.</source>
+        <translation>zOPC genomgår för tillfället underhåll.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2896,8 +2896,8 @@ Ha lite tålamod...</translation>
         <translation>Ingen 'Betala Till' adress inmatad, skapar lokal betalning</translation>
     </message>
     <message>
-        <source>Invalid OPCoinX Address</source>
-        <translation>Ogiltig OPCoinX Adress</translation>
+        <source>Invalid Opcx Address</source>
+        <translation>Ogiltig Opcx Adress</translation>
     </message>
     <message>
         <source>Invalid Send Amount</source>
@@ -3336,8 +3336,8 @@ Var tålmodig...</translation>
         <translation>Vanlig Backup Sökväg:</translation>
     </message>
     <message>
-        <source>Custom zOPCX Backup Path:</source>
-        <translation>Vanlig zOPCX Backup Sökväg:</translation>
+        <source>Custom zOPC Backup Path:</source>
+        <translation>Vanlig zOPC Backup Sökväg:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -4584,8 +4584,8 @@ Var tålmodig...</translation>
         <translation>OPCX staking</translation>
     </message>
     <message>
-        <source>zOPCX Stake</source>
-        <translation>zOPCX Staking</translation>
+        <source>zOPC Stake</source>
+        <translation>zOPC Staking</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4604,32 +4604,32 @@ Var tålmodig...</translation>
         <translation>Obfuscation Skapa tecken</translation>
     </message>
     <message>
-        <source>Converted OPCX to zOPCX</source>
-        <translation>Konvertera OPCX till zOPCX</translation>
+        <source>Converted OPCX to zOPC</source>
+        <translation>Konvertera OPCX till zOPC</translation>
     </message>
     <message>
-        <source>Spent zOPCX</source>
-        <translation>Spendera zOPCX</translation>
+        <source>Spent zOPC</source>
+        <translation>Spendera zOPC</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Mottog OPCX från zOPCX</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Mottog OPCX från zOPC</translation>
     </message>
     <message>
-        <source>Minted Change as zOPCX from zOPCX Spend</source>
-        <translation>Myntad Växel som zOPCX från zOPCX Spendering</translation>
+        <source>Minted Change as zOPC from zOPC Spend</source>
+        <translation>Myntad Växel som zOPC från zOPC Spendering</translation>
     </message>
     <message>
-        <source>Converted zOPCX to OPCX</source>
-        <translation>Konverterad zOPCX till OPCX</translation>
+        <source>Converted zOPC to OPCX</source>
+        <translation>Konverterad zOPC till OPCX</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Transaction)</source>
-        <translation>Anonym (zOPCX Transaktion)</translation>
+        <source>Anonymous (zOPC Transaction)</source>
+        <translation>Anonym (zOPC Transaktion)</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Stake)</source>
-        <translation>Anonym (zOPCX Stake)</translation>
+        <source>Anonymous (zOPC Stake)</source>
+        <translation>Anonym (zOPC Stake)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4843,12 +4843,12 @@ Var tålmodig...</translation>
         <translation>Exportering Lyckat</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>Mottog OPCX från zOPCX</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>Mottog OPCX från zOPC</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zOPCX</source>
-        <translation>Zerocoin spendera, Växel i zOPCX</translation>
+        <source>Zerocoin Spend, Change in zOPC</source>
+        <translation>Zerocoin spendera, Växel i zOPC</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4916,10 +4916,10 @@ Var tålmodig...</translation>
     </message>
 </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
-        <source>Select zOPCX to Spend</source>
-        <translation>Välj zOPCX att Spendera</translation>
+        <source>Select zOPC to Spend</source>
+        <translation>Välj zOPC att Spendera</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4930,8 +4930,8 @@ Var tålmodig...</translation>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4993,16 +4993,16 @@ Var tålmodig...</translation>
         <translation>Distribuerad under MIT mjukvarulicensen, se medföljande fil COPYING eller &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</source>
-        <translation>Aktivera automatisk plånboksbackup efter varje zOPCX minting (0-1, standard: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each zOPC minting (0-1, default: %u)</source>
+        <translation>Aktivera automatisk plånboksbackup efter varje zOPC minting (0-1, standard: %u)</translation>
     </message>
     <message>
         <source>Enable or disable staking functionality for OPCX inputs (0-1, default: %u)</source>
         <translation>Aktivera eller avaktivera staking funktionalitet för OPCX inmatningar (0-1, standard: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</source>
-        <translation>Aktivera eller avaktivera staking funktionalitet för zOPCX inmatningar (0-1, standard: %u)</translation>
+        <source>Enable or disable staking functionality for zOPC inputs (0-1, default: %u)</source>
+        <translation>Aktivera eller avaktivera staking funktionalitet för zOPC inmatningar (0-1, standard: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -5201,8 +5201,8 @@ Var tålmodig...</translation>
         <translation>Du måste specifiera en masternodeprivkey i konfigurationen. Var vänlig se dokumentationen för hjälp.</translation>
     </message>
     <message>
-        <source>(18051 could be used only on mainnet)</source>
-        <translation>(18051 kunde endast användas på mainnet)</translation>
+        <source>(51472 could be used only on mainnet)</source>
+        <translation>(51472 kunde endast användas på mainnet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -5213,8 +5213,8 @@ Var tålmodig...</translation>
         <translation>(standard: 1)</translation>
     </message>
     <message>
-        <source>(must be 18051 for mainnet)</source>
-        <translation>(måste vara 18051 för mainnet)</translation>
+        <source>(must be 51472 for mainnet)</source>
+        <translation>(måste vara 51472 för mainnet)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5545,8 +5545,8 @@ Var tålmodig...</translation>
         <translation>Procent automatiskt mintad Zerocoin (1-100, default: %u)</translation>
     </message>
     <message>
-        <source>Reindex the OPCX and zOPCX money supply statistics</source>
-        <translation>Indexera OPCX och zOPCX pengarna tillgång statistik på nytt</translation>
+        <source>Reindex the OPCX and zOPC money supply statistics</source>
+        <translation>Indexera OPCX och zOPC pengarna tillgång statistik på nytt</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5625,8 +5625,8 @@ Var tålmodig...</translation>
         <translation>Valör aatt föredra för automatiskt mintad Zerocoin (1/5/10/50/100/500/1000/5000), 0 för ingen preface. standard: %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Specifiera skräddarsydd backup väg att lägga till en kopia av alla automatisk zOPCX backup. Om satt som dir, varje backup genererar en tidsstämplad fil. Om satt som fil, skriver över den filen vid varje backup. Om backupvägen också är satt, 4 backups kommer hända</translation>
+        <source>Specify custom backup path to add a copy of any automatic zOPC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Specifiera skräddarsydd backup väg att lägga till en kopia av alla automatisk zOPC backup. Om satt som dir, varje backup genererar en tidsstämplad fil. Om satt som fil, skriver över den filen vid varje backup. Om backupvägen också är satt, 4 backups kommer hända</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -6041,8 +6041,8 @@ Var tålmodig...</translation>
         <translation>Synkroniserar sporks...</translation>
     </message>
     <message>
-        <source>Syncing zOPCX wallet...</source>
-        <translation>Synkroniserar zOPCX plånbok...</translation>
+        <source>Syncing zOPC wallet...</source>
+        <translation>Synkroniserar zOPC plånbok...</translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -6153,8 +6153,8 @@ Var tålmodig...</translation>
         <translation>Användarnamn för JSON-RPC anslutningar</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zOPCX</source>
-        <translation>Värde är under den minsta tillgängliga valören (=1) av zOPCX</translation>
+        <source>Value is below the smallest available denomination (= 1) of zOPC</source>
+        <translation>Värde är under den minsta tillgängliga valören (=1) av zOPC</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>

@@ -58,31 +58,13 @@
       </property>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_Master" stretch="0,1">
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
+        <property name="margin">
          <number>0</number>
         </property>
         <item>
          <widget class="QFrame" name="frame_Header">
           <layout class="QVBoxLayout" name="verticalLayout_Header" stretch="0">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
+           <property name="margin">
             <number>0</number>
            </property>
            <item>
@@ -201,16 +183,7 @@
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
+                  <property name="margin">
                    <number>0</number>
                   </property>
                   <item>
@@ -677,7 +650,7 @@
                        <item row="4" column="0">
                         <widget class="QLabel" name="labelLockedBalanceText">
                          <property name="toolTip">
-                          <string>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</string>
+                          <string>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</string>
                          </property>
                          <property name="text">
                           <string>Locked:</string>
@@ -696,7 +669,7 @@
                           <cursorShape>IBeamCursor</cursorShape>
                          </property>
                          <property name="toolTip">
-                          <string>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</string>
+                          <string>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</string>
                          </property>
                          <property name="text">
                           <string notr="true">0.000 000 00 OPCX</string>
@@ -852,12 +825,12 @@
                           </font>
                          </property>
                          <property name="text">
-                          <string>zOPCX Balance</string>
+                          <string>zOPC Balance</string>
                          </property>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="labelzOPCXPercent">
+                        <widget class="QLabel" name="labelzOPCPercent">
                          <property name="text">
                           <string notr="true">0 %</string>
                          </property>
@@ -906,7 +879,7 @@
                         <widget class="QLabel" name="labelzBalanceMatureText">
                          <property name="toolTip">
                           <string>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</string>
+These zOPC are spendable.</string>
                          </property>
                          <property name="text">
                           <string>Available:</string>
@@ -923,7 +896,7 @@ These zOPCX are spendable.</string>
                          </property>
                          <property name="toolTip">
                           <string>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</string>
+These zOPC are spendable.</string>
                          </property>
                          <property name="text">
                           <string notr="true">0.000 000 00 OPCX</string>
@@ -998,7 +971,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
                        <item row="4" column="0">
                         <widget class="QLabel" name="labelzBalanceText">
                          <property name="toolTip">
-                          <string>Your current zOPCX balance, unconfirmed and immature zOPCX included.</string>
+                          <string>Your current zOPC balance, unconfirmed and immature zOPC included.</string>
                          </property>
                          <property name="text">
                           <string>Total:</string>
@@ -1017,7 +990,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
                           <cursorShape>IBeamCursor</cursorShape>
                          </property>
                          <property name="toolTip">
-                          <string>Your current zOPCX balance, unconfirmed and immature zOPCX included.</string>
+                          <string>Your current zOPC balance, unconfirmed and immature zOPC included.</string>
                          </property>
                          <property name="text">
                           <string notr="true">0.000 000 00 OPCX</string>

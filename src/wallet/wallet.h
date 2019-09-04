@@ -17,15 +17,15 @@
 #include "main.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
-#include "zopcx/zerocoin.h"
+#include "zopc/zerocoin.h"
 #include "guiinterface.h"
 #include "util.h"
 #include "validationinterface.h"
 #include "wallet/wallet_ismine.h"
 #include "wallet/walletdb.h"
-#include "zopcx/zopcxmodule.h"
-#include "zopcx/zopcxwallet.h"
-#include "zopcx/zopcxtracker.h"
+#include "zopc/zopcmodule.h"
+#include "zopc/zopcwallet.h"
+#include "zopc/zopctracker.h"
 
 #include <algorithm>
 #include <map>
@@ -46,7 +46,7 @@ extern bool bSpendZeroConfChange;
 extern bool bdisableSystemnotifications;
 extern bool fSendFreeTransactions;
 extern bool fPayAtLeastCustomFee;
-extern bool fGlobalUnlockSpendCache; // Bool used for letting the precomputing thread know that zopcxspends need to use the cs_spendcache
+extern bool fGlobalUnlockSpendCache; // Bool used for letting the precomputing thread know that zopcspends need to use the cs_spendcache
 
 //! -paytxfee default
 static const CAmount DEFAULT_TRANSACTION_FEE = 0;
@@ -93,25 +93,25 @@ enum AvailableCoinsType {
     STAKABLE_COINS = 6                          // UTXO's that are valid for staking
 };
 
-// Possible states for zOPCX send
+// Possible states for zOPC send
 enum ZerocoinSpendStatus {
-    ZOPCX_SPEND_OKAY = 0,                            // No error
-    ZOPCX_SPEND_ERROR = 1,                           // Unspecified class of errors, more details are (hopefully) in the returning text
-    ZOPCX_WALLET_LOCKED = 2,                         // Wallet was locked
-    ZOPCX_COMMIT_FAILED = 3,                         // Commit failed, reset status
-    ZOPCX_ERASE_SPENDS_FAILED = 4,                   // Erasing spends during reset failed
-    ZOPCX_ERASE_NEW_MINTS_FAILED = 5,                // Erasing new mints during reset failed
-    ZOPCX_TRX_FUNDS_PROBLEMS = 6,                    // Everything related to available funds
-    ZOPCX_TRX_CREATE = 7,                            // Everything related to create the transaction
-    ZOPCX_TRX_CHANGE = 8,                            // Everything related to transaction change
-    ZOPCX_TXMINT_GENERAL = 9,                        // General errors in MintToTxIn
-    ZOPCX_INVALID_COIN = 10,                         // Selected mint coin is not valid
-    ZOPCX_FAILED_ACCUMULATOR_INITIALIZATION = 11,    // Failed to initialize witness
-    ZOPCX_INVALID_WITNESS = 12,                      // Spend coin transaction did not verify
-    ZOPCX_BAD_SERIALIZATION = 13,                    // Transaction verification failed
-    ZOPCX_SPENT_USED_ZOPCX = 14,                      // Coin has already been spend
-    ZOPCX_TX_TOO_LARGE = 15,                          // The transaction is larger than the max tx size
-    ZOPCX_SPEND_V1_SEC_LEVEL                         // Spend is V1 and security level is not set to 100
+    ZOPC_SPEND_OKAY = 0,                            // No error
+    ZOPC_SPEND_ERROR = 1,                           // Unspecified class of errors, more details are (hopefully) in the returning text
+    ZOPC_WALLET_LOCKED = 2,                         // Wallet was locked
+    ZOPC_COMMIT_FAILED = 3,                         // Commit failed, reset status
+    ZOPC_ERASE_SPENDS_FAILED = 4,                   // Erasing spends during reset failed
+    ZOPC_ERASE_NEW_MINTS_FAILED = 5,                // Erasing new mints during reset failed
+    ZOPC_TRX_FUNDS_PROBLEMS = 6,                    // Everything related to available funds
+    ZOPC_TRX_CREATE = 7,                            // Everything related to create the transaction
+    ZOPC_TRX_CHANGE = 8,                            // Everything related to transaction change
+    ZOPC_TXMINT_GENERAL = 9,                        // General errors in MintToTxIn
+    ZOPC_INVALID_COIN = 10,                         // Selected mint coin is not valid
+    ZOPC_FAILED_ACCUMULATOR_INITIALIZATION = 11,    // Failed to initialize witness
+    ZOPC_INVALID_WITNESS = 12,                      // Spend coin transaction did not verify
+    ZOPC_BAD_SERIALIZATION = 13,                    // Transaction verification failed
+    ZOPC_SPENT_USED_ZOPC = 14,                      // Coin has already been spend
+    ZOPC_TX_TOO_LARGE = 15,                          // The transaction is larger than the max tx size
+    ZOPC_SPEND_V1_SEC_LEVEL                         // Spend is V1 and security level is not set to 100
 };
 
 struct CompactTallyItem {
@@ -196,8 +196,8 @@ private:
     void SyncMetaData(std::pair<TxSpends::iterator, TxSpends::iterator>);
 
 public:
-    bool MintableCoins(int nTargetHeight) const;
-        bool SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInputs, CAmount nTargetAmount, int nTargetHeight, bool fPrecompute = false);
+    bool MintableCoins();
+    bool SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInputs, CAmount nTargetAmount, int blockHeight, bool fPrecompute = false);
     bool IsCollateralAmount(CAmount nInputAmount) const;
 
     // Zerocoin additions
@@ -218,15 +218,15 @@ public:
     std::string ResetMintZerocoin();
     std::string ResetSpentZerocoin();
     void ReconsiderZerocoins(std::list<CZerocoinMint>& listMintsRestored, std::list<CDeterministicMint>& listDMintsRestored);
-    void ZOpcxBackupWallet();
+    void ZPivBackupWallet();
     bool GetZerocoinKey(const CBigNum& bnSerial, CKey& key);
-    bool CreateZOPCXOutPut(libzerocoin::CoinDenomination denomination, CTxOut& outMint, CDeterministicMint& dMint);
+    bool CreateZOPCOutPut(libzerocoin::CoinDenomination denomination, CTxOut& outMint, CDeterministicMint& dMint);
     bool GetMint(const uint256& hashSerial, CZerocoinMint& mint);
     bool GetMintFromStakeHash(const uint256& hashStake, CZerocoinMint& mint);
     bool DatabaseMint(CDeterministicMint& dMint);
     bool SetMintUnspent(const CBigNum& bnSerial);
     bool UpdateMint(const CBigNum& bnValue, const int& nHeight, const uint256& txid, const libzerocoin::CoinDenomination& denom);
-    std::string GetUniqueWalletBackupName(bool fzopcxAuto) const;
+    std::string GetUniqueWalletBackupName(bool fzopcAuto) const;
     void InitAutoConvertAddresses();
 
 
@@ -243,7 +243,7 @@ public:
      */
     mutable CCriticalSection cs_wallet;
 
-    CzOPCXWallet* zwalletMain;
+    CzOPCWallet* zwalletMain;
 
     std::set<CBitcoinAddress> setAutoConvertAddresses;
 
@@ -251,7 +251,7 @@ public:
     bool fWalletUnlockAnonymizeOnly;
     std::string strWalletFile;
     bool fBackupMints;
-    std::unique_ptr<CzOPCXTracker> zopcxTracker;
+    std::unique_ptr<CzOPCTracker> zopcTracker;
 
     std::set<int64_t> setKeyPool;
     std::map<CKeyID, CKeyMetadata> mapKeyMetadata;
@@ -336,20 +336,20 @@ public:
         return nZeromintPercentage;
     }
 
-    void setZWallet(CzOPCXWallet* zwallet)
+    void setZWallet(CzOPCWallet* zwallet)
     {
         zwalletMain = zwallet;
-        zopcxTracker = std::unique_ptr<CzOPCXTracker>(new CzOPCXTracker(strWalletFile));
+        zopcTracker = std::unique_ptr<CzOPCTracker>(new CzOPCTracker(strWalletFile));
     }
 
-    CzOPCXWallet* getZWallet() { return zwalletMain; }
+    CzOPCWallet* getZWallet() { return zwalletMain; }
 
     bool isZeromintEnabled()
     {
         return fEnableZeromint || fEnableAutoConvert;
     }
 
-    void setZOpcxAutoBackups(bool fEnabled)
+    void setZPivAutoBackups(bool fEnabled)
     {
         fBackupMints = fEnabled;
     }
@@ -667,8 +667,8 @@ public:
     /** MultiSig address added */
     boost::signals2::signal<void(bool fHaveMultiSig)> NotifyMultiSigChanged;
 
-    /** zOPCX reset */
-    boost::signals2::signal<void()> NotifyzOPCXReset;
+    /** zOPC reset */
+    boost::signals2::signal<void()> NotifyzOPCReset;
 
     /** notify wallet file backed up */
     boost::signals2::signal<void (const bool& fSuccess, const std::string& filename)> NotifyWalletBacked;

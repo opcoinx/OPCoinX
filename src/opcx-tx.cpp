@@ -45,7 +45,7 @@ static bool AppInitRawTx(int argc, char* argv[])
 
     if (argc < 2 || mapArgs.count("-?") || mapArgs.count("-help")) {
         // First part of help message is specific to this utility
-        std::string strUsage = _("OPCoinX Core opcx-tx utility version") + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = _("Opcx Core opcx-tx utility version") + " " + FormatFullVersion() + "\n\n" +
                                _("Usage:") + "\n" +
                                "  opcx-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded opcx transaction") + "\n" +
                                "  opcx-tx [options] -create [commands]   " + _("Create hex-encoded opcx transaction") + "\n" +

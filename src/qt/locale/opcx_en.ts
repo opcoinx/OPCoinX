@@ -557,7 +557,7 @@
     </message>
     <message>
         <location line="+11"/>
-        <source>Privacy Actions for zOPCX</source>
+        <source>Privacy Actions for zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2489,17 +2489,17 @@ https://www.transifex.com/opcx-project/opcx-project-translations</source>
     </message>
     <message>
         <location line="-187"/>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Enable zOPCX Automint</source>
+        <source>Enable zOPC Automint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Enable automatic zOPCX minting from specific addresses</source>
+        <source>Enable automatic zOPC minting from specific addresses</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2509,12 +2509,12 @@ https://www.transifex.com/opcx-project/opcx-project-translations</source>
     </message>
     <message>
         <location line="+11"/>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Percentage of autominted zOPCX</source>
+        <source>Percentage of autominted zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2525,7 +2525,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</source>
     </message>
     <message>
         <location line="-13"/>
-        <source>Preferred Automint zOPCX Denomination</source>
+        <source>Preferred Automint zOPC Denomination</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2781,14 +2781,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</source>
     </message>
     <message>
         <location line="+96"/>
-        <source>zOPCX Balance</source>
+        <source>zOPC Balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+53"/>
         <location line="+17"/>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2861,7 +2861,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
     <message>
         <location line="+191"/>
         <location line="+19"/>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2877,7 +2877,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
     <message>
         <location line="+58"/>
         <location line="+19"/>
-        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
+        <source>Your current zOPC balance, unconfirmed and immature zOPC included.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2893,7 +2893,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
     </message>
     <message>
         <location line="+111"/>
-        <source>Current percentage of zOPCX.
+        <source>Current percentage of zOPC.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
         <translation type="unfinished"></translation>
@@ -3080,7 +3080,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+229"/>
-        <source>zOPCX</source>
+        <source>zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3115,12 +3115,12 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+462"/>
-        <source>zOPCX Control</source>
+        <source>zOPC Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>zOPCX Selected:</source>
+        <source>zOPC Selected:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3145,7 +3145,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+7"/>
-        <source>Available (mature and spendable) zOPCX for spending</source>
+        <source>Available (mature and spendable) zOPC for spending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3155,9 +3155,9 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+16"/>
-        <source>Available (mature and spendable) zOPCX for spending
+        <source>Available (mature and spendable) zOPC for spending
 
-zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+zOPC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3174,7 +3174,7 @@ zOPCX are mature when they have more than 20 confirmations AND more than 2 mints
         <location line="+31"/>
         <location line="+31"/>
         <location line="+31"/>
-        <source>0 zOPCX</source>
+        <source>0 zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3252,7 +3252,7 @@ zOPCX are mature when they have more than 20 confirmations AND more than 2 mints
         <location line="+25"/>
         <location line="+704"/>
         <location line="+38"/>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3286,14 +3286,14 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
     </message>
     <message>
         <location line="+40"/>
-        <source>Show the current status of automatic zOPCX minting.
+        <source>Show the current status of automatic zOPC minting.
 
 To change the status (restart required):
 - enable: add &apos;enablezeromint=1&apos; to opcx.conf
 - disable: add &apos;enablezeromint=0&apos; to opcx.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zOPCX
+- menu Settings-&gt;Options-&gt;Percentage of autominted zOPC
 
 </source>
         <translation type="unfinished"></translation>
@@ -3363,7 +3363,7 @@ To change the percentage (no restart required):
     </message>
     <message>
         <location line="-1092"/>
-        <source>Show zOPCX denominations list</source>
+        <source>Show zOPC denominations list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3373,12 +3373,12 @@ To change the percentage (no restart required):
     </message>
     <message>
         <location line="+29"/>
-        <source>zOPCX minting is DISABLED</source>
+        <source>zOPC minting is DISABLED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+131"/>
-        <source>zOPCX spending is NOT private (links back to the mint transaction)</source>
+        <source>zOPC spending is NOT private (links back to the mint transaction)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3544,12 +3544,12 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+240"/>
-        <source>zOPCX Spend #: </source>
+        <source>zOPC Spend #: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>zOPCX Mint</source>
+        <source>zOPC Mint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3569,12 +3569,12 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+17"/>
-        <source>zOPCX is currently disabled due to maintenance.</source>
+        <source>zOPC is currently disabled due to maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-537"/>
-        <source>zOPCX is currently undergoing maintenance.</source>
+        <source>zOPC is currently undergoing maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3690,7 +3690,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+4"/>
-        <source>Invalid OPCoinX Address</source>
+        <source>Invalid Opcx Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4287,7 +4287,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+29"/>
-        <source>Custom zOPCX Backup Path:</source>
+        <source>Custom zOPC Backup Path:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5911,7 +5911,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+2"/>
-        <source>zOPCX Stake</source>
+        <source>zOPC Stake</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5936,37 +5936,37 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+4"/>
-        <source>Converted OPCX to zOPCX</source>
+        <source>Converted OPCX to zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Spent zOPCX</source>
+        <source>Spent zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Received OPCX from zOPCX</source>
+        <source>Received OPCX from zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Minted Change as zOPCX from zOPCX Spend</source>
+        <source>Minted Change as zOPC from zOPC Spend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Converted zOPCX to OPCX</source>
+        <source>Converted zOPC to OPCX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+56"/>
-        <source>Anonymous (zOPCX Transaction)</source>
+        <source>Anonymous (zOPC Transaction)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Anonymous (zOPCX Stake)</source>
+        <source>Anonymous (zOPC Stake)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6235,12 +6235,12 @@ Please be patient...</source>
     </message>
     <message>
         <location line="-310"/>
-        <source>Received OPCX from zOPCX</source>
+        <source>Received OPCX from zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Zerocoin Spend, Change in zOPCX</source>
+        <source>Zerocoin Spend, Change in zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6325,10 +6325,10 @@ Please be patient...</source>
     </message>
 </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
-        <location filename="../forms/zopcxcontroldialog.ui" line="+20"/>
-        <source>Select zOPCX to Spend</source>
+        <location filename="../forms/zopccontroldialog.ui" line="+20"/>
+        <source>Select zOPC to Spend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6344,7 +6344,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="-7"/>
-        <source>zOPCX</source>
+        <source>zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6432,7 +6432,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+2"/>
-        <source>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</source>
+        <source>Enable automatic wallet backups triggered after each zOPC minting (0-1, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6442,7 +6442,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+2"/>
-        <source>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</source>
+        <source>Enable or disable staking functionality for zOPC inputs (0-1, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6712,8 +6712,8 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+3"/>
-        <source>(18051 could be used only on mainnet)</source>
-        <translation type="unfinished">(18051 could be used only on mainnet)</translation>
+        <source>(51472 could be used only on mainnet)</source>
+        <translation type="unfinished">(51472 could be used only on mainnet)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6727,7 +6727,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>(must be 18051 for mainnet)</source>
+        <source>(must be 51472 for mainnet)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6917,7 +6917,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Enable precomputation of zOPCX spends and stakes (0-1, default %u)</source>
+        <source>Enable precomputation of zOPC spends and stakes (0-1, default %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7167,17 +7167,17 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Recalculating minted ZOPCX...</source>
+        <source>Recalculating minted ZOPC...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Recalculating spent ZOPCX...</source>
+        <source>Recalculating spent ZOPC...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Reindex the OPCX and zOPCX money supply statistics</source>
+        <source>Reindex the OPCX and zOPC money supply statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7274,7 +7274,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+27"/>
-        <source>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <source>Specify custom backup path to add a copy of any automatic zOPC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7824,7 +7824,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Syncing zOPCX wallet...</source>
+        <source>Syncing zOPC wallet...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7964,7 +7964,7 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Value is below the smallest available denomination (= 1) of zOPCX</source>
+        <source>Value is below the smallest available denomination (= 1) of zOPC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

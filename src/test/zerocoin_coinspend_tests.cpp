@@ -5,9 +5,9 @@
 #include "libzerocoin/Denominations.h"
 #include "libzerocoin/CoinSpend.h"
 #include "libzerocoin/Accumulator.h"
-#include "zopcx/zerocoin.h"
-#include "zopcx/deterministicmint.h"
-#include "zopcx/zopcxwallet.h"
+#include "zopc/zerocoin.h"
+#include "zopc/deterministicmint.h"
+#include "zopc/zopcwallet.h"
 #include "libzerocoin/Coin.h"
 #include "amount.h"
 #include "chainparams.h"
@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_wrapped_serial_spend_test)
     std::string strWalletFile = "unittestwallet.dat";
     CWalletDB walletdb(strWalletFile, "cr+");
     CWallet wallet(strWalletFile);
-    CzOPCXWallet *czOPCXWallet = new CzOPCXWallet(wallet.strWalletFile);
+    CzOPCWallet *czOPCWallet = new CzOPCWallet(wallet.strWalletFile);
 
     // Get the 5 created mints.
     libzerocoin::CoinDenomination denom = libzerocoin::CoinDenomination::ZQ_FIFTY;
@@ -48,8 +48,8 @@ BOOST_AUTO_TEST_CASE(zerocoin_wrapped_serial_spend_test)
     for (unsigned int i = 0; i < TESTS_COINS_TO_ACCUMULATE; i++) {
         libzerocoin::PrivateCoin coin(ZCParams, denom, false);
         CDeterministicMint dMint;
-        czOPCXWallet->GenerateDeterministicZOPCX(denom, coin, dMint, true);
-        czOPCXWallet->UpdateCount();
+        czOPCWallet->GenerateDeterministicZOPC(denom, coin, dMint, true);
+        czOPCWallet->UpdateCount();
         vCoins.emplace_back(coin);
     }
 

@@ -1,25 +1,24 @@
-// Copyright (c) 2017-2018 The OPCX developers
+// Copyright (c) 2017-2019 The OPCX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "zopcx/accumulators.h"
+#include "zopc/accumulators.h"
 #include "chain.h"
-#include "zopcx/deterministicmint.h"
+#include "zopc/deterministicmint.h"
 #include "main.h"
 #include "stakeinput.h"
 #include "wallet/wallet.h"
 
-CZOpcxStake::CZOpcxStake(const libzerocoin::CoinSpend& spend)
+CZPivStake::CZPivStake(const libzerocoin::CoinSpend& spend)
 {
     this->nChecksum = spend.getAccumulatorChecksum();
     this->denom = spend.getDenomination();
     uint256 nSerial = spend.getCoinSerialNumber().getuint256();
     this->hashSerial = Hash(nSerial.begin(), nSerial.end());
-    this->pindexFrom = nullptr;
     fMint = false;
 }
 
-int CZOpcxStake::GetChecksumHeightFromMint()
+int CZPivStake::GetChecksumHeightFromMint()
 {
     int nHeightChecksum = chainActive.Height() - Params().Zerocoin_RequiredStakeDepth();
 
@@ -30,20 +29,20 @@ int CZOpcxStake::GetChecksumHeightFromMint()
     return GetChecksumHeight(nChecksum, denom);
 }
 
-int CZOpcxStake::GetChecksumHeightFromSpend()
+int CZPivStake::GetChecksumHeightFromSpend()
 {
     return GetChecksumHeight(nChecksum, denom);
 }
 
-uint32_t CZOpcxStake::GetChecksum()
+uint32_t CZPivStake::GetChecksum()
 {
     return nChecksum;
 }
 
-// The zOPCX block index is the first appearance of the accumulator checksum that was used in the spend
+// The zOPC block index is the first appearance of the accumulator checksum that was used in the spend
 // note that this also means when staking that this checksum should be from a block that is beyond 60 minutes old and
 // 100 blocks deep.
-CBlockIndex* CZOpcxStake::GetIndexFrom()
+CBlockIndex* CZPivStake::GetIndexFrom()
 {
     if (pindexFrom)
         return pindexFrom;
@@ -65,14 +64,14 @@ CBlockIndex* CZOpcxStake::GetIndexFrom()
     return pindexFrom;
 }
 
-CAmount CZOpcxStake::GetValue()
+CAmount CZPivStake::GetValue()
 {
     return denom * COIN;
 }
 
 //Use the first accumulator checkpoint that occurs 60 minutes after the block being staked from
 // In case of regtest, next accumulator of 60 blocks after the block being staked from
-bool CZOpcxStake::GetModifier(uint64_t& nStakeModifier)
+bool CZPivStake::GetModifier(uint64_t& nStakeModifier)
 {
     CBlockIndex* pindex = GetIndexFrom();
     if (!pindex)
@@ -98,15 +97,15 @@ bool CZOpcxStake::GetModifier(uint64_t& nStakeModifier)
     }
 }
 
-CDataStream CZOpcxStake::GetUniqueness()
+CDataStream CZPivStake::GetUniqueness()
 {
-    //The unique identifier for a zOPCX is a hash of the serial
+    //The unique identifier for a zOPC is a hash of the serial
     CDataStream ss(SER_GETHASH, 0);
     ss << hashSerial;
     return ss;
 }
 
-bool CZOpcxStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
+bool CZPivStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 {
     CBlockIndex* pindexCheckpoint = GetIndexFrom();
     if (!pindexCheckpoint)
@@ -121,30 +120,30 @@ bool CZOpcxStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 
     CZerocoinSpendReceipt receipt;
     if (!pwallet->MintToTxIn(mint, hashTxOut, txIn, receipt, libzerocoin::SpendType::STAKE, pindexCheckpoint))
-        return error("%s\n", receipt.GetStatusMessage());
+        return error("%s", receipt.GetStatusMessage());
 
     return true;
 }
 
-bool CZOpcxStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal)
+bool CZPivStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal)
 {
-    //Create an output returning the zOPCX that was staked
+    //Create an output returning the zOPC that was staked
     CTxOut outReward;
     libzerocoin::CoinDenomination denomStaked = libzerocoin::AmountToZerocoinDenomination(this->GetValue());
     CDeterministicMint dMint;
-    if (!pwallet->CreateZOPCXOutPut(denomStaked, outReward, dMint))
-        return error("%s: failed to create zOPCX output", __func__);
+    if (!pwallet->CreateZOPCOutPut(denomStaked, outReward, dMint))
+        return error("%s: failed to create zOPC output", __func__);
     vout.emplace_back(outReward);
 
     //Add new staked denom to our wallet
     if (!pwallet->DatabaseMint(dMint))
-        return error("%s: failed to database the staked zOPCX", __func__);
+        return error("%s: failed to database the staked zOPC", __func__);
 
     for (unsigned int i = 0; i < 3; i++) {
         CTxOut out;
         CDeterministicMint dMintReward;
-        if (!pwallet->CreateZOPCXOutPut(libzerocoin::CoinDenomination::ZQ_ONE, out, dMintReward))
-            return error("%s: failed to create zOPCX output", __func__);
+        if (!pwallet->CreateZOPCOutPut(libzerocoin::CoinDenomination::ZQ_ONE, out, dMintReward))
+            return error("%s: failed to create zOPC output", __func__);
         vout.emplace_back(out);
 
         if (!pwallet->DatabaseMint(dMintReward))
@@ -154,48 +153,48 @@ bool CZOpcxStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmo
     return true;
 }
 
-bool CZOpcxStake::GetTxFrom(CTransaction& tx)
+bool CZPivStake::GetTxFrom(CTransaction& tx)
 {
     return false;
 }
 
-bool CZOpcxStake::MarkSpent(CWallet *pwallet, const uint256& txid)
+bool CZPivStake::MarkSpent(CWallet *pwallet, const uint256& txid)
 {
-    CzOPCXTracker* zopcxTracker = pwallet->zopcxTracker.get();
+    CzOPCTracker* zopcTracker = pwallet->zopcTracker.get();
     CMintMeta meta;
-    if (!zopcxTracker->GetMetaFromStakeHash(hashSerial, meta))
+    if (!zopcTracker->GetMetaFromStakeHash(hashSerial, meta))
         return error("%s: tracker does not have serialhash", __func__);
 
-    zopcxTracker->SetPubcoinUsed(meta.hashPubcoin, txid);
+    zopcTracker->SetPubcoinUsed(meta.hashPubcoin, txid);
     return true;
 }
 
 //!OPCX Stake
-bool COpcxStake::SetInput(CTransaction txPrev, unsigned int n)
+bool CPivStake::SetInput(CTransaction txPrev, unsigned int n)
 {
     this->txFrom = txPrev;
     this->nPosition = n;
     return true;
 }
 
-bool COpcxStake::GetTxFrom(CTransaction& tx)
+bool CPivStake::GetTxFrom(CTransaction& tx)
 {
     tx = txFrom;
     return true;
 }
 
-bool COpcxStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
+bool CPivStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 {
     txIn = CTxIn(txFrom.GetHash(), nPosition);
     return true;
 }
 
-CAmount COpcxStake::GetValue()
+CAmount CPivStake::GetValue()
 {
     return txFrom.vout[nPosition].nValue;
 }
 
-bool COpcxStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal)
+bool CPivStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal)
 {
     std::vector<valtype> vSolutions;
     txnouttype whichType;
@@ -230,22 +229,22 @@ bool COpcxStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmou
     return true;
 }
 
-bool COpcxStake::GetModifier(uint64_t& nStakeModifier)
+bool CPivStake::GetModifier(uint64_t& nStakeModifier)
 {
-    int nStakeModifierHeight = 0;
-    int64_t nStakeModifierTime = 0;
-    GetIndexFrom();
-    if (!pindexFrom)
-        return error("%s: failed to get index from", __func__);
-
-    if (!GetKernelStakeModifier(pindexFrom->GetBlockHash(), nStakeModifier, nStakeModifierHeight, nStakeModifierTime, false)) {
-        if (fDebug) LogPrintf("CheckStakeKernelHash(): failed to get kernel stake modifier \n");
-        return false;
+    if (this->nStakeModifier == 0) {
+        // look for the modifier
+        GetIndexFrom();
+        if (!pindexFrom)
+            return error("%s: failed to get index from", __func__);
+        // TODO: This method must be removed from here in the short terms.. it's a call to an static method in kernel.cpp when this class method is only called from kernel.cpp, no comments..
+        if (!GetKernelStakeModifier(pindexFrom->GetBlockHash(), this->nStakeModifier, this->nStakeModifierHeight, this->nStakeModifierTime, false))
+            return error("CheckStakeKernelHash(): failed to get kernel stake modifier");
     }
+    nStakeModifier = this->nStakeModifier;
     return true;
 }
 
-CDataStream COpcxStake::GetUniqueness()
+CDataStream CPivStake::GetUniqueness()
 {
     //The unique identifier for a OPCX stake is the outpoint
     CDataStream ss(SER_NETWORK, 0);
@@ -254,9 +253,10 @@ CDataStream COpcxStake::GetUniqueness()
 }
 
 //The block that the UTXO was added to the chain
-CBlockIndex* COpcxStake::GetIndexFrom()
+CBlockIndex* CPivStake::GetIndexFrom()
 {
-
+    if (pindexFrom)
+        return pindexFrom;
     uint256 hashBlock = 0;
     CTransaction tx;
     if (GetTransaction(txFrom.GetHash(), tx, hashBlock, true)) {

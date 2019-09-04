@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2016 The Dash developers
-// Copyright (c) 2015-2018 The OPCX developers
+// Copyright (c) 2015-2019 The OPCX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -453,6 +453,8 @@ std::vector<COutput> CActiveMasternode::SelectCoinsMasternode()
         for (COutPoint outpoint : confLockedCoins)
             pwalletMain->LockCoin(outpoint);
     }
+    
+     LogPrintf("CActiveMasternode::block %d %d \n", chainActive.Height(), Params().GetRequiredMasternodeCollateral(chainActive.Height()));
 
     // Filter
     for (const COutput& out : vCoins) {

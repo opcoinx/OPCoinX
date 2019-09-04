@@ -12,7 +12,6 @@
 #include "guiutil.h"
 #include "optionsmodel.h"
 #include "walletmodel.h"
-#include "util.h"
 
 #include <QApplication>
 #include <QClipboard>
@@ -125,20 +124,17 @@ bool SendCoinsEntry::validate()
     }
 
     if (!ui->payAmount->validate()) {
-        error("sendcoinentry: payAmount->validate failed...");
         retval = false;
     }
 
     // Sending a zero amount is invalid
     if (ui->payAmount->value(0) <= 0) {
-        error("sendcoinentry: payAmount->Sending a zero amount is invalid...");
         ui->payAmount->setValid(false);
         retval = false;
     }
 
     // Reject dust outputs:
     if (retval && GUIUtil::isDust(ui->payTo->text(), ui->payAmount->value())) {
-        error("sendcoinentry: payAmount->isDust...");
         ui->payAmount->setValid(false);
         retval = false;
     }

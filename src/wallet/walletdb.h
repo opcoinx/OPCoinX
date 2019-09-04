@@ -11,10 +11,10 @@
 #include "wallet/db.h"
 #include "key.h"
 #include "keystore.h"
-#include "zopcx/zerocoin.h"
+#include "zopc/zerocoin.h"
 #include "libzerocoin/Accumulator.h"
 #include "libzerocoin/Denominations.h"
-#include "zopcx/zopcxtracker.h"
+#include "zopc/zopctracker.h"
 
 #include <list>
 #include <stdint.h>
@@ -179,14 +179,14 @@ public:
     bool ReadZerocoinSpendSerialEntry(const CBigNum& bnSerial);
     bool WriteCurrentSeedHash(const uint256& hashSeed);
     bool ReadCurrentSeedHash(uint256& hashSeed);
-    bool WriteZOPCXSeed(const uint256& hashSeed, const std::vector<unsigned char>& seed);
-    bool ReadZOPCXSeed(const uint256& hashSeed, std::vector<unsigned char>& seed);
-    bool ReadZOPCXSeed_deprecated(uint256& seed);
-    bool EraseZOPCXSeed();
-    bool EraseZOPCXSeed_deprecated();
+    bool WriteZOPCSeed(const uint256& hashSeed, const std::vector<unsigned char>& seed);
+    bool ReadZOPCSeed(const uint256& hashSeed, std::vector<unsigned char>& seed);
+    bool ReadZOPCSeed_deprecated(uint256& seed);
+    bool EraseZOPCSeed();
+    bool EraseZOPCSeed_deprecated();
 
-    bool WriteZOPCXCount(const uint32_t& nCount);
-    bool ReadZOPCXCount(uint32_t& nCount);
+    bool WriteZOPCCount(const uint32_t& nCount);
+    bool ReadZOPCCount(uint32_t& nCount);
     std::map<uint256, std::vector<std::pair<uint256, uint32_t> > > MapMintPool();
     bool WriteMintPoolPair(const uint256& hashMasterSeed, const uint256& hashPubcoin, const uint32_t& nCount);
 

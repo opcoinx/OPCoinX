@@ -75,7 +75,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
     }
 
     // Set checkbox "For anonymization, automint, and staking only" depending on from where we were called
-    if (context == Context::Unlock_Menu || context == Context::Mint_zOPCX || context == Context::BIP_38 || context == Context::UI_Vote) {
+    if (context == Context::Unlock_Menu || context == Context::Mint_zOPC || context == Context::BIP_38 || context == Context::UI_Vote) {
         ui->anonymizationCheckBox->setChecked(true);
     }
     else {
@@ -83,7 +83,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
     }
 
     // It doesn't make sense to show the checkbox for sending OPCX because you wouldn't check it anyway.
-    if (context == Context::Send_OPCX || context == Context::Send_zOPCX) {
+    if (context == Context::Send_OPCX || context == Context::Send_zOPC) {
         ui->anonymizationCheckBox->hide();
     }
 

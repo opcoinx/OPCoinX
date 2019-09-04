@@ -27,7 +27,7 @@ from test_framework.siphash import siphash256
 from test_framework.util import hex_str_to_bytes, bytes_to_hex_str
 
 MIN_VERSION_SUPPORTED = 60001
-MY_VERSION = 70914  # past bip-31 for ping/pong
+MY_VERSION = 70917  # past bip-31 for ping/pong
 MY_SUBVERSION = b"/python-mininode-tester:0.0.3/"
 MY_RELAY = 1 # from version 70001 onwards, fRelay should be appended to version messages (BIP37)
 
@@ -211,9 +211,27 @@ class CAddress():
 
 class CInv():
     typemap = {
-        0: "Error",
-        1: "TX",
-        2: "Block",
+        0: "MSG_ERROR",
+        1: "MSG_TX",
+        2: "MSG_BLOCK",
+        3: "MSG_FILTERED_BLOCK",
+        4: "MSG_TXLOCK_REQUEST",
+        5: "MSG_TXLOCK_VOTE",
+        6: "MSG_SPORK",
+        7: "MSG_MASTERNODE_WINNER",
+        8: "MSG_MASTERNODE_SCANNING_ERROR",
+        9: "MSG_BUDGET_VOTE",
+        10: "MSG_BUDGET_PROPOSAL",
+        11: "MSG_BUDGET_FINALIZED",
+        12: "MSG_BUDGET_FINALIZED_VOTE",
+        13: "MSG_MASTERNODE_QUORUM",
+        14: "MSG_MASTERNODE_QUORUM",
+        15: "MSG_MASTERNODE_ANNOUNCE",
+        16: "MSG_MASTERNODE_PING",
+        17: "MSG_DSTX",
+        18: "MSG_PUBCOINS",
+        19: "MSG_GENWIT",
+        20: "MSG_ACC_VALUE"
     }
 
     def __init__(self, t=0, h=0):
@@ -1311,3 +1329,4 @@ class msg_witness_blocktxn(msg_blocktxn):
         r = b""
         r += self.block_transactions.serialize(with_witness=True)
         return r
+

@@ -324,7 +324,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     </context>
 <context>
     <name>opcx-core</name>

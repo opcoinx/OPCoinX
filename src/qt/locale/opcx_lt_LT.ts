@@ -255,7 +255,7 @@
     </message>
     <message>
         <source>Enter a OPCX Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Įveskite OPCoinX adresą, kurį norėtumėte užšifruoti naudojant BIP 38. Vidiniame laukelyje įrašykite slaptą frazę. Paspauskite užšifruoti, jei norite gauti užšifruotą privatųjį raktą.</translation>
+        <translation>Įveskite Opcx adresą, kurį norėtumėte užšifruoti naudojant BIP 38. Vidiniame laukelyje įrašykite slaptą frazę. Paspauskite užšifruoti, jei norite gauti užšifruotą privatųjį raktą.</translation>
     </message>
     <message>
         <source>The OPCX address to encrypt</source>
@@ -433,8 +433,8 @@
         <translation>Naršyti pavedimų istoriją</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>zOPCX Saugumo Veiksmai </translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>zOPC Saugumo Veiksmai </translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1776,24 +1776,24 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Įrašyti prievadą naudojant &amp;UPnP</translation>
     </message>
     <message>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
-        <translation>Įgalinti automatinį konvertavimą iš OPCX į zOPCX</translation>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
+        <translation>Įgalinti automatinį konvertavimą iš OPCX į zOPC</translation>
     </message>
     <message>
-        <source>Enable zOPCX Automint</source>
-        <translation>Įgalinti zOPCX Automatinį nukaldinima</translation>
+        <source>Enable zOPC Automint</source>
+        <translation>Įgalinti zOPC Automatinį nukaldinima</translation>
     </message>
     <message>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Procentas gauto OPCX, kuris automatiškai bus konvertuotas į zOPCX naudojant Zerocoin Protokolą (min: 10%)</translation>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Procentas gauto OPCX, kuris automatiškai bus konvertuotas į zOPC naudojant Zerocoin Protokolą (min: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zOPCX</source>
-        <translation>Automatiškai sukurtų zOPCX procentas</translation>
+        <source>Percentage of autominted zOPC</source>
+        <translation>Automatiškai sukurtų zOPC procentas</translation>
     </message>
     <message>
-        <source>Preferred Automint zOPCX Denomination</source>
-        <translation>Pageidautinas zOPCX Automatinio Nukaldinimo Nominalas</translation>
+        <source>Preferred Automint zOPC Denomination</source>
+        <translation>Pageidautinas zOPC Automatinio Nukaldinimo Nominalas</translation>
     </message>
     <message>
         <source>Connect to the OPCX network through a SOCKS5 proxy.</source>
@@ -1943,14 +1943,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Jūsų dabartinis OPCX balansas, įskaitant nepatvirtintus ir nesubrendusius sandorius</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>zOPCX Balansas</translation>
+        <source>zOPC Balance</source>
+        <translation>zOPC Balansas</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation>Subrendę: daugiau nei 20 patvirtinimų ir daugiau nei 1 konvertacija to pačio nominalo, kai jis jau buvo konvertuotas.
-Šiuos zOPCX galima išleisti.</translation>
+Šiuos zOPC galima išleisti.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2003,8 +2003,8 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>Prienamas išleidimui:</translation>
     </message>
     <message>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
-        <translation>Užrakinti OPCX arba Masternode užstatai. Jie yra neįtraukti į zOPCX kalimą.</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
+        <translation>Užrakinti OPCX arba Masternode užstatai. Jie yra neįtraukti į zOPC kalimą.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2108,8 +2108,8 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -2128,12 +2128,12 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>PRIVATUMAS</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>zOpcx Kontrolė</translation>
+        <source>zOPC Control</source>
+        <translation>zPiv Kontrolė</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>Pasirinkta zOPCX:</translation>
+        <source>zOPC Selected:</source>
+        <translation>Pasirinkta zOPC:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2152,8 +2152,8 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>Prieinamas Balansas: </translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2192,8 +2192,8 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>Zerocoin Statistika:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
-        <translation>Bendras balansas, įskaitant nepatvirtintą ir nesubrendusį zOPCX</translation>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
+        <translation>Bendras balansas, įskaitant nepatvirtintą ir nesubrendusį zOPC</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2362,12 +2362,12 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>Konvertavimo Statusas: Geras</translation>
     </message>
     <message>
-        <source>zOPCX Spend #: </source>
-        <translation>zOPCX Išleidimas #:</translation>
+        <source>zOPC Spend #: </source>
+        <translation>zOPC Išleidimas #:</translation>
     </message>
     <message>
-        <source>zOPCX Mint</source>
-        <translation>zOPCX Konvertavimas</translation>
+        <source>zOPC Mint</source>
+        <translation>zOPC Konvertavimas</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2446,8 +2446,8 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>Nomin. &lt;b&gt;5000&lt;/b&gt;:</translation>
     </message>
     <message>
-        <source>Invalid OPCoinX Address</source>
-        <translation>Netinkamas OPCoinX Adresas</translation>
+        <source>Invalid Opcx Address</source>
+        <translation>Netinkamas Opcx Adresas</translation>
     </message>
     <message>
         <source>Invalid Send Amount</source>
@@ -3298,14 +3298,14 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
     </message>
     </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     </context>
 <context>

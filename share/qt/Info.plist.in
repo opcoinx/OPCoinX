@@ -38,7 +38,7 @@
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>io.opcx.OPCoinX-Qt</string>
+  <string>io.opcx.Opcx-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.opcx.OPCoinXPayment</string>
+      <string>io.opcx.OpcxPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>opcx</string>
@@ -60,7 +60,7 @@
       <key>UTTypeIdentifier</key>
       <string>io.opcx.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>OPCoinX payment request</string>
+      <string>Opcx payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>

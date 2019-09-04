@@ -433,8 +433,8 @@
         <translation>İşlem geçmişini ara</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Gizlilik Aksiyonları zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Gizlilik Aksiyonları zOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1863,28 +1863,28 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Map port using &amp;UPnP</translation>
     </message>
     <message>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
-        <translation>OPCX birimlerinin zOPCX'e otomatik basımını ektinleştir</translation>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
+        <translation>OPCX birimlerinin zOPC'e otomatik basımını ektinleştir</translation>
     </message>
     <message>
-        <source>Enable zOPCX Automint</source>
-        <translation>zOPCX Otomatik basımı etkinleştir</translation>
+        <source>Enable zOPC Automint</source>
+        <translation>zOPC Otomatik basımı etkinleştir</translation>
     </message>
     <message>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Zerocoin Protokolü üzerinden otomatik olarak zOPCX'ye dönüştürülen gelen OPCX yüzdesi (dakika: 10%)</translation>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Zerocoin Protokolü üzerinden otomatik olarak zOPC'ye dönüştürülen gelen OPCX yüzdesi (dakika: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zOPCX</source>
-        <translation>Otomatikleştirilmiş zOPCX yüzdesi</translation>
+        <source>Percentage of autominted zOPC</source>
+        <translation>Otomatikleştirilmiş zOPC yüzdesi</translation>
     </message>
     <message>
         <source>Wait with automatic conversion to Zerocoin until enough OPCX for this denomination is available</source>
         <translation>Bu mezhebi için yeterli OPCX bulunana kadar Zerocoin'e otomatik dönüşümle birlikte bekleyin</translation>
     </message>
     <message>
-        <source>Preferred Automint zOPCX Denomination</source>
-        <translation>Tercih edilen Automint zOPCX Nominal değeri</translation>
+        <source>Preferred Automint zOPC Denomination</source>
+        <translation>Tercih edilen Automint zOPC Nominal değeri</translation>
     </message>
     <message>
         <source>Connect to the OPCX network through a SOCKS5 proxy.</source>
@@ -2066,14 +2066,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Güncel OPCX bakiyeniz, onaylanmamış ve olgunlaşmamış işlemler dahil</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>zOPCX Bakiyesi</translation>
+        <source>zOPC Balance</source>
+        <translation>zOPC Bakiyesi</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation>Olgun: basılmış olduktan sonra 20'den fazla onay alınmış ve aynı ölçü biriminden 1 kereden fazla basılmış.
-Bu zOPCX ler harcanabilir.</translation>
+Bu zOPC ler harcanabilir.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2126,8 +2126,8 @@ Olgunlaşmamış: onaylandı, ancak basıldıktan sonra aynı ölçü biriminden
         <translation>Harcanabilir:</translation>
     </message>
     <message>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
-        <translation>Kilitli OPCX veya Masternode teminatları. Bunlar zOPCX matlaştırmadan çıkarılır.</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
+        <translation>Kilitli OPCX veya Masternode teminatları. Bunlar zOPC matlaştırmadan çıkarılır.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2138,8 +2138,8 @@ Olgunlaşmamış: onaylandı, ancak basıldıktan sonra aynı ölçü biriminden
         <translation>onaylanmamış:</translation>
     </message>
     <message>
-        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
-        <translation>Güncel zOPCX bakiyeniz, onaylanmamış ve olgunlaşmamış zOPCX'ler dahil.</translation>
+        <source>Your current zOPC balance, unconfirmed and immature zOPC included.</source>
+        <translation>Güncel zOPC bakiyeniz, onaylanmamış ve olgunlaşmamış zOPC'ler dahil.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2150,10 +2150,10 @@ Olgunlaşmamış: onaylandı, ancak basıldıktan sonra aynı ölçü biriminden
         <translation>senkronizasyon dışı</translation>
     </message>
     <message>
-        <source>Current percentage of zOPCX.
+        <source>Current percentage of zOPC.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Mevcut zOPCX yüzdesi.
+        <translation>Mevcut zOPC yüzdesi.
 AutoMint etkinleştirilirse, bu yüzde, yapılandırılmış AutoMint yüzdesi etrafında düzelir (varsayılan = 10%).
 </translation>
     </message>
@@ -2196,7 +2196,7 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
     </message>
     <message>
         <source>Cannot start opcx: click-to-pay handler</source>
-        <translation>OPCoinX başlatılamıyor: tıkla ve ödeme işleyicisi</translation>
+        <translation>Opcx başlatılamıyor: tıkla ve ödeme işleyicisi</translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid OPCX address or malformed URI parameters.</source>
@@ -2297,8 +2297,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2325,12 +2325,12 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
         <translation>GİZLİLİK</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>zOPCX Kontrolü</translation>
+        <source>zOPC Control</source>
+        <translation>zOPC Kontrolü</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>zOpcx Seçildi:</translation>
+        <source>zOPC Selected:</source>
+        <translation>zPiv Seçildi:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2345,24 +2345,24 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
         <translation>Harca Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending</source>
-        <translation>Mevcut (olgun ve harcanabilir) harcama için zOPCX</translation>
+        <source>Available (mature and spendable) zOPC for spending</source>
+        <translation>Mevcut (olgun ve harcanabilir) harcama için zOPC</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Kullanılabilir Bakiye:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending
+        <source>Available (mature and spendable) zOPC for spending
 
-zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>Mevcut (olgun ve harcanabilir) harcama için zOPCX
+zOPC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Mevcut (olgun ve harcanabilir) harcama için zOPC
 
-zOPCX, 20'den fazla teyit bulunduğunda olgunlaşır ve bundan sonra aynı mezhepten 2 kat fazla darphane çekilir.</translation>
+zOPC, 20'den fazla teyit bulunduğunda olgunlaşır ve bundan sonra aynı mezhepten 2 kat fazla darphane çekilir.</translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2421,8 +2421,8 @@ zOPCX, 20'den fazla teyit bulunduğunda olgunlaşır ve bundan sonra aynı mezhe
         <translation>Zerocoin durumu:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
-        <translation>Doğrulanmamış ve olgunlaşmamış zOPCX dahil toplam bakiye</translation>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
+        <translation>Doğrulanmamış ve olgunlaşmamış zOPC dahil toplam bakiye</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2581,12 +2581,12 @@ Please be patient...</source>
 Lütfen sabırlı olun...</translation>
     </message>
     <message>
-        <source>zOPCX is currently disabled due to maintenance.</source>
-        <translation>zOPCX bakım nedeniyle şu an kullanıma kapalı.</translation>
+        <source>zOPC is currently disabled due to maintenance.</source>
+        <translation>zOPC bakım nedeniyle şu an kullanıma kapalı.</translation>
     </message>
     <message>
-        <source>zOPCX is currently undergoing maintenance.</source>
-        <translation>zOPCX halen bakım alıyor.</translation>
+        <source>zOPC is currently undergoing maintenance.</source>
+        <translation>zOPC halen bakım alıyor.</translation>
     </message>
     <message>
         <source>AutoMint Status:</source>
@@ -2611,8 +2611,8 @@ Lütfen sabırlı olun...</translation>
         <translation>Sağlanan 'Ödeme Yapmak İçin' adresi yok, yerel ödeme oluşturun</translation>
     </message>
     <message>
-        <source>Invalid OPCoinX Address</source>
-        <translation>Geçersiz OPCoinX Adresi</translation>
+        <source>Invalid Opcx Address</source>
+        <translation>Geçersiz Opcx Adresi</translation>
     </message>
     <message>
         <source>Invalid Send Amount</source>
@@ -4367,7 +4367,7 @@ Lütfen sabırlı olun...</translation>
     </message>
 </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
         <source>Quantity</source>
         <translation>Adet</translation>
@@ -4377,8 +4377,8 @@ Lütfen sabırlı olun...</translation>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>

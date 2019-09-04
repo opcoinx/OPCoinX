@@ -11,7 +11,7 @@
 #include "swifttx.h"
 #include "timedata.h"
 #include "wallet/wallet.h"
-#include "zopcxchain.h"
+#include "zopcchain.h"
 #include "main.h"
 
 #include <iostream>
@@ -45,19 +45,8 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
     bool fZSpendFromMe = false;
 
     if (wtx.HasZerocoinSpendInputs()) {
-        // a zerocoin spend that was created by this wallet
-        if (wtx.HasZerocoinPublicSpendInputs()) {
-            libzerocoin::ZerocoinParams* params = Params().Zerocoin_Params(false);
-            PublicCoinSpend publicSpend(params);
-            CValidationState state;
-            if (!ZOPCXModule::ParseZerocoinPublicSpend(wtx.vin[0], wtx, state, publicSpend)){
-                throw std::runtime_error("Error parsing zc public spend");
-            }
-            fZSpendFromMe = wallet->IsMyZerocoinSpend(publicSpend.getCoinSerialNumber());
-        } else {
-            libzerocoin::CoinSpend zcspend = TxInToZerocoinSpend(wtx.vin[0]);
-            fZSpendFromMe = wallet->IsMyZerocoinSpend(zcspend.getCoinSerialNumber());
-        }
+        libzerocoin::CoinSpend zcspend = wtx.HasZerocoinPublicSpendInputs() ? ZOPCModule::parseCoinSpend(wtx.vin[0]) : TxInToZerocoinSpend(wtx.vin[0]);
+        fZSpendFromMe = wallet->IsMyZerocoinSpend(zcspend.getCoinSerialNumber());
     }
 
     if (wtx.IsCoinStake()) {
@@ -66,10 +55,10 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
         if (!wtx.HasZerocoinSpendInputs() && !ExtractDestination(wtx.vout[1].scriptPubKey, address))
             return parts;
 
-        if (wtx.HasZerocoinSpendInputs() && (fZSpendFromMe || wallet->zopcxTracker->HasMintTx(hash))) {
-            //zOPCX stake reward
+        if (wtx.HasZerocoinSpendInputs() && (fZSpendFromMe || wallet->zopcTracker->HasMintTx(hash))) {
+            //zOPC stake reward
             sub.involvesWatchAddress = false;
-            sub.type = TransactionRecord::StakeZOPCX;
+            sub.type = TransactionRecord::StakeZOPC;
             sub.address = mapValue["zerocoinmint"];
             sub.credit = 0;
             for (const CTxOut& out : wtx.vout) {
@@ -110,7 +99,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
                 isminetype mine = wallet->IsMine(txout);
                 TransactionRecord sub(hash, nTime);
                 sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
-                sub.type = TransactionRecord::ZerocoinSpend_Change_zOpcx;
+                sub.type = TransactionRecord::ZerocoinSpend_Change_zPiv;
                 sub.address = mapValue["zerocoinmint"];
                 if (!fFeeAssigned) {
                     sub.debit -= (wtx.GetZerocoinSpent() - wtx.GetValueOut());
@@ -320,14 +309,14 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
     return parts;
 }
 
-bool IsZOPCXType(TransactionRecord::Type type)
+bool IsZOPCType(TransactionRecord::Type type)
 {
     switch (type) {
-        case TransactionRecord::StakeZOPCX:
+        case TransactionRecord::StakeZOPC:
         case TransactionRecord::ZerocoinMint:
         case TransactionRecord::ZerocoinSpend:
         case TransactionRecord::RecvFromZerocoinSpend:
-        case TransactionRecord::ZerocoinSpend_Change_zOpcx:
+        case TransactionRecord::ZerocoinSpend_Change_zPiv:
         case TransactionRecord::ZerocoinSpend_FromMe:
             return true;
         default:
@@ -372,7 +361,7 @@ void TransactionRecord::updateStatus(const CWalletTx& wtx)
         }
     }
     // For generated transactions, determine maturity
-    else if (type == TransactionRecord::Generated || type == TransactionRecord::StakeMint || type == TransactionRecord::StakeZOPCX || type == TransactionRecord::MNReward) {
+    else if (type == TransactionRecord::Generated || type == TransactionRecord::StakeMint || type == TransactionRecord::StakeZOPC || type == TransactionRecord::MNReward) {
         if (nBlocksToMaturity > 0) {
             status.status = TransactionStatus::Immature;
             status.matures_in = nBlocksToMaturity;

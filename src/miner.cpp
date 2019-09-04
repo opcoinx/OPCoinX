@@ -23,11 +23,11 @@
 #endif
 #include "validationinterface.h"
 #include "masternode-payments.h"
-#include "zopcx/accumulators.h"
+#include "zopc/accumulators.h"
 #include "blocksignature.h"
 #include "spork.h"
 #include "invalid.h"
-#include "zopcxchain.h"
+#include "zopcchain.h"
 
 
 #include <boost/thread.hpp>
@@ -118,7 +118,15 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
     // Make sure to create the correct block version after zerocoin is enabled
     bool fZerocoinActive = nHeight >= Params().Zerocoin_StartHeight();
-    pblock->nVersion = 5;   // Supports CLTV activation
+    if(Params().IsStakeModifierV2(nHeight)) {
+        pblock->nVersion = 6;       //!> Supports V2 Stake Modifiers.
+    }
+    else if(fZerocoinActive) {
+       pblock->nVersion = 7;
+    }
+    else {
+        pblock->nVersion = 3;       //!> Supports CLTV activation
+    }
 
     // -regtest only: allow overriding block.nVersion with
     // -blockversion=N to test forking scenarios
@@ -226,8 +234,8 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                 //zerocoinspend has special vin
                 if (hasZerocoinSpends) {
                     //Give a high priority to zerocoinspends to get into the next block
-                    //Priority = (age^6+100000)*amount - gives higher priority to zopcxs that have been in mempool long
-                    //and higher priority to zopcxs that are large in value
+                    //Priority = (age^6+100000)*amount - gives higher priority to zopcs that have been in mempool long
+                    //and higher priority to zopcs that are large in value
                     int64_t nTimeSeen = GetAdjustedTime();
                     double nConfs = 100000;
 
@@ -241,7 +249,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
                     double nTimePriority = std::pow(GetAdjustedTime() - nTimeSeen, 6);
 
-                    // zOPCX spends can have very large priority, use non-overflowing safe functions
+                    // zOPC spends can have very large priority, use non-overflowing safe functions
                     dPriority = double_safe_addition(dPriority, (nTimePriority * nConfs));
                     dPriority = double_safe_multiplication(dPriority, nTotalIn);
 
@@ -289,7 +297,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
                 int nConf = nHeight - coins->nHeight;
 
-                // zOPCX spends can have very large priority, use non-overflowing safe functions
+                // zOPC spends can have very large priority, use non-overflowing safe functions
                 dPriority = double_safe_addition(dPriority, ((double)nValueIn * nConf));
 
             }
@@ -362,7 +370,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             if (!view.HaveInputs(tx))
                 continue;
 
-            // double check that there are no double spent zOPCX spends in this block or tx
+            // double check that there are no double spent zOPC spends in this block or tx
             if (tx.HasZerocoinSpendInputs()) {
                 int nHeightTx = 0;
                 if (IsTransactionInChain(tx.GetHash(), nHeightTx))
@@ -377,7 +385,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                             libzerocoin::ZerocoinParams* params = Params().Zerocoin_Params(false);
                             PublicCoinSpend publicSpend(params);
                             CValidationState state;
-                            if (!ZOPCXModule::ParseZerocoinPublicSpend(txIn, tx, state, publicSpend)){
+                            if (!ZOPCModule::ParseZerocoinPublicSpend(txIn, tx, state, publicSpend)){
                                 throw std::runtime_error("Invalid public spend parse");
                             }
                             spend = &publicSpend;
@@ -398,7 +406,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                         vTxSerials.emplace_back(spend->getCoinSerialNumber());
                     }
                 }
-                //This zOPCX serial has already been included in the block, do not add this tx.
+                //This zOPC serial has already been included in the block, do not add this tx.
                 if (fDoubleSerial)
                     continue;
             }
@@ -488,7 +496,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             uint256 nCheckpoint;
             uint256 hashBlockLastAccumulated = chainActive[nHeight - (nHeight % 10) - 10]->GetBlockHash();
             if (nHeight >= pCheckpointCache.first || pCheckpointCache.second.first != hashBlockLastAccumulated) {
-                //For the period before v2 activation, zOPCX will be disabled and previous block's checkpoint is all that will be needed
+                //For the period before v2 activation, zOPC will be disabled and previous block's checkpoint is all that will be needed
                 pCheckpointCache.second.second = pindexPrev->nAccumulatorCheckpoint;
                 if (pindexPrev->nHeight + 1 >= Params().Zerocoin_Block_V2_Start()) {
                     AccumulatorMap mapAccumulators(Params().Zerocoin_Params(false));
@@ -519,17 +527,17 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                 CBigNum bnSerial = spend.getCoinSerialNumber();
                 CKey key;
                 if (!pwallet->GetZerocoinKey(bnSerial, key)) {
-                    LogPrintf("%s: failed to find zOPCX with serial %s, unable to sign block\n", __func__, bnSerial.GetHex());
+                    LogPrintf("%s: failed to find zOPC with serial %s, unable to sign block\n", __func__, bnSerial.GetHex());
                     return NULL;
                 }
 
-                //Sign block with the zOPCX key
+                //Sign block with the zOPC key
                 if (!SignBlockWithKey(*pblock, key)) {
-                    LogPrintf("BitcoinMiner(): Signing new block with zOPCX key failed \n");
+                    LogPrintf("%s: Signing new block with zOPC key failed \n", __func__);
                     return NULL;
                 }
             } else if (!SignBlock(*pblock, *pwallet)) {
-                LogPrintf("BitcoinMiner(): Signing new block with UTXO key failed \n");
+                LogPrintf("%s: Signing new block with UTXO key failed \n", __func__);
                 return NULL;
             }
         }
@@ -576,14 +584,26 @@ void IncrementExtraNonce(CBlock* pblock, CBlockIndex* pindexPrev, unsigned int& 
 double dHashesPerSec = 0.0;
 int64_t nHPSTimerStart = 0;
 
-CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey, CWallet* pwallet, bool fProofOfStake)
+CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey, CWallet* pwallet)
 {
     CPubKey pubkey;
     if (!reservekey.GetReservedKey(pubkey))
-        return NULL;
+        return nullptr;
+
+    const int nHeightNext = chainActive.Tip()->nHeight + 1;
+    static int nLastPOWBlock = Params().LAST_POW_BLOCK();
+
+    // If we're building a late PoW block, don't continue
+    // PoS blocks are built directly with CreateNewBlock
+    if ((nHeightNext > nLastPOWBlock)) {
+        LogPrintf("%s: Aborting PoW block creation during PoS phase\n", __func__);
+        // sleep 1/2 a block time so we don't go into a tight loop.
+        MilliSleep((Params().TargetSpacing() * 1000) >> 1);
+        return nullptr;
+    }
 
     CScript scriptPubKey = CScript() << ToByteVector(pubkey) << OP_CHECKSIG;
-    return CreateNewBlock(scriptPubKey, pwallet, fProofOfStake);
+    return CreateNewBlock(scriptPubKey, pwallet, false);
 }
 
 bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
@@ -614,8 +634,8 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     CValidationState state;
     if (!ProcessNewBlock(state, NULL, pblock)) {
         if (pblock->IsZerocoinStake()) {
-            pwalletMain->zopcxTracker->RemovePending(pblock->vtx[1].GetHash());
-            pwalletMain->zopcxTracker->ListMints(true, true, true); //update the state
+            pwalletMain->zopcTracker->RemovePending(pblock->vtx[1].GetHash());
+            pwalletMain->zopcTracker->ListMints(true, true, true); //update the state
         }
         return error("OPCXMiner : ProcessNewBlock, block not accepted");
     }
@@ -649,38 +669,40 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             if ((GetTime() - nMintableLastCheck > 5 * 60)) // 5 minute check time
             {
                 nMintableLastCheck = GetTime();
-                fMintableCoins = pwallet->MintableCoins(chainActive.Height() + 1);
+                fMintableCoins = pwallet->MintableCoins();
             }
 
-            if (chainActive.Tip()->nHeight < Params().LAST_POW_BLOCK()) {
-                MilliSleep(5000);
-                continue;
-            }
-
-            while (vNodes.empty() || pwallet->IsLocked() || !fMintableCoins || (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) || !masternodeSync.IsSynced()) {
+            while (vNodes.empty() || pwallet->IsLocked() || !fMintableCoins ||
+                   (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) || !masternodeSync.IsSynced()) {
                 nLastCoinStakeSearchInterval = 0;
-                // Do a separate 1 minute check here to ensure fMintableCoins is updated
-                if (!fMintableCoins) {
-                    if (GetTime() - nMintableLastCheck > 1 * 60) // 1 minute check time
-                    {
-                        nMintableLastCheck = GetTime();
-                        fMintableCoins = pwallet->MintableCoins(chainActive.Height() + 1);
-                    }
-                }
                 MilliSleep(5000);
-                if (!fGenerateBitcoins && !fProofOfStake)
-                    continue;
+                // Do a separate 1 minute check here to ensure fMintableCoins is updated
+                if (!fMintableCoins && (GetTime() - nMintableLastCheck > 1 * 60)) // 1 minute check time
+                {
+                    nMintableLastCheck = GetTime();
+                    fMintableCoins = pwallet->MintableCoins();
+                }
             }
 
-            if (mapHashedBlocks.count(chainActive.Tip()->nHeight) && !fLastLoopOrphan) //search our map of hashed blocks, see if bestblock has been hashed yet
+            //search our map of hashed blocks, see if bestblock has been hashed yet
+            if (mapHashedBlocks.count(chainActive.Tip()->nHeight) && !fLastLoopOrphan)
             {
-                if (GetTime() - mapHashedBlocks[chainActive.Tip()->nHeight] < std::max(pwallet->nHashInterval, (unsigned int)1)) // wait half of the nHashDrift with max wait of 3 minutes
+                // wait half of the nHashDrift with max wait of 3 minutes
+                if (GetTime() - mapHashedBlocks[chainActive.Tip()->nHeight] < std::max(pwallet->nHashInterval, (unsigned int)1))
                 {
                     MilliSleep(5000);
                     continue;
                 }
             }
-        }
+        } else { // PoW
+            if ((chainActive.Tip()->nHeight - 6) > Params().LAST_POW_BLOCK())
+            {
+                // Run for a little while longer, just in case there is a rewind on the chain.
+                LogPrintf("%s: Exiting Proof of Work Mining Thread at height: %d\n",
+                          __func__, chainActive.Tip()->nHeight);
+                return;
+            }
+       }
 
         //
         // Create new block
@@ -690,7 +712,9 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
         if (!pindexPrev)
             continue;
 
-        std::unique_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey, pwallet, fProofOfStake));
+        std::unique_ptr<CBlockTemplate> pblocktemplate(
+                fProofOfStake ? CreateNewBlock(CScript(), pwallet, fProofOfStake) : CreateNewBlockWithKey(reservekey, pwallet)
+                        );
         if (!pblocktemplate.get())
             continue;
 
@@ -706,17 +730,17 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 CBigNum bnSerial = spend.getCoinSerialNumber();
                 CKey key;
                 if (!pwallet->GetZerocoinKey(bnSerial, key)) {
-                    LogPrintf("%s: failed to find zOPCX with serial %s, unable to sign block\n", __func__, bnSerial.GetHex());
+                    LogPrintf("%s: failed to find zOPC with serial %s, unable to sign block\n", __func__, bnSerial.GetHex());
                     continue;
                 }
 
-                //Sign block with the zOPCX key
+                //Sign block with the zOPC key
                 if (!SignBlockWithKey(*pblock, key)) {
-                    LogPrintf("BitcoinMiner(): Signing new block with zOPCX key failed \n");
+                    LogPrintf("%s: Signing new block with zOPC key failed \n", __func__);
                     continue;
                 }
             } else if (!SignBlock(*pblock, *pwallet)) {
-                LogPrintf("BitcoinMiner(): Signing new block with UTXO key failed \n");
+                LogPrintf("%s: Signing new block with UTXO key failed \n", __func__);
                 continue;
             }
 
@@ -748,7 +772,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 if (hash <= hashTarget) {
                     // Found a solution
                     SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                    LogPrintf("BitcoinMiner:\n");
+                    LogPrintf("%s:\n", __func__);
                     LogPrintf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex(), hashTarget.GetHex());
                     ProcessBlockFound(pblock, *pwallet, reservekey);
                     SetThreadPriority(THREAD_PRIORITY_LOWEST);
@@ -820,12 +844,12 @@ void static ThreadBitcoinMiner(void* parg)
         BitcoinMiner(pwallet, false);
         boost::this_thread::interruption_point();
     } catch (std::exception& e) {
-        LogPrintf("ThreadBitcoinMiner() exception");
+        LogPrintf("OPCXMiner exception");
     } catch (...) {
-        LogPrintf("ThreadBitcoinMiner() exception");
+        LogPrintf("OPCXMiner exception");
     }
 
-    LogPrintf("ThreadBitcoinMiner exiting\n");
+    LogPrintf("OPCXMiner exiting\n");
 }
 
 void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads)
@@ -853,6 +877,23 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads)
     minerThreads = new boost::thread_group();
     for (int i = 0; i < nThreads; i++)
         minerThreads->create_thread(boost::bind(&ThreadBitcoinMiner, pwallet));
+}
+
+// ppcoin: stake minter thread
+void ThreadStakeMinter()
+{
+    boost::this_thread::interruption_point();
+    LogPrintf("ThreadStakeMinter started\n");
+    CWallet* pwallet = pwalletMain;
+    try {
+        BitcoinMiner(pwallet, true);
+        boost::this_thread::interruption_point();
+    } catch (std::exception& e) {
+        LogPrintf("ThreadStakeMinter() exception \n");
+    } catch (...) {
+        LogPrintf("ThreadStakeMinter() error \n");
+    }
+    LogPrintf("ThreadStakeMinter exiting,\n");
 }
 
 #endif // ENABLE_WALLET

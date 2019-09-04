@@ -433,8 +433,8 @@
         <translation>겨래내역 보기</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>zOPCX 생성 및 관리</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>zOPC 생성 및 관리</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1832,28 +1832,28 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>&amp;UPnp를 사용하여 포트 매핑</translation>
     </message>
     <message>
-        <source>Enable automatic minting of OPCX units to zOPCX</source>
-        <translation>보상받은 OPCX를 zOPCX로 자동변환 활성화</translation>
+        <source>Enable automatic minting of OPCX units to zOPC</source>
+        <translation>보상받은 OPCX를 zOPC로 자동변환 활성화</translation>
     </message>
     <message>
-        <source>Enable zOPCX Automint</source>
-        <translation>zOPCX 자동생성 활성화</translation>
+        <source>Enable zOPC Automint</source>
+        <translation>zOPC 자동생성 활성화</translation>
     </message>
     <message>
-        <source>Percentage of incoming OPCX which get automatically converted to zOPCX via Zerocoin Protocol (min: 10%)</source>
-        <translation>OPCX수신시 자동변환 zOPCX 비율 (최소값:10%)</translation>
+        <source>Percentage of incoming OPCX which get automatically converted to zOPC via Zerocoin Protocol (min: 10%)</source>
+        <translation>OPCX수신시 자동변환 zOPC 비율 (최소값:10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zOPCX</source>
-        <translation>자동 변환되는 zOPCX 비율</translation>
+        <source>Percentage of autominted zOPC</source>
+        <translation>자동 변환되는 zOPC 비율</translation>
     </message>
     <message>
         <source>Wait with automatic conversion to Zerocoin until enough OPCX for this denomination is available</source>
         <translation>이 디노미네이션의 OPCX가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
     </message>
     <message>
-        <source>Preferred Automint zOPCX Denomination</source>
-        <translation>선호하는 자동생성 zOPCX 디노미네이션 </translation>
+        <source>Preferred Automint zOPC Denomination</source>
+        <translation>선호하는 자동생성 zOPC 디노미네이션 </translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2039,14 +2039,14 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>현재 OPCX 잔액, 미확정, 생성중인 코인 포함</translation>
     </message>
     <message>
-        <source>zOPCX Balance</source>
-        <translation>zOPCX 잔액</translation>
+        <source>zOPC Balance</source>
+        <translation>zOPC 잔액</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zOPCX are spendable.</source>
+These zOPC are spendable.</source>
         <translation>성숙한 : 그것이 발행 된 후 같은 명칭의 20 개 이상의 확인 및 1 개 민트.
-이 zOPCX는 쓸만합니다.</translation>
+이 zOPC는 쓸만합니다.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2099,8 +2099,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>출금 가능 액수:</translation>
     </message>
     <message>
-        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPCX minting.</source>
-        <translation>잠금 OPCX 또는 Masternode collaterals. 이들은 zOPCX minting에서 제외됩니다.</translation>
+        <source>Locked OPCX or Masternode collaterals. These are excluded from zOPC minting.</source>
+        <translation>잠금 OPCX 또는 Masternode collaterals. 이들은 zOPC minting에서 제외됩니다.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2111,8 +2111,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>미승인:</translation>
     </message>
     <message>
-        <source>Your current zOPCX balance, unconfirmed and immature zOPCX included.</source>
-        <translation>zOPCX 잔액, 미확정, 생성중인 zOPCX 포함.</translation>
+        <source>Your current zOPC balance, unconfirmed and immature zOPC included.</source>
+        <translation>zOPC 잔액, 미확정, 생성중인 zOPC 포함.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2123,10 +2123,10 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>동기화되지 않음</translation>
     </message>
     <message>
-        <source>Current percentage of zOPCX.
+        <source>Current percentage of zOPC.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>현재 zOPCX의 백분율 .
+        <translation>현재 zOPC의 백분율 .
 자동 저장 기능이 활성화 된 경우이 비율은 구성된 자동 저장 비율 (기본값 = 10 %)을 기준으로 정해집니다.</translation>
     </message>
     <message>
@@ -2269,8 +2269,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2297,12 +2297,12 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
         <translation>프라이버시</translation>
     </message>
     <message>
-        <source>zOPCX Control</source>
-        <translation>zOPCX 컨트롤</translation>
+        <source>zOPC Control</source>
+        <translation>zOPC 컨트롤</translation>
     </message>
     <message>
-        <source>zOPCX Selected:</source>
-        <translation>선택된 zOPCX :</translation>
+        <source>zOPC Selected:</source>
+        <translation>선택된 zOPC :</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2317,24 +2317,24 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in opcx.conf<
         <translation>제로코인 보내기</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending</source>
-        <translation>전송 가능한 zOPCX</translation>
+        <source>Available (mature and spendable) zOPC for spending</source>
+        <translation>전송 가능한 zOPC</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>가능한 잔액:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zOPCX for spending
+        <source>Available (mature and spendable) zOPC for spending
 
-zOPCX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>지출에 사용할 수있는 성숙한 소비재 zOPCX
+zOPC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>지출에 사용할 수있는 성숙한 소비재 zOPC
 
-zOPCX는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 이상의 민트가 작성되었을 때 성숙합니다.</translation>
+zOPC는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 이상의 민트가 작성되었을 때 성숙합니다.</translation>
     </message>
     <message>
-        <source>0 zOPCX</source>
-        <translation>0 zOPCX</translation>
+        <source>0 zOPC</source>
+        <translation>0 zOPC</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2393,7 +2393,7 @@ zOPCX는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 �
         <translation>제로코인 상태 :</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
         <translation>승인중이거나, 생성중인 제로코인도 포함된 전체 잔액입니다.</translation>
     </message>
     <message>
@@ -2415,24 +2415,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 미성숙 : 확인되었지만 발행 된 후 같은 종파 1 개 미만</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zOPCX minting.
+        <source>Show the current status of automatic zOPC minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to opcx.conf
 - disable: add 'enablezeromint=0' to opcx.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zOPCX
+- menu Settings-&gt;Options-&gt;Percentage of autominted zOPC
 
 </source>
-        <translation>현재 zOPCX 자동 생성 상태를 보여줍니다.
+        <translation>현재 zOPC 자동 생성 상태를 보여줍니다.
 
 자동생성 상태를 변경하시려면 (지갑 재시작 필요함):
 - 활성화: 'enablezeromint=1' 를 opcx.conf 파일에 추가
 - 비활성화: 'enablezeromint=0' 를 opcx.conf 파일에 추가
 
 자동 생성 비율 변경하시려면 (지갑 재시작 필요없음):
-- 메뉴 설정-&gt;옵션-&gt;zOPCX 자동생성 비율
+- 메뉴 설정-&gt;옵션-&gt;zOPC 자동생성 비율
 
 </translation>
     </message>
@@ -2607,12 +2607,12 @@ Please be patient...</source>
 기다려주세요...</translation>
     </message>
     <message>
-        <source>zOPCX Spend #: </source>
-        <translation>zOPCX 전송 # :</translation>
+        <source>zOPC Spend #: </source>
+        <translation>zOPC 전송 # :</translation>
     </message>
     <message>
-        <source>zOPCX Mint</source>
-        <translation>zOPCX 생성</translation>
+        <source>zOPC Mint</source>
+        <translation>zOPC 생성</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2627,12 +2627,12 @@ Please be patient...</source>
         <translation> 구성된 목표 비율 : &lt;b&gt;</translation>
     </message>
     <message>
-        <source>zOPCX is currently disabled due to maintenance.</source>
-        <translation>zOPCX는 현재 점검중이라 사용하실수 없습니다.</translation>
+        <source>zOPC is currently disabled due to maintenance.</source>
+        <translation>zOPC는 현재 점검중이라 사용하실수 없습니다.</translation>
     </message>
     <message>
-        <source>zOPCX is currently undergoing maintenance.</source>
-        <translation>zOPCX는 현재 점검중입니다.</translation>
+        <source>zOPC is currently undergoing maintenance.</source>
+        <translation>zOPC는 현재 점검중입니다.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2721,7 +2721,7 @@ Please be patient...</source>
         <translation>주소를 입력하지 않아, 신규 주소를 생성합니다.</translation>
     </message>
     <message>
-        <source>Invalid OPCoinX Address</source>
+        <source>Invalid Opcx Address</source>
         <translation>잘못된 OPCX 주소</translation>
     </message>
     <message>
@@ -3077,8 +3077,8 @@ Please be patient...</source>
         <translation>맞춤 백업 경로 :</translation>
     </message>
     <message>
-        <source>Custom zOPCX Backup Path:</source>
-        <translation>맞춤 zOPCX 백업 경로 :</translation>
+        <source>Custom zOPC Backup Path:</source>
+        <translation>맞춤 zOPC 백업 경로 :</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -4287,8 +4287,8 @@ Please be patient...</source>
         <translation>OPCX stake</translation>
     </message>
     <message>
-        <source>zOPCX Stake</source>
-        <translation>zOPCX stake</translation>
+        <source>zOPC Stake</source>
+        <translation>zOPC stake</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4307,32 +4307,32 @@ Please be patient...</source>
         <translation>난독화 표시 만들기</translation>
     </message>
     <message>
-        <source>Converted OPCX to zOPCX</source>
-        <translation>OPCX를 zOPCX로 변환</translation>
+        <source>Converted OPCX to zOPC</source>
+        <translation>OPCX를 zOPC로 변환</translation>
     </message>
     <message>
-        <source>Spent zOPCX</source>
-        <translation>zOPCX 사용</translation>
+        <source>Spent zOPC</source>
+        <translation>zOPC 사용</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>zOPCX를 OPCX로 받음</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>zOPC를 OPCX로 받음</translation>
     </message>
     <message>
-        <source>Minted Change as zOPCX from zOPCX Spend</source>
-        <translation>zOPCX 전송후 남은 zOPCX로 잔돈 생성</translation>
+        <source>Minted Change as zOPC from zOPC Spend</source>
+        <translation>zOPC 전송후 남은 zOPC로 잔돈 생성</translation>
     </message>
     <message>
-        <source>Converted zOPCX to OPCX</source>
-        <translation>zOPCX를 OPCX로 변환</translation>
+        <source>Converted zOPC to OPCX</source>
+        <translation>zOPC를 OPCX로 변환</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Transaction)</source>
-        <translation>Anonymous (zOPCX 거래)</translation>
+        <source>Anonymous (zOPC Transaction)</source>
+        <translation>Anonymous (zOPC 거래)</translation>
     </message>
     <message>
-        <source>Anonymous (zOPCX Stake)</source>
-        <translation>Anonymous (zOPCX 스테이킹)</translation>
+        <source>Anonymous (zOPC Stake)</source>
+        <translation>Anonymous (zOPC 스테이킹)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4542,12 +4542,12 @@ Please be patient...</source>
         <translation>내보내기 성공</translation>
     </message>
     <message>
-        <source>Received OPCX from zOPCX</source>
-        <translation>zOPCX를 OPCX로 받음</translation>
+        <source>Received OPCX from zOPC</source>
+        <translation>zOPC를 OPCX로 받음</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zOPCX</source>
-        <translation>제로코인 전송, 잔돈은 zOPCX</translation>
+        <source>Zerocoin Spend, Change in zOPC</source>
+        <translation>제로코인 전송, 잔돈은 zOPC</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4615,10 +4615,10 @@ Please be patient...</source>
     </message>
 </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
-        <source>Select zOPCX to Spend</source>
-        <translation>사용할 zOPCX 선택</translation>
+        <source>Select zOPC to Spend</source>
+        <translation>사용할 zOPC 선택</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4629,8 +4629,8 @@ Please be patient...</source>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4692,16 +4692,16 @@ Please be patient...</source>
         <translation>MIT 소프트웨어 라이센스에 따라 배포, 첨부 파일 COPYING 또는 &lt;http://www.opensource.org/licenses/mit-license.php&gt; 를 참조하십시오.</translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</source>
-        <translation>Enable automatic wallet backups triggered after each zOPCX minting (0-1, default: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each zOPC minting (0-1, default: %u)</source>
+        <translation>Enable automatic wallet backups triggered after each zOPC minting (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable or disable staking functionality for OPCX inputs (0-1, default: %u)</source>
         <translation>Enable or disable staking functionality for OPCX inputs (0-1, default: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</source>
-        <translation>Enable or disable staking functionality for zOPCX inputs (0-1, default: %u)</translation>
+        <source>Enable or disable staking functionality for zOPC inputs (0-1, default: %u)</source>
+        <translation>Enable or disable staking functionality for zOPC inputs (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -4896,8 +4896,8 @@ Please be patient...</source>
         <translation>환경설정에서 masternodeprivkey를 지정해야 합니다. 도움말을 참조하십시오.</translation>
     </message>
     <message>
-        <source>(18051 could be used only on mainnet)</source>
-        <translation>(18051 은 메인넷에서만 사용될 수 있습니다)</translation>
+        <source>(51472 could be used only on mainnet)</source>
+        <translation>(51472 은 메인넷에서만 사용될 수 있습니다)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4908,8 +4908,8 @@ Please be patient...</source>
         <translation>(기본값: 1)</translation>
     </message>
     <message>
-        <source>(must be 18051 for mainnet)</source>
-        <translation>(메인넷 일경우 18051)</translation>
+        <source>(must be 51472 for mainnet)</source>
+        <translation>(메인넷 일경우 51472)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5233,11 +5233,11 @@ Please be patient...</source>
     </message>
     <message>
         <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
-        <translation>자동생성 zOPCX 비율  (1-100, default: %u)</translation>
+        <translation>자동생성 zOPC 비율  (1-100, default: %u)</translation>
     </message>
     <message>
-        <source>Reindex the OPCX and zOPCX money supply statistics</source>
-        <translation>OPCX 및 zOPCX 공급량 다시 색인</translation>
+        <source>Reindex the OPCX and zOPC money supply statistics</source>
+        <translation>OPCX 및 zOPC 공급량 다시 색인</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5312,8 +5312,8 @@ Please be patient...</source>
         <translation>자동생성 제로코인 선호 디노미네이션 (1/5/10/50/100/500/1000/5000) 0사용안됨, 기본값 : %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Specify custom backup path to add a copy of any automatic zOPCX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</translation>
+        <source>Specify custom backup path to add a copy of any automatic zOPC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Specify custom backup path to add a copy of any automatic zOPC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -5724,8 +5724,8 @@ Please be patient...</source>
         <translation>sporks와 동기화 중입니다...</translation>
     </message>
     <message>
-        <source>Syncing zOPCX wallet...</source>
-        <translation>zOPCX 지갑 동기화중...</translation>
+        <source>Syncing zOPC wallet...</source>
+        <translation>zOPC 지갑 동기화중...</translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -5832,8 +5832,8 @@ Please be patient...</source>
         <translation>JSON-RPC 연결 사용자 이름</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zOPCX</source>
-        <translation>Value is below the smallest available denomination (= 1) of zOPCX</translation>
+        <source>Value is below the smallest available denomination (= 1) of zOPC</source>
+        <translation>Value is below the smallest available denomination (= 1) of zOPC</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -5877,7 +5877,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>You don't have enough Zerocoins in your wallet</source>
-        <translation>지갑에 zOPCX 가 부족합니다.</translation>
+        <translation>지갑에 zOPC 가 부족합니다.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>

@@ -14,7 +14,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"io.opcx.OPCoinX-Qt";
+        return @"io.opcx.Opcx-Qt";
     } else {
         return [self __bundleIdentifier];
     }

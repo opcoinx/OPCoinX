@@ -52,9 +52,9 @@ MasternodeList::MasternodeList(QWidget* parent) : QWidget(parent),
     QAction* startAliasAction = new QAction(tr("Start alias"), this);
     contextMenu = new QMenu();
     contextMenu->addAction(startAliasAction);
-
     connect(ui->tableWidgetMyMasternodes, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(showContextMenu(const QPoint&)));
     connect(startAliasAction, SIGNAL(triggered()), this, SLOT(on_startButton_clicked()));
+
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateMyNodeList()));
     timer->start(1000);
@@ -223,7 +223,6 @@ void MasternodeList::updateMyNodeList(bool fForce)
 
     // reset "timer"
     ui->secondsLabel->setText("0");
-
 }
 
 void MasternodeList::on_startButton_clicked()

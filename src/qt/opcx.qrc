@@ -4,8 +4,6 @@
         <file alias="address-book">res/icons/address-book.png</file>
         <file alias="quit">res/icons/quit.png</file>
         <file alias="send">res/icons/send.png</file>
-        <file alias="info">res/icons/info.png</file>
-        <file alias="link">res/icons/link.png</file>
         <file alias="send_dark">res/icons/send_dark.png</file>
         <file alias="connect_0">res/icons/connect0_16.png</file>
         <file alias="connect_1">res/icons/connect1_16.png</file>
@@ -86,7 +84,8 @@
         <file alias="walletFrame">res/images/walletFrame.png</file>
         <file alias="splash">res/images/splash.png</file>
         <file alias="splash_testnet">res/images/splash_testnet.png</file>
-    </qresource>
+        <file alias="splash_regtest">res/images/splash_regtest.png</file>
+ </qresource>
     <qresource prefix="/fonts">
         <file alias="share-tech-mono-v7-latin-regular">res/fonts/share-tech-mono-v7-latin-regular.ttf</file>
     </qresource>

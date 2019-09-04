@@ -171,8 +171,8 @@ void OptionsModel::Init()
         SoftSetArg("-zeromintpercentage", settings.value("nZeromintPercentage").toString().toStdString());
     if (settings.contains("nPreferredDenom"))
         SoftSetArg("-preferredDenom", settings.value("nPreferredDenom").toString().toStdString());
-    if (settings.contains("nAnonymizeOPCoinXAmount"))
-        SoftSetArg("-anonymizeopcxamount", settings.value("nAnonymizeOPCoinXAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeOpcxAmount"))
+        SoftSetArg("-anonymizeopcxamount", settings.value("nAnonymizeOpcxAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }

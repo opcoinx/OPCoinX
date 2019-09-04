@@ -8,7 +8,7 @@
 #define BITCOIN_RPCSERVER_H
 
 #include "amount.h"
-#include "zopcx/zerocoin.h"
+#include "zopc/zerocoin.h"
 #include "rpc/protocol.h"
 #include "uint256.h"
 
@@ -179,7 +179,7 @@ extern std::string HelpExampleCli(std::string methodname, std::string args);
 extern std::string HelpExampleRpc(std::string methodname, std::string args);
 
 extern void EnsureWalletIsUnlocked(bool fAllowAnonOnly = false);
-extern UniValue DoZopcxSpend(const CAmount nAmount, bool fMintChange, bool fMinimizeChange, std::vector<CZerocoinMint>& vMintsSelected, std::string address_str, bool isPublicSpend = true);
+extern UniValue DoZopcSpend(const CAmount nAmount, bool fMintChange, bool fMinimizeChange, std::vector<CZerocoinMint>& vMintsSelected, std::string address_str, bool isPublicSpend = true);
 
 extern UniValue getconnectioncount(const UniValue& params, bool fHelp); // in rpc/net.cpp
 extern UniValue getpeerinfo(const UniValue& params, bool fHelp);
@@ -265,11 +265,11 @@ extern UniValue importzerocoins(const UniValue& params, bool fHelp);
 extern UniValue exportzerocoins(const UniValue& params, bool fHelp);
 extern UniValue reconsiderzerocoins(const UniValue& params, bool fHelp);
 extern UniValue getspentzerocoinamount(const UniValue& params, bool fHelp);
-extern UniValue setzopcxseed(const UniValue& params, bool fHelp);
-extern UniValue getzopcxseed(const UniValue& params, bool fHelp);
+extern UniValue setzopcseed(const UniValue& params, bool fHelp);
+extern UniValue getzopcseed(const UniValue& params, bool fHelp);
 extern UniValue generatemintlist(const UniValue& params, bool fHelp);
-extern UniValue searchdzopcx(const UniValue& params, bool fHelp);
-extern UniValue dzopcxstate(const UniValue& params, bool fHelp);
+extern UniValue searchdzopc(const UniValue& params, bool fHelp);
+extern UniValue dzopcstate(const UniValue& params, bool fHelp);
 extern UniValue clearspendcache(const UniValue& params, bool fHelp);
 extern UniValue enableautomintaddress(const UniValue& params, bool fHelp);
 extern UniValue createautomintaddress(const UniValue& params, bool fHelp);

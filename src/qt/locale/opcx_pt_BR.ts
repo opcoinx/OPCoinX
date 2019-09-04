@@ -409,8 +409,8 @@
         <translation>Olhar histórico de transação</translation>
     </message>
     <message>
-        <source>Privacy Actions for zOPCX</source>
-        <translation>Ações privadas para zOPCX</translation>
+        <source>Privacy Actions for zOPC</source>
+        <translation>Ações privadas para zOPC</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1863,8 +1863,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -1923,8 +1923,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Estatísticas zerocoin:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zOPCX</source>
-        <translation>Balanço Total incluindo não confirmadas e imaturas zOPCX</translation>
+        <source>Total Balance including unconfirmed and immature zOPC</source>
+        <translation>Balanço Total incluindo não confirmadas e imaturas zOPC</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -3515,7 +3515,7 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
     </message>
 </context>
 <context>
-    <name>ZOpcxControlDialog</name>
+    <name>ZPivControlDialog</name>
     <message>
         <source>Quantity</source>
         <translation>Quantia</translation>
@@ -3525,8 +3525,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>0</translation>
     </message>
     <message>
-        <source>zOPCX</source>
-        <translation>zOPCX</translation>
+        <source>zOPC</source>
+        <translation>zOPC</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -3608,8 +3608,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>Você deve especificar uma masternodeprivkey na configuração. Favor verificar o manual para obter ajuda.</translation>
     </message>
     <message>
-        <source>(18051 could be used only on mainnet)</source>
-        <translation>(18051 could be used only on mainnet)</translation>
+        <source>(51472 could be used only on mainnet)</source>
+        <translation>(51472 could be used only on mainnet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -3620,8 +3620,8 @@ https://www.transifex.com/opcx-project/opcx-project-translations</translation>
         <translation>(padrão: 1)</translation>
     </message>
     <message>
-        <source>(must be 18051 for mainnet)</source>
-        <translation>(deve ser 18051 para mainnet)</translation>
+        <source>(must be 51472 for mainnet)</source>
+        <translation>(deve ser 51472 para mainnet)</translation>
     </message>
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
