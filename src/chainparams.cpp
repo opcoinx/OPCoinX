@@ -203,16 +203,11 @@ public:
 
         vSeeds.push_back(CDNSSeedData("92.60.44.117", "92.60.44.117"));
         vSeeds.push_back(CDNSSeedData("185.239.239.75", "185.239.239.75"));
-        vSeeds.push_back(CDNSSeedData("24.21.56.209", "24.21.56.209"));
-        vSeeds.push_back(CDNSSeedData("134.255.231.195", "134.255.231.195"));
         vSeeds.push_back(CDNSSeedData("149.28.44.76", "149.28.44.76"));
-        vSeeds.push_back(CDNSSeedData("209.250.236.115", "209.250.236.115"));
-        vSeeds.push_back(CDNSSeedData("45.76.37.37", "45.76.37.37"));
+        vSeeds.push_back(CDNSSeedData("67.169.210.168", "267.169.210.168"));
         vSeeds.push_back(CDNSSeedData("seed1.opcx.info", "seed1.opcx.info"));
         vSeeds.push_back(CDNSSeedData("seed2.opcx.info", "seed2.opcx.info"));
         vSeeds.push_back(CDNSSeedData("seed3.opcx.info", "seed3.opcx.info"));
-        vSeeds.push_back(CDNSSeedData("opc1.freeddns.org", "opc1.freeddns.org"));
-        vSeeds.push_back(CDNSSeedData("opc2.freeddns.org", "opc2.freeddns.org"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 115);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
